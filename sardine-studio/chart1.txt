@@ -1,0 +1,2 @@
+level: 7, experience: 1500, inventory: sword
+level: 8, experience: 1800, inventory: book
