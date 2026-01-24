@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cneodudkpu546"]
+
+[ext_resource type="PackedScene" uid="uid://bfudmbw4otc20" path="res://scenes/fighter_player.tscn" id="1_3atyq"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nn4mn"]
+
+[node name="fighterMain" type="Node2D"]
+
+[node name="fighterPlayer" parent="." instance=ExtResource("1_3atyq")]
+position = Vector2(129, 325)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(266, 553)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_nn4mn")
