@@ -1,9 +1,10 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 
 const SPEED = 1000.0
 const JUMP_VELOCITY = -700.0
 
+signal player_hit
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -28,5 +29,11 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		print("hit")
+	emit_signal("player_hit")
+
 func _ready() -> void:
 	print("ready")
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
