@@ -11,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b12pq")
+chart_text = null
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -20,7 +21,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="WhiteNoteColumn" type="TextureRect" parent="Background"]
+[node name="NoteColumn1" type="TextureRect" parent="Background"]
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.47843137)
 layout_mode = 0
@@ -31,7 +32,7 @@ offset_bottom = 173.0
 pivot_offset = Vector2(463, 384)
 texture = ExtResource("2_q13yt")
 
-[node name="RedNoteColumn" type="TextureRect" parent="Background"]
+[node name="NoteColumn2" type="TextureRect" parent="Background"]
 unique_name_in_owner = true
 modulate = Color(1, 0.41000003, 0.41000003, 1)
 self_modulate = Color(1, 1, 1, 0.47843137)

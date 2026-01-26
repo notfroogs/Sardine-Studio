@@ -1,42 +1,59 @@
 extends Control
 
-#@export var chart : Dictionary[] = {}
+@export var chart_text := "res://chart1.txt"
+@onready var note_column_1: TextureRect = %NoteColumn1
+@onready var note_column_2: TextureRect = %NoteColumn2
 
-@onready var white_note_column: TextureRect = %WhiteNoteColumn
-@onready var red_note_column: TextureRect = %RedNoteColumn
 @onready var timer1: Timer = $Timer
 @onready var timer2: Timer = $Timer2
 const NOTE = preload("uid://dilpgmxld0ree")
 
-func _ready():
-	timer1.timeout.connect(generate)
-	timer2.timeout.connect(generate_red)
+var dictionary := {}
 
+func _ready():
+	#timer1.timeout.connect(generate)
+	#timer2.timeout.connect(generate_red)
+	var loaded_file := FileAccess.open(chart_text, FileAccess.READ)
+	if loaded_file:
+		
+		var items = (loaded_file.get_line()).split(",")
+		
+		while not loaded_file.eof_reached():
+			var contents = loaded_file.get_line().split(",")
+
+				
+	
+func store_notes(items, line):
+	var current_note = {}
+	for i in range(items.len()):
+		current_note[items[i].strip_edges()] = line[i].strip_edges()
+		current_note["Next"] = store_notes()
+	return current_note
 	
 func generate() -> void:
 	var icon = NOTE.instantiate()
-	white_note_column.add_child(icon)
+	note_column_1.add_child(icon)
 	#print(typeof(icon))
 	icon.position.x = icon.time * 300.0
 
 func generate_red() -> void:
 	var icon = NOTE.instantiate()
-	red_note_column.add_child(icon)
+	note_column_2.add_child(icon)
 	icon.position.x = icon.time * 300.0
 
 func _process(delta: float) -> void:
-	for note in white_note_column.get_children():
+	for note in note_column_1.get_children():
 		note.time -= delta
 		note.position.x = note.time * 300.0
 		
-	for note in red_note_column.get_children():
+	for note in note_column_2.get_children():
 		note.time -= delta
 		note.position.x = note.time * 300.0
 	
-	if white_note_column.get_child_count() != 0:
-		miss_check(white_note_column.get_child(0))
-	if red_note_column.get_child_count() != 0:
-		miss_check(red_note_column.get_child(0))
+	if note_column_1.get_child_count() != 0:
+		miss_check(note_column_1.get_child(0))
+	if note_column_2.get_child_count() != 0:
+		miss_check(note_column_2.get_child(0))
 
 func miss_check(note) -> void:
 	if note == null:
@@ -47,18 +64,18 @@ func miss_check(note) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("white_node_press"):
-		var current_note := white_note_column.get_child(0)
+		var current_note := note_column_1.get_child(0)
 		if current_note == null:
 			return
 		if input_check(current_note):
-			white_note_column.get_child(0).queue_free()
+			note_column_1.get_child(0).queue_free()
 			
 	elif event.is_action_pressed("red_node_press"):
-		var current_note := red_note_column.get_child(0)
+		var current_note := note_column_2.get_child(0)
 		if current_note == null:
 			return
 		if input_check(current_note):
-			red_note_column.get_child(0).queue_free()
+			note_column_2.get_child(0).queue_free()
 		
 
 func input_check(note) -> bool:
