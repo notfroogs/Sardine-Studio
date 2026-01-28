@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cneodudkpu546"]
+[gd_scene load_steps=6 format=3 uid="uid://cneodudkpu546"]
 
 [ext_resource type="PackedScene" uid="uid://bfudmbw4otc20" path="res://scenes/fighter_player.tscn" id="1_3atyq"]
 [ext_resource type="Script" uid="uid://sjifelgbl0rp" path="res://scripts/fighter_main.gd" id="1_ln0nl"]
 [ext_resource type="PackedScene" uid="uid://ca03l6ss6iv6b" path="res://scenes/enemy_placeholder.tscn" id="3_wqw35"]
+[ext_resource type="PackedScene" uid="uid://b8v6mwwwyiqnn" path="res://scenes/enemy_hp_bar.tscn" id="4_f3bfk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nn4mn"]
 
@@ -20,3 +21,11 @@ shape = SubResource("WorldBoundaryShape2D_nn4mn")
 
 [node name="enemy placeholder" parent="." instance=ExtResource("3_wqw35")]
 position = Vector2(910, 324)
+
+[node name="enemyHPBar" parent="." instance=ExtResource("4_f3bfk")]
+offset_left = 672.0
+offset_top = 29.0
+offset_right = 1144.0
+offset_bottom = 56.0
+
+[connection signal="player_hit" from="fighterPlayer" to="." method="_on_fighter_player_player_hit"]

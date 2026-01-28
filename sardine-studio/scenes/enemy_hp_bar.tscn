@@ -1,6 +1,12 @@
-[gd_scene format=3 uid="uid://b8v6mwwwyiqnn"]
+[gd_scene load_steps=2 format=3 uid="uid://b8v6mwwwyiqnn"]
+
+[ext_resource type="Script" uid="uid://7shsy8no8wlw" path="res://scenes/enemy_hp_bar.gd" id="1_eplwb"]
 
 [node name="enemyHPBar" type="ProgressBar"]
-offset_right = 472.0
-offset_bottom = 27.0
+anchors_preset = -1
+anchor_right = 0.3168403
+anchor_bottom = 0.041666668
 size_flags_horizontal = 4
+value = 100.0
+script = ExtResource("1_eplwb")
+metadata/_edit_use_anchors_ = true

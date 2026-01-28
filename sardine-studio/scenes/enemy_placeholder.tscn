@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca03l6ss6iv6b"]
+[gd_scene load_steps=8 format=3 uid="uid://ca03l6ss6iv6b"]
 
 [ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://icon.svg" id="1_4v77h"]
 [ext_resource type="Script" uid="uid://mqijhuq3ivb6" path="res://scenes/enemy_placeholder.gd" id="1_yo5jk"]
+[ext_resource type="Script" uid="uid://cvhgxju4s2tc" path="res://scripts/hurtbox.gd" id="3_hsqvu"]
+[ext_resource type="Script" uid="uid://cqbw3gif5ip1p" path="res://scripts/hitbox.gd" id="3_muyt2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yo5jk"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hsqvu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsqvu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_muyt2"]
 
 [node name="enemy placeholder" type="CharacterBody2D"]
 script = ExtResource("1_yo5jk")
@@ -14,14 +18,28 @@ script = ExtResource("1_yo5jk")
 scale = Vector2(0.7600013, 2.199999)
 texture = ExtResource("1_4v77h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 17)
-scale = Vector2(3.5072193, 12.102376)
-shape = SubResource("RectangleShape2D_yo5jk")
+[node name="physics" type="CollisionShape2D" parent="."]
+position = Vector2(2, 103.00001)
+scale = Vector2(4.3958254, 3.5520175)
+shape = SubResource("CircleShape2D_hsqvu")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="hitBox" type="Area2D" parent="."]
+scale = Vector2(0.9732428, 0.856293)
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("3_muyt2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
 scale = Vector2(4.0435505, 14.227953)
 shape = SubResource("RectangleShape2D_hsqvu")
 debug_color = Color(0.9785754, 0.021099798, 0.38234228, 0.41960785)
+
+[node name="hurtbox" type="Area2D" parent="."]
+scale = Vector2(1.1950028, 0.9851947)
+collision_mask = 2
+script = ExtResource("3_hsqvu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+scale = Vector2(4.0926075, 13.545079)
+shape = SubResource("RectangleShape2D_muyt2")
+debug_color = Color(0.30283797, 0.49597198, 1, 0.41960785)
