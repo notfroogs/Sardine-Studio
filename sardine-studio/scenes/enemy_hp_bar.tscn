@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b8v6mwwwyiqnn"]
+
+[node name="enemyHPBar" type="ProgressBar"]
+offset_right = 472.0
+offset_bottom = 27.0
+size_flags_horizontal = 4
