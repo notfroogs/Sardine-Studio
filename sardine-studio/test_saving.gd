@@ -1,13 +1,13 @@
 extends Node
 
 func _ready() -> void:
-	#var data := {"level": 7, "experience": 1500, "inventory": ["sword", "shield"]}
-	#var file := FileAccess.open("res://chart1.txt", FileAccess.WRITE)
-	#if file != null:
-		#file.store_var(data)
-		#file.close()
 	var loaded_file := FileAccess.open("res://chart1.txt", FileAccess.READ)
 	print(type_string(typeof(loaded_file)))
+	print(loaded_file.get_line())
+	print(loaded_file.get_line())
+	print(len(loaded_file.get_line()))
+	#print(type_string(typeof(loaded_file.get_line())))
+	print(loaded_file.get_line())
 	#if loaded_file:
 		#while not loaded_file.eof_reached():
 			#var content = loaded_file.get_line()

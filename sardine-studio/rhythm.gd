@@ -4,56 +4,88 @@ extends Control
 @onready var note_column_1: TextureRect = %NoteColumn1
 @onready var note_column_2: TextureRect = %NoteColumn2
 
+@onready var loaded_file := FileAccess.open(chart_text, FileAccess.READ)
+@onready var keys = (loaded_file.get_line()).split(",")
+
 @onready var timer1: Timer = $Timer
 @onready var timer2: Timer = $Timer2
 const NOTE = preload("uid://dilpgmxld0ree")
 
-var dictionary := {}
+var chart :Dictionary= {}
+var note_progress
+
+@onready var columns = {
+	1: note_column_1,
+	2: note_column_2,
+}
 
 func _ready():
 	#timer1.timeout.connect(generate)
 	#timer2.timeout.connect(generate_red)
-	var loaded_file := FileAccess.open(chart_text, FileAccess.READ)
-	if loaded_file:
-		
-		var items = (loaded_file.get_line()).split(",")
-		
-		while not loaded_file.eof_reached():
-			var contents = loaded_file.get_line().split(",")
-
-				
 	
-func store_notes(items, line):
+	if loaded_file != null:
+		chart = store_notes()
+		loaded_file.close()
+		
+	note_progress = chart.duplicate()
+	#print("1:   " + str(note_progress))
+	
+func store_notes():
 	var current_note = {}
-	for i in range(items.len()):
-		current_note[items[i].strip_edges()] = line[i].strip_edges()
-		current_note["Next"] = store_notes()
+	var current_line = loaded_file.get_line()
+	#print(current_line)
+	
+	if len(current_line) == 0:
+		return "END"
+		
+	var current_line_array = current_line.split(",")
+
+	for i in len(keys):
+		current_note[keys[i].strip_edges()] = current_line_array[i].strip_edges()
+	current_note["Next"] = store_notes()
+	#print(current_note)
 	return current_note
 	
+var time_elasped : float
+
+
 func generate() -> void:
 	var icon = NOTE.instantiate()
-	note_column_1.add_child(icon)
-	#print(typeof(icon))
-	icon.position.x = icon.time * 300.0
-
-func generate_red() -> void:
-	var icon = NOTE.instantiate()
-	note_column_2.add_child(icon)
+	match int(note_progress["Column"]):
+		1:
+			columns[1].add_child(icon)
+		2:
+			columns[2].add_child(icon)
+		3:
+			pass
+		4:
+			pass
 	icon.position.x = icon.time * 300.0
 
 func _process(delta: float) -> void:
-	for note in note_column_1.get_children():
-		note.time -= delta
-		note.position.x = note.time * 300.0
-		
-	for note in note_column_2.get_children():
-		note.time -= delta
-		note.position.x = note.time * 300.0
+	time_elasped += delta
 	
-	if note_column_1.get_child_count() != 0:
-		miss_check(note_column_1.get_child(0))
-	if note_column_2.get_child_count() != 0:
-		miss_check(note_column_2.get_child(0))
+	for column in columns.values():
+		for note in column.get_children():
+			note.time -= delta
+			note.position.x = note.time * 300.0
+	
+	
+	for column in columns.values():
+		if column.get_child_count() != 0:
+			miss_check(column.get_child(0))
+
+	
+	#print(note_progress)
+	
+	if float(note_progress["Time"]) < time_elasped:
+		time_elasped = 0.0
+		#print(note_progress)
+		if type_string(typeof(note_progress["Next"])) == "Dictionary":
+			generate()
+			note_progress = note_progress["Next"]
+		elif note_progress["Next"] == "END":
+			get_tree().quit()
 
 func miss_check(note) -> void:
 	if note == null:
