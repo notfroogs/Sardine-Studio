@@ -43,3 +43,8 @@ script = ExtResource("3_hsqvu")
 scale = Vector2(4.0926075, 13.545079)
 shape = SubResource("RectangleShape2D_muyt2")
 debug_color = Color(0.30283797, 0.49597198, 1, 0.41960785)
+
+[node name="enemybar" type="ProgressBar" parent="."]
+offset_right = 321.0
+offset_bottom = 27.0
+value = 100.0
