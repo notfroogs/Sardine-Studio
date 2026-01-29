@@ -28,4 +28,4 @@ offset_top = 29.0
 offset_right = 1144.0
 offset_bottom = 56.0
 
-[connection signal="player_hit" from="fighterPlayer" to="." method="_on_fighter_player_player_hit"]
+[connection signal="player_hit" from="fighterPlayer" to="enemy placeholder" method="_on_fighter_player_player_hit"]

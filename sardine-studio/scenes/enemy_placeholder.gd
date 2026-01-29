@@ -25,6 +25,19 @@ func _physics_process(delta: float) -> void:
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func _ready() -> void:
+	#_win()
+	pass
 func take_dammage(amount:int) -> void:
+	pass
 	print("Enemy dammage: ", amount)
 	progress_bar.value -= amount
+
+#func _win() -> void:
+	if progress_bar.value == 0.0:
+		print("win")
+		get_tree().reload_current_scene()
+
+func _on_fighter_player_player_hit() -> void:
+	take_dammage(0)
