@@ -48,3 +48,5 @@ debug_color = Color(0.30283797, 0.49597198, 1, 0.41960785)
 offset_right = 321.0
 offset_bottom = 27.0
 value = 100.0
+
+[connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]

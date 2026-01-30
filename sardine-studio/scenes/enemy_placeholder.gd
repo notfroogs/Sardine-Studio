@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+
 @onready var progress_bar: ProgressBar = $enemybar
 
 
@@ -27,10 +28,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _ready() -> void:
+	progress_bar.value = 100
 	#_win()
 	pass
 func take_dammage(amount:int) -> void:
-	pass
 	print("Enemy dammage: ", amount)
 	progress_bar.value -= amount
 
@@ -38,6 +39,12 @@ func take_dammage(amount:int) -> void:
 	if progress_bar.value == 0.0:
 		print("win")
 		get_tree().reload_current_scene()
+	
 
 func _on_fighter_player_player_hit() -> void:
-	take_dammage(0)
+	#if _on_hit_box_body_entered():
+		take_dammage(10)
+
+
+func _on_hit_box_body_entered(body: Player) -> void:
+	pass
