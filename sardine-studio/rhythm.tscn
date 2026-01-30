@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceb5dbeodb5xh"]
+[gd_scene load_steps=4 format=3 uid="uid://ceb5dbeodb5xh"]
 
 [ext_resource type="Script" uid="uid://db5en2l64fin2" path="res://rhythm.gd" id="1_b12pq"]
 [ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://icon.svg" id="2_q13yt"]
+
+[sub_resource type="Theme" id="Theme_b12pq"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b12pq")
+chart_text = "res://chart2.txt"
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -29,6 +32,7 @@ offset_top = 45.0
 offset_right = 173.0
 offset_bottom = 173.0
 pivot_offset = Vector2(463, 384)
+theme = SubResource("Theme_b12pq")
 texture = ExtResource("2_q13yt")
 
 [node name="NoteColumn2" type="TextureRect" parent="Background"]
@@ -78,11 +82,3 @@ offset_right = 173.0
 offset_bottom = 353.00024
 pivot_offset = Vector2(463, 384)
 texture = ExtResource("2_q13yt")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
-
-[node name="Timer2" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
