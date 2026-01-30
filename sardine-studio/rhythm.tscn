@@ -37,6 +37,42 @@ modulate = Color(1, 0.41000003, 0.41000003, 1)
 self_modulate = Color(1, 1, 1, 0.47843137)
 layout_mode = 0
 offset_left = 45.0
+offset_top = 190.0
+offset_right = 173.0
+offset_bottom = 318.00024
+pivot_offset = Vector2(463, 384)
+texture = ExtResource("2_q13yt")
+
+[node name="NoteColumn3" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+modulate = Color(0.73031694, 0.62219363, 0.27616376, 1)
+self_modulate = Color(1, 1, 1, 0.47843137)
+layout_mode = 0
+offset_left = 45.0
+offset_top = 336.0
+offset_right = 173.0
+offset_bottom = 464.00024
+pivot_offset = Vector2(463, 384)
+texture = ExtResource("2_q13yt")
+
+[node name="NoteColumn4" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+modulate = Color(0, 0.67040724, 0.99541897, 1)
+self_modulate = Color(1, 1, 1, 0.47843137)
+layout_mode = 0
+offset_left = 45.0
+offset_top = 473.0
+offset_right = 173.0
+offset_bottom = 601.00024
+pivot_offset = Vector2(463, 384)
+texture = ExtResource("2_q13yt")
+
+[node name="ColumnEmpty" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+modulate = Color(1, 0.41000003, 0.41000003, 1)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 45.0
 offset_top = 225.0
 offset_right = 173.0
 offset_bottom = 353.00024

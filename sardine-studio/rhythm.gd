@@ -3,20 +3,24 @@ extends Control
 @export var chart_text := "res://chart1.txt"
 @onready var note_column_1: TextureRect = %NoteColumn1
 @onready var note_column_2: TextureRect = %NoteColumn2
+@onready var note_column_3: TextureRect = %NoteColumn3
+@onready var note_column_4: TextureRect = %NoteColumn4
+@onready var column_empty: TextureRect = %ColumnEmpty
 
 @onready var loaded_file := FileAccess.open(chart_text, FileAccess.READ)
 @onready var keys = (loaded_file.get_line()).split(",")
 
-@onready var timer1: Timer = $Timer
-@onready var timer2: Timer = $Timer2
 const NOTE = preload("uid://dilpgmxld0ree")
 
 var chart :Dictionary= {}
 var note_progress
-
+var time_count : float
 @onready var columns = {
 	1: note_column_1,
 	2: note_column_2,
+	3: note_column_3,
+	4: note_column_4,
+	0: column_empty
 }
 
 func _ready():
@@ -28,15 +32,18 @@ func _ready():
 		loaded_file.close()
 		
 	note_progress = chart.duplicate()
-	#print("1:   " + str(note_progress))
+	time_count = float(note_progress["Time"])
 	
-func store_notes():
+func store_notes() -> Dictionary:
 	var current_note = {}
 	var current_line = loaded_file.get_line()
 	#print(current_line)
 	
-	if len(current_line) == 0:
-		return "END"
+	if current_line == "END":
+		return {"Time": 5.0,
+		"Column": 10,
+		"Next": "END"
+		}
 		
 	var current_line_array = current_line.split(",")
 
@@ -51,15 +58,10 @@ var time_elasped : float
 
 func generate() -> void:
 	var icon = NOTE.instantiate()
-	match int(note_progress["Column"]):
-		1:
-			columns[1].add_child(icon)
-		2:
-			columns[2].add_child(icon)
-		3:
-			pass
-		4:
-			pass
+	print(note_progress)
+	if int(note_progress["Column"]) == 10:
+		return
+	columns[int(note_progress["Column"])].add_child(icon)
 	icon.position.x = icon.time * 300.0
 
 func _process(delta: float) -> void:
@@ -74,17 +76,17 @@ func _process(delta: float) -> void:
 	for column in columns.values():
 		if column.get_child_count() != 0:
 			miss_check(column.get_child(0))
-
 	
-	#print(note_progress)
-	
-	if float(note_progress["Time"]) < time_elasped:
+	#if the time 
+	if time_count < time_elasped:
 		time_elasped = 0.0
-		#print(note_progress)
+		generate()
 		if type_string(typeof(note_progress["Next"])) == "Dictionary":
-			generate()
 			note_progress = note_progress["Next"]
+			time_count = float(note_progress["Time"])
 		elif note_progress["Next"] == "END":
+			print("waiting")
+			await get_tree().create_timer(5.0).timeout
 			get_tree().quit()
 
 func miss_check(note) -> void:
@@ -95,20 +97,25 @@ func miss_check(note) -> void:
 		print("missed")
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("white_node_press"):
-		var current_note := note_column_1.get_child(0)
-		if current_note == null:
-			return
-		if input_check(current_note):
-			note_column_1.get_child(0).queue_free()
-			
-	elif event.is_action_pressed("red_node_press"):
-		var current_note := note_column_2.get_child(0)
-		if current_note == null:
-			return
-		if input_check(current_note):
-			note_column_2.get_child(0).queue_free()
+	var column_index : int = 0
+	if event.is_action_pressed("note1_pressed"):
+		column_index = 1
+	elif event.is_action_pressed("note2_pressed"):
+		column_index = 2
+	elif event.is_action_pressed("note3_pressed"):
+		column_index = 3
+	elif event.is_action_pressed("note4_pressed"):
+		column_index = 4
+	
+	if column_index == 0:
+		return
+	var current_note = columns[column_index].get_child(0)
+	if current_note == null:
+		return
+	if input_check(current_note):
+		columns[column_index].get_child(0).queue_free()
 		
+
 
 func input_check(note) -> bool:
 	if note.time >= -0.5 and note.time <= 0.5:
