@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Enemy extends CharacterBody2D
 
 
 const SPEED = 300.0
@@ -6,7 +6,8 @@ const JUMP_VELOCITY = -400.0
 
 
 @onready var progress_bar: ProgressBar = $enemybar
-
+@onready var hitbox: CollisionShape2D = $hitBox/CollisionShape2D
+var in_hit_box := false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -26,6 +27,7 @@ func _physics_process(delta: float) -> void:
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
 
 func _ready() -> void:
 	progress_bar.value = 100
@@ -42,9 +44,15 @@ func take_dammage(amount:int) -> void:
 	
 
 func _on_fighter_player_player_hit() -> void:
-	#if _on_hit_box_body_entered():
-		take_dammage(10)
+	#if in_hit_box==false:
+		#return
+	take_dammage(10)
+	
+func _on_hit_box_body_entered(_body: Player) -> void:
+	in_hit_box = true
+	#if _body is Player and Input.is_action_pressed("hit"):
+		#_on_fighter_player_player_hit()
 
 
-func _on_hit_box_body_entered(body: Player) -> void:
-	pass
+func _on_hit_box_body_exited(_body: Player) -> void:
+	in_hit_box = false

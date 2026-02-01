@@ -35,12 +35,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+func _ready() -> void:
+	pass
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		print("hit")
 		emit_signal("player_hit")
-	hurtbox.set_deferred("disable", true)
+		hurtbox.set_deferred("disable", true)
 	if hurtbox.disabled == true:
 		print("noHitnox")
 	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ca03l6ss6iv6b"]
 
 [ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://icon.svg" id="1_4v77h"]
-[ext_resource type="Script" uid="uid://mqijhuq3ivb6" path="res://scenes/enemy_placeholder.gd" id="1_yo5jk"]
+[ext_resource type="Script" uid="uid://mqijhuq3ivb6" path="res://scripts/enemy_placeholder.gd" id="1_yo5jk"]
 [ext_resource type="Script" uid="uid://cvhgxju4s2tc" path="res://scripts/hurtbox.gd" id="3_hsqvu"]
 [ext_resource type="Script" uid="uid://cqbw3gif5ip1p" path="res://scripts/hitbox.gd" id="3_muyt2"]
 
@@ -24,18 +24,18 @@ scale = Vector2(4.3958254, 3.5520175)
 shape = SubResource("CircleShape2D_hsqvu")
 
 [node name="hitBox" type="Area2D" parent="."]
-scale = Vector2(0.9732428, 0.856293)
+scale = Vector2(0.34088573, 0.8235163)
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("3_muyt2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
-scale = Vector2(4.0435505, 14.227953)
+scale = Vector2(11.732889, 14.640734)
 shape = SubResource("RectangleShape2D_hsqvu")
 debug_color = Color(0.9785754, 0.021099798, 0.38234228, 0.41960785)
 
 [node name="hurtbox" type="Area2D" parent="."]
-scale = Vector2(1.1950028, 0.9851947)
+scale = Vector2(1.8754647, 0.8973774)
 collision_mask = 2
 script = ExtResource("3_hsqvu")
 
@@ -50,3 +50,4 @@ offset_bottom = 27.0
 value = 100.0
 
 [connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_exited" from="hitBox" to="." method="_on_hit_box_body_exited"]

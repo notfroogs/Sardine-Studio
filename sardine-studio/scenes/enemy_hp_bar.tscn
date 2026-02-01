@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b8v6mwwwyiqnn"]
 
-[ext_resource type="Script" uid="uid://7shsy8no8wlw" path="res://scenes/enemy_hp_bar.gd" id="1_eplwb"]
+[ext_resource type="Script" uid="uid://7shsy8no8wlw" path="res://scripts/enemy_hp_bar.gd" id="1_eplwb"]
 
 [node name="enemyHPBar" type="ProgressBar"]
 anchors_preset = -1
