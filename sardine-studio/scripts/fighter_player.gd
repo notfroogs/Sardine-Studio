@@ -8,6 +8,8 @@ var increased_gravity = 20000
 
 @onready var hitbox: CollisionShape2D = $hitBox/CollisionShape2D
 @onready var hurtbox: CollisionShape2D = $hurtbox/CollisionShape2D
+@onready var state_machine: Node2D = $StateMachine
+
 
 
 signal player_hit
@@ -35,8 +37,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-func _ready() -> void:
-	pass
+#func _ready() -> void:
+	#pass
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
@@ -51,3 +53,5 @@ func _input(event: InputEvent) -> void:
 	#pass # Replace with function body.
 func take_dammage(amount:int) -> void:
 	print("player dammage: ", amount)
+func ready(): state_machine.init()
+func _physics(delta): state_machine.process_frame(delta)

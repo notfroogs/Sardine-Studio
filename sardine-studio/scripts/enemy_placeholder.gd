@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -400.0
 
 @onready var progress_bar: ProgressBar = $enemybar
 @onready var hitbox: CollisionShape2D = $hitBox/CollisionShape2D
-var in_hit_box := false
+var in_hit_box
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -44,9 +44,10 @@ func take_dammage(amount:int) -> void:
 	
 
 func _on_fighter_player_player_hit() -> void:
-	#if in_hit_box==false:
-		#return
-	take_dammage(10)
+	if in_hit_box==false:
+		print("nohitbox")
+	#elif in_hit_box == true: 
+		take_dammage(10)
 	
 func _on_hit_box_body_entered(_body: Player) -> void:
 	in_hit_box = true

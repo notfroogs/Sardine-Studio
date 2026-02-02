@@ -44,4 +44,6 @@ script = ExtResource("4_l45v4")
 scale = Vector2(5.309578, 19.48306)
 shape = SubResource("RectangleShape2D_aguh1")
 
+[node name="StateMachine" type="Node2D" parent="."]
+
 [connection signal="body_entered" from="hitBox" to="." method="_on_area_2d_body_entered"]
