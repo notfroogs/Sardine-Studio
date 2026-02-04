@@ -50,7 +50,7 @@ func _input(event: InputEvent) -> void:
 	
 
 #func _on_area_2d_body_entered(body: Node2D) -> void:
-	#pass # Replace with function body.
+	# Replace with function body.
 func take_dammage(amount:int) -> void:
 	print("player dammage: ", amount)
 func ready(): state_machine.init()
