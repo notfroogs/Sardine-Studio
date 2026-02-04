@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -400.0
 @onready var progress_bar: ProgressBar = $enemybar
 @onready var hitbox: CollisionShape2D = $hitBox/CollisionShape2D
 var in_hit_box
+var hit
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -34,8 +35,11 @@ func _ready() -> void:
 	#_win()
 	pass
 func take_dammage(amount:int) -> void:
-	print("Enemy dammage: ", amount)
-	progress_bar.value -= amount
+	if hit == true:
+		print("Enemy dammage: ", amount)
+		progress_bar.value -= amount
+	if hit == false:
+		null
 
 #func _win() -> void:
 	if progress_bar.value == 0.0:
@@ -44,16 +48,27 @@ func take_dammage(amount:int) -> void:
 	
 
 func _on_fighter_player_player_hit() -> void:
-	if in_hit_box==false:
+	hit = true
+	if in_hit_box == false:
 		print("nohitbox")
-	#elif in_hit_box == true: 
+	elif in_hit_box == true: 
 		take_dammage(10)
 	
 func _on_hit_box_body_entered(_body: Player) -> void:
 	in_hit_box = true
+	print("in")
 	#if _body is Player and Input.is_action_pressed("hit"):
 		#_on_fighter_player_player_hit()
 
 
 func _on_hit_box_body_exited(_body: Player) -> void:
+	in_hit_box = false
+
+
+func _on_hit_box_area_entered(area: HurtBox) -> void:
+	print("entered")
+	in_hit_box = true
+
+func _on_hit_box_area_exited(area: HurtBox) -> void:
+	print("exited")
 	in_hit_box = false

@@ -49,5 +49,5 @@ offset_right = 321.0
 offset_bottom = 27.0
 value = 100.0
 
-[connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]
-[connection signal="body_exited" from="hitBox" to="." method="_on_hit_box_body_exited"]
+[connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_exited" from="hitBox" to="." method="_on_hit_box_area_exited"]
