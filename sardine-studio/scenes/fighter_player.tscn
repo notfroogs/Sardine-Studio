@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfudmbw4otc20"]
+[gd_scene load_steps=9 format=3 uid="uid://bfudmbw4otc20"]
 
 [ext_resource type="Script" uid="uid://6fnnejebw4wk" path="res://scripts/fighter_player.gd" id="1_1q20e"]
 [ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://icon.svg" id="2_cn1af"]
 [ext_resource type="Script" uid="uid://cqbw3gif5ip1p" path="res://scripts/hitbox.gd" id="3_7mfel"]
 [ext_resource type="Script" uid="uid://cvhgxju4s2tc" path="res://scripts/hurtbox.gd" id="4_l45v4"]
+[ext_resource type="Script" uid="uid://6grp8k8ofqir" path="res://scenes/flipingcollisionshape.gd" id="5_0lss2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0lss2"]
 
@@ -41,10 +42,11 @@ collision_layer = 2
 script = ExtResource("3_7mfel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
-position = Vector2(32.24361, -24.505821)
+position = Vector2(32.000126, 0)
 scale = Vector2(4.2179914, 17.554071)
 shape = SubResource("RectangleShape2D_2fflx")
 debug_color = Color(0.98538, 0, 0.33896047, 0.41960785)
+script = ExtResource("5_0lss2")
 
 [node name="StateMachine" type="Node2D" parent="."]
 
