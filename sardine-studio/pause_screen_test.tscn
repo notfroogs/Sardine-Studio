@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0rjw7mmcy8yn"]
+
+[ext_resource type="Shader" uid="uid://brspwbty72y51" path="res://pause_screen_test.gdshader" id="1_ct6ak"]
+
+[sub_resource type="Theme" id="Theme_ct6ak"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hs1x1"]
+shader = ExtResource("1_ct6ak")
+shader_parameter/blur_amount = 0.678000032205
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="PauseScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ct6ak")
+
+[node name="BlurColorRect" type="ColorRect" parent="PauseScreen"]
+material = SubResource("ShaderMaterial_hs1x1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UIPanelContainer" type="PanelContainer" parent="PauseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -126.0
+offset_right = 139.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseScreen/UIPanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PauseScreen/UIPanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseScreen/UIPanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseScreen/UIPanelContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="PauseScreen/UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="PauseScreen/UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
