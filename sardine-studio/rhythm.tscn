@@ -23,6 +23,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.080000006
+anchor_right = 0.08400001
+anchor_bottom = 1.0
+offset_left = -0.16000366
+offset_right = 0.23199463
+color = Color(0, 0, 0, 1)
+
 [node name="NoteColumn1" type="TextureRect" parent="Background"]
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.47843137)
