@@ -11,7 +11,7 @@
 script = ExtResource("1_ln0nl")
 
 [node name="fighterPlayer" parent="." groups=["playerF"] instance=ExtResource("1_3atyq")]
-position = Vector2(129, 325)
+position = Vector2(135, 493)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(266, 553)
@@ -20,7 +20,7 @@ position = Vector2(266, 553)
 shape = SubResource("WorldBoundaryShape2D_nn4mn")
 
 [node name="enemy placeholder" parent="." instance=ExtResource("3_wqw35")]
-position = Vector2(910, 324)
+position = Vector2(833, 498)
 
 [node name="enemyHPBar" parent="." instance=ExtResource("4_f3bfk")]
 offset_left = 672.0

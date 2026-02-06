@@ -1,41 +1,67 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfudmbw4otc20"]
+[gd_scene load_steps=11 format=3 uid="uid://bfudmbw4otc20"]
 
 [ext_resource type="Script" uid="uid://6fnnejebw4wk" path="res://scripts/fighter_player.gd" id="1_1q20e"]
 [ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://icon.svg" id="2_cn1af"]
 [ext_resource type="Script" uid="uid://cqbw3gif5ip1p" path="res://scripts/hitbox.gd" id="3_7mfel"]
 [ext_resource type="Script" uid="uid://cvhgxju4s2tc" path="res://scripts/hurtbox.gd" id="4_l45v4"]
+[ext_resource type="Script" uid="uid://byghduie711kk" path="res://scenes/punch.gd" id="5_0lss2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0lss2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lss2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fflx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aguh1"]
 
+[sub_resource type="Animation" id="Animation_0lss2"]
+resource_name = "punch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aguh1"]
+_data = {
+&"punch_startup": SubResource("Animation_0lss2")
+}
+
 [node name="fighterPlayer" type="CharacterBody2D"]
 scale = Vector2(0.749997, 0.652906)
+collision_layer = 32
 script = ExtResource("1_1q20e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(0.8957734, -206.86499)
 scale = Vector2(0.993167, 3.2053)
 texture = ExtResource("2_cn1af")
 
 [node name="physics" type="CollisionShape2D" parent="."]
-position = Vector2(-1.1920929e-07, 162.35107)
+position = Vector2(-0.10422659, -44.513885)
 scale = Vector2(5.891369, 3.6148765)
-shape = SubResource("CircleShape2D_0lss2")
+shape = SubResource("RectangleShape2D_0lss2")
 
 [node name="hitBox" type="Area2D" parent="."]
+position = Vector2(101.229485, -263.53467)
+scale = Vector2(2.0159266, 0.22367802)
 collision_layer = 2
 script = ExtResource("3_7mfel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
-position = Vector2(1.333339, 0)
+position = Vector2(0.051710367, 0.4339184)
 scale = Vector2(4.21799, 17.554071)
 shape = SubResource("RectangleShape2D_2fflx")
+disabled = true
 debug_color = Color(0.98538, 0, 0.33896047, 0.41960785)
 
 [node name="hurtbox" type="Area2D" parent="."]
+position = Vector2(-0.10424197, -206.86499)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("4_l45v4")
@@ -45,5 +71,14 @@ scale = Vector2(5.309578, 19.48306)
 shape = SubResource("RectangleShape2D_aguh1")
 
 [node name="StateMachine" type="Node2D" parent="."]
+position = Vector2(-0.10424197, -206.86499)
+
+[node name="Punch" type="Node2D" parent="StateMachine"]
+script = ExtResource("5_0lss2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_aguh1")
+}
 
 [connection signal="body_entered" from="hitBox" to="." method="_on_area_2d_body_entered"]

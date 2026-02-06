@@ -9,8 +9,7 @@ var increased_gravity = 20000
 @onready var hitbox: CollisionShape2D = $hitBox/CollisionShape2D
 @onready var hurtbox: CollisionShape2D = $hurtbox/CollisionShape2D
 @onready var state_machine: Node2D = $StateMachine
-
-
+@onready var animation: AnimationPlayer = $AnimationPlayer
 
 signal player_hit
 
@@ -50,7 +49,7 @@ func _input(event: InputEvent) -> void:
 	
 
 #func _on_area_2d_body_entered(body: Node2D) -> void:
-	# Replace with function body.
+#Replace with function body.
 func take_dammage(amount:int) -> void:
 	print("player dammage: ", amount)
 func ready(): state_machine.init()
