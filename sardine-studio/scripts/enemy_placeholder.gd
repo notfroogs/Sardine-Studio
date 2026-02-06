@@ -53,22 +53,12 @@ func _on_fighter_player_player_hit() -> void:
 		print("nohitbox")
 	elif in_hit_box == true: 
 		take_dammage(10)
-	
-func _on_hit_box_body_entered(_body: Player) -> void:
-	in_hit_box = true
-	print("in")
-	#if _body is Player and Input.is_action_pressed("hit"):
-		#_on_fighter_player_player_hit()
 
 
-func _on_hit_box_body_exited(_body: Player) -> void:
-	in_hit_box = false
-
-
-func _on_hit_box_area_entered(area: HurtBox) -> void:
+func _on_hit_box_area_entered(_area: HurtBox) -> void:
 	print("entered")
 	in_hit_box = true
 
-func _on_hit_box_area_exited(area: HurtBox) -> void:
+func _on_hit_box_area_exited(_area: HurtBox) -> void:
 	print("exited")
 	in_hit_box = false

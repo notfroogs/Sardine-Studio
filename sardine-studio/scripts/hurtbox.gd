@@ -11,5 +11,5 @@ func _ready() -> void:
 func _on_area_entered(hitbox: HitBox) -> void:
 	if hitbox == null:
 		return
-	if owner.has_method("take_dammage"):
+	if owner.has_signal("_on_fighter_player_player_hit"):
 		owner.take_dammage(hitbox.dammage)
