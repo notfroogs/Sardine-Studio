@@ -37,12 +37,14 @@ func _ready() -> void:
 func take_dammage(amount:int) -> void:
 	if hit == true:
 		print("Enemy dammage: ", amount)
-		progress_bar.value -= amount
+		#make this part work in the ui
+		get_parent().get_node("CanvasLayer/main ui/enemyhpbar").value -= amount
 	if hit == false:
-		null
+		return
 
 #func _win() -> void:
-	if progress_bar.value == 0.0:
+#make this work in the ui
+	if get_parent().get_node("CanvasLayer/main ui/enemyhpbar").value == 0.0:
 		print("win")
 		get_tree().reload_current_scene()
 	
@@ -53,6 +55,7 @@ func _on_fighter_player_player_hit() -> void:
 		print("nohitbox")
 	elif in_hit_box == true: 
 		take_dammage(10)
+		velocity.y = JUMP_VELOCITY
 
 
 func _on_hit_box_area_entered(_area: HurtBox) -> void:

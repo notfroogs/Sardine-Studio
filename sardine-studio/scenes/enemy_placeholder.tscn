@@ -7,9 +7,11 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hsqvu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsqvu"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muyt2"]
+size = Vector2(10.81357, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsqvu"]
+size = Vector2(28.127457, 6.6173325)
 
 [node name="enemy placeholder" type="CharacterBody2D"]
 script = ExtResource("1_yo5jk")
@@ -23,6 +25,17 @@ position = Vector2(2, 103.00001)
 scale = Vector2(4.3958254, 3.5520175)
 shape = SubResource("CircleShape2D_hsqvu")
 
+[node name="hurtbox" type="Area2D" parent="."]
+scale = Vector2(1.8754647, 0.8973774)
+collision_mask = 2
+script = ExtResource("3_hsqvu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(-0.7998028, 0)
+scale = Vector2(4.0926075, 13.545076)
+shape = SubResource("RectangleShape2D_muyt2")
+debug_color = Color(0.30283797, 0.49597198, 1, 0.41960785)
+
 [node name="hitBox" type="Area2D" parent="."]
 scale = Vector2(0.34088573, 0.8235163)
 collision_layer = 4
@@ -30,21 +43,13 @@ collision_mask = 8
 script = ExtResource("3_muyt2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
-scale = Vector2(11.732889, 14.640734)
+position = Vector2(-152.54378, -24.286102)
+scale = Vector2(11.732893, 14.640739)
 shape = SubResource("RectangleShape2D_hsqvu")
 debug_color = Color(0.9785754, 0.021099798, 0.38234228, 0.41960785)
 
-[node name="hurtbox" type="Area2D" parent="."]
-scale = Vector2(1.8754647, 0.8973774)
-collision_mask = 2
-script = ExtResource("3_hsqvu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-scale = Vector2(4.0926075, 13.545079)
-shape = SubResource("RectangleShape2D_muyt2")
-debug_color = Color(0.30283797, 0.49597198, 1, 0.41960785)
-
 [node name="enemybar" type="ProgressBar" parent="."]
+visible = false
 offset_right = 321.0
 offset_bottom = 27.0
 value = 100.0

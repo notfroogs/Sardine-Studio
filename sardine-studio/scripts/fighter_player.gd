@@ -24,8 +24,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	#down faster
-	if Input.is_action_just_pressed("crouch") and not is_on_floor():
-		pass
+	if Input.is_action_just_pressed("crouch") and is_on_floor():
+		print("down")
 		
 
 	# Get the input direction and handle the movement/deceleration.

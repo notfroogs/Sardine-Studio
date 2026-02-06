@@ -7,9 +7,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0lss2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fflx"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aguh1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fflx"]
+size = Vector2(34.65639, 6.2820873)
 
 [node name="fighterPlayer" type="CharacterBody2D"]
 scale = Vector2(0.749997, 0.652906)
@@ -25,17 +26,8 @@ position = Vector2(-1.1920929e-07, 162.35107)
 scale = Vector2(5.891369, 3.6148765)
 shape = SubResource("CircleShape2D_0lss2")
 
-[node name="hitBox" type="Area2D" parent="."]
-collision_layer = 2
-script = ExtResource("3_7mfel")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
-position = Vector2(1.333339, 0)
-scale = Vector2(4.21799, 17.554071)
-shape = SubResource("RectangleShape2D_2fflx")
-debug_color = Color(0.98538, 0, 0.33896047, 0.41960785)
-
 [node name="hurtbox" type="Area2D" parent="."]
+scale = Vector2(1.0000001, 1)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("4_l45v4")
@@ -43,6 +35,16 @@ script = ExtResource("4_l45v4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
 scale = Vector2(5.309578, 19.48306)
 shape = SubResource("RectangleShape2D_aguh1")
+
+[node name="hitBox" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("3_7mfel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(32.24361, -24.505821)
+scale = Vector2(4.2179914, 17.554071)
+shape = SubResource("RectangleShape2D_2fflx")
+debug_color = Color(0.98538, 0, 0.33896047, 0.41960785)
 
 [node name="StateMachine" type="Node2D" parent="."]
 
