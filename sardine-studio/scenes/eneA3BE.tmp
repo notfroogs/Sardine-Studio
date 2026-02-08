@@ -26,12 +26,12 @@ scale = Vector2(4.39583, 3.55202)
 shape = SubResource("CircleShape2D_hsqvu")
 
 [node name="hurtbox" type="Area2D" parent="."]
-scale = Vector2(2.71337, 0.897377)
+scale = Vector2(1.87546, 0.897377)
 collision_mask = 2
 script = ExtResource("3_hsqvu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(-0.799804, 0)
+position = Vector2(-0.799803, 0)
 scale = Vector2(4.09261, 13.5451)
 shape = SubResource("RectangleShape2D_muyt2")
 debug_color = Color(0.302838, 0.495972, 1, 0.419608)
@@ -42,7 +42,7 @@ collision_layer = 4
 collision_mask = 8
 script = ExtResource("3_muyt2")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="hitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
 position = Vector2(-152.544, -24.2861)
 scale = Vector2(11.7329, 14.6407)
 shape = SubResource("RectangleShape2D_hsqvu")
@@ -54,7 +54,5 @@ offset_right = 321.0
 offset_bottom = 27.0
 value = 100.0
 
-[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]
 [connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_exited" from="hitBox" to="." method="_on_hit_box_area_exited"]

@@ -7,8 +7,10 @@ const JUMP_VELOCITY = -400.0
 
 @onready var progress_bar: ProgressBar = $enemybar
 @onready var hitbox: CollisionShape2D = $hitBox/CollisionShape2D
+
 var in_hit_box
 var hit
+var knockback := Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -21,7 +23,7 @@ func _physics_process(delta: float) -> void:
 
 	# =Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	#var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("ui_left", "ui_right")
 	#if direction:
 		#velocity.x = direction * SPEED
 	#else:
@@ -56,12 +58,25 @@ func _on_fighter_player_player_hit() -> void:
 	elif in_hit_box == true: 
 		take_dammage(10)
 		velocity.y = JUMP_VELOCITY
+		#var knockback_force = 300
+		#velocity.x = sign(scale.x) * knockback_force
 
 
-func _on_hit_box_area_entered(_area: HurtBox) -> void:
+
+#func _on_hit_box_area_entered(_area: HurtBoxB) -> void:
+	#print("entered")
+	#in_hit_box = true
+
+#func _on_hit_box_area_exited(_area: HurtBoxB) -> void:
+	#print("exited")
+	#in_hit_box = false
+
+
+func _on_hurtbox_area_entered(area: HitBoxB) -> void:
 	print("entered")
 	in_hit_box = true
 
-func _on_hit_box_area_exited(_area: HurtBox) -> void:
+
+func _on_hurtbox_area_exited(area: HitBoxB) -> void:
 	print("exited")
 	in_hit_box = false

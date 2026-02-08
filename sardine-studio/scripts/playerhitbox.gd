@@ -1,4 +1,4 @@
-class_name HitBoxA extends Area2D
+class_name HitBoxB extends Area2D
 
 @export var dammage := 10
 
