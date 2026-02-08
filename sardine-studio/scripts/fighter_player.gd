@@ -5,15 +5,21 @@ const SPEED = 1000.0
 const JUMP_VELOCITY = -700.0
 const GRAVITY = 1000.0
 var increased_gravity = 20000
+#var direction: Vector2 = Vector2.ZERO
 
 @onready var hitbox: CollisionShape2D = $hitBox/CollisionShape2D
 @onready var hurtbox: CollisionShape2D = $hurtbox/CollisionShape2D
 @onready var state_machine: Node2D = $StateMachine
+@onready var sprite: Sprite2D = $Sprite2D
+@export var max_speed= 1000.0
+@export var acceleration := 1000.0
+@export var deacceleration := 100.0
+
 
 
 
 signal player_hit
-
+signal player_direction_changes(facing_right: bool)
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	
@@ -30,13 +36,25 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED
+	#Player wornt deaccelrate fast enouggh fix this.
+	var direction := Input.get_vector("move_left", "move_right", "jump","crouch")
+	var has_input_direction := direction.length() > 0.0
+	if has_input_direction:
+		var desired_velocity = direction * max_speed
+		velocity = velocity.move_toward(desired_velocity, acceleration * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		velocity = velocity.move_toward(Vector2.ZERO, deacceleration * delta)
 	move_and_slide()
+	if direction.length() > 0.0:
+		var current_speed_percent = velocity.length()/max_speed
+
+	#if direction:
+	#	velocity.x = direction * SPEED
+	#else:
+	#	velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	
+	update_player_sprites()
 #func _ready() -> void:
 	#pass
 
@@ -55,3 +73,12 @@ func take_dammage(amount:int) -> void:
 	print("player dammage: ", amount)
 func ready(): state_machine.init()
 func _physics(delta): state_machine.process_frame(delta)
+
+func update_player_sprites():
+	pass
+#	if direction.x > 0:
+#		sprite.flip_h = false
+#		emit_signal("player_direction_changes", sprite.flip_h)
+#	elif direction.x < 0:
+#		sprite.flip_h = true
+		

@@ -1,52 +1,52 @@
 [gd_scene load_steps=8 format=3 uid="uid://ca03l6ss6iv6b"]
 
 [ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://icon.svg" id="1_4v77h"]
-[ext_resource type="Script" uid="uid://mqijhuq3ivb6" path="res://scripts/enemy_placeholder.gd" id="1_yo5jk"]
-[ext_resource type="Script" uid="uid://cvhgxju4s2tc" path="res://scripts/hurtbox.gd" id="3_hsqvu"]
-[ext_resource type="Script" uid="uid://cqbw3gif5ip1p" path="res://scripts/hitbox.gd" id="3_muyt2"]
+[ext_resource type="Script" path="res://scripts/enemy_placeholder.gd" id="1_yo5jk"]
+[ext_resource type="Script" path="res://scripts/hurtbox.gd" id="3_hsqvu"]
+[ext_resource type="Script" path="res://scripts/hitbox.gd" id="3_muyt2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hsqvu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muyt2"]
-size = Vector2(10.81357, 20)
+size = Vector2(10.8136, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsqvu"]
-size = Vector2(28.127457, 6.6173325)
+size = Vector2(28.1275, 6.61733)
 
 [node name="enemy placeholder" type="CharacterBody2D"]
 script = ExtResource("1_yo5jk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.7600013, 2.199999)
+scale = Vector2(0.760001, 2.2)
 texture = ExtResource("1_4v77h")
 
 [node name="physics" type="CollisionShape2D" parent="."]
-position = Vector2(2, 103.00001)
-scale = Vector2(4.3958254, 3.5520175)
+position = Vector2(2, 103)
+scale = Vector2(4.39583, 3.55202)
 shape = SubResource("CircleShape2D_hsqvu")
 
 [node name="hurtbox" type="Area2D" parent="."]
-scale = Vector2(1.8754647, 0.8973774)
+scale = Vector2(1.87546, 0.897377)
 collision_mask = 2
 script = ExtResource("3_hsqvu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-position = Vector2(-0.7998028, 0)
-scale = Vector2(4.0926075, 13.545076)
+position = Vector2(-0.799803, 0)
+scale = Vector2(4.09261, 13.5451)
 shape = SubResource("RectangleShape2D_muyt2")
-debug_color = Color(0.30283797, 0.49597198, 1, 0.41960785)
+debug_color = Color(0.302838, 0.495972, 1, 0.419608)
 
 [node name="hitBox" type="Area2D" parent="."]
-scale = Vector2(0.34088573, 0.8235163)
+scale = Vector2(0.340886, 0.823516)
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("3_muyt2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
-position = Vector2(-152.54378, -24.286102)
-scale = Vector2(11.732893, 14.640739)
+position = Vector2(-152.544, -24.2861)
+scale = Vector2(11.7329, 14.6407)
 shape = SubResource("RectangleShape2D_hsqvu")
-debug_color = Color(0.9785754, 0.021099798, 0.38234228, 0.41960785)
+debug_color = Color(0.978575, 0.0210998, 0.382342, 0.419608)
 
 [node name="enemybar" type="ProgressBar" parent="."]
 visible = false
