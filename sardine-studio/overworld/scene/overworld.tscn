@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://3e145abvtb1t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7426y"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u1jrv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1jrv"]
+size = Vector2(103.23523, 215)
+
+[node name="overworld" type="Node2D"]
+
+[node name="fighter" type="Area2D" parent="."]
+position = Vector2(132, 428.00006)
+scale = Vector2(6.3908377, 12.246605)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fighter"]
+shape = SubResource("RectangleShape2D_7426y")
+
+[node name="bounduary" type="Area2D" parent="."]
+
+[node name="bottom" type="CollisionShape2D" parent="bounduary"]
+position = Vector2(416, 601)
+shape = SubResource("WorldBoundaryShape2D_u1jrv")
+
+[node name="playing" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playing"]
+position = Vector2(1003, 433)
+scale = Vector2(1.4807465, 1.1584189)
+shape = SubResource("RectangleShape2D_u1jrv")
