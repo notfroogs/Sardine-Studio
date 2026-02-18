@@ -8,8 +8,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80wc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsqvu"]
+size = Vector2(37.16291, 6.161162)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muyt2"]
+size = Vector2(14.591807, 20)
 
 [sub_resource type="Animation" id="Animation_muyt2"]
 resource_name = "attack"
@@ -54,7 +56,8 @@ collision_mask = 8
 script = ExtResource("3_muyt2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
-scale = Vector2(11.732889, 14.640734)
+position = Vector2(-192.55743, -30.114677)
+scale = Vector2(11.732892, 14.6407385)
 shape = SubResource("RectangleShape2D_hsqvu")
 debug_color = Color(0.9785754, 0.021099798, 0.38234228, 0.41960785)
 
@@ -65,7 +68,8 @@ collision_mask = 2
 script = ExtResource("3_hsqvu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
-scale = Vector2(4.0926075, 13.545079)
+position = Vector2(0.7251075, 0)
+scale = Vector2(4.0926075, 13.545076)
 shape = SubResource("RectangleShape2D_muyt2")
 debug_color = Color(0.30283797, 0.49597198, 1, 0.41960785)
 

@@ -35,7 +35,7 @@ func moving(delta):
 	distance_x -= 180
 	
 	var speed : float = MAX_SPEED if distance_x > 100 else MAX_SPEED * distance_x / 100
-	velocity.x = (direction_x * speed * delta)
+	velocity.x = (direction_x * speed)
 	
 	if is_on_floor() and (player.position.y - position.y < -50.0):
 		velocity.y = JUMP_VELOCITY
