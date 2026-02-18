@@ -11,10 +11,11 @@ enum State {
 var current_state = State.FREE
 
 @onready var progress_bar: ProgressBar = $enemybar
-@onready var hitbox: CollisionShape2D = $hitBox/CollisionShape2D
+@onready var hitbox_collision: CollisionShape2D = $hitBox/CollisionShape2D
 var in_hit_box
 var player
 var hit
+@onready var hit_box: HitBoxA = $hitBox
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
@@ -46,8 +47,8 @@ func attack():
 	animation_player
 
 func change_state(new_state):
-		current_state = new_state
-			
+	current_state = new_state
+		
 
 
 
@@ -55,7 +56,7 @@ func _ready() -> void:
 	progress_bar.value = 100
 	if get_node("../fighterPlayer") != null:
 		player = $"../fighterPlayer"
-	
+	print(hit_box.get_overlapping_areas())
 	
 func take_dammage(amount:int) -> void:
 	if hit == true:
