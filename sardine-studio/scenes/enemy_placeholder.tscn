@@ -70,6 +70,7 @@ shape = SubResource("RectangleShape2D_muyt2")
 debug_color = Color(0.30283797, 0.49597198, 1, 0.41960785)
 
 [node name="enemybar" type="ProgressBar" parent="."]
+visible = false
 offset_left = -1.3599167
 offset_top = -143.20006
 offset_right = 319.64008
@@ -84,3 +85,5 @@ libraries = {
 
 [connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_exited" from="hitBox" to="." method="_on_hit_box_area_exited"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]

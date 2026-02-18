@@ -14,6 +14,7 @@ var current_state = State.FREE
 @onready var hitbox: CollisionShape2D = $hitBox/CollisionShape2D
 var in_hit_box
 var player
+var hit
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
@@ -57,16 +58,19 @@ func _ready() -> void:
 	
 	
 func take_dammage(amount:int) -> void:
-	print("Enemy dammage: ", amount)
-	progress_bar.value -= amount
-
+	if hit == true:
+		print("Enemy dammage: ", amount)
+		get_parent().get_node("CanvasLayer/main ui/enemyhpbar").value -= amount
+	if hit == false:
+		return
 #func _win() -> void:
-	if progress_bar.value == 0.0:
+	if get_parent().get_node("CanvasLayer/main ui/enemyhpbar").value == 0.0:
 		print("win")
 		get_tree().reload_current_scene()
 	
 
 func _on_fighter_player_player_hit() -> void:
+	hit = true
 	if in_hit_box==false:
 		print("nohitbox")
 	elif in_hit_box == true: 
@@ -74,8 +78,9 @@ func _on_fighter_player_player_hit() -> void:
 
 
 
-func _on_hit_box_area_entered(area: Area2D) -> void:
+
+func _on_hurtbox_area_entered(area: HitBoxB) -> void:
 	in_hit_box = true
 
-func _on_hit_box_area_exited(area: Area2D) -> void:
+func _on_hurtbox_area_exited(area: HitBoxB) -> void:
 	in_hit_box = false

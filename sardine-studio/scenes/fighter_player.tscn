@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://bfudmbw4otc20"]
 
-[ext_resource type="Script" path="res://scripts/fighter_player.gd" id="1_1q20e"]
+[ext_resource type="Script" uid="uid://6fnnejebw4wk" path="res://scripts/fighter_player.gd" id="1_1q20e"]
 [ext_resource type="Texture2D" uid="uid://dvgwkl5j4nsqo" path="res://assets/test image.png" id="2_3wsqv"]
-[ext_resource type="Script" path="res://scripts/playerhurtbox.gd" id="3_ugsaf"]
-[ext_resource type="Script" path="res://scripts/playerhitbox.gd" id="4_gfoxi"]
-[ext_resource type="Script" path="res://scripts/flipingcollisionshape.gd" id="5_0lss2"]
+[ext_resource type="Script" uid="uid://bm26kilkcgdqo" path="res://scripts/playerhurtbox.gd" id="3_ugsaf"]
+[ext_resource type="Script" uid="uid://cocj5yiahbbmd" path="res://scripts/playerhitbox.gd" id="4_gfoxi"]
+[ext_resource type="Script" uid="uid://brhv85fiui0eq" path="res://scripts/flipingcollisionshape.gd" id="5_0lss2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0lss2"]
 
@@ -18,15 +18,17 @@ scale = Vector2(0.749997, 0.652906)
 script = ExtResource("1_1q20e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.64738727, -163.9863)
 scale = Vector2(0.146585, 0.306161)
 texture = ExtResource("2_3wsqv")
 
 [node name="physics" type="CollisionShape2D" parent="."]
-position = Vector2(-1.19209e-07, 162.351)
+position = Vector2(-0.6473873, -1.6352997)
 scale = Vector2(5.89137, 3.61488)
 shape = SubResource("CircleShape2D_0lss2")
 
 [node name="hurtbox" type="Area2D" parent="."]
+position = Vector2(-0.64738727, -163.98628)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("3_ugsaf")
@@ -36,6 +38,7 @@ scale = Vector2(5.30958, 19.4831)
 shape = SubResource("RectangleShape2D_aguh1")
 
 [node name="hitBox" type="Area2D" parent="."]
+position = Vector2(-0.64738727, -163.98628)
 collision_layer = 2
 script = ExtResource("4_gfoxi")
 
@@ -49,5 +52,6 @@ facing_left_position = Vector2(-32, 0)
 facing_right_position = Vector2(32, 0)
 
 [node name="StateMachine" type="Node2D" parent="."]
+position = Vector2(-0.64738727, -163.98628)
 
 [connection signal="body_entered" from="hitBox" to="." method="_on_area_2d_body_entered"]
