@@ -56,7 +56,7 @@ func _ready() -> void:
 	progress_bar.value = 100
 	if get_node("../fighterPlayer") != null:
 		player = $"../fighterPlayer"
-	print(hit_box.get_overlapping_areas())
+	
 	
 func take_dammage(amount:int) -> void:
 	if hit == true:
@@ -69,6 +69,14 @@ func take_dammage(amount:int) -> void:
 		print("win")
 		get_tree().reload_current_scene()
 	
+func _input(event: InputEvent) -> void:
+	if event.is_action("crouch"):
+		var areas = hit_box.get_overlapping_areas()
+		for area in areas:
+			print(area.get_classname())
+			if area.is_class("HurtBoxB"):
+				print("yes")
+				#$"../main ui"
 
 func _on_fighter_player_player_hit() -> void:
 	hit = true

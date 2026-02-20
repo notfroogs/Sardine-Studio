@@ -8,6 +8,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nn4mn"]
 
 [node name="fighterMain" type="Node2D"]
+scale = Vector2(0.9974276, 0.92409676)
 script = ExtResource("1_ln0nl")
 
 [node name="fighterPlayer" parent="." groups=["playerF"] instance=ExtResource("1_3atyq")]

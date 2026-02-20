@@ -57,7 +57,7 @@ script = ExtResource("3_muyt2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
 position = Vector2(-192.55743, -30.114677)
-scale = Vector2(20.582958, 13.025602)
+scale = Vector2(12.934752, 13.4893875)
 shape = SubResource("RectangleShape2D_hsqvu")
 debug_color = Color(0.9785754, 0.021099798, 0.38234228, 0.41960785)
 
