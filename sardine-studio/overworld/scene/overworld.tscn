@@ -1,4 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://3e145abvtb1t"]
+[gd_scene load_steps=7 format=3 uid="uid://3e145abvtb1t"]
+
+[ext_resource type="Script" uid="uid://d1yt8wcwmpv3e" path="res://overworld/script/fighterArea.gd" id="1_y4sx8"]
+[ext_resource type="Script" uid="uid://mxtherk2puld" path="res://overworld/script/playingArea.gd" id="2_rnw0o"]
+[ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="3_y4sx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7426y"]
 
@@ -9,22 +13,29 @@ size = Vector2(103.23523, 215)
 
 [node name="overworld" type="Node2D"]
 
+[node name="playerOverworld" parent="." instance=ExtResource("3_y4sx8")]
+position = Vector2(604, 394)
+
 [node name="fighter" type="Area2D" parent="."]
 position = Vector2(132, 428.00006)
 scale = Vector2(6.3908377, 12.246605)
+script = ExtResource("1_y4sx8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fighter"]
 shape = SubResource("RectangleShape2D_7426y")
 
-[node name="bounduary" type="Area2D" parent="."]
+[node name="bounduary" type="StaticBody2D" parent="."]
 
 [node name="bottom" type="CollisionShape2D" parent="bounduary"]
 position = Vector2(416, 601)
 shape = SubResource("WorldBoundaryShape2D_u1jrv")
 
 [node name="playing" type="Area2D" parent="."]
+script = ExtResource("2_rnw0o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playing"]
 position = Vector2(1003, 433)
 scale = Vector2(1.4807465, 1.1584189)
 shape = SubResource("RectangleShape2D_u1jrv")
+
+[connection signal="body_entered" from="fighter" to="playerOverworld" method="_on_fighter_body_entered"]

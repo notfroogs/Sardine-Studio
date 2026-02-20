@@ -66,7 +66,7 @@ func take_dammage(amount:int) -> void:
 #func _win() -> void:
 	if get_parent().get_node("CanvasLayer/main ui/enemyhpbar").value == 0.0:
 		print("win")
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://overworld/scene/overworld.tscn")
 	
 
 func _on_fighter_player_player_hit() -> void:
