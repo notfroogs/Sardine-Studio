@@ -36,11 +36,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 		
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_pressed("attack"):
 		select = true
+		print("selected")
 	else:
 		select=false
 
+#this only works if frame perfect. maybe do the same thing for attack but more simple idk.
 func _on_fighter_body_entered(_body: Node2D) -> void:
 	if select == true:
 		get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
