@@ -30,6 +30,8 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 	
 
+var attack_counting : float = 0
+
 func moving(delta):
 	# =Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -40,20 +42,30 @@ func moving(delta):
 	distance_x -= 180
 	
 	var speed : float = MAX_SPEED if distance_x > 100 else MAX_SPEED * distance_x / 100
+	
 	velocity.x = (direction_x * speed)
 	
 	if is_on_floor() and (player.position.y - position.y < -50.0):
 		velocity.y = JUMP_VELOCITY
 	
 	move_and_slide()
+	
+	if abs(velocity.x) <= 200:
+		attack_counting += delta
+		if attack_counting >= 1.5:
+			attack()
+			attack_counting = 0.0
 
 func attack():
 	change_state(State.ATTACKING)
 
 func change_state(new_state):
 	current_state = new_state
-	if current_state == State.ATTACKING:
-		animation_player.play("attack")
+	match current_state:
+		State.ATTACKING:
+			animation_player.play("attack")
+		State.FREE:
+			pass
 
 func _ready() -> void:
 	if get_node("../fighterPlayer") != null:
@@ -68,12 +80,13 @@ func take_dammage(amount:int) -> void:
 		return
 #func _win() -> void:
 	if get_parent().get_node("CanvasLayer/main ui/enemyhpbar").value == 0.0:
-		print("win")
-		get_tree().reload_current_scene()
+		pass
+		#print("win")
+		#get_tree().reload_current_scene()
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action("crouch"):
-		attack()
+	#if event.is_action("crouch"):
+		pass
 		#var areas = hit_box.get_overlapping_areas()
 		#for area in areas:
 			#print(area.get_classname())
@@ -104,7 +117,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		if  areas_in_hit_box != []:
 			
 			if get_parent().get_node("CanvasLayer/main ui/playerhpbar") != null:
-				get_parent().get_node("CanvasLayer/main ui/playerhpbar").value -= 10
+				get_parent().get_node("CanvasLayer/main ui/playerhpbar").value -= 30
 			
 		animation_player.play("attack_reset")
 		change_state(State.FREE)
