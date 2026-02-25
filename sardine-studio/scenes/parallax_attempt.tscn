@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://vave26fcg2kt"]
+
+[ext_resource type="Texture2D" uid="uid://baoj6cl2lyfgm" path="res://assets/storage unit.png" id="1_6y5es"]
+[ext_resource type="Script" uid="uid://bxw804pgiatt7" path="res://scripts/character_body_2d.gd" id="1_dgi4q"]
+[ext_resource type="Texture2D" uid="uid://ba4xb1ehermvt" path="res://assets/walkcyclespritesheet.png" id="2_6y5es"]
+
+[sub_resource type="TileSet" id="TileSet_dgi4q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stnul"]
+atlas = ExtResource("2_6y5es")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufqbd"]
+atlas = ExtResource("2_6y5es")
+region = Rect2(0, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kopy"]
+atlas = ExtResource("2_6y5es")
+region = Rect2(640, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhj0f"]
+atlas = ExtResource("2_6y5es")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rsal"]
+atlas = ExtResource("2_6y5es")
+region = Rect2(640, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tke31"]
+atlas = ExtResource("2_6y5es")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dqts"]
+atlas = ExtResource("2_6y5es")
+region = Rect2(1280, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71uo7"]
+atlas = ExtResource("2_6y5es")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sjf51"]
+animations = [{
+"frames": [{
+"duration": 1.11,
+"texture": SubResource("AtlasTexture_stnul")
+}, {
+"duration": 1.31,
+"texture": SubResource("AtlasTexture_ufqbd")
+}, {
+"duration": 1.31,
+"texture": SubResource("AtlasTexture_6kopy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhj0f")
+}, {
+"duration": 1.21,
+"texture": SubResource("AtlasTexture_2rsal")
+}, {
+"duration": 1.01,
+"texture": SubResource("AtlasTexture_tke31")
+}, {
+"duration": 1.31,
+"texture": SubResource("AtlasTexture_7dqts")
+}, {
+"duration": 1.11,
+"texture": SubResource("AtlasTexture_71uo7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PARALLAX ATTEMPT" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(578.75, 322.75003)
+scale = Vector2(0.5971354, 0.5949074)
+texture = ExtResource("1_6y5es")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Parallax2D"]
+tile_set = SubResource("TileSet_dgi4q")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_dgi4q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(616.00006, 444.00003)
+scale = Vector2(0.56957996, 0.6386719)
+sprite_frames = SubResource("SpriteFrames_sjf51")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(579, 322)

@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://bc4twnh43dgva"]
+
+[ext_resource type="Texture2D" uid="uid://ba4xb1ehermvt" path="res://assets/walkcyclespritesheet.png" id="1_n0f30"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stnul"]
+atlas = ExtResource("1_n0f30")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufqbd"]
+atlas = ExtResource("1_n0f30")
+region = Rect2(0, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kopy"]
+atlas = ExtResource("1_n0f30")
+region = Rect2(640, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhj0f"]
+atlas = ExtResource("1_n0f30")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rsal"]
+atlas = ExtResource("1_n0f30")
+region = Rect2(640, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tke31"]
+atlas = ExtResource("1_n0f30")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dqts"]
+atlas = ExtResource("1_n0f30")
+region = Rect2(1280, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71uo7"]
+atlas = ExtResource("1_n0f30")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0hfcg"]
+animations = [{
+"frames": [{
+"duration": 1.11,
+"texture": SubResource("AtlasTexture_stnul")
+}, {
+"duration": 1.31,
+"texture": SubResource("AtlasTexture_ufqbd")
+}, {
+"duration": 1.31,
+"texture": SubResource("AtlasTexture_6kopy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhj0f")
+}, {
+"duration": 1.21,
+"texture": SubResource("AtlasTexture_2rsal")
+}, {
+"duration": 1.01,
+"texture": SubResource("AtlasTexture_tke31")
+}, {
+"duration": 1.31,
+"texture": SubResource("AtlasTexture_7dqts")
+}, {
+"duration": 1.11,
+"texture": SubResource("AtlasTexture_71uo7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(595, 342)
+scale = Vector2(0.803125, 0.775)
+sprite_frames = SubResource("SpriteFrames_0hfcg")
+frame = 6
+frame_progress = 0.7731841
