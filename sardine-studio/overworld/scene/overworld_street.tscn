@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://r5pd3by57hyv"]
+
+[ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="1_aj8ov"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0r11d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aj8ov"]
+
+[node name="overworldStreet" type="Node2D"]
+
+[node name="playerOverworld" parent="." instance=ExtResource("1_aj8ov")]
+position = Vector2(559, 450)
+
+[node name="Camera2D" type="Camera2D" parent="playerOverworld"]
+position = Vector2(13, -201)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(182, 572)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_0r11d")
+
+[node name="door" type="Area2D" parent="."]
+position = Vector2(1144.0001, 424)
+scale = Vector2(-7.5958967, 15.439974)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door"]
+shape = SubResource("RectangleShape2D_aj8ov")
+
+[connection signal="body_entered" from="door" to="playerOverworld" method="_on_door_body_entered"]

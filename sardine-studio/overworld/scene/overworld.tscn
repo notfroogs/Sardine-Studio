@@ -22,6 +22,7 @@ scale = Vector2(6.3908377, 12.246605)
 script = ExtResource("1_y4sx8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fighter"]
+position = Vector2(0.46942198, 2.612964)
 shape = SubResource("RectangleShape2D_7426y")
 
 [node name="bounduary" type="StaticBody2D" parent="."]
@@ -34,7 +35,7 @@ shape = SubResource("WorldBoundaryShape2D_u1jrv")
 script = ExtResource("2_rnw0o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playing"]
-position = Vector2(1003, 433)
+position = Vector2(1005.00006, 459)
 scale = Vector2(1.4807465, 1.1584189)
 shape = SubResource("RectangleShape2D_u1jrv")
 
