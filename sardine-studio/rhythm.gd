@@ -12,6 +12,7 @@ extends Control
 @onready var loaded_file := FileAccess.open(chart_text, FileAccess.READ)
 @onready var keys = (loaded_file.get_line()).split(",")
 const NOTE = preload("uid://dilpgmxld0ree")
+@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
 #set up variables
 var chart :Dictionary= {}
@@ -77,10 +78,10 @@ func generate() -> void:
 	icon.position.x = 1000.0
 	
 	if note_progress["Duration"] != "#":
-		var color_rect := ColorRect.new()
-		color_rect.size = Vector2(128, 128)
-		color_rect.size.x = 128.0 + icon.speed * float(note_progress["Duration"])
-		icon.add_child(color_rect)
+		var note_bar := TextureRect.new()
+		note_bar.size = Vector2(128, 128)
+		note_bar.size.x = 128.0 + icon.speed * float(note_progress["Duration"])
+		icon.add_child(note_bar)
 	
 	#immediately generate the next note if Skip is Yes
 	if note_progress["Skip"] == "Yes":
@@ -122,6 +123,9 @@ func miss_check(note) -> void:
 		return
 	if note.position.x < -130.0:
 		note.queue_free()
+		audio_stream_player.volume_db = 5.0
+		audio_stream_player.pitch_scale = [0.1, 3.0].pick_random()
+		audio_stream_player.play()
 		print("missed")
 
 #receive input
@@ -151,11 +155,20 @@ func input_check(note) -> bool:
 		#if the position is NOT between -64 and 64
 		if note.position.x <= -64 or note.position.x >= 64:
 			print("good")
+			audio_stream_player.volume_db = [-0.4, 1.6].pick_random()
+			audio_stream_player.pitch_scale = [0.5, 1.5].pick_random()
 		#if the position is NOT between -32 and 32
 		elif note.position.x <= -32 or note.position.x >= 32:
 			print("great")
+			audio_stream_player.volume_db = [-0.1, 1.3].pick_random()
+			audio_stream_player.pitch_scale = [0.7, 1.3].pick_random()
+			
 		else:
 			print("prefect")
+			audio_stream_player.volume_db = 0
+			audio_stream_player.pitch_scale = 1
 		#return true anyway if the note is intersect with the parent note
+		audio_stream_player.play()
 		return true
+	
 	return false

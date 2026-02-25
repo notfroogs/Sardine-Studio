@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceb5dbeodb5xh"]
+[gd_scene load_steps=6 format=3 uid="uid://ceb5dbeodb5xh"]
 
 [ext_resource type="Script" uid="uid://db5en2l64fin2" path="res://rhythm.gd" id="1_b12pq"]
 [ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://icon.svg" id="2_q13yt"]
+[ext_resource type="AudioStream" uid="uid://c5d5yh3tt0cqi" path="res://Golf (1).mp3" id="3_ecpmg"]
+[ext_resource type="AudioStream" uid="uid://dknuxrm7rbtev" path="res://Mr. Marc's Intro to Pop Song Structure %2B Jason Tang.ogg" id="4_ecpmg"]
 
 [sub_resource type="Theme" id="Theme_b12pq"]
 
@@ -13,7 +15,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b12pq")
-chart_text = "res://chart2.txt"
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -92,3 +93,12 @@ offset_right = 173.0
 offset_bottom = 353.00024
 pivot_offset = Vector2(463, 384)
 texture = ExtResource("2_q13yt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_ecpmg")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_ecpmg")
+autoplay = true
