@@ -8,8 +8,9 @@ const JUMP_VELOCITY = -500.0
 @export var deacceleration := 1300.0
 @export var fast_fall_speed := 2.0
 @export var jump_floats:= 1.001
+@onready var overworld_street: Node2D = $".."
 
-var select = false
+var select
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -38,16 +39,18 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("attack"):
 			if select == "a":
-				print("selected")
+				print("a")
 				get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
 			if select == "b":
-				get_tree().change_scene_to_file("res://scenes/overworld.tscn")
+				print('B')
+				if get_parent() == overworld_street:
+					get_tree().change_scene_to_file("res://overworld/scene/overworld.tscn")
 	
-
-#this only works if frame perfect. maybe do the same thing for attack but more simple idk.
 func _on_fighter_body_entered(_body: Node2D) -> void:
 	select = "a"
 
 
 func _on_door_body_entered(body: Node2D) -> void:
 	select = "b"
+	
+	
