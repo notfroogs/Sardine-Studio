@@ -26,6 +26,8 @@ var time_count : float
 	0: column_empty
 }
 
+signal Rhythm_Game_Ended
+
 var missed_count : int = 0
 var good_count : int = 0
 var great_count : int = 0
@@ -121,7 +123,7 @@ func _process(delta: float) -> void:
 			print("prefect: " + str(prefect_count))
 			print("missed: " + str(missed_count))
 			await get_tree().create_timer(5.0).timeout
-			get_tree().quit()
+			Rhythm_Game_Ended.emit()
 
 func miss_check(note) -> void:
 	if note == null:

@@ -1,13 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://ceb5dbeodb5xh"]
+[gd_scene load_steps=8 format=3 uid="uid://ceb5dbeodb5xh"]
 
 [ext_resource type="Script" uid="uid://db5en2l64fin2" path="res://rhythm.gd" id="1_b12pq"]
+[ext_resource type="Shader" uid="uid://badv8bqa3plon" path="res://rhythm.gdshader" id="2_iw74v"]
 [ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://icon.svg" id="2_q13yt"]
 [ext_resource type="AudioStream" uid="uid://c5d5yh3tt0cqi" path="res://Golf (1).mp3" id="3_ecpmg"]
 [ext_resource type="AudioStream" uid="uid://dknuxrm7rbtev" path="res://Mr. Marc's Intro to Pop Song Structure %2B Jason Tang.ogg" id="4_ecpmg"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_48mfx"]
+shader = ExtResource("2_iw74v")
+shader_parameter/blur_amount = 2.0
+
 [sub_resource type="Theme" id="Theme_b12pq"]
 
-[node name="Control" type="Control"]
+[node name="rhythm" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +22,7 @@ grow_vertical = 2
 script = ExtResource("1_b12pq")
 
 [node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_48mfx")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
