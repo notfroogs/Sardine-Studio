@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 	var direction_x := Input.get_axis("move_left", "move_right")
 	var has_input_direction := direction_x !=0
 	if has_input_direction:
+		#this is breaking my code for sime reason???? but only in garage
 		var desired_velocity_x = direction_x * max_speed
 		velocity.x = move_toward(velocity.x, desired_velocity_x, acceleration * delta)
 	else:
@@ -50,7 +51,12 @@ func _input(event: InputEvent) -> void:
 				elif scene_name == "overworld":
 					#fixx this idk why this is null
 					get_tree().change_scene_to_file("res://overworld/scene/overworld_street.tscn")
-				
+		if select== "c":
+			if scene_name == "garage":
+				get_tree().change_scene_to_file("res://overworld/scene/overworld_street.tscn")   
+			if scene_name == "overworldStreet":
+				get_tree().change_scene_to_file("res://overworld/scene/garage.tscn")
+			
 	
 func _on_fighter_body_entered(_body: Node2D) -> void:
 	select = "a"
@@ -58,5 +64,6 @@ func _on_fighter_body_entered(_body: Node2D) -> void:
 
 func _on_door_body_entered(body: Node2D) -> void:
 	select = "b"
-	
-	
+
+func _on_garagedoor_body_entered(body: Node2D) -> void:
+	select = "c"

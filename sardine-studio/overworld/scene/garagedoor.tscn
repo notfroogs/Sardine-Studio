@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://nkycm6g7uev0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ns4o"]
+
+[node name="Garagedoor" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(7.760065, 18.04639)
+shape = SubResource("RectangleShape2D_6ns4o")
+debug_color = Color(0.571062, 0.5409272, 0.36684206, 0.41960785)

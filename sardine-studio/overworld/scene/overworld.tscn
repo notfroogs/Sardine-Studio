@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://3e145abvtb1t"]
+[gd_scene load_steps=10 format=3 uid="uid://3e145abvtb1t"]
 
 [ext_resource type="Script" uid="uid://d1yt8wcwmpv3e" path="res://overworld/script/fighterArea.gd" id="1_y4sx8"]
 [ext_resource type="Script" uid="uid://mxtherk2puld" path="res://overworld/script/playingArea.gd" id="2_rnw0o"]
@@ -7,10 +7,14 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7426y"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u1jrv"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1jrv"]
 size = Vector2(103.23523, 215)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rnw0o"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u1jrv"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kc4nv"]
 
 [node name="overworld" type="Node2D"]
 
@@ -19,6 +23,8 @@ position = Vector2(604, 489)
 
 [node name="Camera2D" type="Camera2D" parent="playerOverworld"]
 position = Vector2(-18, -180)
+limit_left = -350
+limit_right = 1200
 
 [node name="fighter" type="Area2D" parent="."]
 position = Vector2(132, 428.00006)
@@ -28,12 +34,7 @@ script = ExtResource("1_y4sx8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fighter"]
 position = Vector2(0.46942198, 2.612964)
 shape = SubResource("RectangleShape2D_7426y")
-
-[node name="bounduary" type="StaticBody2D" parent="."]
-
-[node name="bottom" type="CollisionShape2D" parent="bounduary"]
-position = Vector2(416, 601)
-shape = SubResource("WorldBoundaryShape2D_u1jrv")
+debug_color = Color(0.88178015, 0.26045382, 0.54809076, 0.41960785)
 
 [node name="playing" type="Area2D" parent="."]
 script = ExtResource("2_rnw0o")
@@ -42,11 +43,42 @@ script = ExtResource("2_rnw0o")
 position = Vector2(1005.00006, 459)
 scale = Vector2(1.4807465, 1.1584189)
 shape = SubResource("RectangleShape2D_u1jrv")
+debug_color = Color(0.7814922, 0.3396502, 0.70342076, 0.41960785)
 
 [node name="door" parent="." instance=ExtResource("4_rnw0o")]
 position = Vector2(-226, 465)
 rotation = 3.1415927
 scale = Vector2(7.5958967, -15.439974)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="left" type="StaticBody2D" parent="Node"]
+position = Vector2(1225.0002, 419)
+rotation = -1.5834744
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/left"]
+shape = SubResource("WorldBoundaryShape2D_rnw0o")
+
+[node name="bounduary" type="StaticBody2D" parent="Node"]
+
+[node name="bottom" type="CollisionShape2D" parent="Node/bounduary"]
+position = Vector2(416, 601)
+shape = SubResource("WorldBoundaryShape2D_u1jrv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node"]
+position = Vector2(-376, 297)
+rotation = 1.5873555
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_kc4nv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 166.0
+offset_bottom = 127.0
+theme_override_font_sizes/font_size = 48
+text = "Selection"
 
 [connection signal="body_entered" from="fighter" to="playerOverworld" method="_on_fighter_body_entered"]
 [connection signal="body_entered" from="door" to="playerOverworld" method="_on_door_body_entered"]

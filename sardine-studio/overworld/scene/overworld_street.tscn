@@ -1,9 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://r5pd3by57hyv"]
+[gd_scene load_steps=6 format=3 uid="uid://r5pd3by57hyv"]
 
 [ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="1_aj8ov"]
 [ext_resource type="PackedScene" uid="uid://b1wwkjfy2qeu6" path="res://overworld/scene/door.tscn" id="2_0r11d"]
+[ext_resource type="PackedScene" uid="uid://nkycm6g7uev0" path="res://overworld/scene/garagedoor.tscn" id="3_vvrjt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0r11d"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vvrjt"]
 
 [node name="overworldStreet" type="Node2D"]
 
@@ -12,14 +15,47 @@ position = Vector2(559, 450)
 
 [node name="Camera2D" type="Camera2D" parent="playerOverworld"]
 position = Vector2(9, -160)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(182, 572)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("WorldBoundaryShape2D_0r11d")
+limit_left = -2300
+limit_right = 1200
 
 [node name="door" parent="." instance=ExtResource("2_0r11d")]
 position = Vector2(1144.0001, 424)
 
+[node name="bouduaries" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="bouduaries"]
+position = Vector2(182, 572)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bouduaries/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_0r11d")
+
+[node name="left" type="StaticBody2D" parent="bouduaries"]
+position = Vector2(1291.0001, 425.00003)
+rotation = -1.5713758
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bouduaries/left"]
+shape = SubResource("WorldBoundaryShape2D_vvrjt")
+
+[node name="right" type="StaticBody2D" parent="bouduaries"]
+position = Vector2(-2272, 390.99994)
+rotation = -4.711403
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bouduaries/right"]
+shape = SubResource("WorldBoundaryShape2D_vvrjt")
+
+[node name="Garagedoor" parent="." instance=ExtResource("3_vvrjt")]
+position = Vector2(-2193, 428)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-2071, 415)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 48
+text = "Street"
+
 [connection signal="body_entered" from="door" to="playerOverworld" method="_on_door_body_entered"]
+[connection signal="body_entered" from="Garagedoor" to="playerOverworld" method="_on_garagedoor_body_entered"]
