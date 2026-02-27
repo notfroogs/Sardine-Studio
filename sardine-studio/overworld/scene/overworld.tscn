@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://3e145abvtb1t"]
+[gd_scene load_steps=8 format=3 uid="uid://3e145abvtb1t"]
 
 [ext_resource type="Script" uid="uid://d1yt8wcwmpv3e" path="res://overworld/script/fighterArea.gd" id="1_y4sx8"]
 [ext_resource type="Script" uid="uid://mxtherk2puld" path="res://overworld/script/playingArea.gd" id="2_rnw0o"]
 [ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="3_y4sx8"]
+[ext_resource type="PackedScene" uid="uid://b1wwkjfy2qeu6" path="res://overworld/scene/door.tscn" id="4_rnw0o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7426y"]
 
@@ -14,7 +15,10 @@ size = Vector2(103.23523, 215)
 [node name="overworld" type="Node2D"]
 
 [node name="playerOverworld" parent="." instance=ExtResource("3_y4sx8")]
-position = Vector2(604, 394)
+position = Vector2(604, 489)
+
+[node name="Camera2D" type="Camera2D" parent="playerOverworld"]
+position = Vector2(-18, -180)
 
 [node name="fighter" type="Area2D" parent="."]
 position = Vector2(132, 428.00006)
@@ -39,4 +43,10 @@ position = Vector2(1005.00006, 459)
 scale = Vector2(1.4807465, 1.1584189)
 shape = SubResource("RectangleShape2D_u1jrv")
 
+[node name="door" parent="." instance=ExtResource("4_rnw0o")]
+position = Vector2(-226, 465)
+rotation = 3.1415927
+scale = Vector2(7.5958967, -15.439974)
+
 [connection signal="body_entered" from="fighter" to="playerOverworld" method="_on_fighter_body_entered"]
+[connection signal="body_entered" from="door" to="playerOverworld" method="_on_door_body_entered"]

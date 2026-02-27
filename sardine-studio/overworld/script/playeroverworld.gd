@@ -9,6 +9,7 @@ const JUMP_VELOCITY = -500.0
 @export var fast_fall_speed := 2.0
 @export var jump_floats:= 1.001
 @onready var overworld_street: Node2D = $".."
+@onready var overworld: Node2D = $".."
 
 var select
 func _physics_process(delta: float) -> void:
@@ -38,13 +39,18 @@ func _physics_process(delta: float) -> void:
 		
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("attack"):
-			if select == "a":
+		var scene_name = get_tree().current_scene.name
+		if select == "a":
 				print("a")
 				get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
-			if select == "b":
+		if select == "b":
 				print('B')
-				if get_parent() == overworld_street:
+				if scene_name == "overworldStreet":
 					get_tree().change_scene_to_file("res://overworld/scene/overworld.tscn")
+				elif scene_name == "overworld":
+					#fixx this idk why this is null
+					get_tree().change_scene_to_file("res://overworld/scene/overworld_street.tscn")
+				
 	
 func _on_fighter_body_entered(_body: Node2D) -> void:
 	select = "a"
