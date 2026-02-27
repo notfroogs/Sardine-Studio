@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://do2g4hshdgpij"]
+
+[ext_resource type="Script" uid="uid://bibkpkverj4ua" path="res://sub_viewport.gd" id="1_ktqrk"]
+[ext_resource type="PackedScene" uid="uid://dilpgmxld0ree" path="res://note.tscn" id="1_vp4ha"]
+
+[node name="SubViewport" type="SubViewport"]
+size = Vector2i(128, 128)
+script = ExtResource("1_ktqrk")
+
+[node name="TextureRect" parent="." instance=ExtResource("1_vp4ha")]
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)

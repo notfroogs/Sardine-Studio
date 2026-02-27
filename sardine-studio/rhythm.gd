@@ -26,6 +26,7 @@ var time_count : float
 	0: column_empty
 }
 
+var missed_count : int = 0
 var good_count : int = 0
 var great_count : int = 0
 var prefect_count : int = 0
@@ -114,7 +115,11 @@ func _process(delta: float) -> void:
 			note_progress = note_progress["Next"]
 			time_count = float(note_progress["Time"])
 		elif note_progress["Next"] == "END":
-			print("waiting")
+			print("========")
+			print("good: " + str(good_count))
+			print("great: " + str(great_count))
+			print("prefect: " + str(prefect_count))
+			print("missed: " + str(missed_count))
 			await get_tree().create_timer(5.0).timeout
 			get_tree().quit()
 
@@ -127,6 +132,7 @@ func miss_check(note) -> void:
 		audio_stream_player.pitch_scale = [0.1, 3.0].pick_random()
 		audio_stream_player.play()
 		print("missed")
+		missed_count += 1
 
 #receive input
 func _input(event: InputEvent) -> void:
@@ -155,16 +161,19 @@ func input_check(note) -> bool:
 		#if the position is NOT between -64 and 64
 		if note.position.x <= -64 or note.position.x >= 64:
 			print("good")
+			good_count += 1
 			audio_stream_player.volume_db = [-0.4, 1.6].pick_random()
 			audio_stream_player.pitch_scale = [0.5, 1.5].pick_random()
 		#if the position is NOT between -32 and 32
 		elif note.position.x <= -32 or note.position.x >= 32:
 			print("great")
+			great_count += 1
 			audio_stream_player.volume_db = [-0.1, 1.3].pick_random()
 			audio_stream_player.pitch_scale = [0.7, 1.3].pick_random()
 			
 		else:
 			print("prefect")
+			prefect_count += 1
 			audio_stream_player.volume_db = 0
 			audio_stream_player.pitch_scale = 1
 		#return true anyway if the note is intersect with the parent note
