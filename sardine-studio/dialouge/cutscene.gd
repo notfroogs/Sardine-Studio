@@ -42,13 +42,13 @@ var dialogue_items: Array[Dictionary] = [
 		"background":backgrounds["bg1"]
 	},
 	{
-		"text":"With the silver mirror to purge darkness and the King's Blade to cut down shadows,",
+		"text":"Dialouge assets are being worked on",
 		"name":"Narrator",
 		"face":faces["BLANK"],
 		"background":backgrounds["bg1"]
 	},
 	{
-		"text":"The destined hero, Shiva and his companion, Freesia of the fae,",
+		"text":"blablabla",
 		"name":"Narrator",
 		"face":faces["BLANK"],
 		"background":backgrounds["bg1"]
