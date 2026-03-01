@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://do4iah4jumsuu"]
 
-[ext_resource type="Script" uid="uid://cye2fxsknwx38" path="res://PLAYER.gd" id="1_3lut5"]
+[ext_resource type="Script" uid="uid://cye2fxsknwx38" path="res://scripts/PLAYER.gd" id="1_3lut5"]
 [ext_resource type="Texture2D" uid="uid://ba4xb1ehermvt" path="res://assets/walkcyclespritesheet.png" id="1_34c50"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_stnul"]
@@ -76,7 +76,8 @@ animations = [{
 radius = 39.0
 height = 290.0
 
-[node name="PLAYER" type="CharacterBody2D"]
+[node name="PLAYER" type="CharacterBody2D" groups=["PLAYER"]]
+collision_layer = 2
 script = ExtResource("1_3lut5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

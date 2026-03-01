@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://baoj6cl2lyfgm"
-path="res://.godot/imported/storage unit.png-9e742d0a298a9f67f51b60d31e42f7cb.ctex"
+uid="uid://b2v27dt8m31ct"
+path="res://.godot/imported/STORAGE UNIT.png-09ee23838fe6bf5cd5e66a1beaa1b43e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/storage unit.png"
-dest_files=["res://.godot/imported/storage unit.png-9e742d0a298a9f67f51b60d31e42f7cb.ctex"]
+source_file="res://assets/STORAGE UNIT.png"
+dest_files=["res://.godot/imported/STORAGE UNIT.png-09ee23838fe6bf5cd5e66a1beaa1b43e.ctex"]
 
 [params]
 

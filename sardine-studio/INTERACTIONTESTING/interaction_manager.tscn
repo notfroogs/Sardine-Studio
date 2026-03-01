@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddsqey0w0e63c"]
+
+[ext_resource type="Script" uid="uid://0nawanho8wqu" path="res://INTERACTIONTESTING/interaction_manager.gd" id="1_p0hn4"]
+
+[node name="InteractionManager" type="Node2D"]
+script = ExtResource("1_p0hn4")
+
+[node name="Label" type="Label" parent="."]
+z_index = 67
+offset_left = 513.0
+offset_top = 404.0
+offset_right = 572.0
+offset_bottom = 427.0
+text = "gahhhh"

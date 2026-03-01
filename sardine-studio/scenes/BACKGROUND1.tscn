@@ -1,9 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjcxm4bqu8tmw"]
+[gd_scene load_steps=7 format=3 uid="uid://bjcxm4bqu8tmw"]
 
-[ext_resource type="Texture2D" uid="uid://baoj6cl2lyfgm" path="res://assets/storage unit.png" id="1_owa5w"]
+[ext_resource type="Texture2D" uid="uid://b2v27dt8m31ct" path="res://assets/STORAGE UNIT.png" id="1_owa5w"]
+[ext_resource type="PackedScene" uid="uid://q1pq8jhkc423" path="res://INTERACTIONTESTING/INTERACTION AREA/interaction_area.tscn" id="2_owa5w"]
 [ext_resource type="PackedScene" uid="uid://do4iah4jumsuu" path="res://scenes/PLAYER.tscn" id="2_y1rr3"]
+[ext_resource type="Script" uid="uid://dmdju7jumnb1u" path="res://scripts/button.gd" id="3_e3k1g"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e3k1g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1rr3"]
+size = Vector2(169, 279)
 
 [node name="Node2D" type="Node2D"]
 
@@ -19,3 +24,27 @@ position = Vector2(548, 604)
 shape = SubResource("WorldBoundaryShape2D_e3k1g")
 
 [node name="PLAYER" parent="." instance=ExtResource("2_y1rr3")]
+position = Vector2(213, 18)
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_owa5w")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(441, 396.5)
+shape = SubResource("RectangleShape2D_y1rr3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+z_index = 510
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 116.0
+offset_top = 77.0
+offset_right = -519.0
+offset_bottom = -302.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+text = "gahhh"
+script = ExtResource("3_e3k1g")

@@ -23,3 +23,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	
+
+
+#layer is 2 (match w interaction area)
+#change callable -- self & on interact == show the label ? get a button... idk :O(
