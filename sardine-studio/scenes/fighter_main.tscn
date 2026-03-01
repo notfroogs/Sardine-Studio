@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cneodudkpu546"]
 
 [ext_resource type="PackedScene" uid="uid://bfudmbw4otc20" path="res://scenes/fighter_player.tscn" id="1_3atyq"]
-[ext_resource type="Script" uid="uid://sjifelgbl0rp" path="res://scripts/fighter_main.gd" id="1_ln0nl"]
+[ext_resource type="Script" path="res://scripts/fighter_main.gd" id="1_ln0nl"]
 [ext_resource type="PackedScene" uid="uid://ca03l6ss6iv6b" path="res://scenes/enemy_placeholder.tscn" id="3_wqw35"]
 [ext_resource type="PackedScene" uid="uid://cmtlvunxru0nq" path="res://scenes/main_ui.tscn" id="4_f3bfk"]
 

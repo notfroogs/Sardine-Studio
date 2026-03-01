@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://du1gixdewhgyx"]
 
-[ext_resource type="Script" uid="uid://cni72rejug58t" path="res://dialouge/cutscene.gd" id="1_4qpep"]
+[ext_resource type="Script" path="res://dialouge/cutscene.gd" id="1_4qpep"]
 [ext_resource type="AudioStream" uid="uid://dwrbwcqakd7av" path="res://assets/sounds/FNF DialogueText Sound Effect.mp3" id="2_ftmji"]
 [ext_resource type="AudioStream" uid="uid://7m6a227gio45" path="res://assets/sounds/BGM_GPSFF_field.sab.mp3" id="3_5n3ld"]
 [ext_resource type="AudioStream" uid="uid://degbaakkgdlo2" path="res://assets/sounds/explosion.wav" id="4_82u23"]
@@ -97,12 +97,12 @@ volume_db = 24.0
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_5n3ld")
-volume_db = -40.041
+volume_db = -6.0
 autoplay = true
 
 [node name="select" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_82u23")
-volume_db = -1.873
+volume_db = -3.495
 
 [node name="skip" type="Button" parent="."]
 layout_mode = 1

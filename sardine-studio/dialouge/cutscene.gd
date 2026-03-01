@@ -53,72 +53,17 @@ var dialogue_items: Array[Dictionary] = [
 		"face":faces["BLANK"],
 		"background":backgrounds["bg1"]
 	},
+	{"text":"Wow the audio is really loud",
+		"name":"Narrator",
+		"face":faces["BLANK"],
+		"background":backgrounds["bg1"]},
 	{
-		"text":"Will the save the-",
+		"text":"im going to fix that later",
 		"name":"Narrator",
 		"face":faces["BLANK"],
 		"background":backgrounds["bg1"]
-	},
-	{
-		"text":"I CAN'T BELIVE IT!",
-		"name":"[center]Freesia[center]",
-		"face":faces["FREESIA_SHOCK"],
-		"background":backgrounds["bg1"]
-		},
-	{
-		"text": "FIRST YOU LOSE THE KING'S BLADE,",
-		"name": "[center]Freesia[center]",
-		"face":faces["FREESIA_SHOCK"],
-		"background":backgrounds["bg1"]
-		},
-	{
-		"text": "THEN LOSE THE ALL THE PIECES OF THE SILVER MIRROR!",
-		"name": "[center]Freesia[center]",
-		"face":faces["FREESIA_MAD"],
-		"background":backgrounds["bg1"]
-		},
-	{
-		"text":"...",
-		"name":"[center]Shiva[center]",
-		"face":faces["SHIVA_EH"],
-		"background":backgrounds["bg1"]
-		},
-	{
-		"text":"I think the pieces fell down there...",
-		"name":"[center]Shiva[center]",
-		"face":faces["SHIVA_NORMAL"],
-		"background": backgrounds["bg1"]
-	},
-	{
-		"text":"Silver Mirror shards?",
-		"name":"[center]Man[center]",
-		"face":faces["MAN"],
-		"background": backgrounds["bg2"]
-		},
-	{
-		"text": "Yes! Have you seen them?",
-		"name": "[center]Freesia[center]",
-		"face":faces["FREESIA_YAY"],
-		"background": backgrounds["bg2"]
-		},
-	{
-		"text": "I might have saw them being scattered over there.",
-		"name": "Man",
-		"face":faces["MAN_TALK"],
-		"background": backgrounds["bg2"]
-		},
-	{
-		"text": "Thank you!",
-		"name": "[center]Freesia[center]",
-		"face": faces["FREESIA_HAPPY"],
-		"background": backgrounds["bg2"]
-		},
-	{
-		"text": "C'mon Shiva, lets go!",
-		"name": "[center]Freesia[center]",
-		"face":faces["FREESIA_YAY"],
-		"background": backgrounds["bg2"]
-		}
+	}
+		
 	
 ]
 
@@ -126,7 +71,7 @@ var current_item_index := 0
 func _ready() -> void:
 	show_text()
 	nextbutton.pressed.connect(advance)
-	#audio_2.stop()
+	
 		
 func show_text() -> void:
 	var current_item := dialogue_items[current_item_index]
@@ -163,8 +108,8 @@ func advance() -> void:
 		music.stop()
 		has_played_audio_2 = true
 
-#func _on_nextbutton_pressed() -> void:
-	#select.play()
+func _on_nextbutton_pressed() -> void:
+	select.play()
 
 func _on_skip_pressed() -> void:
 	#scenetransition.fade_out()
