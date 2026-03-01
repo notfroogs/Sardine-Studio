@@ -107,4 +107,5 @@ stream = ExtResource("3_ecpmg")
 [node name="Music" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_ecpmg")
+volume_db = -9.541
 autoplay = true
