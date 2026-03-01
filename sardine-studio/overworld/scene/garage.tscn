@@ -16,8 +16,20 @@ position = Vector2(407, 614)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_kvxgd")
 
-[node name="Garagedoor" parent="." instance=ExtResource("1_mhuvx")]
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1233, 494)
+rotation = -1.56965
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_kvxgd")
+
+[node name="Garagedoor_A" parent="." instance=ExtResource("1_mhuvx")]
 position = Vector2(1111, 432)
+desitination_room = "overworld_street"
+destination_door = "B"
+
+[node name="spawn" parent="Garagedoor_A" index="1"]
+position = Vector2(-129, 13)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -27,4 +39,6 @@ offset_bottom = 104.0
 theme_override_font_sizes/font_size = 46
 text = "Garage"
 
-[connection signal="body_entered" from="Garagedoor" to="playerOverworld" method="_on_garagedoor_body_entered"]
+[connection signal="body_entered" from="Garagedoor_A" to="playerOverworld" method="_on_garagedoor_body_entered"]
+
+[editable path="Garagedoor_A"]

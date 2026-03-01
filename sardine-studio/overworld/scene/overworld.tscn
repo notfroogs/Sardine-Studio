@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://3e145abvtb1t"]
 
-[ext_resource type="Script" uid="uid://d1yt8wcwmpv3e" path="res://overworld/script/fighterArea.gd" id="1_y4sx8"]
-[ext_resource type="Script" uid="uid://mxtherk2puld" path="res://overworld/script/playingArea.gd" id="2_rnw0o"]
+[ext_resource type="Script" path="res://overworld/script/fighterArea.gd" id="1_y4sx8"]
+[ext_resource type="Script" path="res://overworld/script/playingArea.gd" id="2_rnw0o"]
 [ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="3_y4sx8"]
 [ext_resource type="PackedScene" uid="uid://b1wwkjfy2qeu6" path="res://overworld/scene/door.tscn" id="4_rnw0o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7426y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1jrv"]
-size = Vector2(103.23523, 215)
+size = Vector2(103.235, 215)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rnw0o"]
 
@@ -27,34 +27,34 @@ limit_left = -350
 limit_right = 1200
 
 [node name="fighter" type="Area2D" parent="."]
-position = Vector2(132, 428.00006)
-scale = Vector2(6.3908377, 12.246605)
+position = Vector2(132, 428)
+scale = Vector2(6.39084, 12.2466)
 script = ExtResource("1_y4sx8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fighter"]
-position = Vector2(0.46942198, 2.612964)
+position = Vector2(0.469422, 2.61296)
 shape = SubResource("RectangleShape2D_7426y")
-debug_color = Color(0.88178015, 0.26045382, 0.54809076, 0.41960785)
+debug_color = Color(0.88178, 0.260454, 0.548091, 0.419608)
 
 [node name="playing" type="Area2D" parent="."]
 script = ExtResource("2_rnw0o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playing"]
-position = Vector2(1005.00006, 459)
-scale = Vector2(1.4807465, 1.1584189)
+position = Vector2(1005, 459)
+scale = Vector2(1.48075, 1.15842)
 shape = SubResource("RectangleShape2D_u1jrv")
-debug_color = Color(0.7814922, 0.3396502, 0.70342076, 0.41960785)
+debug_color = Color(0.781492, 0.33965, 0.703421, 0.419608)
 
 [node name="door" parent="." instance=ExtResource("4_rnw0o")]
 position = Vector2(-226, 465)
-rotation = 3.1415927
-scale = Vector2(7.5958967, -15.439974)
+rotation = 3.14159
+scale = Vector2(7.5959, -15.44)
 
 [node name="Node" type="Node" parent="."]
 
 [node name="left" type="StaticBody2D" parent="Node"]
-position = Vector2(1225.0002, 419)
-rotation = -1.5834744
+position = Vector2(1225, 419)
+rotation = -1.58347
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/left"]
 shape = SubResource("WorldBoundaryShape2D_rnw0o")
@@ -67,7 +67,7 @@ shape = SubResource("WorldBoundaryShape2D_u1jrv")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node"]
 position = Vector2(-376, 297)
-rotation = 1.5873555
+rotation = 1.58736
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_kc4nv")

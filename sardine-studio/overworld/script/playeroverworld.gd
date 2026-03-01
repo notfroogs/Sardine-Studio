@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name playerO extends CharacterBody2D
 
 
 const SPEED = 600.0
@@ -10,6 +10,7 @@ const JUMP_VELOCITY = -500.0
 @export var jump_floats:= 1.001
 @onready var overworld_street: Node2D = $".."
 @onready var overworld: Node2D = $".."
+@onready var spawn: Marker2D = $"../Garagedoor_A/spawn"
 
 var select
 func _physics_process(delta: float) -> void:

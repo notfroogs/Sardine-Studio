@@ -19,7 +19,7 @@ limit_left = -2300
 limit_right = 1200
 
 [node name="door" parent="." instance=ExtResource("2_0r11d")]
-position = Vector2(1144.0001, 424)
+position = Vector2(1144, 424)
 
 [node name="bouduaries" type="Node" parent="."]
 
@@ -30,24 +30,25 @@ position = Vector2(182, 572)
 shape = SubResource("WorldBoundaryShape2D_0r11d")
 
 [node name="left" type="StaticBody2D" parent="bouduaries"]
-position = Vector2(1291.0001, 425.00003)
-rotation = -1.5713758
+position = Vector2(1291, 425)
+rotation = -1.57138
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bouduaries/left"]
 shape = SubResource("WorldBoundaryShape2D_vvrjt")
 
 [node name="right" type="StaticBody2D" parent="bouduaries"]
-position = Vector2(-2272, 390.99994)
-rotation = -4.711403
+position = Vector2(-2272, 391)
+rotation = -4.7114
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bouduaries/right"]
 shape = SubResource("WorldBoundaryShape2D_vvrjt")
 
-[node name="Garagedoor" parent="." instance=ExtResource("3_vvrjt")]
+[node name="Garagedoor_B" parent="." instance=ExtResource("3_vvrjt")]
 position = Vector2(-2193, 428)
+script = null
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-2071, 415)
+[node name="spawn" parent="Garagedoor_B" index="1"]
+position = Vector2(121, -8)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -58,4 +59,6 @@ theme_override_font_sizes/font_size = 48
 text = "Street"
 
 [connection signal="body_entered" from="door" to="playerOverworld" method="_on_door_body_entered"]
-[connection signal="body_entered" from="Garagedoor" to="playerOverworld" method="_on_garagedoor_body_entered"]
+[connection signal="body_entered" from="Garagedoor_B" to="playerOverworld" method="_on_garagedoor_body_entered"]
+
+[editable path="Garagedoor_B"]
