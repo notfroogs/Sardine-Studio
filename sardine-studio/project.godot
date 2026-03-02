@@ -14,6 +14,10 @@ config/name="Sardine Studio"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/aspect="expand"
+
 [input]
 
 note1_pressed={

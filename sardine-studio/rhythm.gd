@@ -33,6 +33,10 @@ var good_count : int = 0
 var great_count : int = 0
 var prefect_count : int = 0
 
+@onready var scoring_container: VBoxContainer = %ScoringContainer
+@onready var combo_text: RichTextLabel = %ComboText
+@onready var scoring_text: RichTextLabel = %ScoringText
+
 func _ready():
 	#in case of error
 	if loaded_file != null:
@@ -133,7 +137,7 @@ func miss_check(note) -> void:
 		audio_stream_player.volume_db = 5.0
 		audio_stream_player.pitch_scale = [0.1, 3.0].pick_random()
 		audio_stream_player.play()
-		print("missed")
+		scoring_text.text = "Missed..."
 		missed_count += 1
 
 #receive input
@@ -162,19 +166,19 @@ func input_check(note) -> bool:
 	if note.position.x >= -128 and note.position.x <= 128:
 		#if the position is NOT between -64 and 64
 		if note.position.x <= -64 or note.position.x >= 64:
-			print("good")
+			scoring_text.text = "good"
 			good_count += 1
 			audio_stream_player.volume_db = [-0.4, 1.6].pick_random()
 			audio_stream_player.pitch_scale = [0.5, 1.5].pick_random()
 		#if the position is NOT between -32 and 32
 		elif note.position.x <= -32 or note.position.x >= 32:
-			print("great")
+			scoring_text.text = "Great"
 			great_count += 1
 			audio_stream_player.volume_db = [-0.1, 1.3].pick_random()
 			audio_stream_player.pitch_scale = [0.7, 1.3].pick_random()
 			
 		else:
-			print("prefect")
+			scoring_text.text = "Prefect!"
 			prefect_count += 1
 			audio_stream_player.volume_db = 0
 			audio_stream_player.pitch_scale = 1
@@ -183,3 +187,6 @@ func input_check(note) -> bool:
 		return true
 	
 	return false
+
+func text_animation() -> void:
+	var tween
