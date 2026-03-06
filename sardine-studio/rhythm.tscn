@@ -1,14 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ceb5dbeodb5xh"]
+[gd_scene load_steps=7 format=3 uid="uid://ceb5dbeodb5xh"]
 
 [ext_resource type="Script" uid="uid://db5en2l64fin2" path="res://rhythm.gd" id="1_b12pq"]
-[ext_resource type="Shader" uid="uid://badv8bqa3plon" path="res://rhythm.gdshader" id="2_iw74v"]
 [ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://icon.svg" id="2_q13yt"]
 [ext_resource type="AudioStream" uid="uid://c5d5yh3tt0cqi" path="res://Golf (1).mp3" id="3_ecpmg"]
 [ext_resource type="AudioStream" uid="uid://dknuxrm7rbtev" path="res://Mr. Marc's Intro to Pop Song Structure %2B Jason Tang.ogg" id="4_ecpmg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_48mfx"]
-shader = ExtResource("2_iw74v")
-shader_parameter/blur_amount = 2.0
 
 [sub_resource type="Theme" id="Theme_b12pq"]
 
@@ -29,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
 layout_mode = 1
@@ -118,10 +116,15 @@ texture = ExtResource("2_q13yt")
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-offset_left = 693.0
-offset_top = 59.0
-offset_right = 1077.0
-offset_bottom = 170.0
+anchor_left = 0.77400005
+anchor_top = 0.279
+anchor_right = 0.77400005
+anchor_bottom = 0.279
+offset_left = -191.64807
+offset_top = -120.79201
+offset_right = 192.35193
+offset_bottom = 0.20799255
+pivot_offset = Vector2(192, 120)
 alignment = 1
 
 [node name="ScoringText" type="RichTextLabel" parent="Background/ScoringContainer"]
@@ -130,7 +133,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 48
-text = "PlaceHolder"
+fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 
@@ -140,7 +143,6 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 32
-text = "Combo 0"
 horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

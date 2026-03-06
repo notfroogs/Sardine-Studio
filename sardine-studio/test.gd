@@ -12,5 +12,10 @@ func _on_button_button_down() -> void:
 	rhythm_game.Rhythm_Game_Ended.connect(_on_Rhythm_Game_Ended)
 
 func _on_Rhythm_Game_Ended() -> void:
-	get_node("rhythm").queue_free()
+	var rhythm_game = get_node("RhythmLayer/rhythm")
+	#var tween = get_tree().create_tween()
+	#tween.tween_property(rhythm_game, "modulate", Color(34,34,34), 0.6)
+	
+	await get_tree().create_timer(5.0).timeout
+	rhythm_game.queue_free()
 	button.visible = true

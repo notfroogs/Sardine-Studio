@@ -32,6 +32,7 @@ var missed_count : int = 0
 var good_count : int = 0
 var great_count : int = 0
 var prefect_count : int = 0
+var combo : int = 0
 
 @onready var scoring_container: VBoxContainer = %ScoringContainer
 @onready var combo_text: RichTextLabel = %ComboText
@@ -44,6 +45,7 @@ func _ready():
 		chart = store_notes()
 		loaded_file.close()
 		
+	
 	note_progress = chart.duplicate()
 	#Start the timer
 	time_count = float(note_progress["Time"])
@@ -126,8 +128,12 @@ func _process(delta: float) -> void:
 			print("great: " + str(great_count))
 			print("prefect: " + str(prefect_count))
 			print("missed: " + str(missed_count))
-			await get_tree().create_timer(5.0).timeout
+			print("Max Combo: " + str(max_combo))
+			note_progress["Next"] == "Empty"
+			await get_tree().create_timer(1.0).timeout
 			Rhythm_Game_Ended.emit()
+		elif note_progress["Next"] == "Empty":
+			pass
 
 func miss_check(note) -> void:
 	if note == null:
@@ -139,6 +145,8 @@ func miss_check(note) -> void:
 		audio_stream_player.play()
 		scoring_text.text = "Missed..."
 		missed_count += 1
+		combo = 0
+		combo_check()
 
 #receive input
 func _input(event: InputEvent) -> void:
@@ -183,10 +191,41 @@ func input_check(note) -> bool:
 			audio_stream_player.volume_db = 0
 			audio_stream_player.pitch_scale = 1
 		#return true anyway if the note is intersect with the parent note
+		combo += 1
 		audio_stream_player.play()
+		text_animation()
 		return true
 	
 	return false
 
+var tween
+#var original_position : float = 60
+
 func text_animation() -> void:
-	var tween
+	if tween:
+		tween.kill()
+		#scoring_container.position.y = original_position
+		scoring_container.scale = Vector2(1,1)
+	combo_check()
+	tween = get_tree().create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	#tween.parallel().tween_property(scoring_container, "position:y", 40, 0.1)
+	tween.tween_property(scoring_container, "scale", Vector2(1.2, 1.2), 0.1)
+	#tween.parallel().tween_property(scoring_container, "position:y", 60, 0.1)
+	tween.tween_property(scoring_container, "scale", Vector2(1,1), 0.1)
+
+var max_combo : int = 0
+
+func combo_check() -> void:
+	var exclamation_marks = ""
+	if combo >= 10:
+		exclamation_marks = "!!!"
+	elif combo >= 5:
+		exclamation_marks = "!!"
+	elif combo >= 2:
+		exclamation_marks = "!"
+		
+	if combo > max_combo:
+		max_combo = combo
+	combo_text.text = ("Combo " + str(combo) + exclamation_marks)
+	
