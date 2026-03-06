@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://3e145abvtb1t"]
 
-[ext_resource type="Script" path="res://overworld/script/fighterArea.gd" id="1_y4sx8"]
-[ext_resource type="Script" path="res://overworld/script/playingArea.gd" id="2_rnw0o"]
+[ext_resource type="Script" uid="uid://d1yt8wcwmpv3e" path="res://overworld/script/fighterArea.gd" id="1_y4sx8"]
+[ext_resource type="Script" uid="uid://mxtherk2puld" path="res://overworld/script/playingArea.gd" id="2_rnw0o"]
 [ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="3_y4sx8"]
 [ext_resource type="PackedScene" uid="uid://b1wwkjfy2qeu6" path="res://overworld/scene/door.tscn" id="4_rnw0o"]
 
@@ -48,7 +48,7 @@ debug_color = Color(0.781492, 0.33965, 0.703421, 0.419608)
 [node name="door" parent="." instance=ExtResource("4_rnw0o")]
 position = Vector2(-226, 465)
 rotation = 3.14159
-scale = Vector2(7.5959, -15.44)
+scale = Vector2(4.465773, -10.568348)
 
 [node name="Node" type="Node" parent="."]
 

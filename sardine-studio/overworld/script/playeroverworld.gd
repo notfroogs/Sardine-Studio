@@ -10,7 +10,7 @@ const JUMP_VELOCITY = -500.0
 @export var jump_floats:= 1.001
 @onready var overworld_street: Node2D = $".."
 @onready var overworld: Node2D = $".."
-@onready var spawn: Marker2D = $"../Garagedoor_A/spawn"
+#@onready var spawn: Marker2D = $"../Garagedoor_A/spawn"
 
 var select
 func _physics_process(delta: float) -> void:
@@ -65,6 +65,16 @@ func _on_fighter_body_entered(_body: Node2D) -> void:
 
 func _on_door_body_entered(body: Node2D) -> void:
 	select = "b"
+	print("entered")
 
 func _on_garagedoor_body_entered(body: Node2D) -> void:
 	select = "c"
+
+func _ready() -> void:
+	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
+	
+#func _on_spawn(position: Vector2,direction:String):
+func _on_spawn(position: Vector2):
+	print("player is spawning at position: " + str(position))
+	global_position = position
+	

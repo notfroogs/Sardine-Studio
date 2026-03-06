@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://rp8q8au8j5ic"]
+[gd_scene load_steps=5 format=3 uid="uid://rp8q8au8j5ic"]
 
 [ext_resource type="PackedScene" uid="uid://nkycm6g7uev0" path="res://overworld/scene/garagedoor.tscn" id="1_mhuvx"]
+[ext_resource type="Script" uid="uid://csv077xd6c34b" path="res://overworld/script/level.gd" id="1_wknnt"]
 [ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="2_wknnt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kvxgd"]
 
 [node name="garage" type="Node2D"]
+script = ExtResource("1_wknnt")
 
 [node name="playerOverworld" parent="." instance=ExtResource("2_wknnt")]
 position = Vector2(419, 485)
@@ -27,6 +29,9 @@ shape = SubResource("WorldBoundaryShape2D_kvxgd")
 position = Vector2(1111, 432)
 desitination_room = "overworld_street"
 destination_door = "B"
+
+[node name="CollisionShape2D" parent="Garagedoor_A" index="0"]
+scale = Vector2(6.9068017, 16.131218)
 
 [node name="spawn" parent="Garagedoor_A" index="1"]
 position = Vector2(-129, 13)

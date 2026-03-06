@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://r5pd3by57hyv"]
+[gd_scene load_steps=7 format=3 uid="uid://r5pd3by57hyv"]
 
 [ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="1_aj8ov"]
+[ext_resource type="Script" uid="uid://csv077xd6c34b" path="res://overworld/script/level.gd" id="1_gt0b2"]
 [ext_resource type="PackedScene" uid="uid://b1wwkjfy2qeu6" path="res://overworld/scene/door.tscn" id="2_0r11d"]
 [ext_resource type="PackedScene" uid="uid://nkycm6g7uev0" path="res://overworld/scene/garagedoor.tscn" id="3_vvrjt"]
 
@@ -9,6 +10,8 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vvrjt"]
 
 [node name="overworldStreet" type="Node2D"]
+scale = Vector2(1.0003706, 1)
+script = ExtResource("1_gt0b2")
 
 [node name="playerOverworld" parent="." instance=ExtResource("1_aj8ov")]
 position = Vector2(559, 450)
@@ -20,6 +23,7 @@ limit_right = 1200
 
 [node name="door" parent="." instance=ExtResource("2_0r11d")]
 position = Vector2(1144, 424)
+scale = Vector2(-5.063923, 11.516021)
 
 [node name="bouduaries" type="Node" parent="."]
 
@@ -45,10 +49,16 @@ shape = SubResource("WorldBoundaryShape2D_vvrjt")
 
 [node name="Garagedoor_B" parent="." instance=ExtResource("3_vvrjt")]
 position = Vector2(-2193, 428)
-script = null
+scale = Vector2(0.59749556, 0.55597377)
+desitination_room = "garage"
+destination_door = "A"
+
+[node name="CollisionShape2D" parent="Garagedoor_B" index="0"]
+scale = Vector2(6.322452, 16.745722)
 
 [node name="spawn" parent="Garagedoor_B" index="1"]
-position = Vector2(121, -8)
+position = Vector2(292.46747, -7.1945944)
+scale = Vector2(3.7240715, 1.0770967)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
