@@ -3,6 +3,7 @@ extends Node
 
 const garage_level = preload("res://overworld/scene/garage.tscn")
 const street_level = preload("res://overworld/scene/overworld_street.tscn")
+const overworld_level = preload("res://overworld/scene/overworld.tscn")
 
  
 signal on_trigger_player_spawn
@@ -15,6 +16,8 @@ func go_to_level(level_tag, destination_tag):
 			scene_to_load = garage_level
 		"overworld_street":
 			scene_to_load = street_level
+		"overworld":
+			scene_to_load = overworld_level
 	if scene_to_load != null:
 		print("going to " + destination_tag)
 		spawn_tag = destination_tag
