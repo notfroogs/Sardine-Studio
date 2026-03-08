@@ -129,11 +129,8 @@ func _process(delta: float) -> void:
 			print("prefect: " + str(prefect_count))
 			print("missed: " + str(missed_count))
 			print("Max Combo: " + str(max_combo))
-			note_progress["Next"] == "Empty"
-			await get_tree().create_timer(1.0).timeout
 			Rhythm_Game_Ended.emit()
-		elif note_progress["Next"] == "Empty":
-			pass
+
 
 func miss_check(note) -> void:
 	if note == null:
