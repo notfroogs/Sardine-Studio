@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://whgs0t56ec8o"]
+[gd_scene load_steps=7 format=3 uid="uid://whgs0t56ec8o"]
 
 [ext_resource type="Script" uid="uid://dabs8uffx4npt" path="res://test.gd" id="1_37kl0"]
 [ext_resource type="StyleBox" uid="uid://chcj4mibg1d65" path="res://new_style_box_flat.tres" id="2_8uh7m"]
+[ext_resource type="Shader" uid="uid://d17xsue3hcswr" path="res://test.gdshader" id="3_6uqi0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8uh7m"]
 border_width_left = 1
@@ -20,6 +21,10 @@ Button/font_sizes/font_size = 48
 Button/styles/disabled = null
 Button/styles/hover = SubResource("StyleBoxFlat_8uh7m")
 Button/styles/normal = ExtResource("2_8uh7m")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ppyta"]
+shader = ExtResource("3_6uqi0")
+shader_parameter/lod = 0.0
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_37kl0")
@@ -54,61 +59,58 @@ grow_vertical = 2
 theme = SubResource("Theme_37kl0")
 text = "Start"
 
-[node name="Labels" type="Node" parent="RhythmLayer"]
+[node name="Labels" type="VBoxContainer" parent="RhythmLayer"]
+unique_name_in_owner = true
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 290.0
+grow_vertical = 2
+size_flags_vertical = 3
+alignment = 1
 
 [node name="Label" type="Label" parent="RhythmLayer/Labels"]
-visible = false
-offset_left = 88.0
-offset_top = 85.0
-offset_right = 237.0
-offset_bottom = 152.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 48
 text = "Good: "
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="RhythmLayer/Labels"]
-visible = false
-offset_left = 92.0
-offset_top = 168.0
-offset_right = 247.0
-offset_bottom = 235.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 48
 text = "Great: "
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="RhythmLayer/Labels"]
-visible = false
-offset_left = 96.0
-offset_top = 266.0
-offset_right = 275.0
-offset_bottom = 333.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 48
 text = "Prefect:"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="RhythmLayer/Labels"]
-visible = false
-offset_left = 97.0
-offset_top = 352.0
-offset_right = 272.0
-offset_bottom = 419.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 48
 text = "Missed:"
 horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="RhythmLayer/Labels"]
-visible = false
-offset_left = 92.0
-offset_top = 432.0
-offset_right = 382.0
-offset_bottom = 499.0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 48
 text = "Max Combo:"
 horizontal_alignment = 1
+
+[node name="Shader" type="ColorRect" parent="RhythmLayer"]
+unique_name_in_owner = true
+z_index = 1
+material = SubResource("ShaderMaterial_ppyta")
+offset_right = 40.0
+offset_bottom = 12.146082
+scale = Vector2(30.068855, 54.25618)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="button_down" from="RhythmLayer/Button" to="." method="_on_button_button_down"]
