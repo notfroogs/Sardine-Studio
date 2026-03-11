@@ -14,6 +14,8 @@ extends Control
 const NOTE = preload("uid://dilpgmxld0ree")
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
+var in_game = true
+
 #set up variables
 var chart :Dictionary= {}
 var note_progress
@@ -103,6 +105,9 @@ func _process(delta: float) -> void:
 	#record how much time had passed
 	time_elasped += delta
 	
+	if !in_game:
+		return
+	
 	#iterate through each column and each child and make them move
 	for column in columns.values():
 		for note in column.get_children():
@@ -123,13 +128,14 @@ func _process(delta: float) -> void:
 			note_progress = note_progress["Next"]
 			time_count = float(note_progress["Time"])
 		elif note_progress["Next"] == "END":
+			in_game = false
 			print("========")
 			print("good: " + str(good_count))
 			print("great: " + str(great_count))
 			print("prefect: " + str(prefect_count))
 			print("missed: " + str(missed_count))
 			print("Max Combo: " + str(max_combo))
-			Rhythm_Game_Ended.emit()
+			Rhythm_Game_Ended.emit([good_count, great_count, prefect_count, missed_count, max_combo])
 
 
 func miss_check(note) -> void:

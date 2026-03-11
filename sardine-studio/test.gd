@@ -5,6 +5,8 @@ const RHYTHM = preload("uid://ceb5dbeodb5xh")
 @onready var rhythm_layer: CanvasLayer = %RhythmLayer
 @onready var shader: ColorRect = %Shader
 @onready var labels: VBoxContainer = %Labels
+@onready var score: Label = %Score
+@onready var finish_button: Button = %FinishButton
 
 func _on_button_button_down() -> void:
 	button.visible = false
@@ -16,19 +18,47 @@ func _on_button_button_down() -> void:
 var tween : Tween
 var blur_material : ShaderMaterial
 
-func _on_Rhythm_Game_Ended() -> void:
-	#var rhythm_game = get_node("RhythmLayer/rhythm")
+func _on_Rhythm_Game_Ended(array) -> void:
+	var rhythm_game = get_node("RhythmLayer/rhythm")
+	get_node("RhythmLayer").move_child(rhythm_game, 2)
 	
 	await get_tree().create_timer(1.0).timeout
+	
 	if shader.material is ShaderMaterial:
 		blur_material = shader.material
 		if tween:
 			tween.kill()
 		tween = get_tree().create_tween()
-		tween.tween_method(update_Blur, 0, 2.5, 0.8)
+		tween.tween_method(update_Blur, 0, 2, 0.8)
 		
-	await get_tree().create_timer(5.0).timeout
-	#rhythm_game.queue_free()
+	await tween.finished
+	
+	labels.visible = true
+	var j = 0
+	for i in array:
+		var label = labels.get_child(j) 
+		label.text = label.name + ": " + str(i)
+		j += 1
+	var MCM
+	if array[4] <= 10:
+		MCM = 1
+	elif array[4] <= 20:
+		MCM = 1.5
+	elif array[4] <= 30:
+		MCM = 2
+	var final_score = (array[0] * 100 + array[1] *150 + array[2] * 200) * MCM
+	score.text = "Final Score: " + str(int(floor(final_score)))
+	
+	finish_button.visible = true
+	score.visible = true
+	
+	#await get_tree().create_timer(2.0).timeout
+	await finish_button.pressed
+	update_Blur(0)
+	rhythm_game.queue_free()
+	finish_button.visible = false
+	score.visible = false
+	labels.visible = false
 	button.visible = true
 
 func update_Blur(value: float):
@@ -46,3 +76,6 @@ func _ready() -> void:
 			#tween.kill()
 		#tween = get_tree().create_tween()
 		#tween.tween_method(update_Blur, 0, 2.5, 0.8)
+
+func _on_finish_button_button_down() -> void:
+	print("yes")
