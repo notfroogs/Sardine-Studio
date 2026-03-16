@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dilpgmxld0ree"]
 
-[ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://icon.svg" id="1_doocs"]
-[ext_resource type="Script" uid="uid://55npkhn01cds" path="res://note.gd" id="2_wn01w"]
+[ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://rhythm/icon.svg" id="1_doocs"]
+[ext_resource type="Script" uid="uid://55npkhn01cds" path="res://rhythm/note.gd" id="2_wn01w"]
 
 [node name="TextureRect" type="TextureRect"]
 offset_right = 40.0

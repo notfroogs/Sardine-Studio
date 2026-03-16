@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfvim7y0wwa63"]
 
-[ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://icon.svg" id="1_j8ocb"]
-[ext_resource type="Script" uid="uid://55npkhn01cds" path="res://note.gd" id="2_bbdas"]
+[ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://rhythm/icon.svg" id="1_j8ocb"]
+[ext_resource type="Script" uid="uid://55npkhn01cds" path="res://rhythm/note.gd" id="2_bbdas"]
 
 [node name="TextureRect" type="TextureRect"]
 self_modulate = Color(18.892, 18.892, 18.892, 1)
