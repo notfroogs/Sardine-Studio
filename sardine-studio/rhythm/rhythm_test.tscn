@@ -1,0 +1,182 @@
+[gd_scene load_steps=10 format=3 uid="uid://whgs0t56ec8o"]
+
+[ext_resource type="Script" uid="uid://dabs8uffx4npt" path="res://rhythm/rhythm_test.gd" id="1_qicsp"]
+[ext_resource type="StyleBox" uid="uid://chcj4mibg1d65" path="res://rhythm/new_style_box_flat.tres" id="2_7j5bx"]
+[ext_resource type="Shader" uid="uid://d17xsue3hcswr" path="res://rhythm/test.gdshader" id="3_84tev"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8uh7m"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="Theme" id="Theme_37kl0"]
+Button/font_sizes/font_size = 48
+Button/styles/disabled = null
+Button/styles/hover = SubResource("StyleBoxFlat_8uh7m")
+Button/styles/normal = ExtResource("2_7j5bx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ppyta"]
+shader = ExtResource("3_84tev")
+shader_parameter/lod = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppyta"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uqi0"]
+bg_color = Color(0.40260392, 0.40260386, 0.40260386, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="Theme" id="Theme_ppyta"]
+Button/styles/hover = SubResource("StyleBoxFlat_ppyta")
+Button/styles/normal = ExtResource("2_7j5bx")
+Button/styles/pressed = SubResource("StyleBoxFlat_6uqi0")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_qicsp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 328)
+
+[node name="RhythmLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="TextureRect" type="ColorRect" parent="RhythmLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9757137, 1, 0.8171978, 1)
+
+[node name="Button" type="Button" parent="RhythmLayer"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -26.0
+offset_right = 57.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_37kl0")
+text = "Start"
+
+[node name="Shader" type="ColorRect" parent="RhythmLayer"]
+unique_name_in_owner = true
+z_index = 1
+material = SubResource("ShaderMaterial_ppyta")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(30.068855, 54.25618)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Node" type="Node" parent="RhythmLayer"]
+
+[node name="Labels" type="VBoxContainer" parent="RhythmLayer/Node"]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 290.0
+grow_vertical = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Good" type="Label" parent="RhythmLayer/Node/Labels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Good: "
+horizontal_alignment = 1
+
+[node name="Great" type="Label" parent="RhythmLayer/Node/Labels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Great: "
+horizontal_alignment = 1
+
+[node name="Prefect" type="Label" parent="RhythmLayer/Node/Labels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Prefect:"
+horizontal_alignment = 1
+
+[node name="Missed" type="Label" parent="RhythmLayer/Node/Labels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Missed:"
+horizontal_alignment = 1
+
+[node name="Max Combo" type="Label" parent="RhythmLayer/Node/Labels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Max Combo:"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="RhythmLayer/Node"]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+offset_left = 597.0
+offset_top = 408.0
+offset_right = 1010.0
+offset_bottom = 475.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Final score: "
+
+[node name="FinishButton" type="Button" parent="RhythmLayer/Node"]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+z_as_relative = false
+offset_left = 870.0
+offset_top = 491.0
+offset_right = 951.0
+offset_bottom = 537.5
+mouse_behavior_recursive = 2
+theme = SubResource("Theme_ppyta")
+theme_override_font_sizes/font_size = 24
+text = "Finish"
+
+[connection signal="button_down" from="RhythmLayer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="RhythmLayer/Node/FinishButton" to="." method="_on_finish_button_button_down"]

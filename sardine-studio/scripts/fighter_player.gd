@@ -19,9 +19,6 @@ var increased_gravity = 20000
 @export var jump_floats:= 1.001
 @onready var collision_shape_2d: Facing = $hitBox/CollisionShape2D
 
-
-
-
 signal player_hit
 signal player_direction_changes(facing_right: bool)
 func _physics_process(delta: float) -> void:

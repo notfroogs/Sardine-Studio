@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://t41qm3ulac4h"]
+
+[ext_resource type="Script" uid="uid://ce3cctma27lo4" path="res://rhythm/note_t.gd" id="1_1hglm"]
+[ext_resource type="PackedScene" uid="uid://do2g4hshdgpij" path="res://rhythm/sub_viewport.tscn" id="2_tus1l"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_aksog"]
+viewport_path = NodePath("SubViewport")
+
+[node name="note_t" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1hglm")
+
+[node name="SubViewport" parent="." instance=ExtResource("2_tus1l")]
+size = Vector2i(768, 128)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("ViewportTexture_aksog")
