@@ -1,0 +1,156 @@
+[gd_scene load_steps=7 format=3 uid="uid://ceb5dbeodb5xh"]
+
+[ext_resource type="Script" uid="uid://db5en2l64fin2" path="res://rhythm.gd" id="1_b12pq"]
+[ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://icon.svg" id="2_q13yt"]
+[ext_resource type="AudioStream" uid="uid://c5d5yh3tt0cqi" path="res://Golf (1).mp3" id="3_ecpmg"]
+[ext_resource type="AudioStream" uid="uid://dknuxrm7rbtev" path="res://Mr. Marc's Intro to Pop Song Structure %2B Jason Tang.ogg" id="4_ecpmg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_48mfx"]
+
+[sub_resource type="Theme" id="Theme_b12pq"]
+
+[node name="rhythm" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b12pq")
+
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_48mfx")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+offset_left = 92.0
+offset_right = 97.0
+color = Color(0, 0, 0, 1)
+
+[node name="NoteColumn1" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.47843137)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -611.0
+offset_right = 173.0
+offset_bottom = -483.0
+grow_vertical = 0
+pivot_offset = Vector2(463, 384)
+theme = SubResource("Theme_b12pq")
+texture = ExtResource("2_q13yt")
+
+[node name="NoteColumn2" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+modulate = Color(1, 0.41000003, 0.41000003, 1)
+self_modulate = Color(1, 1, 1, 0.47843137)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -464.03
+offset_right = 173.0
+offset_bottom = -336.02975
+grow_vertical = 0
+pivot_offset = Vector2(463, 384)
+texture = ExtResource("2_q13yt")
+
+[node name="NoteColumn3" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+modulate = Color(0.73031694, 0.62219363, 0.27616376, 1)
+self_modulate = Color(1, 1, 1, 0.47843137)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -320.0
+offset_right = 173.0
+offset_bottom = -191.99976
+grow_vertical = 0
+pivot_offset = Vector2(463, 384)
+texture = ExtResource("2_q13yt")
+
+[node name="NoteColumn4" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+modulate = Color(0, 0.67040724, 0.99541897, 1)
+self_modulate = Color(1, 1, 1, 0.47843137)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -175.0
+offset_right = 173.0
+offset_bottom = -46.999756
+grow_vertical = 0
+pivot_offset = Vector2(463, 384)
+texture = ExtResource("2_q13yt")
+
+[node name="ColumnEmpty" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+modulate = Color(1, 0.41000003, 0.41000003, 1)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 45.0
+offset_top = 225.0
+offset_right = 173.0
+offset_bottom = 353.00024
+pivot_offset = Vector2(463, 384)
+texture = ExtResource("2_q13yt")
+
+[node name="ScoringContainer" type="VBoxContainer" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.77400005
+anchor_top = 0.279
+anchor_right = 0.77400005
+anchor_bottom = 0.279
+offset_left = -191.64807
+offset_top = -120.79201
+offset_right = 192.35193
+offset_bottom = 0.20799255
+pivot_offset = Vector2(192, 120)
+alignment = 1
+
+[node name="ScoringText" type="RichTextLabel" parent="Background/ScoringContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 48
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="ComboText" type="RichTextLabel" parent="Background/ScoringContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_ecpmg")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_ecpmg")
+volume_db = -9.541
+autoplay = true
