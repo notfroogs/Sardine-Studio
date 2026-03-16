@@ -43,7 +43,7 @@ script = ExtResource("2_rnw0o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playing"]
 position = Vector2(1005, 459)
-scale = Vector2(1.48075, 1.15842)
+scale = Vector2(1.1419663, 1.1774518)
 shape = SubResource("RectangleShape2D_u1jrv")
 debug_color = Color(0.781492, 0.33965, 0.703421, 0.419608)
 
@@ -88,5 +88,6 @@ position = Vector2(252.892, 6.75468)
 scale = Vector2(1.21078, 0.744761)
 
 [connection signal="body_entered" from="fighter" to="playerOverworld" method="_on_fighter_body_entered"]
+[connection signal="body_entered" from="playing" to="playerOverworld" method="_on_playing_body_entered"]
 
 [editable path="Garagedoor_D"]

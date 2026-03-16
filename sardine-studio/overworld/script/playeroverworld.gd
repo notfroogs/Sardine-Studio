@@ -50,8 +50,9 @@ func _input(event: InputEvent) -> void:
 				if scene_name == "overworldStreet":
 					get_tree().change_scene_to_file("res://overworld/scene/overworld.tscn")
 				elif scene_name == "overworld":
-					#fixx this idk why this is null
-					get_tree().change_scene_to_file("res://overworld/scene/overworld_street.tscn")
+					
+					get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
+
 		if select== "c":
 			if scene_name == "garage":
 				get_tree().change_scene_to_file("res://overworld/scene/overworld_street.tscn")   
@@ -78,3 +79,7 @@ func _on_spawn(position: Vector2):
 	print("player is spawning at position: " + str(position))
 	global_position = position
 	
+
+
+func _on_playing_body_entered(body: Node2D) -> void:
+	select = "b"

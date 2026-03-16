@@ -11,7 +11,7 @@ const RHYTHM = preload("uid://ceb5dbeodb5xh")
 func _on_button_button_down() -> void:
 	button.visible = false
 	var rhythm_game = RHYTHM.instantiate()
-	rhythm_game.chart_text = "res://chart1.txt"
+	rhythm_game.chart_text = "res://rhythm/chart1.txt"
 	rhythm_layer.add_child(rhythm_game)
 	rhythm_game.Rhythm_Game_Ended.connect(_on_Rhythm_Game_Ended)
 
