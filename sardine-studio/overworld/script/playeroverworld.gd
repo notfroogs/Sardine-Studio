@@ -12,7 +12,7 @@ const JUMP_VELOCITY = -500.0
 @onready var overworld: Node2D = $".."
 #@onready var spawn: Marker2D = $"../Garagedoor_A/spawn"
 
-var select
+#var select
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -42,34 +42,47 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("attack"):
 		var scene_name = get_tree().current_scene.name
-		if select == "a":
-				print("a")
-				get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
-		if select == "b":
-				print('B')
-				if scene_name == "overworldStreet":
-					get_tree().change_scene_to_file("res://overworld/scene/overworld.tscn")
-				elif scene_name == "overworld":
-					
-					get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
-
-		if select== "c":
-			if scene_name == "garage":
-				get_tree().change_scene_to_file("res://overworld/scene/overworld_street.tscn")   
-			if scene_name == "overworldStreet":
-				get_tree().change_scene_to_file("res://overworld/scene/garage.tscn")
+		
+		#For every door in the group of "level select"
+		for selection in get_tree().get_nodes_in_group("level_select"):
 			
-	
-func _on_fighter_body_entered(_body: Node2D) -> void:
-	select = "a"
-
-
-func _on_door_body_entered(body: Node2D) -> void:
-	select = "b"
-	print("entered")
-
-func _on_garagedoor_body_entered(body: Node2D) -> void:
-	select = "c"
+			#if the position of the player's character is +-70 near the selection node
+			if abs(selection.global_position - global_position).x < 70:
+				#save the current scene name so that it can return back the scene 
+				#that it came from after the game is ended 
+				NavigationManager.previous_level = scene_name
+				
+				match scene_name:
+					"overworld":
+						
+						#the election.name is its name in the scene tree
+						match selection.name:
+							"fighter":
+								get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
+							"playing":
+								get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
+					
+					#expand scene_name's case further if needed
+					
+					
+		#if select == "a":
+				#print("a")
+				#NavigationManager.previous_level = "overworld"
+				#get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
+		#if select == "b":
+				#print('B')
+				#if scene_name == "overworldStreet":
+					#get_tree().change_scene_to_file("res://overworld/scene/overworld.tscn")
+				#elif scene_name == "overworld":
+					#NavigationManager.previous_level = "overworld"
+					#get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
+#
+		#if select== "c":
+			#if scene_name == "garage":
+				#get_tree().change_scene_to_file("res://overworld/scene/overworld_street.tscn")   
+			#if scene_name == "overworldStreet":
+				#get_tree().change_scene_to_file("res://overworld/scene/garage.tscn")
+			#
 
 func _ready() -> void:
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
@@ -79,7 +92,3 @@ func _on_spawn(position: Vector2):
 	print("player is spawning at position: " + str(position))
 	global_position = position
 	
-
-
-func _on_playing_body_entered(body: Node2D) -> void:
-	select = "b"

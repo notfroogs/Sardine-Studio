@@ -28,21 +28,22 @@ position = Vector2(-18, -180)
 limit_left = -350
 limit_right = 1200
 
-[node name="fighter" type="Area2D" parent="."]
-position = Vector2(132, 428)
+[node name="fighter" type="Area2D" parent="." groups=["level_select"]]
+position = Vector2(137, 468.99997)
 scale = Vector2(6.39084, 12.2466)
 script = ExtResource("1_y4sx8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fighter"]
-position = Vector2(0.469422, 2.61296)
+position = Vector2(1.1920929e-07, 0.32662344)
 shape = SubResource("RectangleShape2D_7426y")
 debug_color = Color(0.88178, 0.260454, 0.548091, 0.419608)
 
-[node name="playing" type="Area2D" parent="."]
+[node name="playing" type="Area2D" parent="." groups=["level_select"]]
+position = Vector2(1020, 459)
 script = ExtResource("2_rnw0o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playing"]
-position = Vector2(1005, 459)
+position = Vector2(-1, 2)
 scale = Vector2(1.1419663, 1.1774518)
 shape = SubResource("RectangleShape2D_u1jrv")
 debug_color = Color(0.781492, 0.33965, 0.703421, 0.419608)
@@ -86,8 +87,5 @@ destination_door = "C"
 [node name="spawn" parent="Garagedoor_D" index="1"]
 position = Vector2(252.892, 6.75468)
 scale = Vector2(1.21078, 0.744761)
-
-[connection signal="body_entered" from="fighter" to="playerOverworld" method="_on_fighter_body_entered"]
-[connection signal="body_entered" from="playing" to="playerOverworld" method="_on_playing_body_entered"]
 
 [editable path="Garagedoor_D"]

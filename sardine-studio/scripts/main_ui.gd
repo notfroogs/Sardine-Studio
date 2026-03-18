@@ -16,11 +16,17 @@ func _process(delta: float) -> void:
 
 func _on_enemyhpbar_value_changed(value: float) -> void:
 	if enemyHp.value <= 0.0:
-		print("lose")
-		get_tree().reload_current_scene()
+		print("win")
+		restart()
 
 
 func _on_playerhpbar_value_changed(value: float) -> void:
 	if playerHp.value <= 0.0:
 		print("lose")
+		restart()
+
+func restart() -> void:
+	if NavigationManager.previous_level != null:
+		NavigationManager.go_to_level(NavigationManager.previous_level, null)
+	else:
 		get_tree().reload_current_scene()

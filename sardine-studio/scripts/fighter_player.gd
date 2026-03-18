@@ -17,7 +17,7 @@ var increased_gravity = 20000
 @export var deacceleration := 1100.0
 @export var fast_fall_speed := 2.0
 @export var jump_floats:= 1.001
-@onready var collision_shape_2d: Facing = $hitBox/CollisionShape2D
+#@onready var collision_shape_2d: Facing = $hitBox/CollisionShape2D
 
 signal player_hit
 signal player_direction_changes(facing_right: bool)
@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	#Player wornt deaccelrate fast enouggh fix this.
 	var direction_x := Input.get_axis("move_left", "move_right")
-	var has_input_direction := direction_x !=0
+	var has_input_direction : bool = direction_x !=0
 	if has_input_direction:
 		var desired_velocity_x = direction_x * max_speed
 		velocity.x = move_toward(velocity.x, desired_velocity_x, acceleration * delta)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://bfudmbw4otc20"]
 
-[ext_resource type="Script" path="res://scripts/fighter_player.gd" id="1_1q20e"]
+[ext_resource type="Script" uid="uid://6fnnejebw4wk" path="res://scripts/fighter_player.gd" id="1_1q20e"]
 [ext_resource type="Texture2D" uid="uid://dvgwkl5j4nsqo" path="res://assets/test image.png" id="2_3wsqv"]
-[ext_resource type="Script" path="res://scripts/playerhurtbox.gd" id="3_ugsaf"]
-[ext_resource type="Script" path="res://scripts/playerhitbox.gd" id="4_gfoxi"]
-[ext_resource type="Script" path="res://scripts/flipingcollisionshape.gd" id="5_0lss2"]
+[ext_resource type="Script" uid="uid://bm26kilkcgdqo" path="res://scripts/playerhurtbox.gd" id="3_ugsaf"]
+[ext_resource type="Script" uid="uid://cocj5yiahbbmd" path="res://scripts/playerhitbox.gd" id="4_gfoxi"]
+[ext_resource type="Script" uid="uid://brhv85fiui0eq" path="res://scripts/flipingcollisionshape.gd" id="5_0lss2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0lss2"]
 

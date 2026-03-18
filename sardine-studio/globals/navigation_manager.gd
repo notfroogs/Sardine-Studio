@@ -9,6 +9,8 @@ const overworld_level = preload("res://overworld/scene/overworld.tscn")
 signal on_trigger_player_spawn
 var spawn_tag
 
+var previous_level
+
 func go_to_level(level_tag, destination_tag):
 	var scene_to_load
 	match level_tag:
@@ -19,7 +21,7 @@ func go_to_level(level_tag, destination_tag):
 		"overworld":
 			scene_to_load = overworld_level
 	if scene_to_load != null:
-		print("going to " + destination_tag)
+		print("going to " + str(destination_tag))
 		spawn_tag = destination_tag
 		get_tree().change_scene_to_packed(scene_to_load)
 	else:

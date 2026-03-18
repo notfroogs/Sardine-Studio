@@ -59,7 +59,11 @@ func _on_Rhythm_Game_Ended(array) -> void:
 	finish_button.visible = false
 	score.visible = false
 	labels.visible = false
-	button.visible = true
+	
+	if NavigationManager.previous_level != null:
+		NavigationManager.go_to_level(NavigationManager.previous_level, null)
+	else:
+		button.visible = true
 
 func update_Blur(value: float):
 	blur_material.set_shader_parameter("lod", value)
@@ -76,6 +80,3 @@ func _ready() -> void:
 			#tween.kill()
 		#tween = get_tree().create_tween()
 		#tween.tween_method(update_Blur, 0, 2.5, 0.8)
-
-func _on_finish_button_button_down() -> void:
-	print("yes")

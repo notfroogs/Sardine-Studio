@@ -71,7 +71,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.9757137, 1, 0.8171978, 1)
+color = Color(0.9764706, 1, 0.8156863, 1)
 
 [node name="Button" type="Button" parent="RhythmLayer"]
 unique_name_in_owner = true
