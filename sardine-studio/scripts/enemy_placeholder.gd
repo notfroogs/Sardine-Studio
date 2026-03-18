@@ -12,12 +12,14 @@ var current_state = State.FREE
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var hitbox_collision: CollisionShape2D = $hitBox/CollisionShape2D
-var in_hit_box
-var player
-var hit
 @onready var hit_box: HitBoxA = $hitBox
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
+
+var player
+func _ready() -> void:
+	if get_node("../fighterPlayer") != null:
+		player = $"../fighterPlayer"
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -28,7 +30,6 @@ func _physics_process(delta: float) -> void:
 		State.ATTACKING:
 			velocity.x = 0
 			move_and_slide()
-	
 
 var attack_counting : float = 0
 
@@ -66,50 +67,6 @@ func change_state(new_state):
 			animation_player.play("attack")
 		State.FREE:
 			pass
-
-func _ready() -> void:
-	if get_node("../fighterPlayer") != null:
-		player = $"../fighterPlayer"
-	
-	
-func take_dammage(amount:int) -> void:
-	if hit == true:
-		print("Enemy dammage: ", amount)
-		get_parent().get_node("CanvasLayer/main ui/enemyhpbar").value -= amount
-	if hit == false:
-		return
-#func _win() -> void:
-	if get_parent().get_node("CanvasLayer/main ui/enemyhpbar").value == 0.0:
-		pass
-		#print("win")
-		#get_tree().reload_current_scene()
-	
-func _input(event: InputEvent) -> void:
-	#if event.is_action("crouch"):
-		pass
-		#var areas = hit_box.get_overlapping_areas()
-		#for area in areas:
-			#print(area.get_classname())
-			#if area.is_class("HurtBoxB"):
-				#print("yes")
-				##$"../main ui"
-
-func _on_fighter_player_player_hit() -> void:
-	hit = true
-	if in_hit_box==false:
-		print("nohitbox")
-	elif in_hit_box == true: 
-		take_dammage(10)
-
-
-
-
-func _on_hurtbox_area_entered(area: HitBoxB) -> void:
-	in_hit_box = true
-
-func _on_hurtbox_area_exited(area: HitBoxB) -> void:
-	in_hit_box = false
-
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":
