@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://nkycm6g7uev0"]
+
+[ext_resource type="Script" path="res://overworld/script/door.gd" id="1_5r6t1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ns4o"]
+
+[node name="Garagedoor" type="Area2D"]
+script = ExtResource("1_5r6t1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(7.76007, 18.0464)
+shape = SubResource("RectangleShape2D_6ns4o")
+debug_color = Color(0.571062, 0.540927, 0.366842, 0.419608)
+
+[node name="spawn" type="Marker2D" parent="."]
+position = Vector2(0, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

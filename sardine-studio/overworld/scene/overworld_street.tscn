@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://r5pd3by57hyv"]
+
+[ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="1_aj8ov"]
+[ext_resource type="Script" uid="uid://csv077xd6c34b" path="res://overworld/script/level.gd" id="1_gt0b2"]
+[ext_resource type="PackedScene" uid="uid://nkycm6g7uev0" path="res://overworld/scene/garagedoor.tscn" id="3_vvrjt"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0r11d"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vvrjt"]
+
+[node name="overworldStreet" type="Node2D"]
+scale = Vector2(1.00037, 1)
+script = ExtResource("1_gt0b2")
+
+[node name="playerOverworld" parent="." instance=ExtResource("1_aj8ov")]
+position = Vector2(559, 450)
+
+[node name="Camera2D" type="Camera2D" parent="playerOverworld"]
+position = Vector2(9, -160)
+limit_left = -2300
+limit_right = 1200
+
+[node name="bouduaries" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="bouduaries"]
+position = Vector2(182, 572)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bouduaries/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_0r11d")
+
+[node name="left" type="StaticBody2D" parent="bouduaries"]
+position = Vector2(1291, 425)
+rotation = -1.57138
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bouduaries/left"]
+shape = SubResource("WorldBoundaryShape2D_vvrjt")
+
+[node name="right" type="StaticBody2D" parent="bouduaries"]
+position = Vector2(-2272, 391)
+rotation = -4.7114
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bouduaries/right"]
+shape = SubResource("WorldBoundaryShape2D_vvrjt")
+
+[node name="Garagedoor_B" parent="." instance=ExtResource("3_vvrjt")]
+position = Vector2(-2193, 428)
+scale = Vector2(0.597496, 0.555974)
+desitination_room = "garage"
+destination_door = "A"
+
+[node name="CollisionShape2D" parent="Garagedoor_B" index="0"]
+scale = Vector2(6.32245, 16.7457)
+
+[node name="spawn" parent="Garagedoor_B" index="1"]
+position = Vector2(292.467, -7.19459)
+scale = Vector2(3.72407, 1.0771)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 48
+text = "Street"
+
+[node name="Garagedoor_C" parent="." instance=ExtResource("3_vvrjt")]
+position = Vector2(1143.58, 403)
+scale = Vector2(0.502713, 0.703717)
+desitination_room = "overworld"
+destination_door = "D"
+
+[node name="spawn" parent="Garagedoor_C" index="1"]
+position = Vector2(-250.547, 11.3682)
+
+[connection signal="body_entered" from="Garagedoor_B" to="playerOverworld" method="_on_garagedoor_body_entered"]
+
+[editable path="Garagedoor_B"]
+[editable path="Garagedoor_C"]
