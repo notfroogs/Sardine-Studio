@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqfdcje8tdvyi"]
+[gd_scene load_steps=8 format=3 uid="uid://dqfdcje8tdvyi"]
 
-[ext_resource type="Shader" uid="uid://brspwbty72y51" path="res://pause_screen_test.gdshader" id="1_gkx8r"]
+[ext_resource type="Shader" uid="uid://brspwbty72y51" path="res://pauseScreen/pause_screen_test.gdshader" id="1_gkx8r"]
+[ext_resource type="Script" uid="uid://w3st0nr2n5fh" path="res://pauseScreen/pause_screen.gd" id="1_xydie"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ct6ak"]
 content_margin_left = 20.0
@@ -21,6 +22,9 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="FontFile" id="FontFile_ct6ak"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -191,8 +195,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_ct6ak")
+script = ExtResource("1_xydie")
 
 [node name="BlurColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_hs1x1")
 layout_mode = 1
 anchors_preset = 15
@@ -202,6 +208,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="UIPanelContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -233,9 +240,11 @@ size_flags_vertical = 3
 layout_mode = 2
 
 [node name="ResumeButton" type="Button" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Resume"
 
 [node name="QuitButton" type="Button" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"

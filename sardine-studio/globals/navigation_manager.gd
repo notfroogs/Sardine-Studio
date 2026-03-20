@@ -1,10 +1,8 @@
 extends Node
 
-
 const garage_level = preload("res://overworld/scene/garage.tscn")
 const street_level = preload("res://overworld/scene/overworld_street.tscn")
 const overworld_level = preload("res://overworld/scene/overworld.tscn")
-
  
 signal on_trigger_player_spawn
 var spawn_tag

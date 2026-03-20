@@ -12,12 +12,14 @@ var increased_gravity = 20000
 @onready var hurtbox: CollisionShape2D = $hurtbox/CollisionShape2D
 @onready var state_machine: Node2D = $StateMachine
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var hit_box:= $hitBox
 @export var max_speed= 1050.0
 @export var acceleration := 1300.0
 @export var deacceleration := 1100.0
 @export var fast_fall_speed := 2.0
 @export var jump_floats:= 1.001
 #@onready var collision_shape_2d: Facing = $hitBox/CollisionShape2D
+
 
 signal player_hit
 signal player_direction_changes(facing_right: bool)
@@ -71,8 +73,10 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
-		print("hit")
-		emit_signal("player_hit")
+		var areas_in_hit_box = hit_box.get_overlapping_areas()
+		if  areas_in_hit_box != []:
+			if get_parent().get_node("CanvasLayer/main ui/enemyhpbar") != null:
+				get_parent().get_node("CanvasLayer/main ui/enemyhpbar").value -= 10
 		hurtbox.set_deferred("disable", true)
 	if hurtbox.disabled == true:
 		print("noHitnox")
@@ -80,8 +84,7 @@ func _input(event: InputEvent) -> void:
 
 #func _on_area_2d_body_entered(body: Node2D) -> void:
 	#pass # Replace with function body.
-func take_dammage(amount:int) -> void:
-	print("player dammage: ", amount)
+
 func ready():
 	pass
 #func _physics(delta): state_machine.process_frame(delta)
