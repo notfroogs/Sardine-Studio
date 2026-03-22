@@ -55,7 +55,7 @@ func _input(event: InputEvent) -> void:
 				match scene_name:
 					"overworld":
 						
-						#the election.name is its name in the scene tree
+						#the selection.name is its name in the scene tree
 						match selection.name:
 							"fighter":
 								get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
