@@ -11,7 +11,7 @@ const RHYTHM = preload("uid://ceb5dbeodb5xh")
 func _on_button_button_down() -> void:
 	button.visible = false
 	var rhythm_game = RHYTHM.instantiate()
-	rhythm_game.chart_text = "res://chart1.txt"
+	rhythm_game.chart_text = "res://rhythm/chart1.txt"
 	rhythm_layer.add_child(rhythm_game)
 	rhythm_game.Rhythm_Game_Ended.connect(_on_Rhythm_Game_Ended)
 
@@ -59,7 +59,11 @@ func _on_Rhythm_Game_Ended(array) -> void:
 	finish_button.visible = false
 	score.visible = false
 	labels.visible = false
-	button.visible = true
+	
+	if NavigationManager.previous_level != null:
+		NavigationManager.go_to_level(NavigationManager.previous_level, null)
+	else:
+		button.visible = true
 
 func update_Blur(value: float):
 	blur_material.set_shader_parameter("lod", value)
@@ -76,6 +80,3 @@ func _ready() -> void:
 			#tween.kill()
 		#tween = get_tree().create_tween()
 		#tween.tween_method(update_Blur, 0, 2.5, 0.8)
-
-func _on_finish_button_button_down() -> void:
-	print("yes")

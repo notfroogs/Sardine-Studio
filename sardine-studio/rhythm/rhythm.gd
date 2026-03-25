@@ -1,7 +1,7 @@
 extends Control
 
 #get the chart "res://chart2.txt"
-@export var chart_text := "res://chart1.txt"
+@export var chart_text := "res://rhythm/chart1.txt"
 #instantiate nodes
 @onready var note_column_1: TextureRect = %NoteColumn1
 @onready var note_column_2: TextureRect = %NoteColumn2

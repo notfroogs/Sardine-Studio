@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://whgs0t56ec8o"]
 
-[ext_resource type="Script" uid="uid://dabs8uffx4npt" path="res://rhythm/rhythm_test.gd" id="1_kfbhu"]
-[ext_resource type="StyleBox" uid="uid://chcj4mibg1d65" path="res://rhythm/new_style_box_flat.tres" id="2_4pwai"]
-[ext_resource type="Shader" uid="uid://d17xsue3hcswr" path="res://rhythm/test.gdshader" id="3_r70ig"]
+[ext_resource type="Script" uid="uid://dabs8uffx4npt" path="res://rhythm/rhythm_test.gd" id="1_qicsp"]
+[ext_resource type="StyleBox" uid="uid://chcj4mibg1d65" path="res://rhythm/new_style_box_flat.tres" id="2_7j5bx"]
+[ext_resource type="Shader" uid="uid://d17xsue3hcswr" path="res://rhythm/test.gdshader" id="3_84tev"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8uh7m"]
 border_width_left = 1
@@ -20,10 +20,10 @@ expand_margin_right = 10.0
 Button/font_sizes/font_size = 48
 Button/styles/disabled = null
 Button/styles/hover = SubResource("StyleBoxFlat_8uh7m")
-Button/styles/normal = ExtResource("2_4pwai")
+Button/styles/normal = ExtResource("2_7j5bx")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ppyta"]
-shader = ExtResource("3_r70ig")
+shader = ExtResource("3_84tev")
 shader_parameter/lod = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppyta"]
@@ -53,11 +53,11 @@ expand_margin_right = 10.0
 
 [sub_resource type="Theme" id="Theme_ppyta"]
 Button/styles/hover = SubResource("StyleBoxFlat_ppyta")
-Button/styles/normal = ExtResource("2_4pwai")
+Button/styles/normal = ExtResource("2_7j5bx")
 Button/styles/pressed = SubResource("StyleBoxFlat_6uqi0")
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_kfbhu")
+script = ExtResource("1_qicsp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 328)
@@ -71,7 +71,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.9757137, 1, 0.8171978, 1)
+color = Color(0.9764706, 1, 0.8156863, 1)
 
 [node name="Button" type="Button" parent="RhythmLayer"]
 unique_name_in_owner = true

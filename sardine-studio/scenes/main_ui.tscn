@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmtlvunxru0nq"]
+
+[ext_resource type="Script" uid="uid://bh3q605jpso30" path="res://scripts/main_ui.gd" id="1_fnul3"]
+
+[node name="main ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fnul3")
+
+[node name="enemyhpbar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5277778
+anchor_top = 0.049382716
+anchor_right = 0.9704861
+anchor_bottom = 0.14814813
+value = 50.0
+metadata/_edit_use_anchors_ = true
+
+[node name="playerhpbar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.027777778
+anchor_top = 0.049382716
+anchor_right = 0.4722222
+anchor_bottom = 0.14814813
+value = 50.0
+fill_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="value_changed" from="enemyhpbar" to="." method="_on_enemyhpbar_value_changed"]
+[connection signal="value_changed" from="playerhpbar" to="." method="_on_playerhpbar_value_changed"]

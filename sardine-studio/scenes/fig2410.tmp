@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cneodudkpu546"]
+
+[ext_resource type="PackedScene" uid="uid://bfudmbw4otc20" path="res://scenes/fighter_player.tscn" id="1_3atyq"]
+[ext_resource type="Script" path="res://scripts/fighter_main.gd" id="1_ln0nl"]
+[ext_resource type="PackedScene" uid="uid://ca03l6ss6iv6b" path="res://scenes/enemy_placeholder.tscn" id="3_wqw35"]
+[ext_resource type="PackedScene" uid="uid://cmtlvunxru0nq" path="res://scenes/main_ui.tscn" id="4_f3bfk"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nn4mn"]
+
+[node name="fighterMain" type="Node2D"]
+script = ExtResource("1_ln0nl")
+
+[node name="fighterPlayer" parent="." groups=["playerF"] instance=ExtResource("1_3atyq")]
+position = Vector2(227, 312)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-15, 554)
+rotation = 1.58305
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_nn4mn")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1187, 531)
+rotation = 4.70562
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_nn4mn")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(266, 553)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_nn4mn")
+
+[node name="enemy placeholder" parent="." instance=ExtResource("3_wqw35")]
+position = Vector2(910, 324)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="main ui" parent="CanvasLayer" instance=ExtResource("4_f3bfk")]
+
+[connection signal="player_hit" from="fighterPlayer" to="enemy placeholder" method="_on_fighter_player_player_hit"]

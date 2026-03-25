@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1wwkjfy2qeu6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aj8ov"]
+
+[node name="door" type="Area2D"]
+scale = Vector2(-7.5959, 15.44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aj8ov")
+debug_color = Color(0.491773, 0.580538, 0.188653, 0.419608)
