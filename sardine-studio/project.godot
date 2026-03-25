@@ -25,6 +25,10 @@ PauseScreenTest="*res://globals/pause_screen_test.tscn"
 window/size/mode=2
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+note=""
+
 [input]
 
 move_left={

@@ -18,7 +18,7 @@ var in_game = true
 
 #set up variables
 var chart = []
-var note_progress := 0
+var note_progress
 var time_count : float
 @onready var columns = {
 	1: note_column_1,
@@ -44,52 +44,69 @@ func _ready():
 	#in case of error
 	if loaded_file != null:
 		#convert the document into dictionary
-		store_note()
+		chart = store_notes()
 		loaded_file.close()
 		
-	#note_progress = chart.duplicate()
+	
+	note_progress = chart.duplicate()
 	#Start the timer
-	time_count = float(chart[note_progress]["Time"])
+	time_count = float(note_progress["Time"])
+	
+#It's a recursive function so that we can store everything in a dictionary
+func store_notes() -> Dictionary:
+	#get the current line and turn it into a dictionary
+	var current_note = {}
+	var current_line = loaded_file.get_line()
+	##print(current_line)
+	
+	#special case for the end
+	if current_line == "END":
+		return {"Time": 5.0,
+		"Column": 10,
+		"Next": "END"
+		}
+		
+	#split the line into an array
+	var current_line_array = current_line.split(",")
+	#and use iteration to store them with corresponding key
+	for i in len(keys):
+		current_note[keys[i].strip_edges()] = current_line_array[i].strip_edges()
+	#recur
+	current_note["Next"] = store_notes()
+	return current_note
 
-func store_note():
-	#iterate until there are no more line that hadn't been read
+func back_up():
 	while loaded_file.get_position() < loaded_file.get_length():
 		var current_note = {}
 		var current_line = loaded_file.get_line()
-		if current_line == "END":
-			break
-		#split the line into an array
 		var current_line_array = current_line.split(",")
 		#and use iteration to store them with corresponding key
 		for i in len(keys):
 			current_note[keys[i].strip_edges()] = current_line_array[i].strip_edges()
-		
-		#append the dictionary into the array
 		chart.append(current_note)
-	chart.append("END")
 
 #function for generating note
 func generate() -> void:
 	#check if the note is ending
-	if type_string(typeof(chart[note_progress])) == "String":
-		if chart[note_progress] == "END":
+	if type_string(typeof(note_progress["Next"])) == "String":
+		if note_progress["Next"] == "END":
 			return
 	
 	var icon = NOTE.instantiate()
 	#set up the speed and add them to corresponse column
-	icon.speed = float(chart[note_progress]["Speed"])/10.0
-	columns[int(chart[note_progress]["Column"])].add_child(icon)
+	icon.speed = float(note_progress["Speed"])/10.0
+	columns[int(note_progress["Column"])].add_child(icon)
 	icon.position.x = 1000.0
 	
-	if chart[note_progress]["Duration"] != "#":
+	if note_progress["Duration"] != "#":
 		var note_bar := TextureRect.new()
 		note_bar.size = Vector2(128, 128)
-		note_bar.size.x = 128.0 + icon.speed * float(chart[note_progress]["Duration"])
+		note_bar.size.x = 128.0 + icon.speed * float(note_progress["Duration"])
 		icon.add_child(note_bar)
 	
 	#immediately generate the next note if Skip is Yes
-	if chart[note_progress]["Skip"] == "Yes":
-		note_progress += 1
+	if note_progress["Skip"] == "Yes":
+		note_progress = note_progress["Next"]
 		generate()
 
 var time_elasped : float
@@ -116,16 +133,11 @@ func _process(delta: float) -> void:
 		#than reset timer and generate the current note
 		time_elasped = 0.0
 		generate()
-		
-		#If there are more note
-		if type_string(typeof(chart[note_progress + 1])) == "Dictionary":
-			#move the current note to the next note
-			note_progress += 1
-			time_count = float(chart[note_progress]["Time"])
-		#else end the game
-		elif chart[note_progress + 1] == "END":
-			time_count = 100.0
-			await get_tree().create_timer(8.0).timeout
+		#move the current note to the next note
+		if type_string(typeof(note_progress["Next"])) == "Dictionary":
+			note_progress = note_progress["Next"]
+			time_count = float(note_progress["Time"])
+		elif note_progress["Next"] == "END":
 			in_game = false
 			print("========")
 			print("good: " + str(good_count))
@@ -163,17 +175,12 @@ func _input(event: InputEvent) -> void:
 	
 	if column_index == 0:
 		return
-	
 	var current_note = columns[column_index].get_child(0)
 	if current_note == null:
 		return
-
 	#check if the input is a successful input
 	if input_check(current_note):
-		if current_note.get_child_count() == 0:
-			columns[column_index].get_child(0).queue_free()
-		elif current_note.get_child_count() != 0:
-			pass
+		columns[column_index].get_child(0).queue_free()
 
 func input_check(note) -> bool:
 	#if the note is intersect with the parent note
