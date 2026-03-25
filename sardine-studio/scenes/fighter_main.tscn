@@ -14,6 +14,11 @@ script = ExtResource("1_ln0nl")
 [node name="fighterPlayer" parent="." groups=["playerF"] instance=ExtResource("1_3atyq")]
 position = Vector2(227, 312)
 
+[node name="Camera2D" type="Camera2D" parent="fighterPlayer"]
+limit_left = -10
+limit_right = 1200
+limit_bottom = 600
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-15, 554)
 rotation = 1.58305

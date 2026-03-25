@@ -11,6 +11,7 @@ const JUMP_VELOCITY = -500.0
 @onready var overworld_street: Node2D = $".."
 @onready var overworld: Node2D = $".."
 #@onready var spawn: Marker2D = $"../Garagedoor_A/spawn"
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 #var select
 func _physics_process(delta: float) -> void:
@@ -38,6 +39,15 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, deacceleration * delta)
 	move_and_slide()
+	#flips sprite
+	if direction_x > 0:
+		sprite_2d.flip_h = false
+		sprite_2d.play("walk")
+	elif direction_x < 0:
+		sprite_2d.flip_h = true
+		sprite_2d.play("walk")
+	elif direction_x == 0:
+		sprite_2d.play("idle")
 		
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("attack"):
