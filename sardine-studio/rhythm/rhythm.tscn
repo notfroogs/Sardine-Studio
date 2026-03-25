@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://ceb5dbeodb5xh"]
 
-[ext_resource type="Script" uid="uid://db5en2l64fin2" path="res://rhythm.gd" id="1_b12pq"]
-[ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://icon.svg" id="2_q13yt"]
-[ext_resource type="AudioStream" uid="uid://c5d5yh3tt0cqi" path="res://Golf (1).mp3" id="3_ecpmg"]
-[ext_resource type="AudioStream" uid="uid://dknuxrm7rbtev" path="res://Mr. Marc's Intro to Pop Song Structure %2B Jason Tang.ogg" id="4_ecpmg"]
+[ext_resource type="Script" uid="uid://db5en2l64fin2" path="res://rhythm/rhythm.gd" id="1_b12pq"]
+[ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://rhythm/icon.svg" id="2_q13yt"]
+[ext_resource type="AudioStream" uid="uid://c5d5yh3tt0cqi" path="res://rhythm/Golf (1).mp3" id="3_ecpmg"]
+[ext_resource type="AudioStream" uid="uid://dknuxrm7rbtev" path="res://rhythm/Mr. Marc's Intro to Pop Song Structure %2B Jason Tang.ogg" id="4_ecpmg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_48mfx"]
 
