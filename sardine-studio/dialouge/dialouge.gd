@@ -31,7 +31,7 @@ var faces : = {
 var backgrounds : = {
 	"bg1" = preload("res://Assets/faces/bg1.png"),
 	"bg2" = preload("res://Assets/faces/bg2.png"),
-	"black"= preload("res://Assets/brackeys_platformer_assets/fonts/black.jpg")
+	
 }
 
 var dialouge_playing := 0
@@ -40,25 +40,25 @@ var dialogue_items: Array[Dictionary] = [
 		"text":"10 years ago, great evil has taken over the lands.",
 		"name":"Narrator",
 		"face":faces["BLANK"],
-		"background":backgrounds["black"]
+		"background":backgrounds["bg1"]
 	},
 	{
 		"text":"With the silver mirror to purge darkness and the King's Blade to cut down shadows,",
 		"name":"Narrator",
 		"face":faces["BLANK"],
-		"background":backgrounds["black"]
+		"background":backgrounds["bg1"]
 	},
 	{
 		"text":"The destined hero, Shiva and his companion, Freesia of the fae,",
 		"name":"Narrator",
 		"face":faces["BLANK"],
-		"background":backgrounds["black"]
+		"background":backgrounds["bg1"]
 	},
 	{
 		"text":"Will the save the-",
 		"name":"Narrator",
 		"face":faces["BLANK"],
-		"background":backgrounds["black"]
+		"background":backgrounds["bg1"]
 	},
 	{
 		"text":"I CAN'T BELIVE IT!",

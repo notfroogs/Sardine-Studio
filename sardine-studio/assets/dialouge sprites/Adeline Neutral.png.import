@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqx41h5buwoka"
-path="res://.godot/imported/test image 2.png-1f71bc6a851edef8ed09f85683187af2.ctex"
+uid="uid://b4e8wq6r0shxw"
+path="res://.godot/imported/Adeline Neutral.png-f69eeb8330d2a3cfb20ba751146c1ee7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/test image 2.png"
-dest_files=["res://.godot/imported/test image 2.png-1f71bc6a851edef8ed09f85683187af2.ctex"]
+source_file="res://assets/dialouge sprites/Adeline Neutral.png"
+dest_files=["res://.godot/imported/Adeline Neutral.png-f69eeb8330d2a3cfb20ba751146c1ee7.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqx41h5buwoka"
-path="res://.godot/imported/test image 2.png-1f71bc6a851edef8ed09f85683187af2.ctex"
+uid="uid://dqyknt47krrwr"
+path="res://.godot/imported/Veronica Angry.png-e0fc42c17700a2283a076a7391c5fbd3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/test image 2.png"
-dest_files=["res://.godot/imported/test image 2.png-1f71bc6a851edef8ed09f85683187af2.ctex"]
+source_file="res://assets/dialouge sprites/Veronica Angry.png"
+dest_files=["res://.godot/imported/Veronica Angry.png-e0fc42c17700a2283a076a7391c5fbd3.ctex"]
 
 [params]
 

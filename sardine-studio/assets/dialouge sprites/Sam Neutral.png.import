@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqx41h5buwoka"
-path="res://.godot/imported/test image 2.png-1f71bc6a851edef8ed09f85683187af2.ctex"
+uid="uid://dr88n40oqyqxw"
+path="res://.godot/imported/Sam Neutral.png-6567a48f9e4dfdd5378c1cbd9719100c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/test image 2.png"
-dest_files=["res://.godot/imported/test image 2.png-1f71bc6a851edef8ed09f85683187af2.ctex"]
+source_file="res://assets/dialouge sprites/Sam Neutral.png"
+dest_files=["res://.godot/imported/Sam Neutral.png-6567a48f9e4dfdd5378c1cbd9719100c.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqx41h5buwoka"
-path="res://.godot/imported/test image 2.png-1f71bc6a851edef8ed09f85683187af2.ctex"
+uid="uid://bnwxvw0x0ty71"
+path="res://.godot/imported/Veronica Sparkle.png-b8e4c54706a3e39d89e86b2f7a0a2783.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/test image 2.png"
-dest_files=["res://.godot/imported/test image 2.png-1f71bc6a851edef8ed09f85683187af2.ctex"]
+source_file="res://assets/dialouge sprites/Veronica Sparkle.png"
+dest_files=["res://.godot/imported/Veronica Sparkle.png-b8e4c54706a3e39d89e86b2f7a0a2783.ctex"]
 
 [params]
 

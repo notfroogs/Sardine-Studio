@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqx41h5buwoka"
-path="res://.godot/imported/test image 2.png-1f71bc6a851edef8ed09f85683187af2.ctex"
+uid="uid://c2y5gnfje8le5"
+path="res://.godot/imported/Adaline Fidget.png-434c61de78717958c58109a97302ed5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/test image 2.png"
-dest_files=["res://.godot/imported/test image 2.png-1f71bc6a851edef8ed09f85683187af2.ctex"]
+source_file="res://assets/dialouge sprites/Adaline Fidget.png"
+dest_files=["res://.godot/imported/Adaline Fidget.png-434c61de78717958c58109a97302ed5d.ctex"]
 
 [params]
 
