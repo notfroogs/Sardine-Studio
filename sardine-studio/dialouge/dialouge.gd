@@ -16,21 +16,34 @@ extends Control
 var has_played_audio_2 = false
 
 var faces : = {
-	"FREESIA_NORMAL" = preload("res://Assets/faces/freesia normal.png"),
-	"FREESIA_HAPPY" = preload("res://Assets/faces/freesia happy.png"),
-	"FREESIA_MAD" = preload("res://Assets/faces/freesia mad.png"),
-	"FREESIA_SHOCK" = preload("res://Assets/faces/freesia shock.png"),
-	"FREESIA_YAY" = preload("res://Assets/faces/freesia yay.png"),
-	"SHIVA_EH" = preload("res://Assets/faces/shiva eh.png"),
-	"SHIVA_NORMAL" = preload("res://Assets/faces/shiva normal.png"),
-	"MAN" = preload("res://Assets/faces/man.png"),
-	"MAN_TALK" = preload("res://Assets/faces/man talk.png"),
-	"SHIVA_BORED" = preload("res://Assets/faces/shiva bored.png"),
-	"BLANK" = preload("res://Assets/faces/blank.png")
+	"ADELINEFIDGET" = preload("res://assets/dialouge sprites/Adaline Fidget.png"),
+	"ADELINEHAPPY" = preload("res://assets/dialouge sprites/Adeline happy.png"),
+	"ADELINEHURT" = preload("res://assets/dialouge sprites/Adeline Hurt.png"),
+	"ADELINEMAD" = preload("res://assets/dialouge sprites/Adeline Mad.png"),
+	"ADELINENEUTRAL" = preload("res://assets/dialouge sprites/Adeline Neutral.png"),
+	"LYREAWKWARD" = preload("res://assets/dialouge sprites/Lyre Awkward.png"),
+	"LYRECONCERNED" = preload("res://assets/dialouge sprites/Lyre Conserned.png"),
+	"LYREEXCITED" = preload("res://assets/dialouge sprites/Lyre Excited.png"),
+	"LYREHURT" = preload("res://assets/dialouge sprites/Lyre Hurt.png"),
+	"LYRENEUTRAL" = preload("res://assets/dialouge sprites/Lyre Neutral.png"),
+	"LYRESTARE" = preload("res://assets/dialouge sprites/Lyre Stare.png"),
+	"SAMANNOYED" = preload("res://assets/dialouge sprites/Sam Annoyed.png"),
+	"SAMAWKWARD" = preload("res://assets/dialouge sprites/Sam Awkward.png"),
+	"SAMHAPPY" = preload("res://assets/dialouge sprites/Sam Happy.png"),
+	"SAMMAD" = preload("res://assets/dialouge sprites/Sam Mad.png"),
+	"SAMNEUTRAL" = preload("res://assets/dialouge sprites/Sam Neutral.png"),
+	"SAMTHINKING" = preload("res://assets/dialouge sprites/Sam Thinking.png"),
+	"VERONICANEUTRAL" = preload("res://assets/dialouge sprites/Veronica  Neutral.png"),
+	"VERONICAANGRY" = preload("res://assets/dialouge sprites/Veronica Angry.png"),
+	"VERONICAAWKWARD" = preload("res://assets/dialouge sprites/Veronica awkward .png"),
+	"VERONICAHAPPY" = preload("res://assets/dialouge sprites/Veronica Happy.png"),
+	"VERONICASPARKLE" = preload("res://assets/dialouge sprites/Veronica Sparkle.png"),
+	"VERONICAWORRIED" = preload("res://assets/dialouge sprites/Veronica Worried.png")
+	
 }
 var backgrounds : = {
-	"bg1" = preload("res://Assets/faces/bg1.png"),
-	"bg2" = preload("res://Assets/faces/bg2.png"),
+	"bg1" = preload("res://assets/bg1.png"),
+	"bg2" = preload("res://assets/bg2.png"),
 	
 }
 
@@ -38,8 +51,8 @@ var dialouge_playing := 0
 var dialogue_items: Array[Dictionary] = [
 	{
 		"text":"10 years ago, great evil has taken over the lands.",
-		"name":"Narrator",
-		"face":faces["BLANK"],
+		"name":"Veronica",
+		"face":faces["VERONICANEUTRAL"],
 		"background":backgrounds["bg1"]
 	},
 	{

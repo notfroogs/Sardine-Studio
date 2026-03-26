@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://du1gixdewhgyx"]
+[gd_scene load_steps=7 format=3 uid="uid://du1gixdewhgyx"]
 
-[ext_resource type="Script" path="res://dialouge/cutscene.gd" id="1_4qpep"]
+[ext_resource type="Script" uid="uid://cni72rejug58t" path="res://dialouge/cutscene.gd" id="1_4qpep"]
+[ext_resource type="Texture2D" uid="uid://brjgfjlx7fb6o" path="res://assets/dialouge sprites/Lyre Neutral.png" id="2_5n3ld"]
 [ext_resource type="AudioStream" uid="uid://dwrbwcqakd7av" path="res://assets/sounds/FNF DialogueText Sound Effect.mp3" id="2_ftmji"]
 [ext_resource type="AudioStream" uid="uid://7m6a227gio45" path="res://assets/sounds/BGM_GPSFF_field.sab.mp3" id="3_5n3ld"]
 [ext_resource type="AudioStream" uid="uid://degbaakkgdlo2" path="res://assets/sounds/explosion.wav" id="4_82u23"]
@@ -23,11 +24,17 @@ metadata/_edit_use_anchors_ = true
 
 [node name="icon" type="TextureRect" parent="."]
 unique_name_in_owner = true
-layout_mode = 0
-anchor_left = 0.0260417
-anchor_top = 0.115741
-anchor_right = 0.288194
-anchor_bottom = 0.597222
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.036458332
+anchor_top = 0.016975308
+anchor_right = 0.2986106
+anchor_bottom = 0.49845627
+offset_right = 198.00058
+offset_bottom = 188.00034
+texture = ExtResource("2_5n3ld")
+expand_mode = 1
+stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="."]
