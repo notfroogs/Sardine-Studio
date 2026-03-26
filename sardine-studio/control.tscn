@@ -1,0 +1,62 @@
+[gd_scene load_steps=13 format=3 uid="uid://c0c6gwybawu4l"]
+
+[ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://rhythm/icon.svg" id="1_0fbet"]
+[ext_resource type="Shader" uid="uid://d4adgidj5s7a8" path="res://rhythm/control.gdshader" id="1_62e2m"]
+
+[sub_resource type="Gradient" id="Gradient_0fbet"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_62e2m"]
+gradient = SubResource("Gradient_0fbet")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qtu10"]
+shader = ExtResource("1_62e2m")
+shader_parameter/test_texture = SubResource("GradientTexture1D_62e2m")
+
+[sub_resource type="Gradient" id="Gradient_qtu10"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ee4bf"]
+gradient = SubResource("Gradient_qtu10")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ee4bf"]
+shader = ExtResource("1_62e2m")
+shader_parameter/test_texture = SubResource("GradientTexture1D_ee4bf")
+
+[sub_resource type="Theme" id="Theme_kbped"]
+
+[sub_resource type="Gradient" id="Gradient_fj5cn"]
+colors = PackedColorArray(0, 0, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_iy58a"]
+gradient = SubResource("Gradient_fj5cn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6a6wx"]
+shader = ExtResource("1_62e2m")
+shader_parameter/test_texture = SubResource("GradientTexture1D_iy58a")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_qtu10")
+position = Vector2(580, 221)
+texture = ExtResource("1_0fbet")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ee4bf")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_kbped")
+
+[node name="Panel" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_6a6wx")
+layout_mode = 0
+offset_left = 100.0
+offset_top = 16.0
+offset_right = 272.0
+offset_bottom = 56.0
