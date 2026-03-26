@@ -1,11 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3ojtl2cs40i3"]
+[gd_scene load_steps=17 format=3 uid="uid://b3ojtl2cs40i3"]
 
 [ext_resource type="Script" uid="uid://fb4yyc4a28sb" path="res://overworld/script/playeroverworld.gd" id="1_5cdwd"]
 [ext_resource type="Texture2D" uid="uid://qvwqnj3hdxep" path="res://assets/sprites/walkcyclespritesheet.png" id="2_5cdwd"]
+[ext_resource type="Texture2D" uid="uid://bkvkyyekijmxt" path="res://assets/sprites/punchnidlespritesheet.png" id="2_nut44"]
+[ext_resource type="Texture2D" uid="uid://37a38jj20c48" path="res://assets/sprites/punchnjumpspritesheet.png" id="3_2fyhi"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5cdwd"]
-atlas = ExtResource("2_5cdwd")
-region = Rect2(0, 0, 640, 640)
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4ny4"]
+atlas = ExtResource("2_nut44")
+region = Rect2(1636, 682, 409, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkdsa"]
+atlas = ExtResource("3_2fyhi")
+region = Rect2(1636, 682, 409, 682)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nut44"]
 atlas = ExtResource("2_5cdwd")
@@ -43,10 +49,18 @@ region = Rect2(640, 1280, 640, 640)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5cdwd")
+"texture": SubResource("AtlasTexture_y4ny4")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkdsa")
+}],
+"loop": true,
+"name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -87,7 +101,7 @@ script = ExtResource("1_5cdwd")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_y4ny4")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

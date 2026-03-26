@@ -11,7 +11,7 @@ var increased_gravity = 20000
 @onready var hitbox: CollisionShape2D = $hitBox/CollisionShape2D2
 @onready var hurtbox: CollisionShape2D = $hurtbox/CollisionShape2D
 @onready var state_machine: Node2D = $StateMachine
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $Sprite2D
 @onready var hit_box:= $hitBox
 @export var max_speed= 1050.0
 @export var acceleration := 1300.0
@@ -19,7 +19,7 @@ var increased_gravity = 20000
 @export var fast_fall_speed := 2.0
 @export var jump_floats:= 1.001
 #@onready var collision_shape_2d: Facing = $hitBox/CollisionShape2D
-
+var is_attacking = false
 
 signal player_hit
 signal player_direction_changes(facing_right: bool)
@@ -55,7 +55,11 @@ func _physics_process(delta: float) -> void:
 	#	velocity.x = direction * SPEED
 	#else:
 	#	velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	if Input.is_action_just_pressed("attack") and not is_attacking:
+		is_attacking = true
+		sprite.play("punch")
+	if is_attacking:
+		return #block other animation
 	if direction_x > 0:
 		sprite.flip_h = false
 		hitbox.position = hitbox.facing_right_position
@@ -64,15 +68,20 @@ func _physics_process(delta: float) -> void:
 		hitbox.position = hitbox.facing_left_position
 		sprite.flip_h = true
 		#print("left")
+	if is_on_floor():
+		if direction_x == 0:
+			sprite.play("idle")
+		else:
+			sprite.play("walk")
 		
+	else:
+		sprite.play("jump")
 	emit_signal("player_direction_changes", !sprite.flip_h)
-	
 	update_player_sprites()
-#func _ready() -> void:
-	#pass
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
+		sprite.play("punch")
 		var areas_in_hit_box = hit_box.get_overlapping_areas()
 		if  areas_in_hit_box != []:
 			if get_parent().get_node("CanvasLayer/main ui/enemyhpbar") != null:

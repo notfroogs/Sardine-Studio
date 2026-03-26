@@ -39,15 +39,21 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, deacceleration * delta)
 	move_and_slide()
-	#flips sprite
-	if direction_x > 0:
+	#flips sprite 
+	if direction_x >0:
 		sprite_2d.flip_h = false
-		sprite_2d.play("walk")
-	elif direction_x < 0:
+	elif direction_x <0:
 		sprite_2d.flip_h = true
-		sprite_2d.play("walk")
-	elif direction_x == 0:
-		sprite_2d.play("idle")
+	
+#animation
+	if is_on_floor():
+		if direction_x == 0:
+			sprite_2d.play("idle")
+		else:
+			sprite_2d.play("walk")
+	else:
+		sprite_2d.play("jump")
+	
 		
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("attack"):
