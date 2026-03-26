@@ -21,7 +21,7 @@ func go_to_level(level_tag, destination_tag):
 	if scene_to_load != null:
 		print("going to " + str(destination_tag))
 		spawn_tag = destination_tag
-		get_tree().change_scene_to_packed(scene_to_load)
+		get_tree().call_deferred("change_scene_to_packed",scene_to_load)
 	else:
 		print("scene is null")
 
