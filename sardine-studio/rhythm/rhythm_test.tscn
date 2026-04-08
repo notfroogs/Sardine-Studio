@@ -1,26 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://whgs0t56ec8o"]
+[gd_scene load_steps=9 format=3 uid="uid://whgs0t56ec8o"]
 
 [ext_resource type="Script" uid="uid://dabs8uffx4npt" path="res://rhythm/rhythm_test.gd" id="1_qicsp"]
+[ext_resource type="Theme" uid="uid://cfi0di7h3mmng" path="res://rhythm/rhythm_test.tres" id="2_4pwai"]
 [ext_resource type="StyleBox" uid="uid://chcj4mibg1d65" path="res://rhythm/new_style_box_flat.tres" id="2_7j5bx"]
 [ext_resource type="Shader" uid="uid://d17xsue3hcswr" path="res://rhythm/test.gdshader" id="3_84tev"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8uh7m"]
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 10.0
-expand_margin_right = 10.0
-
-[sub_resource type="Theme" id="Theme_37kl0"]
-Button/font_sizes/font_size = 48
-Button/styles/disabled = null
-Button/styles/hover = SubResource("StyleBoxFlat_8uh7m")
-Button/styles/normal = ExtResource("2_7j5bx")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ppyta"]
 shader = ExtResource("3_84tev")
@@ -86,7 +69,7 @@ offset_right = 57.0
 offset_bottom = 43.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_37kl0")
+theme = ExtResource("2_4pwai")
 text = "Start"
 
 [node name="Shader" type="ColorRect" parent="RhythmLayer"]
