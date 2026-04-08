@@ -41,7 +41,7 @@ var has_played_audio_2 = false
 	"VERONICAWORRIED" = preload("res://assets/dialouge sprites/Veronica Worried.png")
 }
 @export var backgrounds : = {
-	"bg1" = preload("res://assets/bg1.png"),
+	"bg1" = preload("res://assets/backgrounds/HOUSEINTERIOR.png"),
 	"bg2" = preload("res://assets/bg2.png"),
 }
 
@@ -140,7 +140,7 @@ func advance() -> void:
 	if current_item_index == dialogue_items.size():
 		#scenetransition.fade_out()
 		await get_tree().create_timer(0.5).timeout
-		get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
+		NavigationManager.go_to_level("garage", null)
 		print("test")
 	else:
 		show_text()
@@ -155,4 +155,4 @@ func _on_nextbutton_pressed() -> void:
 func _on_skip_pressed() -> void:
 	#scenetransition.fade_out()
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
+	NavigationManager.go_to_level("garage", null)

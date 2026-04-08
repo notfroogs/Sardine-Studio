@@ -8,7 +8,8 @@ func _ready() -> void:
 	quit_button.pressed.connect(quit)
 	
 func start():
-	NavigationManager.go_to_level("garage", null)
+	#NavigationManager.go_to_level("garage", null)
+	get_tree().change_scene_to_file("res://dialouge/Introcutscene.tscn")
 	
 func quit():
 	get_tree().quit()
