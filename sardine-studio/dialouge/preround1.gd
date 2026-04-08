@@ -48,23 +48,64 @@ var has_played_audio_2 = false
 var dialouge_playing := 0
 var dialogue_items: Array[Dictionary] = [
 	{
-		"text":"Okay guys, were going to win!",
+		"text":"Oh my god guys!",
 		"name":"Lyre",
 		"face":faces["LYREAWKWARD"],
 		"background":backgrounds["bg1"]
 	},
 	{
-		"text":"I'm so nervous...",
-		"name":"Sam",
-		"face":faces["SAMAWKWARD"],
+		"text":"Look! (Image of flyer)",
+		"name":"Lyre",
+		"face":faces["LYREEXCITED"],
 		"background":backgrounds["bg1"]
 	},
 	{
-		"text":"Oh we're up lets go!",
+		"text":"What!?",
+		"name":"Adeline",
+		"face":faces["ADELINEHURT"],
+		"background":backgrounds["bg1"]
+	},
+	{"text":"Thats the competiion everyones talking about!",
+		"name":"Adeline",
+		"face":faces["ADELINEHAPPY"],
+		"background":backgrounds["bg1"]},
+	{
+		"text":"Yeah! The prize is really crazy too!",
+		"name":"Sam",
+		"face":faces["SAMNEUTRAL"],
+		"background":backgrounds["bg1"]
+	},
+	{
+		"text":"I heard its almost a million, no quadtrillion dollars!",
+		"name":"Sam",
+		"face":faces["SAMHAPPY"],
+		"background":backgrounds["bg1"]
+	},
+	{
+		"text":"With that type of money we wont need to stay at this shed anymore!",
 		"name":"Veronica",
 		"face":faces["VERONICANEUTRAL"],
 		"background":backgrounds["bg1"]
 	},
+	{
+		"text":"We have to compete!",
+		"name":"Lyre",
+		"face":faces["LYREEXCITED"],
+		"background":backgrounds["bg1"]
+	},
+	{
+		"text":"Okay then go to the venue!",
+		"name":"Veronica",
+		"face":faces["VERONICAHAPPY"],
+		"background":backgrounds["bg1"]
+	},
+	{
+		"text":"Lets Go!",
+		"name":"Adeline",
+		"face":faces["ADELINEHAPPY"],
+		"background":backgrounds["bg1"]
+	},
+	
 ]
 
 var current_item_index := 0

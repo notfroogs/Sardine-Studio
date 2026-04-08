@@ -1,20 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://du1gixdewhgyx"]
+[gd_scene load_steps=7 format=3 uid="uid://c0oagmj3yj737"]
 
-[ext_resource type="Script" uid="uid://disgc5trml1gu" path="res://dialouge/preround1.gd" id="1_8qwrd"]
-[ext_resource type="Texture2D" uid="uid://brjgfjlx7fb6o" path="res://assets/dialouge sprites/Lyre Neutral.png" id="2_h68qe"]
-[ext_resource type="AudioStream" uid="uid://dwrbwcqakd7av" path="res://assets/sounds/FNF DialogueText Sound Effect.mp3" id="3_1ynp7"]
-[ext_resource type="AudioStream" uid="uid://7m6a227gio45" path="res://assets/sounds/BGM_GPSFF_field.sab.mp3" id="4_vd3l1"]
-[ext_resource type="AudioStream" uid="uid://degbaakkgdlo2" path="res://assets/sounds/explosion.wav" id="5_h0irw"]
-[ext_resource type="AudioStream" uid="uid://o87b4a062ae2" path="res://assets/sounds/BGM_ew_field_01.sab.mp3" id="6_vx4rp"]
+[ext_resource type="Script" uid="uid://cni72rejug58t" path="res://dialouge/TestDialouge.gd" id="1_27u5w"]
+[ext_resource type="Texture2D" uid="uid://brjgfjlx7fb6o" path="res://assets/dialouge sprites/Lyre Neutral.png" id="2_rungp"]
+[ext_resource type="AudioStream" uid="uid://dwrbwcqakd7av" path="res://assets/sounds/FNF DialogueText Sound Effect.mp3" id="3_m83ws"]
+[ext_resource type="AudioStream" uid="uid://7m6a227gio45" path="res://assets/sounds/BGM_GPSFF_field.sab.mp3" id="4_x0odv"]
+[ext_resource type="AudioStream" uid="uid://degbaakkgdlo2" path="res://assets/sounds/explosion.wav" id="5_hmvgl"]
+[ext_resource type="AudioStream" uid="uid://o87b4a062ae2" path="res://assets/sounds/BGM_ew_field_01.sab.mp3" id="6_dwhp1"]
 
-[node name="Introcutscene" type="Control"]
+[node name="preround1" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8qwrd")
+script = ExtResource("1_27u5w")
 
 [node name="bg" type="TextureRect" parent="."]
 layout_mode = 0
@@ -32,7 +32,7 @@ anchor_right = 0.2986106
 anchor_bottom = 0.49845627
 offset_right = 198.00058
 offset_bottom = 188.00034
-texture = ExtResource("2_h68qe")
+texture = ExtResource("2_rungp")
 expand_mode = 1
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
@@ -99,16 +99,16 @@ metadata/_edit_use_anchors_ = true
 [node name="Timer" type="Timer" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_1ynp7")
+stream = ExtResource("3_m83ws")
 volume_db = 24.0
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_vd3l1")
+stream = ExtResource("4_x0odv")
 volume_db = -6.0
 autoplay = true
 
 [node name="select" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_h0irw")
+stream = ExtResource("5_hmvgl")
 volume_db = -3.495
 
 [node name="skip" type="Button" parent="."]
@@ -122,7 +122,7 @@ text = "SKIP"
 metadata/_edit_use_anchors_ = true
 
 [node name="audio2" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_vx4rp")
+stream = ExtResource("6_dwhp1")
 
 [connection signal="pressed" from="nextbutton" to="." method="_on_nextbutton_pressed"]
 [connection signal="pressed" from="skip" to="." method="_on_skip_pressed"]
