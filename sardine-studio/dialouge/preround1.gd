@@ -135,13 +135,16 @@ func show_text() -> void:
 		nextbutton.disabled = false
 		)
 	
+signal Cutscene_Ended
+
 func advance() -> void:
 	current_item_index += 1
 	if current_item_index == dialogue_items.size():
 		#scenetransition.fade_out()
 		await get_tree().create_timer(0.5).timeout
-		get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
-		print("test")
+		Cutscene_Ended.emit()
+		#get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
+		#print("test")
 	else:
 		show_text()
 	if current_item_index > 3 and not has_played_audio_2:
