@@ -97,4 +97,22 @@ destination_door = "C"
 position = Vector2(252.892, 6.75468)
 scale = Vector2(1.21078, 0.744761)
 
+[node name="Label" type="Label" parent="."]
+offset_left = 45.0
+offset_top = 375.0
+offset_right = 253.0
+offset_bottom = 433.0
+theme_override_font_sizes/font_size = 42
+text = "FIGHTING 
+X"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 939.0
+offset_top = 378.0
+offset_right = 1116.0
+offset_bottom = 497.0
+theme_override_font_sizes/font_size = 42
+text = "PLAYING
+X"
+
 [editable path="Garagedoor_D"]
