@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dabs8uffx4npt" path="res://rhythm/rhythm_test.gd" id="1_qicsp"]
 [ext_resource type="Theme" uid="uid://cfi0di7h3mmng" path="res://rhythm/rhythm_test.tres" id="2_4pwai"]
-[ext_resource type="StyleBox" uid="uid://chcj4mibg1d65" path="res://rhythm/new_style_box_flat.tres" id="2_7j5bx"]
 [ext_resource type="Shader" uid="uid://d17xsue3hcswr" path="res://rhythm/test.gdshader" id="3_84tev"]
+[ext_resource type="StyleBox" uid="uid://cucp0wll5tk4" path="res://rhythm/rhythm.tres" id="4_4pwai"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ppyta"]
 shader = ExtResource("3_84tev")
 shader_parameter/lod = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppyta"]
+bg_color = Color(0.22352941, 0.22352941, 0.22352941, 0.6)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -35,8 +36,9 @@ expand_margin_left = 10.0
 expand_margin_right = 10.0
 
 [sub_resource type="Theme" id="Theme_ppyta"]
+Button/styles/focus = ExtResource("4_4pwai")
 Button/styles/hover = SubResource("StyleBoxFlat_ppyta")
-Button/styles/normal = ExtResource("2_7j5bx")
+Button/styles/normal = ExtResource("4_4pwai")
 Button/styles/pressed = SubResource("StyleBoxFlat_6uqi0")
 
 [node name="Node2D" type="Node2D"]

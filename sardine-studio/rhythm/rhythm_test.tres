@@ -1,8 +1,43 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cfi0di7h3mmng"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cfi0di7h3mmng"]
 
-[ext_resource type="StyleBox" uid="uid://chcj4mibg1d65" path="res://rhythm/new_style_box_flat.tres" id="1_mbqtf"]
+[ext_resource type="StyleBox" uid="uid://cucp0wll5tk4" path="res://rhythm/rhythm.tres" id="1_mbqtf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8uh7m"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50ysr"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+expand_margin_left = 10.0
+expand_margin_top = 2.0
+expand_margin_right = 10.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbqtf"]
+bg_color = Color(0.22352941, 0.22352941, 0.22352941, 0.6)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mevi"]
+bg_color = Color(0.3534378, 0.35343754, 0.3534376, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -17,5 +52,7 @@ expand_margin_right = 10.0
 [resource]
 Button/font_sizes/font_size = 48
 Button/styles/disabled = null
-Button/styles/hover = SubResource("StyleBoxFlat_8uh7m")
+Button/styles/focus = SubResource("StyleBoxFlat_50ysr")
+Button/styles/hover = SubResource("StyleBoxFlat_mbqtf")
 Button/styles/normal = ExtResource("1_mbqtf")
+Button/styles/pressed = SubResource("StyleBoxFlat_0mevi")

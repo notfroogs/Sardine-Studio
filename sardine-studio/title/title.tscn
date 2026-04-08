@@ -20,9 +20,9 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
-expand_margin_left = 100.0
+expand_margin_left = 2.0
 expand_margin_top = 2.0
-expand_margin_right = 100.0
+expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8uh7m"]
@@ -34,8 +34,6 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-expand_margin_left = 100.0
-expand_margin_right = 100.0
 
 [sub_resource type="Theme" id="Theme_nx56k"]
 Button/font_sizes/font_size = 24
@@ -73,12 +71,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 514.0
+offset_left = 433.0
 offset_top = 359.0
-offset_right = -500.0
+offset_right = -437.0
 offset_bottom = -222.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(140, 0)
 theme = SubResource("Theme_nx56k")
 text = "Start"
 
@@ -88,12 +87,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 514.0
-offset_top = 462.0
-offset_right = -506.0
-offset_bottom = -119.0
+offset_left = 433.0
+offset_top = 467.0
+offset_right = -437.0
+offset_bottom = -114.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(140, 0)
 theme = SubResource("Theme_nx56k")
 text = "Quit"
 
@@ -110,3 +110,17 @@ theme_override_font_sizes/font_size = 100
 text = "Title Placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.75608736, 0.7560873, 0.7560873, 1)
+text = "By Sadine Studio"
