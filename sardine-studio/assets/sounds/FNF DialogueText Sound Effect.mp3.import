@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwrbwcqakd7av"
+path="res://.godot/imported/FNF DialogueText Sound Effect.mp3-ec2f1cc93c331e49f7118919c6550737.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/FNF DialogueText Sound Effect.mp3"
+dest_files=["res://.godot/imported/FNF DialogueText Sound Effect.mp3-ec2f1cc93c331e49f7118919c6550737.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
