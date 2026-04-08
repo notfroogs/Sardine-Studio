@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cfi0di7h3mmng"]
+
+[ext_resource type="StyleBox" uid="uid://chcj4mibg1d65" path="res://rhythm/new_style_box_flat.tres" id="1_mbqtf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8uh7m"]
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[resource]
+Button/font_sizes/font_size = 48
+Button/styles/disabled = null
+Button/styles/hover = SubResource("StyleBoxFlat_8uh7m")
+Button/styles/normal = ExtResource("1_mbqtf")
