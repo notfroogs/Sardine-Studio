@@ -55,11 +55,17 @@ func _physics_process(delta: float) -> void:
 	#	velocity.x = direction * SPEED
 	#else:
 	#	velocity.x = move_toward(velocity.x, 0, SPEED)
-	if Input.is_action_just_pressed("attack") and not is_attacking:
-		is_attacking = true
-		sprite.play("punch")
+	if Input.is_action_just_pressed("attack") and is_attacking:
+		#sprite.play("punch")
+		#if sprite.is_playing():
+			#await sprite.animation_finished
+			#is_attacking = false
+		attack()
+	if not is_attacking:
+		pass
 	if is_attacking:
-		return #block other animation
+		#return #block other animation, removing this currerntly stops all animation and only plays punch.
+		pass
 	if direction_x > 0:
 		sprite.flip_h = false
 		hitbox.position = hitbox.facing_right_position
@@ -68,20 +74,21 @@ func _physics_process(delta: float) -> void:
 		hitbox.position = hitbox.facing_left_position
 		sprite.flip_h = true
 		#print("left")
-	if is_on_floor():
-		if direction_x == 0:
-			sprite.play("idle")
-		else:
-			sprite.play("walk")
+	if not is_attacking:
+		if is_on_floor():
+			if direction_x == 0:
+				sprite.play("idle")
+			else:
+				sprite.play("walk")
 		
-	else:
-		sprite.play("jump")
+		else:
+			sprite.play("jump")
 	emit_signal("player_direction_changes", !sprite.flip_h)
 	update_player_sprites()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
-		sprite.play("punch")
+		is_attacking = true
 		var areas_in_hit_box = hit_box.get_overlapping_areas()
 		if  areas_in_hit_box != []:
 			if get_parent().get_node("CanvasLayer/main ui/enemyhpbar") != null:
@@ -90,7 +97,11 @@ func _input(event: InputEvent) -> void:
 	if hurtbox.disabled == true:
 		print("noHitnox")
 	
-
+func attack():
+	is_attacking = true
+	sprite.play("punch")
+	await sprite.animation_finished
+	is_attacking = false
 #func _on_area_2d_body_entered(body: Node2D) -> void:
 	#pass # Replace with function body.
 

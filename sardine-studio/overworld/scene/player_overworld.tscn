@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://b3ojtl2cs40i3"]
 
-[ext_resource type="Script" uid="uid://fb4yyc4a28sb" path="res://overworld/script/playeroverworld.gd" id="1_5cdwd"]
+[ext_resource type="Script" path="res://overworld/script/playeroverworld.gd" id="1_5cdwd"]
 [ext_resource type="Texture2D" uid="uid://qvwqnj3hdxep" path="res://assets/sprites/walkcyclespritesheet.png" id="2_5cdwd"]
 [ext_resource type="Texture2D" uid="uid://bkvkyyekijmxt" path="res://assets/sprites/punchnidlespritesheet.png" id="2_nut44"]
 [ext_resource type="Texture2D" uid="uid://37a38jj20c48" path="res://assets/sprites/punchnjumpspritesheet.png" id="3_2fyhi"]

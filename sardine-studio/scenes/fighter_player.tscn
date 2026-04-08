@@ -1,12 +1,12 @@
 [gd_scene load_steps=29 format=3 uid="uid://bfudmbw4otc20"]
 
-[ext_resource type="Script" uid="uid://6fnnejebw4wk" path="res://scripts/fighter_player.gd" id="1_1q20e"]
+[ext_resource type="Script" path="res://scripts/fighter_player.gd" id="1_1q20e"]
 [ext_resource type="Texture2D" uid="uid://bkvkyyekijmxt" path="res://assets/sprites/punchnidlespritesheet.png" id="2_0lss2"]
 [ext_resource type="Texture2D" uid="uid://37a38jj20c48" path="res://assets/sprites/punchnjumpspritesheet.png" id="3_1h7a6"]
-[ext_resource type="Script" uid="uid://bm26kilkcgdqo" path="res://scripts/playerhurtbox.gd" id="3_ugsaf"]
-[ext_resource type="Script" uid="uid://cocj5yiahbbmd" path="res://scripts/playerhitbox.gd" id="4_gfoxi"]
+[ext_resource type="Script" path="res://scripts/playerhurtbox.gd" id="3_ugsaf"]
+[ext_resource type="Script" path="res://scripts/playerhitbox.gd" id="4_gfoxi"]
 [ext_resource type="Texture2D" uid="uid://cr0u10en8ne75" path="res://assets/sprites/specialspecial.png" id="4_wrkxm"]
-[ext_resource type="Script" uid="uid://brhv85fiui0eq" path="res://scripts/flipingcollisionshape.gd" id="5_0lss2"]
+[ext_resource type="Script" path="res://scripts/flipingcollisionshape.gd" id="5_0lss2"]
 [ext_resource type="Texture2D" uid="uid://qvwqnj3hdxep" path="res://assets/sprites/walkcyclespritesheet.png" id="5_a0hdc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aguh1"]
@@ -110,7 +110,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k1ear")
 }],
-"loop": true,
+"loop": false,
 "name": &"punch",
 "speed": 5.0
 }, {
@@ -156,10 +156,10 @@ scale = Vector2(0.749997, 0.652906)
 script = ExtResource("1_1q20e")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(18.66674, -215.95757)
+position = Vector2(18.6667, -215.958)
 scale = Vector2(0.7, 0.718)
 sprite_frames = SubResource("SpriteFrames_je0vr")
-animation = &"idle"
+animation = &"punch"
 
 [node name="physics" type="CollisionShape2D" parent="."]
 position = Vector2(-0.647387, -1.6353)

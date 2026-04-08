@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://r5pd3by57hyv"]
 
 [ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="1_aj8ov"]
-[ext_resource type="Script" uid="uid://csv077xd6c34b" path="res://overworld/script/level.gd" id="1_gt0b2"]
+[ext_resource type="Script" path="res://overworld/script/level.gd" id="1_gt0b2"]
 [ext_resource type="PackedScene" uid="uid://nkycm6g7uev0" path="res://overworld/scene/garagedoor.tscn" id="3_vvrjt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0r11d"]
