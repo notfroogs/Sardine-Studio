@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bfudmbw4otc20"]
+[gd_scene load_steps=33 format=3 uid="uid://bfudmbw4otc20"]
 
 [ext_resource type="Script" path="res://scripts/fighter_player.gd" id="1_1q20e"]
 [ext_resource type="Texture2D" uid="uid://bkvkyyekijmxt" path="res://assets/sprites/punchnidlespritesheet.png" id="2_0lss2"]
@@ -12,6 +12,22 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_aguh1"]
 atlas = ExtResource("2_0lss2")
 region = Rect2(1636, 682, 409, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ukls"]
+atlas = ExtResource("4_wrkxm")
+region = Rect2(1024, 0, 512, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tm1w2"]
+atlas = ExtResource("4_wrkxm")
+region = Rect2(1536, 0, 512, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhdgx"]
+atlas = ExtResource("4_wrkxm")
+region = Rect2(512, 682, 512, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvdkm"]
+atlas = ExtResource("4_wrkxm")
+region = Rect2(1024, 682, 512, 682)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkxx6"]
 atlas = ExtResource("3_1h7a6")
@@ -81,6 +97,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ukls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tm1w2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhdgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvdkm")
+}],
+"loop": true,
+"name": &"idleV2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -159,7 +192,9 @@ script = ExtResource("1_1q20e")
 position = Vector2(18.6667, -215.958)
 scale = Vector2(0.7, 0.718)
 sprite_frames = SubResource("SpriteFrames_je0vr")
-animation = &"punch"
+animation = &"idleV2"
+frame = 2
+frame_progress = 0.12993
 
 [node name="physics" type="CollisionShape2D" parent="."]
 position = Vector2(-0.647387, -1.6353)

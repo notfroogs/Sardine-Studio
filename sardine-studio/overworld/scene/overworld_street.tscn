@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://r5pd3by57hyv"]
 
 [ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="1_aj8ov"]
-[ext_resource type="Script" uid="uid://csv077xd6c34b" path="res://overworld/script/level.gd" id="1_gt0b2"]
+[ext_resource type="Script" path="res://overworld/script/level.gd" id="1_gt0b2"]
 [ext_resource type="Texture2D" uid="uid://e68iipcrqyx3" path="res://assets/backgrounds/IBISPAINTFIGHTING.png" id="3_52roq"]
 [ext_resource type="PackedScene" uid="uid://nkycm6g7uev0" path="res://overworld/scene/garagedoor.tscn" id="3_vvrjt"]
 [ext_resource type="Texture2D" uid="uid://d1o5b5gd2m7vp" path="res://assets/backgrounds/HOUSEEXTERIOR.png" id="4_gt0b2"]
@@ -22,20 +22,20 @@ offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="bg"]
 layout_mode = 0
-offset_left = -2467.0874
-offset_top = -129.00002
-offset_right = -547.0874
+offset_left = -2467.09
+offset_top = -129.0
+offset_right = -547.087
 offset_bottom = 951.0
-scale = Vector2(0.77343655, 0.72692096)
+scale = Vector2(0.773437, 0.726921)
 texture = ExtResource("4_gt0b2")
 
 [node name="TextureRect2" type="TextureRect" parent="bg"]
 layout_mode = 0
-offset_left = -981.63684
-offset_top = -130.00002
-offset_right = 938.36316
+offset_left = -981.637
+offset_top = -130.0
+offset_right = 938.363
 offset_bottom = 950.0
-scale = Vector2(1.1660898, 0.7359975)
+scale = Vector2(1.16609, 0.735997)
 texture = ExtResource("3_52roq")
 
 [node name="playerOverworld" parent="." instance=ExtResource("1_aj8ov")]

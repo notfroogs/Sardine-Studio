@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 	if not is_attacking:
 		if is_on_floor():
 			if direction_x == 0:
-				sprite.play("idle")
+				sprite.play("idleV2")
 			else:
 				sprite.play("walk")
 		

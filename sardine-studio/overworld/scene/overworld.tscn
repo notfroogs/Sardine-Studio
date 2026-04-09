@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://3e145abvtb1t"]
 
-[ext_resource type="Script" uid="uid://csv077xd6c34b" path="res://overworld/script/level.gd" id="1_u5pdq"]
-[ext_resource type="Script" uid="uid://d1yt8wcwmpv3e" path="res://overworld/script/fighterArea.gd" id="1_y4sx8"]
+[ext_resource type="Script" path="res://overworld/script/level.gd" id="1_u5pdq"]
+[ext_resource type="Script" path="res://overworld/script/fighterArea.gd" id="1_y4sx8"]
 [ext_resource type="Texture2D" uid="uid://c5q0diuc4jarq" path="res://assets/backgrounds/STAGE.png" id="2_qtdhg"]
-[ext_resource type="Script" uid="uid://mxtherk2puld" path="res://overworld/script/playingArea.gd" id="2_rnw0o"]
+[ext_resource type="Script" path="res://overworld/script/playingArea.gd" id="2_rnw0o"]
 [ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="3_y4sx8"]
 [ext_resource type="PackedScene" uid="uid://nkycm6g7uev0" path="res://overworld/scene/garagedoor.tscn" id="4_eo32c"]
 
@@ -23,10 +23,10 @@ script = ExtResource("1_u5pdq")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -398.0
-offset_top = -183.00002
+offset_top = -183.0
 offset_right = 1522.0
 offset_bottom = 897.0
-scale = Vector2(0.86495477, 0.98695755)
+scale = Vector2(0.864955, 0.986958)
 texture = ExtResource("2_qtdhg")
 
 [node name="playerOverworld" parent="." instance=ExtResource("3_y4sx8")]

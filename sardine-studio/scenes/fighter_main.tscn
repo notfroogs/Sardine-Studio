@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cneodudkpu546"]
 
 [ext_resource type="PackedScene" uid="uid://bfudmbw4otc20" path="res://scenes/fighter_player.tscn" id="1_3atyq"]
-[ext_resource type="Script" uid="uid://sjifelgbl0rp" path="res://scripts/fighter_main.gd" id="1_ln0nl"]
+[ext_resource type="Script" path="res://scripts/fighter_main.gd" id="1_ln0nl"]
 [ext_resource type="Texture2D" uid="uid://hsgmiodp5fvl" path="res://assets/backgrounds/IBISPAINTFIGHTING2.png" id="2_sh5kp"]
 [ext_resource type="PackedScene" uid="uid://ca03l6ss6iv6b" path="res://scenes/enemy_placeholder.tscn" id="3_wqw35"]
 [ext_resource type="PackedScene" uid="uid://cmtlvunxru0nq" path="res://scenes/main_ui.tscn" id="4_f3bfk"]
@@ -13,15 +13,16 @@ scale = Vector2(0.997428, 0.924097)
 script = ExtResource("1_ln0nl")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -19.048996
-offset_top = -54.10688
-offset_right = 1900.951
-offset_bottom = 1025.8931
-scale = Vector2(0.6364401, 0.6801788)
+offset_left = -19.049
+offset_top = -54.1069
+offset_right = 1900.95
+offset_bottom = 1025.89
+scale = Vector2(0.63644, 0.680179)
 texture = ExtResource("2_sh5kp")
 
 [node name="fighterPlayer" parent="." groups=["playerF"] instance=ExtResource("1_3atyq")]
 position = Vector2(227, 312)
+scale = Vector2(1.01958, 0.901052)
 
 [node name="Camera2D" type="Camera2D" parent="fighterPlayer"]
 limit_left = -10
@@ -50,6 +51,7 @@ shape = SubResource("WorldBoundaryShape2D_nn4mn")
 
 [node name="enemy placeholder" parent="." instance=ExtResource("3_wqw35")]
 position = Vector2(910, 324)
+scale = Vector2(1.22637, 1.30182)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

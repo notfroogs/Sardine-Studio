@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Sardine Studio"
-run/main_scene="uid://5wd7jgoyksg8"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="res://title/title.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://rhythm/icon.svg"
 
 [autoload]
