@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cneodudkpu546"]
+[gd_scene load_steps=8 format=3 uid="uid://cneodudkpu546"]
 
 [ext_resource type="PackedScene" uid="uid://bfudmbw4otc20" path="res://scenes/fighter_player.tscn" id="1_3atyq"]
 [ext_resource type="Script" path="res://scripts/fighter_main.gd" id="1_ln0nl"]
 [ext_resource type="Texture2D" uid="uid://hsgmiodp5fvl" path="res://assets/backgrounds/IBISPAINTFIGHTING2.png" id="2_sh5kp"]
 [ext_resource type="PackedScene" uid="uid://ca03l6ss6iv6b" path="res://scenes/enemy_placeholder.tscn" id="3_wqw35"]
 [ext_resource type="PackedScene" uid="uid://cmtlvunxru0nq" path="res://scenes/main_ui.tscn" id="4_f3bfk"]
+[ext_resource type="Script" path="res://scenes/countdown/count_down.gd" id="6_pyk5x"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nn4mn"]
 
@@ -56,5 +57,26 @@ scale = Vector2(1.22637, 1.30182)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="main ui" parent="CanvasLayer" instance=ExtResource("4_f3bfk")]
+
+[node name="CountDown" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/font_size = 128
+text = "TEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_pyk5x")
 
 [connection signal="player_hit" from="fighterPlayer" to="enemy placeholder" method="_on_fighter_player_player_hit"]
