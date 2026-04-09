@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://3e145abvtb1t"]
+[gd_scene load_steps=13 format=3 uid="uid://3e145abvtb1t"]
 
 [ext_resource type="Script" path="res://overworld/script/level.gd" id="1_u5pdq"]
 [ext_resource type="Script" path="res://overworld/script/fighterArea.gd" id="1_y4sx8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://overworld/script/playingArea.gd" id="2_rnw0o"]
 [ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="3_y4sx8"]
 [ext_resource type="PackedScene" uid="uid://nkycm6g7uev0" path="res://overworld/scene/garagedoor.tscn" id="4_eo32c"]
+[ext_resource type="Theme" uid="uid://ba2bjtxd64326" path="res://assets/theme/mainUI.tres" id="6_tov2w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7426y"]
 
@@ -84,7 +85,7 @@ shape = SubResource("WorldBoundaryShape2D_kc4nv")
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_right = 166.0
 offset_bottom = 127.0
-theme_override_font_sizes/font_size = 48
+theme = ExtResource("6_tov2w")
 text = "Selection"
 
 [node name="Garagedoor_D" parent="." instance=ExtResource("4_eo32c")]
@@ -102,17 +103,21 @@ offset_left = 45.0
 offset_top = 375.0
 offset_right = 253.0
 offset_bottom = 433.0
+theme = ExtResource("6_tov2w")
 theme_override_font_sizes/font_size = 42
 text = "FIGHTING 
-X"
+[X]"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 939.0
 offset_top = 378.0
 offset_right = 1116.0
 offset_bottom = 497.0
+theme = ExtResource("6_tov2w")
 theme_override_font_sizes/font_size = 42
 text = "PLAYING
-X"
+[X]"
+horizontal_alignment = 1
 
 [editable path="Garagedoor_D"]

@@ -29,6 +29,10 @@ window/stretch/mode="canvas_items"
 
 note=""
 
+[gui]
+
+theme/custom_font="res://assets/fonts/KHMenu.otf"
+
 [input]
 
 move_left={

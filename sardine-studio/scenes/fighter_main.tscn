@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cneodudkpu546"]
+[gd_scene load_steps=9 format=3 uid="uid://cneodudkpu546"]
 
 [ext_resource type="PackedScene" uid="uid://bfudmbw4otc20" path="res://scenes/fighter_player.tscn" id="1_3atyq"]
 [ext_resource type="Script" path="res://scripts/fighter_main.gd" id="1_ln0nl"]
 [ext_resource type="Texture2D" uid="uid://hsgmiodp5fvl" path="res://assets/backgrounds/IBISPAINTFIGHTING2.png" id="2_sh5kp"]
 [ext_resource type="PackedScene" uid="uid://ca03l6ss6iv6b" path="res://scenes/enemy_placeholder.tscn" id="3_wqw35"]
 [ext_resource type="PackedScene" uid="uid://cmtlvunxru0nq" path="res://scenes/main_ui.tscn" id="4_f3bfk"]
+[ext_resource type="Theme" uid="uid://ba2bjtxd64326" path="res://assets/theme/mainUI.tres" id="6_7nnk3"]
 [ext_resource type="Script" path="res://scenes/countdown/count_down.gd" id="6_pyk5x"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nn4mn"]
@@ -22,7 +23,7 @@ scale = Vector2(0.63644, 0.680179)
 texture = ExtResource("2_sh5kp")
 
 [node name="fighterPlayer" parent="." groups=["playerF"] instance=ExtResource("1_3atyq")]
-position = Vector2(227, 312)
+position = Vector2(172.444, 514.015)
 scale = Vector2(1.01958, 0.901052)
 
 [node name="Camera2D" type="Camera2D" parent="fighterPlayer"]
@@ -51,7 +52,7 @@ position = Vector2(266, 553)
 shape = SubResource("WorldBoundaryShape2D_nn4mn")
 
 [node name="enemy placeholder" parent="." instance=ExtResource("3_wqw35")]
-position = Vector2(910, 324)
+position = Vector2(963.478, 518.344)
 scale = Vector2(1.22637, 1.30182)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -70,9 +71,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 24
+theme = ExtResource("6_7nnk3")
 theme_override_font_sizes/font_size = 128
 text = "TEST"
 horizontal_alignment = 1

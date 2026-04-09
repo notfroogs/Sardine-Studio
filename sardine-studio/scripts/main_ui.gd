@@ -21,6 +21,8 @@ func _on_enemyhpbar_value_changed(value: float) -> void:
 
 
 func _on_playerhpbar_value_changed(value: float) -> void:
+	if playerHp.value < 25.0:
+		pass #icon change
 	if playerHp.value <= 0.0:
 		print("lose")
 		restart()
@@ -29,4 +31,5 @@ func restart() -> void:
 	if NavigationManager.previous_level != null:
 		NavigationManager.go_to_level(NavigationManager.previous_level, null)
 	else:
+		#add a reults screen and restart or return buttons
 		get_tree().reload_current_scene()
