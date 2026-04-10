@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://whgs0t56ec8o"]
 
-[ext_resource type="Script" uid="uid://dabs8uffx4npt" path="res://rhythm/rhythm_test.gd" id="1_qicsp"]
+[ext_resource type="Script" path="res://rhythm/rhythm_test.gd" id="1_qicsp"]
 [ext_resource type="Theme" uid="uid://cfi0di7h3mmng" path="res://rhythm/rhythm_test.tres" id="2_4pwai"]
-[ext_resource type="Shader" uid="uid://d17xsue3hcswr" path="res://rhythm/test.gdshader" id="3_84tev"]
+[ext_resource type="Shader" path="res://rhythm/test.gdshader" id="3_84tev"]
 [ext_resource type="StyleBox" uid="uid://cucp0wll5tk4" path="res://rhythm/rhythm.tres" id="4_4pwai"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ppyta"]
@@ -10,7 +10,7 @@ shader = ExtResource("3_84tev")
 shader_parameter/lod = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppyta"]
-bg_color = Color(0.22352941, 0.22352941, 0.22352941, 0.6)
+bg_color = Color(0.223529, 0.223529, 0.223529, 0.6)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -23,7 +23,7 @@ expand_margin_left = 10.0
 expand_margin_right = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6uqi0"]
-bg_color = Color(0.40260392, 0.40260386, 0.40260386, 1)
+bg_color = Color(0.402604, 0.402604, 0.402604, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -56,7 +56,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.9764706, 1, 0.8156863, 1)
+color = Color(0.976471, 1, 0.815686, 1)
 
 [node name="Button" type="Button" parent="RhythmLayer"]
 unique_name_in_owner = true
@@ -83,7 +83,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(30.068855, 54.25618)
+scale = Vector2(30.0689, 54.2562)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
@@ -158,7 +158,6 @@ offset_left = 870.0
 offset_top = 491.0
 offset_right = 951.0
 offset_bottom = 537.5
-mouse_behavior_recursive = 2
 theme = SubResource("Theme_ppyta")
 theme_override_font_sizes/font_size = 24
 text = "Finish"

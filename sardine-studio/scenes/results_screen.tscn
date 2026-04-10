@@ -1,0 +1,146 @@
+[gd_scene load_steps=6 format=3 uid="uid://sybv1vbotqwm"]
+
+[ext_resource type="Texture2D" uid="uid://b1hwfs2cuqpt8" path="res://assets/images/lose.png" id="1_luc7k"]
+[ext_resource type="Theme" uid="uid://ba2bjtxd64326" path="res://assets/theme/mainUI.tres" id="1_qp0qd"]
+[ext_resource type="FontFile" uid="uid://cksti1lkcjkur" path="res://assets/fonts/BeatMark-Regular.ttf" id="2_17q8k"]
+[ext_resource type="Script" path="res://scenes/results_screen.gd" id="2_jyvi7"]
+[ext_resource type="Texture2D" uid="uid://yaqv4lr2deq8" path="res://assets/images/winicon.png" id="4_x4fe0"]
+
+[node name="ResultsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qp0qd")
+script = ExtResource("2_jyvi7")
+
+[node name="Lose" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Lose"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.0862745, 0.25098, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Lose"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 201.0
+offset_top = -139.0
+offset_right = -175.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_luc7k")
+expand_mode = 1
+
+[node name="RichTextLabel" type="Label" parent="Lose"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.997396
+anchor_bottom = 0.989198
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_17q8k")
+theme_override_font_sizes/font_size = 250
+text = "OH NO!"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="return button" type="Button" parent="Lose"]
+layout_mode = 0
+anchor_left = 0.40191
+anchor_top = 0.878086
+anchor_right = 0.647105
+anchor_bottom = 0.978738
+text = "Return"
+metadata/_edit_use_anchors_ = true
+
+[node name="retry button" type="Button" parent="Lose"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.402778
+anchor_top = 0.765432
+anchor_right = 0.646176
+anchor_bottom = 0.855308
+offset_left = 3.05176e-05
+offset_top = -3.05176e-05
+offset_right = -5.39429
+offset_bottom = 5.76025
+scale = Vector2(1.01815, 0.909971)
+text = "RETRY?"
+metadata/_edit_use_anchors_ = true
+
+[node name="Win" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Win"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.927089, 0.777879, 0.706958, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Win"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 27.0
+offset_right = -583.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_x4fe0")
+expand_mode = 1
+
+[node name="RichTextLabel" type="Label" parent="Win"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.420139
+anchor_top = 0.0200617
+anchor_right = 1.03038
+anchor_bottom = 0.381173
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_17q8k")
+theme_override_font_sizes/font_size = 130
+text = "YOU WIN!"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="continue button" type="Button" parent="Win"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.611979
+anchor_top = 0.600309
+anchor_right = 0.857175
+anchor_bottom = 0.70096
+text = "Continue"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Lose/return button" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="Lose/retry button" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Win/continue button" to="." method="_on_continue_button_pressed"]

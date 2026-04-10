@@ -11,14 +11,15 @@ config_version=5
 [application]
 
 config/name="Sardine Studio"
-run/main_scene="uid://3e145abvtb1t"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="res://title/title.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://rhythm/icon.svg"
 
 [autoload]
 
 NavigationManager="*res://globals/navigation_manager.gd"
 PauseScreenTest="*res://globals/pause_screen_test.tscn"
+Gamemanager="*res://globals/gamemanager.gd"
 
 [display]
 
@@ -28,6 +29,10 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 note=""
+
+[gui]
+
+theme/custom_font="res://assets/fonts/KHMenu.otf"
 
 [input]
 

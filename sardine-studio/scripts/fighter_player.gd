@@ -18,6 +18,8 @@ var increased_gravity = 20000
 @export var deacceleration := 1100.0
 @export var fast_fall_speed := 2.0
 @export var jump_floats:= 1.001
+@onready var punchsound: AudioStreamPlayer2D = $punchsound
+
 #@onready var collision_shape_2d: Facing = $hitBox/CollisionShape2D
 var is_attacking = false
 
@@ -77,7 +79,7 @@ func _physics_process(delta: float) -> void:
 	if not is_attacking:
 		if is_on_floor():
 			if direction_x == 0:
-				sprite.play("idle")
+				sprite.play("idleV2")
 			else:
 				sprite.play("walk")
 		
@@ -99,9 +101,12 @@ func _input(event: InputEvent) -> void:
 	
 func attack():
 	is_attacking = true
+	
+	punchsound.play()
 	sprite.play("punch")
 	await sprite.animation_finished
 	is_attacking = false
+	hitbox.set_deferred("disable", false)
 #func _on_area_2d_body_entered(body: Node2D) -> void:
 	#pass # Replace with function body.
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://5wd7jgoyksg8"]
+[gd_scene load_steps=8 format=3 uid="uid://5wd7jgoyksg8"]
 
-[ext_resource type="Script" uid="uid://e2p0kcicb33v" path="res://title/title.gd" id="1_crako"]
+[ext_resource type="Script" path="res://title/title.gd" id="1_crako"]
 [ext_resource type="StyleBox" uid="uid://chcj4mibg1d65" path="res://rhythm/new_style_box_flat.tres" id="2_crako"]
 [ext_resource type="Texture2D" uid="uid://6ba6dtqr7i4y" path="res://title/TitlePlaceholder.png" id="2_nx56k"]
+[ext_resource type="AudioStream" uid="uid://crtca2vfdr0x7" path="res://assets/sounds/sound/ButtonClickSound.wav" id="4_o1agp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crako"]
 content_margin_left = 4.0
@@ -63,7 +64,7 @@ texture = ExtResource("2_nx56k")
 layout_mode = 0
 offset_right = 1150.0
 offset_bottom = 650.0
-color = Color(1, 1, 0.7882353, 0)
+color = Color(1, 1, 0.788235, 0)
 
 [node name="StartButton" type="Button" parent="Control/ColorRect"]
 unique_name_in_owner = true
@@ -105,7 +106,7 @@ offset_top = 79.0
 offset_bottom = 216.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.090836324, 0, 0.9884276, 0)
+theme_override_colors/font_shadow_color = Color(0.0908363, 0, 0.988428, 0)
 theme_override_font_sizes/font_size = 100
 text = "Fighting Music"
 horizontal_alignment = 1
@@ -122,5 +123,9 @@ offset_left = -129.0
 offset_top = -23.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.75608736, 0.7560873, 0.7560873, 1)
+theme_override_colors/font_color = Color(0.756087, 0.756087, 0.756087, 1)
 text = "By Sadine Studio"
+
+[node name="selectsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_o1agp")
+volume_db = 24.0

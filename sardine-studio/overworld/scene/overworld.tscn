@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://3e145abvtb1t"]
+[gd_scene load_steps=14 format=3 uid="uid://3e145abvtb1t"]
 
-[ext_resource type="Script" uid="uid://csv077xd6c34b" path="res://overworld/script/level.gd" id="1_u5pdq"]
-[ext_resource type="Script" uid="uid://d1yt8wcwmpv3e" path="res://overworld/script/fighterArea.gd" id="1_y4sx8"]
+[ext_resource type="Script" path="res://overworld/script/level.gd" id="1_u5pdq"]
+[ext_resource type="Script" path="res://overworld/script/fighterArea.gd" id="1_y4sx8"]
 [ext_resource type="Texture2D" uid="uid://c5q0diuc4jarq" path="res://assets/backgrounds/STAGE.png" id="2_qtdhg"]
-[ext_resource type="Script" uid="uid://mxtherk2puld" path="res://overworld/script/playingArea.gd" id="2_rnw0o"]
+[ext_resource type="Script" path="res://overworld/script/playingArea.gd" id="2_rnw0o"]
 [ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="3_y4sx8"]
+[ext_resource type="AudioStream" uid="uid://tkncblomabjw" path="res://assets/sounds/bgmusic/AltBackgroundMusic.wav" id="4_c2cld"]
 [ext_resource type="PackedScene" uid="uid://nkycm6g7uev0" path="res://overworld/scene/garagedoor.tscn" id="4_eo32c"]
+[ext_resource type="Theme" uid="uid://ba2bjtxd64326" path="res://assets/theme/mainUI.tres" id="6_tov2w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7426y"]
 
@@ -23,10 +25,10 @@ script = ExtResource("1_u5pdq")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -398.0
-offset_top = -183.00002
+offset_top = -183.0
 offset_right = 1522.0
 offset_bottom = 897.0
-scale = Vector2(0.86495477, 0.98695755)
+scale = Vector2(0.864955, 0.986958)
 texture = ExtResource("2_qtdhg")
 
 [node name="playerOverworld" parent="." instance=ExtResource("3_y4sx8")]
@@ -36,6 +38,10 @@ position = Vector2(604, 489)
 position = Vector2(-18, -180)
 limit_left = -350
 limit_right = 1200
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="playerOverworld"]
+stream = ExtResource("4_c2cld")
+autoplay = true
 
 [node name="fighter" type="Area2D" parent="." groups=["level_select"]]
 position = Vector2(137, 469)
@@ -84,7 +90,7 @@ shape = SubResource("WorldBoundaryShape2D_kc4nv")
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_right = 166.0
 offset_bottom = 127.0
-theme_override_font_sizes/font_size = 48
+theme = ExtResource("6_tov2w")
 text = "Selection"
 
 [node name="Garagedoor_D" parent="." instance=ExtResource("4_eo32c")]
@@ -96,5 +102,27 @@ destination_door = "C"
 [node name="spawn" parent="Garagedoor_D" index="1"]
 position = Vector2(252.892, 6.75468)
 scale = Vector2(1.21078, 0.744761)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 45.0
+offset_top = 375.0
+offset_right = 253.0
+offset_bottom = 433.0
+theme = ExtResource("6_tov2w")
+theme_override_font_sizes/font_size = 42
+text = "FIGHTING 
+[X]"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 939.0
+offset_top = 378.0
+offset_right = 1116.0
+offset_bottom = 497.0
+theme = ExtResource("6_tov2w")
+theme_override_font_sizes/font_size = 42
+text = "PLAYING
+[X]"
+horizontal_alignment = 1
 
 [editable path="Garagedoor_D"]
