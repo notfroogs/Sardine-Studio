@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceb5dbeodb5xh"]
+[gd_scene load_steps=11 format=3 uid="uid://ceb5dbeodb5xh"]
 
 [ext_resource type="Script" uid="uid://c7y8aex1qcc1p" path="res://rhythm/rhythm.gd" id="1_v47c0"]
 [ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://rhythm/icon.svg" id="2_q13yt"]
+[ext_resource type="Texture2D" uid="uid://cxv8yev7hgsfc" path="res://rhythm/rhythmgreendot.png" id="2_r8oyb"]
 [ext_resource type="AudioStream" uid="uid://c5d5yh3tt0cqi" path="res://rhythm/Golf (1).mp3" id="3_ecpmg"]
+[ext_resource type="Texture2D" uid="uid://ty87ir8k6jrj" path="res://rhythm/rhythmorangedot.png" id="3_xwu6x"]
+[ext_resource type="Texture2D" uid="uid://c5seb2rcjutfx" path="res://rhythm/rhythmpurpledot.png" id="4_1ugh6"]
 [ext_resource type="AudioStream" uid="uid://dknuxrm7rbtev" path="res://rhythm/Mr. Marc's Intro to Pop Song Structure %2B Jason Tang.ogg" id="4_ecpmg"]
+[ext_resource type="Texture2D" uid="uid://dviwl7m2fn0dl" path="res://rhythm/rhythmreddot.png" id="5_dbqar"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_48mfx"]
 
@@ -50,11 +54,11 @@ offset_bottom = -483.0
 grow_vertical = 0
 pivot_offset = Vector2(463, 384)
 theme = SubResource("Theme_b12pq")
-texture = ExtResource("2_q13yt")
+texture = ExtResource("2_r8oyb")
+expand_mode = 3
 
 [node name="NoteColumn2" type="TextureRect" parent="Background"]
 unique_name_in_owner = true
-modulate = Color(1, 0.41000003, 0.41000003, 1)
 self_modulate = Color(1, 1, 1, 0.47843137)
 layout_mode = 1
 anchors_preset = -1
@@ -66,11 +70,11 @@ offset_right = 173.0
 offset_bottom = -336.02975
 grow_vertical = 0
 pivot_offset = Vector2(463, 384)
-texture = ExtResource("2_q13yt")
+texture = ExtResource("3_xwu6x")
+expand_mode = 3
 
 [node name="NoteColumn3" type="TextureRect" parent="Background"]
 unique_name_in_owner = true
-modulate = Color(0.73031694, 0.62219363, 0.27616376, 1)
 self_modulate = Color(1, 1, 1, 0.47843137)
 layout_mode = 1
 anchors_preset = -1
@@ -82,11 +86,11 @@ offset_right = 173.0
 offset_bottom = -191.99976
 grow_vertical = 0
 pivot_offset = Vector2(463, 384)
-texture = ExtResource("2_q13yt")
+texture = ExtResource("4_1ugh6")
+expand_mode = 5
 
 [node name="NoteColumn4" type="TextureRect" parent="Background"]
 unique_name_in_owner = true
-modulate = Color(0, 0.67040724, 0.99541897, 1)
 self_modulate = Color(1, 1, 1, 0.47843137)
 layout_mode = 1
 anchors_preset = -1
@@ -98,7 +102,8 @@ offset_right = 173.0
 offset_bottom = -46.999756
 grow_vertical = 0
 pivot_offset = Vector2(463, 384)
-texture = ExtResource("2_q13yt")
+texture = ExtResource("5_dbqar")
+expand_mode = 5
 
 [node name="ColumnEmpty" type="TextureRect" parent="Background"]
 unique_name_in_owner = true
