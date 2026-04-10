@@ -84,6 +84,7 @@ func _physics_process(delta: float) -> void:
 				walk.stream_paused= true
 				sprite.play("idleV2")
 			else:
+				#FIX THE AUDIO NOT SUPPOSED TO PLAY ON COUNTDOWN
 				walk.stream_paused = false
 				sprite.play("walk")
 		
@@ -117,6 +118,7 @@ func attack():
 
 func ready():
 	walk.stream_paused = true
+	#FIX THE AUDIO NOT SUPPOSED TO PLAY
 	if walk.stream_paused == true:
 		print("no walk")
 #func _physics(delta): state_machine.process_frame(delta)
