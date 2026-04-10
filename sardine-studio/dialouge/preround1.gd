@@ -65,7 +65,7 @@ var dialogue_items: Array[Dictionary] = [
 		"face":faces["ADELINEHURT"],
 		"background":backgrounds["bg1"]
 	},
-	{"text":"Thats the competiion everyones talking about!",
+	{"text":"Thats the competition everyones talking about!",
 		"name":"Adeline",
 		"face":faces["ADELINEHAPPY"],
 		"background":backgrounds["bg1"]},
@@ -137,7 +137,7 @@ func show_text() -> void:
 	
 func advance() -> void:
 	current_item_index += 1
-	if current_item_index == dialogue_items.size():
+	if current_item_index >= dialogue_items.size():
 		#scenetransition.fade_out()
 		await get_tree().create_timer(0.5).timeout
 		NavigationManager.go_to_level("garage", null)
