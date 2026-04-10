@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://ceb5dbeodb5xh"]
+[gd_scene load_steps=13 format=3 uid="uid://ceb5dbeodb5xh"]
 
 [ext_resource type="Script" uid="uid://c7y8aex1qcc1p" path="res://rhythm/rhythm.gd" id="1_v47c0"]
+[ext_resource type="Texture2D" uid="uid://c4lejxhlia571" path="res://rhythm/rhythmbg.png" id="2_1ugh6"]
 [ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://rhythm/icon.svg" id="2_q13yt"]
 [ext_resource type="Texture2D" uid="uid://cxv8yev7hgsfc" path="res://rhythm/rhythmgreendot.png" id="2_r8oyb"]
 [ext_resource type="AudioStream" uid="uid://c5d5yh3tt0cqi" path="res://rhythm/Golf (1).mp3" id="3_ecpmg"]
@@ -8,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://c5seb2rcjutfx" path="res://rhythm/rhythmpurpledot.png" id="4_1ugh6"]
 [ext_resource type="AudioStream" uid="uid://dknuxrm7rbtev" path="res://rhythm/Mr. Marc's Intro to Pop Song Structure %2B Jason Tang.ogg" id="4_ecpmg"]
 [ext_resource type="Texture2D" uid="uid://dviwl7m2fn0dl" path="res://rhythm/rhythmreddot.png" id="5_dbqar"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dbqar"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_48mfx"]
 
@@ -21,6 +24,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v47c0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_dbqar")
+layout_mode = 0
+offset_left = -275.0
+offset_top = -155.0
+offset_right = 1149.0
+offset_bottom = 832.0
+texture = ExtResource("2_1ugh6")
 
 [node name="Background" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_48mfx")
