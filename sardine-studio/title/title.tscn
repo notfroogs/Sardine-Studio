@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://5wd7jgoyksg8"]
+[gd_scene load_steps=8 format=3 uid="uid://5wd7jgoyksg8"]
 
 [ext_resource type="Script" path="res://title/title.gd" id="1_crako"]
 [ext_resource type="StyleBox" uid="uid://chcj4mibg1d65" path="res://rhythm/new_style_box_flat.tres" id="2_crako"]
 [ext_resource type="Texture2D" uid="uid://6ba6dtqr7i4y" path="res://title/TitlePlaceholder.png" id="2_nx56k"]
+[ext_resource type="AudioStream" uid="uid://crtca2vfdr0x7" path="res://assets/sounds/sound/ButtonClickSound.wav" id="4_o1agp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crako"]
 content_margin_left = 4.0
@@ -124,3 +125,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.756087, 0.756087, 0.756087, 1)
 text = "By Sadine Studio"
+
+[node name="selectsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_o1agp")
+volume_db = 24.0

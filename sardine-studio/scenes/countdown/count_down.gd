@@ -19,7 +19,7 @@ signal counting_finished
 
 ## The words that appear on screen at each step.
 #ANCHOR:counting_steps
-@export var counting_steps: Array[String]= ["3", "2", "1", "GO!"]
+@export var counting_steps: Array[String]= ["Ready?", "3", "2", "1", "GO!"]
 #END:counting_steps
 
 ## The duration of each step

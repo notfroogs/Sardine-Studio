@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bfudmbw4otc20"]
+[gd_scene load_steps=34 format=3 uid="uid://bfudmbw4otc20"]
 
 [ext_resource type="Script" path="res://scripts/fighter_player.gd" id="1_1q20e"]
 [ext_resource type="Texture2D" uid="uid://bkvkyyekijmxt" path="res://assets/sprites/punchnidlespritesheet.png" id="2_0lss2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cr0u10en8ne75" path="res://assets/sprites/specialspecial.png" id="4_wrkxm"]
 [ext_resource type="Script" path="res://scripts/flipingcollisionshape.gd" id="5_0lss2"]
 [ext_resource type="Texture2D" uid="uid://qvwqnj3hdxep" path="res://assets/sprites/walkcyclespritesheet.png" id="5_a0hdc"]
+[ext_resource type="AudioStream" uid="uid://befhjwidm6bgp" path="res://assets/sounds/sound/Punch1.mp3" id="9_gnqgd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aguh1"]
 atlas = ExtResource("2_0lss2")
@@ -227,5 +228,8 @@ facing_right_position = Vector2(32, 0)
 
 [node name="StateMachine" type="Node2D" parent="."]
 position = Vector2(-0.647387, -163.986)
+
+[node name="punchsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_gnqgd")
 
 [connection signal="body_entered" from="hitBox" to="." method="_on_area_2d_body_entered"]

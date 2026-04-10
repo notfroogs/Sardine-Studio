@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://c0oagmj3yj737"]
 
-[ext_resource type="Script" uid="uid://cni72rejug58t" path="res://dialouge/TestDialouge.gd" id="1_27u5w"]
+[ext_resource type="Script" path="res://dialouge/TestDialouge.gd" id="1_27u5w"]
 [ext_resource type="Texture2D" uid="uid://brjgfjlx7fb6o" path="res://assets/dialouge sprites/Lyre Neutral.png" id="2_rungp"]
-[ext_resource type="AudioStream" uid="uid://dwrbwcqakd7av" path="res://assets/sounds/FNF DialogueText Sound Effect.mp3" id="3_m83ws"]
-[ext_resource type="AudioStream" uid="uid://7m6a227gio45" path="res://assets/sounds/BGM_GPSFF_field.sab.mp3" id="4_x0odv"]
-[ext_resource type="AudioStream" uid="uid://degbaakkgdlo2" path="res://assets/sounds/explosion.wav" id="5_hmvgl"]
-[ext_resource type="AudioStream" uid="uid://o87b4a062ae2" path="res://assets/sounds/BGM_ew_field_01.sab.mp3" id="6_dwhp1"]
+[ext_resource type="AudioStream" uid="uid://dwrbwcqakd7av" path="res://assets/sounds/sound/FNF DialogueText Sound Effect.mp3" id="3_m83ws"]
+[ext_resource type="AudioStream" path="res://assets/sounds/BGM_GPSFF_field.sab.mp3" id="4_x0odv"]
+[ext_resource type="AudioStream" path="res://assets/sounds/explosion.wav" id="5_hmvgl"]
+[ext_resource type="AudioStream" path="res://assets/sounds/BGM_ew_field_01.sab.mp3" id="6_dwhp1"]
 
 [node name="preround1" type="Control"]
 layout_mode = 3
