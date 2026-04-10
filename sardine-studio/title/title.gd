@@ -16,5 +16,5 @@ func start():
 	
 func quit():
 	selectsound.play()
-	await selectsound.play()
+	await selectsound.finished
 	get_tree().quit()

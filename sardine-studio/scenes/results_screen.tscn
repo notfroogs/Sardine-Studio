@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b1hwfs2cuqpt8" path="res://assets/images/lose.png" id="1_luc7k"]
 [ext_resource type="Theme" uid="uid://ba2bjtxd64326" path="res://assets/theme/mainUI.tres" id="1_qp0qd"]
 [ext_resource type="FontFile" uid="uid://cksti1lkcjkur" path="res://assets/fonts/BeatMark-Regular.ttf" id="2_17q8k"]
-[ext_resource type="Script" path="res://scenes/results_screen.gd" id="2_jyvi7"]
+[ext_resource type="Script" uid="uid://lds1eh18ntwc" path="res://scenes/results_screen.gd" id="2_jyvi7"]
 [ext_resource type="Texture2D" uid="uid://yaqv4lr2deq8" path="res://assets/images/winicon.png" id="4_x4fe0"]
 
 [node name="ResultsScreen" type="Control"]
