@@ -142,7 +142,7 @@ func _process(delta: float) -> void:
 		#else end the game
 		elif chart[note_progress + 1] == "END":
 			time_count = 100.0
-			await get_tree().create_timer(8.0).timeout
+			await get_tree().create_timer(7.0).timeout
 			in_game = false
 			print("========")
 			print("good: " + str(good_count))
