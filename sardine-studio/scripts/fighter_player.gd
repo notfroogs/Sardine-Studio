@@ -19,6 +19,8 @@ var increased_gravity = 20000
 @export var fast_fall_speed := 2.0
 @export var jump_floats:= 1.001
 @onready var punchsound: AudioStreamPlayer2D = $punchsound
+@onready var walk: AudioStreamPlayer2D = $walk
+@onready var jump: AudioStreamPlayer2D = $jump
 
 #@onready var collision_shape_2d: Facing = $hitBox/CollisionShape2D
 var is_attacking = false
@@ -79,11 +81,14 @@ func _physics_process(delta: float) -> void:
 	if not is_attacking:
 		if is_on_floor():
 			if direction_x == 0:
+				walk.stream_paused= true
 				sprite.play("idleV2")
 			else:
+				walk.stream_paused = false
 				sprite.play("walk")
 		
 		else:
+			jump.play()
 			sprite.play("jump")
 	emit_signal("player_direction_changes", !sprite.flip_h)
 	update_player_sprites()
@@ -111,7 +116,9 @@ func attack():
 	#pass # Replace with function body.
 
 func ready():
-	pass
+	walk.stream_paused = true
+	if walk.stream_paused == true:
+		print("no walk")
 #func _physics(delta): state_machine.process_frame(delta)
 
 func update_player_sprites():

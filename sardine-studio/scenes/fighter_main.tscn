@@ -34,7 +34,6 @@ limit_bottom = 600
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="fighterPlayer"]
 stream = ExtResource("4_008eg")
-autoplay = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-15, 554)
