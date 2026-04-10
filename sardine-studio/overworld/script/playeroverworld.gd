@@ -12,6 +12,7 @@ const JUMP_VELOCITY = -500.0
 @onready var overworld: Node2D = $".."
 #@onready var spawn: Marker2D = $"../Garagedoor_A/spawn"
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var walk: AudioStreamPlayer2D = $walk
 
 #var select
 func _physics_process(delta: float) -> void:
@@ -48,9 +49,13 @@ func _physics_process(delta: float) -> void:
 #animation
 	if is_on_floor():
 		if direction_x == 0:
+			walk.stream_paused = true
 			sprite_2d.play("idle")
+			
 		else:
+			walk.stream_paused = false
 			sprite_2d.play("walk")
+			
 	else:
 		sprite_2d.play("jump")
 	
