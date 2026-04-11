@@ -4,10 +4,10 @@
 [ext_resource type="FontFile" uid="uid://brj1fl3nt0cxu" path="res://assets/fonts/KHMenu-Bold.otf" id="1_vw4i3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vgdj"]
-bg_color = Color(0.49249053, 0.53339744, 0.27305147, 1)
+bg_color = Color(0.492491, 0.533397, 0.273051, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qi65"]
-bg_color = Color(0.75933224, 0.76698136, 0.635689, 1)
+bg_color = Color(0.759332, 0.766981, 0.635689, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_saj25"]
 

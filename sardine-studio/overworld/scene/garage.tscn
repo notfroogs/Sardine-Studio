@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://rp8q8au8j5ic"]
 
 [ext_resource type="PackedScene" uid="uid://nkycm6g7uev0" path="res://overworld/scene/garagedoor.tscn" id="1_mhuvx"]
-[ext_resource type="Script" uid="uid://csv077xd6c34b" path="res://overworld/script/level.gd" id="1_wknnt"]
+[ext_resource type="Script" path="res://overworld/script/level.gd" id="1_wknnt"]
 [ext_resource type="Texture2D" uid="uid://clmyj7hxutvg3" path="res://assets/backgrounds/HOUSEINTERIOR.png" id="2_kvxgd"]
 [ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="2_wknnt"]
 [ext_resource type="AudioStream" uid="uid://c78ro2x2m4yq2" path="res://assets/sounds/bgmusic/MainBackgroundMusic.wav" id="4_hjvdt"]
