@@ -1,7 +1,13 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ba2bjtxd64326"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://ba2bjtxd64326"]
 
 [ext_resource type="FontFile" uid="uid://c6twcubbs7v6b" path="res://assets/fonts/KHMenu.otf" id="1_6gcoi"]
 [ext_resource type="FontFile" uid="uid://brj1fl3nt0cxu" path="res://assets/fonts/KHMenu-Bold.otf" id="1_vw4i3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vgdj"]
+bg_color = Color(0.492491, 0.533397, 0.273051, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qi65"]
+bg_color = Color(0.759332, 0.766981, 0.635689, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_saj25"]
 
@@ -15,6 +21,8 @@ bg_color = Color(6.44952e-06, 0.703862, 0.544617, 1)
 Button/constants/outline_size = 8
 Button/font_sizes/font_size = 24
 Button/fonts/font = ExtResource("1_vw4i3")
+Button/styles/disabled = SubResource("StyleBoxFlat_0vgdj")
+Button/styles/focus = SubResource("StyleBoxFlat_8qi65")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)
