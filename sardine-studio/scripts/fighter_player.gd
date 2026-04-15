@@ -25,14 +25,20 @@ var increased_gravity = 20000
 #@onready var collision_shape_2d: Facing = $hitBox/CollisionShape2D
 var is_attacking = false
 
-signal player_hit
 signal player_direction_changes(facing_right: bool)
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
+	#print(sprite.animation)
+	
+	match current_state:
+		State.ATTACKING:
+			return
+		State.FREE:
+			pass
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY* jump_floats
@@ -40,7 +46,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("crouch") and velocity.y > 0.0:
 		velocity.y += get_gravity().y * fast_fall_speed * delta
 		
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	#Player wornt deaccelrate fast enouggh fix this.
@@ -55,21 +60,7 @@ func _physics_process(delta: float) -> void:
 	#if direction.length() > 0.0:
 		#var current_speed_percent = velocity.length()/max_speed
 
-	#if direction:
-	#	velocity.x = direction * SPEED
-	#else:
-	#	velocity.x = move_toward(velocity.x, 0, SPEED)
-	if Input.is_action_just_pressed("attack") and is_attacking:
-		#sprite.play("punch")
-		#if sprite.is_playing():
-			#await sprite.animation_finished
-			#is_attacking = false
-		attack()
-	if not is_attacking:
-		pass
-	if is_attacking:
-		#return #block other animation, removing this currerntly stops all animation and only plays punch.
-		pass
+
 	if direction_x > 0:
 		sprite.flip_h = false
 		hitbox.position = hitbox.facing_right_position
@@ -78,50 +69,60 @@ func _physics_process(delta: float) -> void:
 		hitbox.position = hitbox.facing_left_position
 		sprite.flip_h = true
 		#print("left")
-	if not is_attacking:
-		if is_on_floor():
-			if direction_x == 0:
-				walk.stream_paused= true
-				sprite.play("idleV2")
-			else:
-				#FIX THE AUDIO NOT SUPPOSED TO PLAY ON COUNTDOWN
-				walk.stream_paused = false
-				sprite.play("walk")
-		
+
+	if is_on_floor():
+		if direction_x == 0:
+			walk.stream_paused= true
+			sprite.play("idleV2")
 		else:
-			jump.play()
-			sprite.play("jump")
+			#FIX THE AUDIO NOT SUPPOSED TO PLAY ON COUNTDOWN
+			walk.stream_paused = false
+			sprite.play("walk")
+	else:
+		jump.play()
+		sprite.play("jump")
 	emit_signal("player_direction_changes", !sprite.flip_h)
 	update_player_sprites()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
-		is_attacking = true
-		var areas_in_hit_box = hit_box.get_overlapping_areas()
-		if  areas_in_hit_box != []:
-			if get_parent().get_node("CanvasLayer/main ui/enemyhpbar") != null:
-				get_parent().get_node("CanvasLayer/main ui/enemyhpbar").value -= 10
-		hurtbox.set_deferred("disable", true)
-	if hurtbox.disabled == true:
-		print("noHitnox")
-	
-func attack():
-	is_attacking = true
-	
-	punchsound.play()
-	sprite.play("punch")
-	await sprite.animation_finished
-	is_attacking = false
-	hitbox.set_deferred("disable", false)
-#func _on_area_2d_body_entered(body: Node2D) -> void:
-	#pass # Replace with function body.
+		match current_state:
+			State.ATTACKING:
+				return
+			State.FREE:
+				change_state(State.ATTACKING)
+				
 
-func ready():
+func pre_attack():
+	sprite.play("pre_punch")
+	await sprite.animation_finished
+	attack()
+
+func attack():
+	var areas_in_hit_box = hit_box.get_overlapping_areas()
+	if areas_in_hit_box != []:
+		if get_parent().get_node("CanvasLayer/main ui/enemyhpbar") != null:
+			get_parent().get_node("CanvasLayer/main ui/enemyhpbar").value -= 10
+	punchsound.play()
+	post_attack()
+
+func post_attack():
+	sprite.play("post_punch")
+	await sprite.animation_finished
+	change_state(State.FREE)
+
+func _ready():
 	walk.stream_paused = true
 	#FIX THE AUDIO NOT SUPPOSED TO PLAY
 	if walk.stream_paused == true:
 		print("no walk")
-#func _physics(delta): state_machine.process_frame(delta)
+	
+	sprite.animation_finished.connect(test)
+	
+func test():
+	pass
+	#print("animation finished")
+
 
 func update_player_sprites():
 	pass
@@ -131,3 +132,16 @@ func update_player_sprites():
 #	elif direction.x < 0:
 #		sprite.flip_h = true
 		
+var current_state = State.FREE
+enum State {
+	FREE,
+	ATTACKING
+}
+
+func change_state(new_state):
+	current_state = new_state
+	match current_state:
+		State.ATTACKING:
+			pre_attack()
+		State.FREE:
+			sprite.play("idleV2")

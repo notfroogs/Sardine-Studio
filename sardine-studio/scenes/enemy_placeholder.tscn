@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://ca03l6ss6iv6b"]
 
 [ext_resource type="Texture2D" uid="uid://bp7edp0i1do48" path="res://rhythm/icon.svg" id="1_4v77h"]
-[ext_resource type="Script" path="res://scripts/enemy_placeholder.gd" id="1_yo5jk"]
-[ext_resource type="Script" path="res://scripts/hurtbox.gd" id="3_hsqvu"]
-[ext_resource type="Script" path="res://scripts/hitbox.gd" id="3_muyt2"]
+[ext_resource type="Script" uid="uid://mqijhuq3ivb6" path="res://scripts/enemy_placeholder.gd" id="1_yo5jk"]
+[ext_resource type="Script" uid="uid://cvhgxju4s2tc" path="res://scripts/hurtbox.gd" id="3_hsqvu"]
+[ext_resource type="Script" uid="uid://cqbw3gif5ip1p" path="res://scripts/hitbox.gd" id="3_muyt2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80wc"]
 
@@ -62,9 +62,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e80wc"]
 _data = {
-"RESET": SubResource("Animation_e80wc"),
-"attack": SubResource("Animation_muyt2"),
-"attack_reset": SubResource("Animation_xp5mw")
+&"RESET": SubResource("Animation_e80wc"),
+&"attack": SubResource("Animation_muyt2"),
+&"attack_reset": SubResource("Animation_xp5mw")
 }
 
 [node name="enemy placeholder" type="CharacterBody2D"]
@@ -117,7 +117,7 @@ value = 100.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_e80wc")
+&"": SubResource("AnimationLibrary_e80wc")
 }
 
 [connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]
