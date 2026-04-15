@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1o5b5gd2m7vp"
-path="res://.godot/imported/HOUSEEXTERIOR.png-42f77f67cfa997670116db0a5fd685bc.ctex"
+uid="uid://ch38fhpgllhbl"
+path="res://.godot/imported/Sam.png-7bf43323ee1ae4be529a027016c3de4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/HOUSEEXTERIOR.png"
-dest_files=["res://.godot/imported/HOUSEEXTERIOR.png-42f77f67cfa997670116db0a5fd685bc.ctex"]
+source_file="res://assets/sprites/Sam.png"
+dest_files=["res://.godot/imported/Sam.png-7bf43323ee1ae4be529a027016c3de4f.ctex"]
 
 [params]
 

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Sardine Studio"
 run/main_scene="res://title/title.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://rhythm/icon.svg"
 
 [autoload]
@@ -32,7 +32,7 @@ note=""
 
 [gui]
 
-theme/custom_font="res://assets/fonts/KHMenu.otf"
+theme/custom_font="uid://ch5x3p3xd8srx"
 
 [input]
 

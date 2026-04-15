@@ -10,6 +10,7 @@ func _ready() -> void:
 		player_overworld.global_position = spawn_default.global_position
 	if NavigationManager.spawn_tag != null:
 		_on_level_spawn(NavigationManager.spawn_tag)
+	Gamemanager.introsignal = true
 		
 func _on_level_spawn(destination_tag:String):
 	var door_path = "Garagedoor_" + destination_tag

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://brj1fl3nt0cxu"
-path="res://.godot/imported/KHMenu-Bold.otf-a34dbbc781b6f9d738828ebcbdd6182f.fontdata"
+uid="uid://ch5x3p3xd8srx"
+path="res://.godot/imported/Underdog.otf-821d86c7c8bd20e9daf9701176b2d823.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/KHMenu-Bold.otf"
-dest_files=["res://.godot/imported/KHMenu-Bold.otf-a34dbbc781b6f9d738828ebcbdd6182f.fontdata"]
+source_file="res://assets/fonts/Underdog.otf"
+dest_files=["res://.godot/imported/Underdog.otf-821d86c7c8bd20e9daf9701176b2d823.fontdata"]
 
 [params]
 
@@ -23,7 +23,7 @@ allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
 hinting=1
-subpixel_positioning=1
+subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null

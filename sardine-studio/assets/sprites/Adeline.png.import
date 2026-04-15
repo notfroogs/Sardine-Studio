@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1o5b5gd2m7vp"
-path="res://.godot/imported/HOUSEEXTERIOR.png-42f77f67cfa997670116db0a5fd685bc.ctex"
+uid="uid://6utf71n4pclu"
+path="res://.godot/imported/Adeline.png-4de923184507aa567d41952010a18457.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/HOUSEEXTERIOR.png"
-dest_files=["res://.godot/imported/HOUSEEXTERIOR.png-42f77f67cfa997670116db0a5fd685bc.ctex"]
+source_file="res://assets/sprites/Adeline.png"
+dest_files=["res://.godot/imported/Adeline.png-4de923184507aa567d41952010a18457.ctex"]
 
 [params]
 

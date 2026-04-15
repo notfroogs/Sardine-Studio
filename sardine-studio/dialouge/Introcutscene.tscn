@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://du1gixdewhgyx"]
 
-[ext_resource type="Script" path="res://dialouge/preround1.gd" id="1_8qwrd"]
+[ext_resource type="Script" uid="uid://disgc5trml1gu" path="res://dialouge/preround1.gd" id="1_8qwrd"]
 [ext_resource type="Texture2D" uid="uid://brjgfjlx7fb6o" path="res://assets/dialouge sprites/Lyre Neutral.png" id="2_h68qe"]
 [ext_resource type="AudioStream" uid="uid://dwrbwcqakd7av" path="res://assets/sounds/sound/FNF DialogueText Sound Effect.mp3" id="3_1ynp7"]
 [ext_resource type="AudioStream" uid="uid://c78ro2x2m4yq2" path="res://assets/sounds/bgmusic/MainBackgroundMusic.wav" id="4_0yw4d"]
@@ -80,17 +80,29 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 50
-text = "Oh My God"
+text = "Test"
 fit_content = true
 metadata/_edit_use_anchors_ = true
 
-[node name="nextbutton" type="Button" parent="."]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-anchor_left = 0.810764
-anchor_top = 0.813272
-anchor_right = 0.97309
-anchor_bottom = 0.939815
+offset_left = 966.0
+offset_top = 476.00006
+offset_right = 1052.0
+offset_bottom = 568.00006
+scale = Vector2(1.8696601, 1.7056415)
+
+[node name="nextbutton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "NEXT"
+metadata/_edit_use_anchors_ = true
+
+[node name="nextbutton2" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "NEXT"
 metadata/_edit_use_anchors_ = true
@@ -123,5 +135,6 @@ metadata/_edit_use_anchors_ = true
 [node name="audio2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_0yw4d")
 
-[connection signal="pressed" from="nextbutton" to="." method="_on_nextbutton_pressed"]
+[connection signal="pressed" from="VBoxContainer/nextbutton" to="." method="_on_nextbutton_pressed"]
+[connection signal="pressed" from="VBoxContainer/nextbutton2" to="." method="_on_nextbutton_pressed"]
 [connection signal="pressed" from="skip" to="." method="_on_skip_pressed"]

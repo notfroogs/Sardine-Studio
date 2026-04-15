@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1o5b5gd2m7vp"
-path="res://.godot/imported/HOUSEEXTERIOR.png-42f77f67cfa997670116db0a5fd685bc.ctex"
+uid="uid://cje43dhx6ha62"
+path="res://.godot/imported/Veronica.png-9a9639e636608d89c28474776bc17b52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/HOUSEEXTERIOR.png"
-dest_files=["res://.godot/imported/HOUSEEXTERIOR.png-42f77f67cfa997670116db0a5fd685bc.ctex"]
+source_file="res://assets/sprites/Veronica.png"
+dest_files=["res://.godot/imported/Veronica.png-9a9639e636608d89c28474776bc17b52.ctex"]
 
 [params]
 

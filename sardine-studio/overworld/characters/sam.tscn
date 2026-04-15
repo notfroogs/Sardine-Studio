@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://baqv8oq2bnn7r"]
+
+[ext_resource type="Texture2D" uid="uid://ch38fhpgllhbl" path="res://assets/sprites/Sam.png" id="1_t6h46"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmd7l"]
+
+[node name="Sam" type="Sprite2D"]
+texture = ExtResource("1_t6h46")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(11.770356, 25.644812)
+shape = SubResource("RectangleShape2D_bmd7l")
