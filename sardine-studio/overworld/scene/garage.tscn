@@ -71,9 +71,9 @@ theme = ExtResource("5_gie8r")
 text = "Garage"
 
 [node name="Introcutscene" parent="CanvasLayer" instance=ExtResource("7_v1woi")]
-visible = false
 
-[node name="charcaters" type="Node2D" parent="."]
+[node name="charcaters" type="Node2D" parent="." groups=["characters"]]
+z_index = -1
 
 [node name="Adeline" parent="charcaters" instance=ExtResource("7_00kfs")]
 position = Vector2(212, 392)

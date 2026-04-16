@@ -84,6 +84,9 @@ func _input(event: InputEvent) -> void:
 								get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
 							"playing":
 								get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
+
+
+						
 					
 					#expand scene_name's case further if needed
 					
