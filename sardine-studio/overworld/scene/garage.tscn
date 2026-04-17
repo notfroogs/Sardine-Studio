@@ -72,15 +72,15 @@ text = "Garage"
 [node name="charcaters" type="Node2D" parent="." groups=["characters"]]
 z_index = -1
 
-[node name="Adeline" parent="charcaters" groups=["characters"] instance=ExtResource("7_00kfs")]
+[node name="Adeline" parent="charcaters" instance=ExtResource("7_00kfs")]
 position = Vector2(212, 392)
 scale = Vector2(0.76632017, 0.76632017)
 
-[node name="Sam" parent="charcaters" groups=["characters"] instance=ExtResource("8_v1woi")]
+[node name="Sam" parent="charcaters" instance=ExtResource("8_v1woi")]
 position = Vector2(724, 407)
 scale = Vector2(0.79572374, 0.79572374)
 
-[node name="Veronica" parent="charcaters" groups=["characters"] instance=ExtResource("9_yedu8")]
+[node name="Veronica" parent="charcaters" instance=ExtResource("9_yedu8")]
 position = Vector2(921.99994, 411)
 scale = Vector2(0.69108856, 0.69108856)
 

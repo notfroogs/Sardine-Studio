@@ -7,6 +7,7 @@ var is_dialogue_active = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	is_player_close = false
 	label.visible = false
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
@@ -14,7 +15,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if is_player_close and Input.is_action_just_pressed("attack") and not is_dialogue_active:
-		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/Test.dialogue"),"test")
+		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/Sam.dialogue"),"start")
 
 
 func _on_area_entered(area: Area2D) -> void:
