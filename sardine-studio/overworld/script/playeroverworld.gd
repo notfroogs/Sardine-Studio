@@ -16,6 +16,7 @@ const JUMP_VELOCITY = -500.0
 @onready var jump: AudioStreamPlayer2D = $jump
 
 var adeline_in_range = false
+var is_dialogue_active = false
 #var select
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -118,7 +119,8 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	NavigationManager.on_trigger_player_spawn.connect(_on_spawn)
-	
+	DialogueManager.dialogue_started.connect(_on_dialogue_started)
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 #func _on_spawn(position: Vector2,direction:String):
 func _on_spawn(position: Vector2):
 	print("player is spawning at position: " + str(position))
@@ -135,3 +137,8 @@ func _on_detect_body_entered(body: Node2D) -> void:
 func _on_detect_body_exited(body: Node2D) -> void:
 	if body.has_method("Adeline"):
 		adeline_in_range = false
+		
+func _on_dialogue_started(dialogue):
+	is_dialogue_active = true
+func _on_dialogue_ended(dialogue):
+	is_dialogue_active = false
