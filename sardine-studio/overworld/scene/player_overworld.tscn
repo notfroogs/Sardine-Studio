@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b3ojtl2cs40i3"]
+[gd_scene load_steps=20 format=3 uid="uid://b3ojtl2cs40i3"]
 
 [ext_resource type="Script" uid="uid://fb4yyc4a28sb" path="res://overworld/script/playeroverworld.gd" id="1_5cdwd"]
 [ext_resource type="Texture2D" uid="uid://qvwqnj3hdxep" path="res://assets/sprites/walkcyclespritesheet.png" id="2_5cdwd"]
@@ -97,6 +97,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtdhg"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uk8nd"]
+size = Vector2(10.690343, 20)
+
 [node name="playerOverworld" type="CharacterBody2D"]
 script = ExtResource("1_5cdwd")
 acceleration = 500.0
@@ -123,3 +126,14 @@ autoplay = true
 
 [node name="jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_uk8nd")
+
+[node name="detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect"]
+position = Vector2(0.9999924, -72.99999)
+scale = Vector2(8.691338, 8.691338)
+shape = SubResource("RectangleShape2D_uk8nd")
+debug_color = Color(0.9803366, 0, 0.3844903, 0.41960785)
+
+[connection signal="body_entered" from="detect" to="." method="_on_detect_body_entered"]
+[connection signal="body_exited" from="detect" to="." method="_on_detect_body_exited"]

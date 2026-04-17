@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctgk6rnhob1av"]
+[gd_scene load_steps=4 format=3 uid="uid://ctgk6rnhob1av"]
 
 [ext_resource type="Texture2D" uid="uid://6utf71n4pclu" path="res://assets/sprites/Adeline.png" id="1_2rg4b"]
+[ext_resource type="Script" uid="uid://tu23pppkbivc" path="res://overworld/characters/adeline.gd" id="2_f303n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f303n"]
 
 [node name="Adeline" type="Sprite2D"]
 texture = ExtResource("1_2rg4b")
+script = ExtResource("2_f303n")
 
 [node name="Area2D" type="Area2D" parent="."]
 
