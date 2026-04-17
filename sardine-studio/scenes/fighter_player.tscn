@@ -1,6 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://bfudmbw4otc20"]
+[gd_scene load_steps=40 format=3 uid="uid://bfudmbw4otc20"]
 
 [ext_resource type="Script" uid="uid://6fnnejebw4wk" path="res://scripts/fighter_player.gd" id="1_1q20e"]
+[ext_resource type="Texture2D" uid="uid://bkvkyyekijmxt" path="res://assets/sprites/punchnidlespritesheet.png" id="2_rkxx6"]
 [ext_resource type="Texture2D" uid="uid://37a38jj20c48" path="res://assets/sprites/punchnjumpspritesheet.png" id="3_1h7a6"]
 [ext_resource type="Script" uid="uid://bm26kilkcgdqo" path="res://scripts/playerhurtbox.gd" id="3_ugsaf"]
 [ext_resource type="Script" uid="uid://cocj5yiahbbmd" path="res://scripts/playerhitbox.gd" id="4_gfoxi"]
@@ -10,6 +11,10 @@
 [ext_resource type="AudioStream" uid="uid://befhjwidm6bgp" path="res://assets/sounds/sound/Punch1.mp3" id="9_gnqgd"]
 [ext_resource type="AudioStream" uid="uid://cc0mp10jx4v5l" path="res://assets/sounds/sound/WalkOnStageSound.wav" id="10_rkxx6"]
 [ext_resource type="AudioStream" uid="uid://b073wd61cki8v" path="res://assets/sounds/sound/AlternateFunJumpSound.wav" id="11_njw3e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4ny4"]
+atlas = ExtResource("2_rkxx6")
+region = Rect2(1636, 682, 409, 682)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ukls"]
 atlas = ExtResource("4_wrkxm")
@@ -89,6 +94,14 @@ region = Rect2(640, 1280, 640, 640)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_je0vr"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4ny4")
+}],
+"loop": false,
+"name": &"hitted",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4ukls")
@@ -207,8 +220,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fflx"]
 size = Vector2(43.88127, 6.28209)
 
-[sub_resource type="Animation" id="Animation_rkxx6"]
-resource_name = "pre_attack"
+[sub_resource type="Animation" id="Animation_5vi60"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -219,7 +232,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"pre_punch"]
+"values": [&"punch1"]
 }
 
 [sub_resource type="Animation" id="Animation_njw3e"]
@@ -237,8 +250,8 @@ tracks/0/keys = {
 "values": [&"post_punch"]
 }
 
-[sub_resource type="Animation" id="Animation_5vi60"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_rkxx6"]
+resource_name = "pre_attack"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -249,7 +262,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"punch1"]
+"values": [&"pre_punch"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5vi60"]

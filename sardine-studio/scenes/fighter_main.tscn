@@ -63,6 +63,7 @@ scale = Vector2(1.22637, 1.30182)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="main ui" parent="CanvasLayer" instance=ExtResource("4_f3bfk")]
+unique_name_in_owner = true
 
 [node name="CountDown" type="Label" parent="CanvasLayer"]
 anchors_preset = 8

@@ -68,6 +68,8 @@ func change_state(new_state):
 		State.FREE:
 			pass
 
+signal player_is_hitted
+
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":
 		var areas_in_hit_box = hit_box.get_overlapping_areas()
@@ -75,6 +77,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			
 			if get_parent().get_node("CanvasLayer/main ui/playerhpbar") != null:
 				get_parent().get_node("CanvasLayer/main ui/playerhpbar").value -= 30
+				player_is_hitted.emit()
 			
 		animation_player.play("attack_reset")
 		change_state(State.FREE)

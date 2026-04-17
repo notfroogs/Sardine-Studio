@@ -35,6 +35,10 @@ func _physics_process(delta: float) -> void:
 	
 	match current_state:
 		State.ATTACKING:
+			attack_momentum(delta)
+			return
+		State.IS_HITTED:
+			on_hitted_momentum(delta)
 			return
 		State.FREE:
 			pass
@@ -59,8 +63,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	#if direction.length() > 0.0:
 		#var current_speed_percent = velocity.length()/max_speed
-
-
+	
 	if direction_x > 0:
 		sprite.flip_h = false
 		hitbox.position = hitbox.facing_right_position
@@ -82,7 +85,19 @@ func _physics_process(delta: float) -> void:
 		jump.play()
 		sprite.play("jump")
 	emit_signal("player_direction_changes", !sprite.flip_h)
-	update_player_sprites()
+
+func attack_momentum(delta):
+	var direction_x := Input.get_axis("move_left", "move_right")
+	var has_input_direction : bool = direction_x !=0
+	if has_input_direction:
+		velocity.x = move_toward(velocity.x, 0.0, deacceleration * 0.4 * delta)
+	else:
+		velocity.x = 0
+	move_and_slide()
+
+@warning_ignore("unused_parameter")
+func on_hitted_momentum(delta):
+	move_and_slide()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
@@ -91,12 +106,14 @@ func _input(event: InputEvent) -> void:
 				return
 			State.FREE:
 				change_state(State.ATTACKING)
-				
+			State.IS_HITTED:
+				return
 
 func pre_attack():
 	sprite.play("pre_punch")
 	await sprite.animation_finished
-	attack()
+	if current_state == State.ATTACKING:
+		attack()
 
 func attack():
 	var areas_in_hit_box = hit_box.get_overlapping_areas()
@@ -109,7 +126,8 @@ func attack():
 func post_attack():
 	sprite.play("post_punch")
 	await sprite.animation_finished
-	change_state(State.FREE)
+	if current_state == State.ATTACKING:
+		change_state(State.FREE)
 
 func _ready():
 	walk.stream_paused = true
@@ -117,31 +135,60 @@ func _ready():
 	if walk.stream_paused == true:
 		print("no walk")
 	
+	if get_tree() != null:
+		var enemy_placeholder: Enemy = $"../enemy placeholder"
+		enemy_placeholder.player_is_hitted.connect(is_hitted)
+	
 	sprite.animation_finished.connect(test)
 	
 func test():
 	pass
 	#print("animation finished")
 
-
-func update_player_sprites():
-	pass
-#	if direction.x > 0:
-#		sprite.flip_h = false
-#		emit_signal("player_direction_changes", sprite.flip_h)
-#	elif direction.x < 0:
-#		sprite.flip_h = true
-		
+var previous_state = State.FREE
 var current_state = State.FREE
 enum State {
 	FREE,
-	ATTACKING
+	ATTACKING,
+	IS_HITTED
 }
 
 func change_state(new_state):
+	previous_state = current_state
 	current_state = new_state
 	match current_state:
 		State.ATTACKING:
+			velocity.x *= 0.5
 			pre_attack()
 		State.FREE:
 			sprite.play("idleV2")
+		State.IS_HITTED:
+			velocity.x *= 0.5
+			velocity.x
+			on_hitted()
+	
+	match previous_state:
+		State.IS_HITTED:
+			sprite.self_modulate.a = 1
+
+func is_hitted():
+	match current_state:
+		State.IS_HITTED:
+			return
+		State.FREE:
+			pass
+	change_state(State.IS_HITTED)
+
+func on_hitted():
+	sprite.play("hitted")
+	await get_tree().create_timer(1.0).timeout
+	change_state(State.FREE)
+
+var sine_value_t = 0.0
+
+func _process(delta: float) -> void:
+	#print(velocity)
+	sine_value_t += delta
+	match current_state:
+		State.IS_HITTED:
+			sprite.self_modulate.a = (pow(sin(sine_value_t * 3 * PI), 2))

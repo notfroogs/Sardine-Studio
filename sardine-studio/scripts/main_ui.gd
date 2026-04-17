@@ -26,6 +26,7 @@ func _on_enemyhpbar_value_changed(value: float) -> void:
 func _on_playerhpbar_value_changed(value: float) -> void:
 	#if playerHp.value < 25.0:
 		#icon change
+	
 	if playerHp.value <= 0.0:
 		print("lose")
 		Gamemanager.last_battle_won = false
