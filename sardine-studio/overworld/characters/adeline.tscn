@@ -1,16 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctgk6rnhob1av"]
+[gd_scene load_steps=5 format=3 uid="uid://ctgk6rnhob1av"]
 
 [ext_resource type="Texture2D" uid="uid://6utf71n4pclu" path="res://assets/sprites/Adeline.png" id="1_2rg4b"]
 [ext_resource type="Script" uid="uid://tu23pppkbivc" path="res://overworld/characters/adeline.gd" id="2_f303n"]
+[ext_resource type="Theme" uid="uid://ba2bjtxd64326" path="res://assets/theme/mainUI.tres" id="3_o4iex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f303n"]
+size = Vector2(8.95953, 12.046156)
 
-[node name="Adeline" type="Sprite2D"]
-texture = ExtResource("1_2rg4b")
+[node name="Adeline" type="Area2D"]
 script = ExtResource("2_f303n")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2rg4b")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-36.000004, 100)
 scale = Vector2(9.611038, 25.902235)
 shape = SubResource("RectangleShape2D_f303n")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 23.0
+offset_top = -146.0
+offset_right = 74.0
+offset_bottom = -96.0
+theme = ExtResource("3_o4iex")
+text = "[X]"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

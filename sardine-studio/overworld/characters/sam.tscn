@@ -1,14 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://baqv8oq2bnn7r"]
+[gd_scene load_steps=5 format=3 uid="uid://baqv8oq2bnn7r"]
 
+[ext_resource type="Script" uid="uid://ctb3dr3ax13i2" path="res://overworld/characters/sam.gd" id="1_3xtwc"]
 [ext_resource type="Texture2D" uid="uid://ch38fhpgllhbl" path="res://assets/sprites/Sam.png" id="1_t6h46"]
+[ext_resource type="Theme" uid="uid://ba2bjtxd64326" path="res://assets/theme/mainUI.tres" id="3_scdro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bmd7l"]
+size = Vector2(7.306491, 10.6844225)
 
-[node name="Sam" type="Sprite2D"]
+[node name="Sam" type="Area2D"]
+script = ExtResource("1_3xtwc")
+
+[node name="Area2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_t6h46")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(25, -39.000008)
 scale = Vector2(11.770356, 25.644812)
 shape = SubResource("RectangleShape2D_bmd7l")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 70.0
+offset_top = -155.0
+offset_right = 121.0
+offset_bottom = -105.0
+theme = ExtResource("3_scdro")
+text = "[X]"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

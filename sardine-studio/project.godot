@@ -23,6 +23,10 @@ Gamemanager="*res://globals/gamemanager.gd"
 Dialoguemanager="*res://globals/dialoguemanager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
+[dialogue_manager]
+
+runtime/balloon_path="res://dialouge/balloon.tscn"
+
 [display]
 
 window/size/mode=2

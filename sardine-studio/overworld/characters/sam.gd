@@ -1,33 +1,29 @@
 extends Area2D
 
-@onready var label: Label = $Label
-var is_player_close = false
+var is_player_close= false
 var is_dialogue_active = false
+@onready var label: Label = $Label
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	label.visible = false
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if is_player_close and Input.is_action_just_pressed("attack"):
-		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/Test.dialogue"),"a")
-		
-func adeline():
-	pass
+	if is_player_close and Input.is_action_just_pressed("attack") and not is_dialogue_active:
+		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/Test.dialogue"),"test")
 
 
 func _on_area_entered(area: Area2D) -> void:
-	label.visible = true
+	label.visible= true
 	is_player_close = true
-
 
 func _on_area_exited(area: Area2D) -> void:
-	label.visible = false
-	is_player_close = true
-	
+	label.visible=false
+	is_player_close=false
 func _on_dialogue_started(dialogue):
 	is_dialogue_active = true
 func _on_dialogue_ended(dialogue):

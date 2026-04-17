@@ -88,10 +88,10 @@ func _input(event: InputEvent) -> void:
 								get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
 							"playing":
 								get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
-		for character in get_tree().get_nodes_in_group("characters"):
-			match character.name:
-				"Adeline":
-					DialogueManager.show_example_dialogue_balloon(load("res://dialouge/new_dialogue/Test.dialogue"), "test")
+		#for character in get_tree().get_nodes_in_group("characters"):
+			#match character.name:
+				#"Adeline":
+					#DialogueManager.show_example_dialogue_balloon(load("res://dialouge/new_dialogue/Test.dialogue"), "test")
 
 						
 					
