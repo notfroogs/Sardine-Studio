@@ -157,7 +157,7 @@ response_template = NodePath("ResponseExample")
 layout_mode = 2
 text = "Response example"
 
-[node name="TextureRect" type="TextureRect" parent="Balloon"]
+[node name="Portrait" type="TextureRect" parent="Balloon"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.019097222

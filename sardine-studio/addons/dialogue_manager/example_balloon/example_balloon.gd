@@ -22,6 +22,8 @@ class_name DialogueManagerExampleBalloon extends CanvasLayer
 
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
+##image of talking player
+@onready var portrait: TextureRect = $Balloon/Portrait
 
 ## Temporary game states
 var temporary_game_states: Array = []
@@ -123,6 +125,7 @@ func start(with_dialogue_resource: DialogueResource = null, title: String = "", 
 
 ## Apply any changes to the balloon given a new [DialogueLine].
 func apply_dialogue_line() -> void:
+	#var portrait_path: String = "res://assets/dialouge sprites/%s.png" % dialogue_line.character.to_lower()
 	mutation_cooldown.stop()
 
 	progress.hide()
