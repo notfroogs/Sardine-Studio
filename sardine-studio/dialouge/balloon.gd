@@ -74,29 +74,29 @@ var mutation_cooldown: Timer = Timer.new()
 
 @export var character_portraits: Dictionary = {
 	
-	"ADELINEFIDGET" = preload("res://assets/dialouge sprites/Adaline Fidget.png"),
-	"ADELINEHAPPY" = preload("res://assets/dialouge sprites/Adeline happy.png"),
-	"ADELINEHURT" = preload("res://assets/dialouge sprites/Adeline Hurt.png"),
-	"ADELINEMAD" = preload("res://assets/dialouge sprites/Adeline Mad.png"),
-	"ADELINENEUTRAL" = preload("res://assets/dialouge sprites/Adeline Neutral.png"),
-	"LYREAWKWARD" = preload("res://assets/dialouge sprites/Lyre Awkward.png"),
-	"LYRECONCERNED" = preload("res://assets/dialouge sprites/Lyre Conserned.png"),
-	"LYREEXCITED" = preload("res://assets/dialouge sprites/Lyre Excited.png"),
-	"LYREHURT" = preload("res://assets/dialouge sprites/Lyre Hurt.png"),
-	"LYRENEUTRAL" = preload("res://assets/dialouge sprites/Lyre Neutral.png"),
-	"LYRESTARE" = preload("res://assets/dialouge sprites/Lyre Stare.png"),
-	"SAMANNOYED" = preload("res://assets/dialouge sprites/Sam Annoyed.png"),
-	"SAMAWKWARD" = preload("res://assets/dialouge sprites/Sam Awkward.png"),
-	"SAMHAPPY" = preload("res://assets/dialouge sprites/Sam Happy.png"),
-	"SAMMAD" = preload("res://assets/dialouge sprites/Sam Mad.png"),
-	"SAMNEUTRAL" = preload("res://assets/dialouge sprites/Sam Neutral.png"),
-	"SAMTHINKING" = preload("res://assets/dialouge sprites/Sam Thinking.png"),
-	"VERONICANEUTRAL" = preload("res://assets/dialouge sprites/Veronica  Neutral.png"),
-	"VERONICAANGRY" = preload("res://assets/dialouge sprites/Veronica Angry.png"),
-	"VERONICAAWKWARD" = preload("res://assets/dialouge sprites/Veronica awkward .png"),
-	"VERONICAHAPPY" = preload("res://assets/dialouge sprites/Veronica Happy.png"),
-	"VERONICASPARKLE" = preload("res://assets/dialouge sprites/Veronica Sparkle.png"),
-	"VERONICAWORRIED" = preload("res://assets/dialouge sprites/Veronica Worried.png")
+	"Adeline_Fidget" = preload("res://assets/dialouge sprites/Adaline Fidget.png"),
+	"Adeline_Happy" = preload("res://assets/dialouge sprites/Adeline happy.png"),
+	"Adeline_Hurt" = preload("res://assets/dialouge sprites/Adeline Hurt.png"),
+	"Adeline_Mad" = preload("res://assets/dialouge sprites/Adeline Mad.png"),
+	"Adeline_Neutral" = preload("res://assets/dialouge sprites/Adeline Neutral.png"),
+	"Lyre_Awkward" = preload("res://assets/dialouge sprites/Lyre Awkward.png"),
+	"Lyre_Concerned" = preload("res://assets/dialouge sprites/Lyre Conserned.png"),
+	"Lyre_Excited" = preload("res://assets/dialouge sprites/Lyre Excited.png"),
+	"Lyre_Hurt" = preload("res://assets/dialouge sprites/Lyre Hurt.png"),
+	"Lyre_Neutral" = preload("res://assets/dialouge sprites/Lyre Neutral.png"),
+	"Lyre_Stare" = preload("res://assets/dialouge sprites/Lyre Stare.png"),
+	"Sam_Annoyed" = preload("res://assets/dialouge sprites/Sam Annoyed.png"),
+	"Sam_Awkward" = preload("res://assets/dialouge sprites/Sam Awkward.png"),
+	"Sam_Happy" = preload("res://assets/dialouge sprites/Sam Happy.png"),
+	"Sam_Mad" = preload("res://assets/dialouge sprites/Sam Mad.png"),
+	"Sam_Neutral" = preload("res://assets/dialouge sprites/Sam Neutral.png"),
+	"Sam_Thinking" = preload("res://assets/dialouge sprites/Sam Thinking.png"),
+	"Veronica_Neutral" = preload("res://assets/dialouge sprites/Veronica  Neutral.png"),
+	"Veronica_Angry" = preload("res://assets/dialouge sprites/Veronica Angry.png"),
+	"Veronica_Awkward" = preload("res://assets/dialouge sprites/Veronica awkward .png"),
+	"Veronica_Happy" = preload("res://assets/dialouge sprites/Veronica Happy.png"),
+	"Veronica_Sparkle" = preload("res://assets/dialouge sprites/Veronica Sparkle.png"),
+	"Veronica_Worried" = preload("res://assets/dialouge sprites/Veronica Worried.png")
 	
 }
 
@@ -161,11 +161,21 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
-	if character_portraits.has(dialogue_line.character):
-		portrait.texture = character_portraits[dialogue_line.character]
+	
+	#var raw_name: String = dialogue_label.name
+	#var clean_name: String = raw_name.split(" [")[0]
+	#if clean_name.contains(" ["):
+		#clean_name = clean_name.split(" [")[0]
+	#character_label.visible = not clean_name.is_empty()
+	#character_label.text = tr(clean_name,"dialogue")
+	#dialogue_label.hide()
+	#dialogue_label.dialogue_line = dialogue_line
+	var portrait_key = dialogue_line.character.replace(" [", "_").replace("]", "")
+	if character_portraits.has(portrait_key):
+		portrait.texture = character_portraits[portrait_key]
 		portrait.show()
 	else:
-		portrait.hide
+		portrait.hide()
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
 

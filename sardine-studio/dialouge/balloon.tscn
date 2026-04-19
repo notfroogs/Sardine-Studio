@@ -158,7 +158,6 @@ layout_mode = 2
 text = "Response example"
 
 [node name="portrait" type="TextureRect" parent="Balloon"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.019097222
