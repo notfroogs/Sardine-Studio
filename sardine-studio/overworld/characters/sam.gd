@@ -16,6 +16,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_player_close and Input.is_action_just_pressed("attack") and not is_dialogue_active:
 		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/Sam.dialogue"),"start")
+		Gamemanager.dialogue_is_active = true
 
 
 func _on_area_entered(area: Area2D) -> void:
@@ -30,3 +31,4 @@ func _on_dialogue_started(dialogue):
 func _on_dialogue_ended(dialogue):
 	await get_tree().create_timer(0.2).timeout
 	is_dialogue_active = false
+	Gamemanager.dialogue_is_active = false

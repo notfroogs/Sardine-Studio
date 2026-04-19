@@ -1,6 +1,7 @@
 extends Node
 
 var last_battle_won = false
+var dialogue_is_active = false
 
 var intro = false
 var tutorial = false

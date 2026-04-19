@@ -13,5 +13,4 @@ func _ready() -> void:
 		"Title":
 			INTROCUTSCENE.set_script("res://dialouge/preround1.gd")
 		"garage":
-			if Gamemanager.introsignal == true:
 				INTROCUTSCENE.set_script("res://dialouge/TestDialouge.gd")

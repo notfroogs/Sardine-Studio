@@ -11,8 +11,17 @@ func _ready() -> void:
 	if NavigationManager.spawn_tag != null:
 		_on_level_spawn(NavigationManager.spawn_tag)
 
-		
+	if Gamemanager.dialogue_is_active == true:
+		player_overworld.set_physics_process(false)
+	else:
+		player_overworld.set_physics_process(true)
 func _on_level_spawn(destination_tag:String):
 	var door_path = "Garagedoor_" + destination_tag
 	var door = get_node(door_path) as Door
 	NavigationManager.trigger_player_spawn(door.spawn.global_position)
+	
+func _process(delta: float) -> void:
+	if Gamemanager.dialogue_is_active == true:
+		player_overworld.set_physics_process(false)
+	else:
+		player_overworld.set_physics_process(true)

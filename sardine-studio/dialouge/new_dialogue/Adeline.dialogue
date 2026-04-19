@@ -1,5 +1,14 @@
 ~ start
-Adeline [Fidget]: letz participate in the competition n stuff 
-Adeline [Neutral]: Ts is the first time ive ever performed
-Adeline [Happy]: I just get so nervy
+Adeline [Neutral]: Heh heh heh... I'm so nervous...
+Adeline [Hurt]: This is the first time ive ever performed infornt of people...
+Adeline [Hurt]: I mean, all I've ever done was soundcloud covers...
+- Don't Worry
+	Adeline [Neutral]: Yeah, You're right Lyre. What am I getting so worked up on? 
+	Adeline [Happy]: This will be out big opprotunity to make it big!
+	=> END
+- Why are you so scared?
+	Adeline [Hurt]: I left behind an art career for this.
+	Adeline [Hurt]: If I dont make it big with this music thing though what else could I even do...
+	=> END
+
 => END
