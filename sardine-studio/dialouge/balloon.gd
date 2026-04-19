@@ -70,6 +70,35 @@ var mutation_cooldown: Timer = Timer.new()
 ## Indicator to show that player can progress dialogue.
 @onready var progress: Polygon2D = %Progress
 
+@onready var portrait: TextureRect = $Balloon/portrait
+
+@export var character_portraits: Dictionary = {
+	
+	"ADELINEFIDGET" = preload("res://assets/dialouge sprites/Adaline Fidget.png"),
+	"ADELINEHAPPY" = preload("res://assets/dialouge sprites/Adeline happy.png"),
+	"ADELINEHURT" = preload("res://assets/dialouge sprites/Adeline Hurt.png"),
+	"ADELINEMAD" = preload("res://assets/dialouge sprites/Adeline Mad.png"),
+	"ADELINENEUTRAL" = preload("res://assets/dialouge sprites/Adeline Neutral.png"),
+	"LYREAWKWARD" = preload("res://assets/dialouge sprites/Lyre Awkward.png"),
+	"LYRECONCERNED" = preload("res://assets/dialouge sprites/Lyre Conserned.png"),
+	"LYREEXCITED" = preload("res://assets/dialouge sprites/Lyre Excited.png"),
+	"LYREHURT" = preload("res://assets/dialouge sprites/Lyre Hurt.png"),
+	"LYRENEUTRAL" = preload("res://assets/dialouge sprites/Lyre Neutral.png"),
+	"LYRESTARE" = preload("res://assets/dialouge sprites/Lyre Stare.png"),
+	"SAMANNOYED" = preload("res://assets/dialouge sprites/Sam Annoyed.png"),
+	"SAMAWKWARD" = preload("res://assets/dialouge sprites/Sam Awkward.png"),
+	"SAMHAPPY" = preload("res://assets/dialouge sprites/Sam Happy.png"),
+	"SAMMAD" = preload("res://assets/dialouge sprites/Sam Mad.png"),
+	"SAMNEUTRAL" = preload("res://assets/dialouge sprites/Sam Neutral.png"),
+	"SAMTHINKING" = preload("res://assets/dialouge sprites/Sam Thinking.png"),
+	"VERONICANEUTRAL" = preload("res://assets/dialouge sprites/Veronica  Neutral.png"),
+	"VERONICAANGRY" = preload("res://assets/dialouge sprites/Veronica Angry.png"),
+	"VERONICAAWKWARD" = preload("res://assets/dialouge sprites/Veronica awkward .png"),
+	"VERONICAHAPPY" = preload("res://assets/dialouge sprites/Veronica Happy.png"),
+	"VERONICASPARKLE" = preload("res://assets/dialouge sprites/Veronica Sparkle.png"),
+	"VERONICAWORRIED" = preload("res://assets/dialouge sprites/Veronica Worried.png")
+	
+}
 
 func _ready() -> void:
 	balloon.hide()
@@ -132,7 +161,11 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
-
+	if character_portraits.has(dialogue_line.character):
+		portrait.texture = character_portraits[dialogue_line.character]
+		portrait.show()
+	else:
+		portrait.hide
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
 
