@@ -7,5 +7,6 @@ Sam [Happy]: Also, we should probably practice before actually going. We're a bi
 	=> END
 - Sure!
 	Sam [Neutral]: Great!
+	set Gamemanager.tutorial = true
 	=> END
 => END

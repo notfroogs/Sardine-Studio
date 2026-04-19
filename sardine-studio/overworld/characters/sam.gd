@@ -32,3 +32,4 @@ func _on_dialogue_ended(dialogue):
 	await get_tree().create_timer(0.2).timeout
 	is_dialogue_active = false
 	Gamemanager.dialogue_is_active = false
+	print(Gamemanager.dialogue_is_active)
