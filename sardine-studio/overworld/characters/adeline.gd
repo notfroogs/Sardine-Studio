@@ -8,6 +8,8 @@ var is_dialogue_active = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	label.visible = false
+	is_dialogue_active = false
+	Gamemanager.dialogue_is_active = false
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
@@ -33,6 +35,7 @@ func _on_area_exited(area: Area2D) -> void:
 	
 func _on_dialogue_started(dialogue):
 	is_dialogue_active = true
+	Gamemanager.dialogue_is_active = true
 
 	
 func _on_dialogue_ended(dialogue):

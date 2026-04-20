@@ -15,6 +15,8 @@ func _ready() -> void:
 		player_overworld.set_physics_process(false)
 	else:
 		player_overworld.set_physics_process(true)
+		
+
 	
 func _on_level_spawn(destination_tag:String):
 	var door_path = "Garagedoor_" + destination_tag
@@ -23,13 +25,17 @@ func _on_level_spawn(destination_tag:String):
 	
 func _process(delta: float) -> void:
 	var scene_name = get_tree().current_scene.name
+	NavigationManager.previous_level = scene_name
+	
+	print(Gamemanager.dialogue_is_active)
 	if Gamemanager.dialogue_is_active == true:
 		player_overworld.set_physics_process(false)
-	else:
+		
+	elif Gamemanager.dialogue_is_active == false:
 		player_overworld.set_physics_process(true)
 		
 	if Gamemanager.tutorial == true:
-		NavigationManager.previous_level = scene_name
+		
 		print(NavigationManager.previous_level)
-		DialogueManager.dialogue_ended.emit()
+		#DialogueManager.dialogue_ended.emit()
 		get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
