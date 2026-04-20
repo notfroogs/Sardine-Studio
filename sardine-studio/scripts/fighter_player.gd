@@ -153,7 +153,8 @@ var current_state = State.FREE
 enum State {
 	FREE,
 	ATTACKING,
-	HITSTUN
+	HITSTUN,
+	ON_GUARD
 }
 
 func change_state(new_state):

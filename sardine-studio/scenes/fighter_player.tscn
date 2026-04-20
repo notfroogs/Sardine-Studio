@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bfudmbw4otc20"]
+[gd_scene load_steps=40 format=3 uid="uid://bfudmbw4otc20"]
 
 [ext_resource type="Script" uid="uid://6fnnejebw4wk" path="res://scripts/fighter_player.gd" id="1_1q20e"]
 [ext_resource type="Texture2D" uid="uid://bkvkyyekijmxt" path="res://assets/sprites/punchnidlespritesheet.png" id="2_rkxx6"]
@@ -12,6 +12,18 @@
 [ext_resource type="AudioStream" uid="uid://cc0mp10jx4v5l" path="res://assets/sounds/sound/WalkOnStageSound.wav" id="10_rkxx6"]
 [ext_resource type="AudioStream" uid="uid://b073wd61cki8v" path="res://assets/sounds/sound/AlternateFunJumpSound.wav" id="11_njw3e"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_acq7r"]
+atlas = ExtResource("4_wrkxm")
+region = Rect2(1536, 0, 512, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhdgx"]
+atlas = ExtResource("4_wrkxm")
+region = Rect2(512, 682, 512, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coujp"]
+atlas = ExtResource("4_wrkxm")
+region = Rect2(512, 0, 512, 682)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4ny4"]
 atlas = ExtResource("2_rkxx6")
 region = Rect2(1636, 682, 409, 682)
@@ -24,10 +36,6 @@ region = Rect2(1024, 0, 512, 682)
 atlas = ExtResource("4_wrkxm")
 region = Rect2(1536, 0, 512, 682)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nhdgx"]
-atlas = ExtResource("4_wrkxm")
-region = Rect2(512, 682, 512, 682)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_dvdkm"]
 atlas = ExtResource("4_wrkxm")
 region = Rect2(1024, 682, 512, 682)
@@ -35,6 +43,14 @@ region = Rect2(1024, 682, 512, 682)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkxx6"]
 atlas = ExtResource("3_1h7a6")
 region = Rect2(1636, 682, 409, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv5nv"]
+atlas = ExtResource("4_wrkxm")
+region = Rect2(0, 682, 512, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3pbc"]
+atlas = ExtResource("4_wrkxm")
+region = Rect2(512, 682, 512, 682)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3doex"]
 atlas = ExtResource("4_wrkxm")
@@ -96,6 +112,20 @@ region = Rect2(640, 1280, 640, 640)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_acq7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhdgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coujp")
+}],
+"loop": false,
+"name": &"guarded",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_y4ny4")
 }],
 "loop": false,
@@ -134,6 +164,17 @@ animations = [{
 "loop": true,
 "name": &"jump",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv5nv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3pbc")
+}],
+"loop": true,
+"name": &"on_gaurd",
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 0.2,
@@ -228,7 +269,8 @@ script = ExtResource("1_1q20e")
 position = Vector2(18.6667, -215.958)
 scale = Vector2(0.7, 0.718)
 sprite_frames = SubResource("SpriteFrames_je0vr")
-animation = &"punch1"
+animation = &"on_gaurd"
+autoplay = "idle"
 
 [node name="physics" type="CollisionShape2D" parent="."]
 position = Vector2(-0.647387, -1.6353)
