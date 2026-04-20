@@ -16,9 +16,13 @@ func _ready() -> void:
 	#pass
 
 
+var in_game = true
+signal game_ended
+
 func _on_enemyhpbar_value_changed(value: float) -> void:
-	if enemyHp.value <= 0.0:
-		print("win")
+	if enemyHp.value <= 0.0 and in_game:
+		in_game = false
+		game_ended.emit()
 		Gamemanager.last_battle_won = true
 		restart()
 
@@ -27,8 +31,9 @@ func _on_playerhpbar_value_changed(value: float) -> void:
 	#if playerHp.value < 25.0:
 		#icon change
 	
-	if playerHp.value <= 0.0:
-		print("lose")
+	if playerHp.value <= 0.0 and in_game:
+		in_game = false
+		game_ended.emit()
 		Gamemanager.last_battle_won = false
 		restart()
 

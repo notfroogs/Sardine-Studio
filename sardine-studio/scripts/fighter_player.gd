@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 		State.ATTACKING:
 			attack_momentum(delta)
 			return
-		State.IS_HITTED:
+		State.HITSTUN:
 			on_hitted_momentum(delta)
 			return
 		State.FREE:
@@ -97,6 +97,7 @@ func attack_momentum(delta):
 
 @warning_ignore("unused_parameter")
 func on_hitted_momentum(delta):
+	velocity.x = move_toward(velocity.x, 0.0, deacceleration * 0.4 * delta)
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
@@ -106,7 +107,7 @@ func _input(event: InputEvent) -> void:
 				return
 			State.FREE:
 				change_state(State.ATTACKING)
-			State.IS_HITTED:
+			State.HITSTUN:
 				return
 
 func pre_attack():
@@ -129,6 +130,8 @@ func post_attack():
 	if current_state == State.ATTACKING:
 		change_state(State.FREE)
 
+var enemy_placeholder : Enemy 
+
 func _ready():
 	walk.stream_paused = true
 	#FIX THE AUDIO NOT SUPPOSED TO PLAY
@@ -136,7 +139,7 @@ func _ready():
 		print("no walk")
 	
 	if get_tree() != null:
-		var enemy_placeholder: Enemy = $"../enemy placeholder"
+		enemy_placeholder = $"../enemy placeholder"
 		enemy_placeholder.player_is_hitted.connect(is_hitted)
 	
 	sprite.animation_finished.connect(test)
@@ -150,7 +153,7 @@ var current_state = State.FREE
 enum State {
 	FREE,
 	ATTACKING,
-	IS_HITTED
+	HITSTUN
 }
 
 func change_state(new_state):
@@ -162,22 +165,23 @@ func change_state(new_state):
 			pre_attack()
 		State.FREE:
 			sprite.play("idleV2")
-		State.IS_HITTED:
+		State.HITSTUN:
+			var direction = 1 if enemy_placeholder.global_position < global_position else -1
 			velocity.x *= 0.5
-			velocity.x
+			velocity.x += direction * 100
 			on_hitted()
 	
 	match previous_state:
-		State.IS_HITTED:
+		State.HITSTUN:
 			sprite.self_modulate.a = 1
 
 func is_hitted():
 	match current_state:
-		State.IS_HITTED:
+		State.HITSTUN:
 			return
 		State.FREE:
 			pass
-	change_state(State.IS_HITTED)
+	change_state(State.HITSTUN)
 
 func on_hitted():
 	sprite.play("hitted")
@@ -190,5 +194,5 @@ func _process(delta: float) -> void:
 	#print(velocity)
 	sine_value_t += delta
 	match current_state:
-		State.IS_HITTED:
+		State.HITSTUN:
 			sprite.self_modulate.a = (pow(sin(sine_value_t * 3 * PI), 2))
