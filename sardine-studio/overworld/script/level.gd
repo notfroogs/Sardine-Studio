@@ -35,7 +35,8 @@ func _process(delta: float) -> void:
 		player_overworld.set_physics_process(true)
 		
 	if Gamemanager.tutorial == true:
-		
+		Gamemanager.tutorial = false
 		print(NavigationManager.previous_level)
 		#DialogueManager.dialogue_ended.emit()
 		get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
+		
