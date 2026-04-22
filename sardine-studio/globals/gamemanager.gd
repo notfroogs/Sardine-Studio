@@ -5,7 +5,9 @@ var dialogue_is_active = false
 
 var intro = false
 var tutorial = false
-var first_round = false
+var first_round_intro = false
+var first_round_middle = false
+var first_round_ending = false
 var second_round = false
 var third_round = false
 

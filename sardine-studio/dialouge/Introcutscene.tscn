@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://disgc5trml1gu" path="res://dialouge/preround1.gd" id="1_8qwrd"]
 [ext_resource type="Texture2D" uid="uid://brjgfjlx7fb6o" path="res://assets/dialouge sprites/Lyre Neutral.png" id="2_h68qe"]
-[ext_resource type="AudioStream" uid="uid://dwrbwcqakd7av" path="res://assets/sounds/sound/FNF DialogueText Sound Effect.mp3" id="3_1ynp7"]
+[ext_resource type="AudioStream" uid="uid://1tkvoausgsrh" path="res://assets/sounds/sound/DIALOGUEBLIPS.wav" id="3_esciv"]
 [ext_resource type="AudioStream" uid="uid://c78ro2x2m4yq2" path="res://assets/sounds/bgmusic/MainBackgroundMusic.wav" id="4_0yw4d"]
 [ext_resource type="AudioStream" uid="uid://crtca2vfdr0x7" path="res://assets/sounds/sound/ButtonClickSound.wav" id="4_u0oof"]
 
@@ -110,7 +110,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Timer" type="Timer" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_1ynp7")
+stream = ExtResource("3_esciv")
 volume_db = 20.0
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]

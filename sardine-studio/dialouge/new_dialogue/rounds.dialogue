@@ -1,0 +1,25 @@
+~ start
+Lyre [Awkward]: Okay guys, we're here. Lets do our best and win this competition!
+Adeline [Happy]: Yeah! Break a leg!
+Veronica [Happy]: We're gonna wipe the competion and be the best!
+Sam [Neutral]: Oh look! I think were up!
+set Gamemanager.first_round_intro = true
+=> END
+
+~ after
+Lyre [Excited]: I think we did pretty good! The crowd loved us!
+Sam [Neutral]: It was our first time infront of a crowd, but i think we did pretty well!
+Hebrew [Neutral]: Ha ha ha go home you little ametures, This is no place for you guys.
+Vienna [Neutral]: Did you actually hear youselves, yall SUCK.
+Lyre [Stare]: ...
+Lyre [Stare]: I'm going to rip your throat out. 
+set Gamemanager.first_round_intro = false
+=> END
+
+~ending
+Veronica [Annoyed]: Dude. I think you just killed that guy.
+Adeline [Hurt]: Oh... Oh My God. W-What the heck are we going to do?!?! 
+Lyre [Awkward]: Lets get out of here!
+Sam [Annoyed]: WHAT? ARE YOU CRAZY?
+Lyre [Hurt]: Well YOU can stay behind and get arrested. I'm not!
+=> END
