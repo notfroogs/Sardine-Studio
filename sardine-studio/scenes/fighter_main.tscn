@@ -57,7 +57,7 @@ position = Vector2(266, 553)
 shape = SubResource("WorldBoundaryShape2D_nn4mn")
 
 [node name="enemy placeholder" parent="." instance=ExtResource("3_wqw35")]
-position = Vector2(963.478, 518.344)
+position = Vector2(929.39044, 545.39734)
 scale = Vector2(1.22637, 1.30182)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

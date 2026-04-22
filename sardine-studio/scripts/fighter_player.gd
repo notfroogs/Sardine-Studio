@@ -42,6 +42,8 @@ func _physics_process(delta: float) -> void:
 			return
 		State.FREE:
 			pass
+		State.GUARD:
+			pass
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -103,12 +105,15 @@ func on_hitted_momentum(delta):
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		match current_state:
-			State.ATTACKING:
-				return
 			State.FREE:
 				change_state(State.ATTACKING)
-			State.HITSTUN:
-				return
+	elif event.is_action_pressed("guard"):
+		sprite.play("guard")
+		#match current_state:
+			#State.FREE:
+				#print("guard press")
+				#change_state(State.GUARD)
+	return
 
 func pre_attack():
 	sprite.play("pre_punch")
@@ -142,7 +147,7 @@ func _ready():
 		enemy_placeholder = $"../enemy placeholder"
 		enemy_placeholder.player_is_hitted.connect(is_hitted)
 	
-	sprite.animation_finished.connect(test)
+	#sprite.animation_finished.connect(test)
 	
 func test():
 	pass
@@ -154,12 +159,22 @@ enum State {
 	FREE,
 	ATTACKING,
 	HITSTUN,
-	ON_GUARD
+	GUARD,
+	GUARD_SUCC
 }
 
 func change_state(new_state):
+	sprite.speed_scale = 1
 	previous_state = current_state
 	current_state = new_state
+	
+	match previous_state:
+		State.HITSTUN:
+			sprite.self_modulate.a = 1
+		#State.GUARD_SUCC:
+			#if new_state == State.ATTACKING:
+				#sprite.speed_scale = 0.5
+		
 	match current_state:
 		State.ATTACKING:
 			velocity.x *= 0.5
@@ -171,17 +186,19 @@ func change_state(new_state):
 			velocity.x *= 0.5
 			velocity.x += direction * 100
 			on_hitted()
-	
-	match previous_state:
-		State.HITSTUN:
-			sprite.self_modulate.a = 1
+		State.GUARD:
+			sprite.play("guard")
+		State.GUARD_SUCC:
+			sprite.play("gaurded")
 
 func is_hitted():
 	match current_state:
 		State.HITSTUN:
 			return
-		State.FREE:
-			pass
+		State.GUARD:
+			if guarding():
+				guard_succ()
+				return
 	change_state(State.HITSTUN)
 
 func on_hitted():
@@ -192,8 +209,21 @@ func on_hitted():
 var sine_value_t = 0.0
 
 func _process(delta: float) -> void:
-	#print(velocity)
+	print(current_state)
 	sine_value_t += delta
 	match current_state:
 		State.HITSTUN:
 			sprite.self_modulate.a = (pow(sin(sine_value_t * 3 * PI), 2))
+
+func guarding():
+	if sprite.frame == 2:
+		return true
+	else:
+		return false
+
+func guard_succ():
+	print("yes")
+	change_state(State.GUARD_SUCC)
+	await get_tree().create_timer(0.3).timeout
+	if current_state == State.GUARD_SUCC:
+		change_state(State.FREE)

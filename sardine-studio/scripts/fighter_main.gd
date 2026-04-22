@@ -15,6 +15,7 @@ func _on_fighter_player_player_hit() -> void:
 func _ready() -> void:
 	#delay for player and enemy to fall
 	fighter_player.sprite.play("idle")
+	enemy_placeholder.sprite_2d.play("i")
 	count_down.start_counting()
 	fighter_player.set_physics_process(false)
 	enemy_placeholder.set_physics_process(false)
@@ -22,5 +23,6 @@ func _ready() -> void:
 		func() -> void:
 			fighter_player.set_physics_process(true)
 			enemy_placeholder.set_physics_process(true)
+			enemy_placeholder.sprite_2d.play("idle")
 	)
 	
