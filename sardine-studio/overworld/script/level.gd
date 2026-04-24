@@ -52,5 +52,6 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
 	if Gamemanager.first_round_middle_fight == true:
 		Gamemanager.first_round_middle_fight = false
+		Gamemanager.first_round_ending = true
 		get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
 	
