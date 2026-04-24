@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		State.FREE:
 			pass
 		State.GUARD:
-			pass
+			return
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -77,8 +77,9 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_floor():
 		if direction_x == 0:
-			walk.stream_paused= true
-			sprite.play("idleV2")
+			walk.stream_paused = true
+			if current_state == State.FREE:
+				sprite.play("idleV2")
 		else:
 			#FIX THE AUDIO NOT SUPPOSED TO PLAY ON COUNTDOWN
 			walk.stream_paused = false
@@ -107,12 +108,15 @@ func _input(event: InputEvent) -> void:
 		match current_state:
 			State.FREE:
 				change_state(State.ATTACKING)
+			State.GUARD_SUCC:
+				change_state(State.ATTACKING)
 	elif event.is_action_pressed("guard"):
-		sprite.play("guard")
-		#match current_state:
-			#State.FREE:
-				#print("guard press")
-				#change_state(State.GUARD)
+		match current_state:
+			State.FREE:
+				change_state(State.GUARD)
+				await sprite.animation_finished
+				if current_state == State.GUARD:
+					change_state(State.FREE)
 	return
 
 func pre_attack():
@@ -144,7 +148,7 @@ func _ready():
 		print("no walk")
 	
 	if get_tree() != null:
-		enemy_placeholder = $"../enemy placeholder"
+		enemy_placeholder = %enemy_placeholder
 		enemy_placeholder.player_is_hitted.connect(is_hitted)
 	
 	#sprite.animation_finished.connect(test)
@@ -171,9 +175,10 @@ func change_state(new_state):
 	match previous_state:
 		State.HITSTUN:
 			sprite.self_modulate.a = 1
-		#State.GUARD_SUCC:
-			#if new_state == State.ATTACKING:
-				#sprite.speed_scale = 0.5
+		State.GUARD_SUCC:
+			#print("Is new_state attack:", new_state == State.ATTACKING)
+			if new_state == State.ATTACKING:
+				sprite.speed_scale = 1.5
 		
 	match current_state:
 		State.ATTACKING:
@@ -191,6 +196,8 @@ func change_state(new_state):
 		State.GUARD_SUCC:
 			sprite.play("gaurded")
 
+signal player_is_damaged
+
 func is_hitted():
 	match current_state:
 		State.HITSTUN:
@@ -199,6 +206,7 @@ func is_hitted():
 			if guarding():
 				guard_succ()
 				return
+	player_is_damaged.emit()
 	change_state(State.HITSTUN)
 
 func on_hitted():
@@ -209,7 +217,7 @@ func on_hitted():
 var sine_value_t = 0.0
 
 func _process(delta: float) -> void:
-	print(current_state)
+	#print(current_state)
 	sine_value_t += delta
 	match current_state:
 		State.HITSTUN:
@@ -221,9 +229,13 @@ func guarding():
 	else:
 		return false
 
+signal player_guard_succ
+
 func guard_succ():
-	print("yes")
+	#print("yes")
 	change_state(State.GUARD_SUCC)
+	player_guard_succ.emit()
 	await get_tree().create_timer(0.3).timeout
 	if current_state == State.GUARD_SUCC:
+		#print("change state to free")
 		change_state(State.FREE)

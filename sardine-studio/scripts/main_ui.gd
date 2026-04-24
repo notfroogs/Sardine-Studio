@@ -5,16 +5,24 @@ extends Control
 var results = preload("res://scenes/results_screen.tscn")
 # Called when the node enters the scene tree for the first time.
 
+@onready var enemy_placeholder: Enemy = %enemy_placeholder
+@onready var fighter_player: Player = %fighterPlayer
+
 func _ready() -> void:
 	enemyHp.value = 100
 	playerHp.value = 100
+	fighter_player.player_is_damaged.connect(player_is_hitted)
+	fighter_player.player_guard_succ.connect(player_guard_succ)
 
+func player_is_hitted():
+	playerHp.value -= 30
 
+func player_guard_succ():
+	playerHp.value -= 5
 
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:
 	#pass
-
 
 var in_game = true
 signal game_ended

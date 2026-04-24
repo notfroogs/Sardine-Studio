@@ -6,7 +6,8 @@ const JUMP_VELOCITY = -700.0
 
 enum State {
 	FREE,
-	ATTACKING
+	ATTACKING,
+	DIED
 }
 var current_state = State.FREE
 
@@ -60,14 +61,15 @@ func moving(delta):
 func pre_attack():
 	sprite_2d.play("pre_punch")
 	await sprite_2d.animation_finished
-	attack()
+	if current_state == State.ATTACKING:
+		attack()
 
 func attack() -> void:
 	var areas_in_hit_box = hit_box.get_overlapping_areas()
 	if  areas_in_hit_box != []:
 		
 		if get_parent().get_node("CanvasLayer/main ui/playerhpbar") != null:
-			get_parent().get_node("CanvasLayer/main ui/playerhpbar").value -= 30
+			#get_parent().get_node("CanvasLayer/main ui/playerhpbar").value -= 30
 			player_is_hitted.emit()
 			
 	post_attack()
@@ -83,5 +85,10 @@ func change_state(new_state):
 			pre_attack()
 		State.FREE:
 			sprite_2d.play("idle")
+		State.DIED:
+			pass
 
 signal player_is_hitted
+
+func die():
+	change_state(State.DIED)

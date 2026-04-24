@@ -121,12 +121,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_acq7r")
 }, {
-"duration": 6.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_yv5nv")
 }],
 "loop": false,
 "name": &"guard",
-"speed": 7.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
