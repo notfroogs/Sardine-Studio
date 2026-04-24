@@ -20,7 +20,7 @@ func pause() -> void:
 	if pausing:
 		match scene_name:
 			#add case if need the puase control do something different for that scene
-			"":
+			"title":
 				pass
 			_:
 				pause_screen.visible = true
