@@ -16,6 +16,13 @@ func _ready() -> void:
 	else:
 		player_overworld.set_physics_process(true)
 		
+	if self.name == "overworld" and not Gamemanager.intro_shown:
+		Gamemanager.intro_shown = true
+		Gamemanager.intro = true
+		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/introround.dialogue"), "start")
+	if Gamemanager.first_round_intro == false and Gamemanager.first_round_middle == true:
+		Gamemanager.first_round_middle = false
+		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/introround.dialogue"), "after")
 
 	
 func _on_level_spawn(destination_tag:String):
@@ -27,7 +34,7 @@ func _process(delta: float) -> void:
 	var scene_name = get_tree().current_scene.name
 	NavigationManager.previous_level = scene_name
 	
-	print(Gamemanager.dialogue_is_active)
+	#print(Gamemanager.dialogue_is_active)
 	if Gamemanager.dialogue_is_active == true:
 		player_overworld.set_physics_process(false)
 		
@@ -36,7 +43,14 @@ func _process(delta: float) -> void:
 		
 	if Gamemanager.tutorial == true:
 		Gamemanager.tutorial = false
-		print(NavigationManager.previous_level)
+		#print(NavigationManager.previous_level)
 		#DialogueManager.dialogue_ended.emit()
 		get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
-		
+	if Gamemanager.first_round_intro == true:
+		Gamemanager.first_round_intro = false
+		Gamemanager.first_round_middle = true
+		get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
+	if Gamemanager.first_round_middle_fight == true:
+		Gamemanager.first_round_middle_fight = false
+		get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
+	
