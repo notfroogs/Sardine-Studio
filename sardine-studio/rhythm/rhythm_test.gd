@@ -43,8 +43,10 @@ func _on_Rhythm_Game_Ended(array) -> void:
 	if array[4] <= 10:
 		MCM = 1
 	elif array[4] <= 20:
-		MCM = 1.5
+		MCM = 1.25
 	elif array[4] <= 30:
+		MCM = 1.5
+	else:
 		MCM = 2
 	var final_score = (array[0] * 100 + array[1] *150 + array[2] * 200) * MCM
 	score.text = "Final Score: " + str(int(floor(final_score)))

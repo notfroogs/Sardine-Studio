@@ -55,13 +55,14 @@ var combo : int = 0
 @onready var scoring_text: RichTextLabel = %ScoringText
 
 func _ready():
-	#in case of error
+	#in case of file error
 	if loaded_file != null:
 		#convert the document into dictionary
 		store_note()
 		loaded_file.close()
-		
-	#note_progress = chart.duplicate()
+	
+	
+	
 	#Start the timer
 	time_count = float(chart[note_progress]["Time"])
 
@@ -112,6 +113,9 @@ func generate() -> void:
 var time_elasped : float
 
 func _process(delta: float) -> void:
+	
+	#await game_start
+	
 	#record how much time had passed
 	time_elasped += delta
 	

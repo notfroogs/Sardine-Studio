@@ -20,6 +20,7 @@ config/icon="res://rhythm/icon.svg"
 NavigationManager="*res://globals/navigation_manager.gd"
 PauseScreenTest="*res://globals/pause_screen_test.tscn"
 Gamemanager="*res://globals/gamemanager.gd"
+Tutorial="*res://globals/Tutorial.tscn"
 
 [display]
 

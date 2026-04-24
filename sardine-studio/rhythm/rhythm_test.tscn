@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://whgs0t56ec8o"]
 
-[ext_resource type="Script" path="res://rhythm/rhythm_test.gd" id="1_qicsp"]
+[ext_resource type="Script" uid="uid://dabs8uffx4npt" path="res://rhythm/rhythm_test.gd" id="1_qicsp"]
 [ext_resource type="Theme" uid="uid://cfi0di7h3mmng" path="res://rhythm/rhythm_test.tres" id="2_4pwai"]
-[ext_resource type="Shader" path="res://rhythm/test.gdshader" id="3_84tev"]
+[ext_resource type="Shader" uid="uid://d17xsue3hcswr" path="res://rhythm/test.gdshader" id="3_84tev"]
 [ext_resource type="StyleBox" uid="uid://cucp0wll5tk4" path="res://rhythm/rhythm.tres" id="4_4pwai"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ppyta"]
