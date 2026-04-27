@@ -41,7 +41,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_ppyta")
 Button/styles/normal = ExtResource("4_4pwai")
 Button/styles/pressed = SubResource("StyleBoxFlat_6uqi0")
 
-[node name="Node2D" type="Node2D"]
+[node name="rhythm_test" type="Node2D"]
 script = ExtResource("1_qicsp")
 
 [node name="Camera2D" type="Camera2D" parent="."]

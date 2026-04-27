@@ -1,10 +1,10 @@
-#@tool
 extends Control
 
 @onready var _blur_color_rect: ColorRect = %BlurColorRect
 @onready var _ui_panel_container: PanelContainer = %UIPanelContainer
 @onready var resume_button: Button = %ResumeButton
 @onready var quit_button: Button = %QuitButton
+@onready var help_button: Button = %HelpButton
 
 @export_range(0, 1.0) var menu_opened_amount := 0.0:
 	set = set_menu_opened_amount
@@ -27,3 +27,6 @@ func get_resume_button():
 
 func get_quit_button():
 	return quit_button
+
+func get_help_button():
+	return help_button

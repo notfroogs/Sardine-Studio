@@ -5,8 +5,8 @@
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
-layer = 100
+layer = 2
 script = ExtResource("1_ohhba")
 
 [node name="PauseScreen" parent="." instance=ExtResource("2_0y3jf")]
-visible = false
+mouse_filter = 2
