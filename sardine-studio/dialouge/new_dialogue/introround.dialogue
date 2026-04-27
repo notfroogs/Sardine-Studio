@@ -23,7 +23,7 @@ set Gamemanager.dialogue_is_active = false
 
 ~ ending
 set Gamemanager.dialogue_is_active = true 
-Veronica [Annoyed]: Dude. I think you just killed that guy.
+Veronica [Awkward]: Dude. I think you just killed that guy.
 Adeline [Hurt]: Oh... Oh My God. W-What the heck are we going to do?!?! 
 Lyre [Awkward]: Lets get out of here!
 Sam [Annoyed]: WHAT? ARE YOU CRAZY?

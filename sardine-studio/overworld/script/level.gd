@@ -23,6 +23,11 @@ func _ready() -> void:
 	if Gamemanager.first_round_intro == false and Gamemanager.first_round_middle == true:
 		Gamemanager.first_round_middle = false
 		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/introround.dialogue"), "after")
+	if Gamemanager.first_round_ending == true:
+		Gamemanager.first_round_ending = false
+		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/introround.dialogue"), "ending")
+		await DialogueManager.dialogue_ended
+		get_tree().change_scene_to_file("res://overworld/scene/garage.tscn")
 
 	
 func _on_level_spawn(destination_tag:String):
