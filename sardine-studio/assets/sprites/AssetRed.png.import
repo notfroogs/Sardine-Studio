@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di327ql6yqb81"
-path="res://.godot/imported/Hebrew Neutral.png-2ff8b46b6c2372bb9b5ae63eb21cdf1e.ctex"
+uid="uid://ditd12tnl8320"
+path="res://.godot/imported/AssetRed.png-ba2a3d7cbc1e5f0c21ff1d72b80e1184.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dialouge sprites/Hebrew Neutral.png"
-dest_files=["res://.godot/imported/Hebrew Neutral.png-2ff8b46b6c2372bb9b5ae63eb21cdf1e.ctex"]
+source_file="res://assets/sprites/AssetRed.png"
+dest_files=["res://.godot/imported/AssetRed.png-ba2a3d7cbc1e5f0c21ff1d72b80e1184.ctex"]
 
 [params]
 

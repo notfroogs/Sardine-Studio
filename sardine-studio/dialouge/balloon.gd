@@ -97,8 +97,8 @@ var mutation_cooldown: Timer = Timer.new()
 	"Veronica_Happy" = preload("res://assets/dialouge sprites/Veronica Happy.png"),
 	"Veronica_Sparkle" = preload("res://assets/dialouge sprites/Veronica Sparkle.png"),
 	"Veronica_Worried" = preload("res://assets/dialouge sprites/Veronica Worried.png"),
-	"Hebrew_Neutral" = preload("res://assets/dialouge sprites/Hebrew Neutral.png"),
-	"Vienna_Neutral" = preload("res://assets/dialouge sprites/Vienna Neutral.png")
+	"Red Hotdog_1" = preload("res://assets/dialouge sprites/RYB Hotdogman.png"),
+	"Yellow Hotdog_1" = preload("res://assets/dialouge sprites/Vienna Neutral.png")
 	
 	
 	

@@ -13,8 +13,8 @@ set Gamemanager.first_round_intro = true
 set Gamemanager.dialogue_is_active = true 
 Lyre [Excited]: I think we did pretty good! The crowd loved us!
 Sam [Neutral]: It was our first time infront of a crowd, but i think we did pretty well!
-Hebrew [Neutral]: Ha ha ha go home you little ametures, This is no place for you guys.
-Vienna [Neutral]: Did you actually hear youselves, yall SUCK.
+Yellow Hotdog [1]: Ha ha ha go home you little ametures, This is no place for you guys.
+Red Hotdog [1]: Did you actually hear youselves, yall SUCK.
 Lyre [Stare]: ...
 Lyre [Stare]: I'm going to rip your throat out. 
 set Gamemanager.first_round_middle_fight = true

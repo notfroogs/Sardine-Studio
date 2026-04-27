@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcvunv8jesu7t"]
+
+[ext_resource type="Script" uid="uid://dim4awnsavjje" path="res://overworld/characters/hotdog_man.gd" id="1_hvtoc"]
+[ext_resource type="Texture2D" uid="uid://ditd12tnl8320" path="res://assets/sprites/AssetRed.png" id="2_nynpw"]
+[ext_resource type="Theme" uid="uid://ba2bjtxd64326" path="res://assets/theme/mainUI.tres" id="3_nynpw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yffo0"]
+
+[node name="HotdogMan" type="Area2D"]
+script = ExtResource("1_hvtoc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nynpw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(7.1389556, 24.925205)
+shape = SubResource("RectangleShape2D_yffo0")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 65.0
+offset_top = -248.0
+offset_right = 116.0
+offset_bottom = -198.0
+theme = ExtResource("3_nynpw")
+text = "[X]"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

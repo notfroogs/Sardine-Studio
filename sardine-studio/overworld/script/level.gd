@@ -28,6 +28,13 @@ func _ready() -> void:
 		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/introround.dialogue"), "ending")
 		await DialogueManager.dialogue_ended
 		get_tree().change_scene_to_file("res://overworld/scene/garage.tscn")
+		Gamemanager.day_2 = true
+	if Gamemanager.day_2 == true:
+		Gamemanager.day_2 = false
+		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/second_round.dialogue"),"start")
+		#DialogueManager.show_dialogue_balloon()
+	if self.name == "overworldStreet" and Gamemanager.start:
+		Gamemanager.start = false
 
 	
 func _on_level_spawn(destination_tag:String):
