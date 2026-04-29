@@ -1,8 +1,12 @@
 extends Node
 
+# triggers for gameplay.
 var last_battle_won = false
 var dialogue_is_active = false
 
+#Triggers for story
+var begin = false
+var begin_end = false
 var start = true
 var intro = false
 var intro_shown = false

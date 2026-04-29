@@ -1,3 +1,16 @@
+~ intro
+set Gamemanager.dialogue_is_active = true 
+Adeline [Happy]: We should participate !! That ten quadrillion dollars might get us out of this shack..
+Sam [Thinking]: Let’s practice before competing in a competition..
+Sam [Thinking]: It’s been a while since we’ve actually done any music.
+Lyre [Excited]: ur rite we should totes do that now ! 
+Veronica [Awkward]: How are we going to practice without instruments
+Veronica [Sparkle]: oh nevermind..  they're right there
+set Gamemanager.dialogue_is_active = true 
+set Gamemanager.begin_end = true
+=> END
+
+
 ~ start
 #set Gamemanager.intro= true
 set Gamemanager.dialogue_is_active = true 
@@ -13,8 +26,12 @@ set Gamemanager.first_round_intro = true
 set Gamemanager.dialogue_is_active = true 
 Lyre [Excited]: I think we did pretty good! The crowd loved us!
 Sam [Neutral]: It was our first time infront of a crowd, but i think we did pretty well!
-Yellow Hotdog [1]: Ha ha ha go home you little ametures, This is no place for you guys.
-Red Hotdog [1]: Did you actually hear youselves, yall SUCK.
+Blue Hotdog [1]: Ha ha ha go home you little ametures, This is no place for you guys.
+Yellow Hotdog [1]: Did you actually hear youselves, yall SUCK.
+Lyre [Hurt]: Who even are you people?
+Blue Hotdog [1]: WE are the RYB hot dog people!
+Yellow Hotdog [1]: Usally we're a quad but our big boss isn't here.
+Blue Hotdog [1]: Yeah haha we're going to beat you regardless
 Lyre [Stare]: ...
 Lyre [Stare]: I'm going to rip your throat out. 
 set Gamemanager.first_round_middle_fight = true
@@ -23,6 +40,7 @@ set Gamemanager.dialogue_is_active = false
 
 ~ ending
 set Gamemanager.dialogue_is_active = true 
+Blue Hotdog [1]: You win kid... Fair and square...
 Veronica [Awkward]: Dude. I think you just killed that guy.
 Adeline [Hurt]: Oh... Oh My God. W-What the heck are we going to do?!?! 
 Lyre [Awkward]: Lets get out of here!

@@ -12,7 +12,7 @@ func start():
 	#NavigationManager.go_to_level("garage", null)
 	selectsound.play()
 	await selectsound.finished
-	get_tree().change_scene_to_file("res://dialouge/Introcutscene.tscn")
+	get_tree().change_scene_to_file("res://overworld/scene/garage.tscn")
 	
 func quit():
 	selectsound.play()

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://csv077xd6c34b" path="res://overworld/script/level.gd" id="1_wknnt"]
 [ext_resource type="Texture2D" uid="uid://clmyj7hxutvg3" path="res://assets/backgrounds/HOUSEINTERIOR.png" id="2_kvxgd"]
 [ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="2_wknnt"]
-[ext_resource type="AudioStream" uid="uid://c78ro2x2m4yq2" path="res://assets/sounds/bgmusic/MainBackgroundMusic.wav" id="4_hjvdt"]
+[ext_resource type="AudioStream" uid="uid://blat68gdeggv4" path="res://assets/sounds/bgmusic/BGMUSIC.wav" id="4_00kfs"]
 [ext_resource type="Theme" uid="uid://ba2bjtxd64326" path="res://assets/theme/mainUI.tres" id="5_gie8r"]
 [ext_resource type="PackedScene" uid="uid://ctgk6rnhob1av" path="res://overworld/characters/adeline.tscn" id="7_00kfs"]
 [ext_resource type="PackedScene" uid="uid://baqv8oq2bnn7r" path="res://overworld/characters/sam.tscn" id="8_v1woi"]
@@ -26,7 +26,7 @@ texture = ExtResource("2_kvxgd")
 position = Vector2(419, 450)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="playerOverworld"]
-stream = ExtResource("4_hjvdt")
+stream = ExtResource("4_00kfs")
 volume_db = -11.998
 autoplay = true
 
