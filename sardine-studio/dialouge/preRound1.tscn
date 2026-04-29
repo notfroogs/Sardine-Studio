@@ -1,0 +1,128 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0oagmj3yj737"]
+
+[ext_resource type="Script" path="res://dialouge/TestDialouge.gd" id="1_27u5w"]
+[ext_resource type="Texture2D" uid="uid://brjgfjlx7fb6o" path="res://assets/dialouge sprites/Lyre Neutral.png" id="2_rungp"]
+[ext_resource type="AudioStream" uid="uid://dwrbwcqakd7av" path="res://assets/sounds/sound/FNF DialogueText Sound Effect.mp3" id="3_m83ws"]
+[ext_resource type="AudioStream" path="res://assets/sounds/BGM_GPSFF_field.sab.mp3" id="4_x0odv"]
+[ext_resource type="AudioStream" path="res://assets/sounds/explosion.wav" id="5_hmvgl"]
+[ext_resource type="AudioStream" path="res://assets/sounds/BGM_ew_field_01.sab.mp3" id="6_dwhp1"]
+
+[node name="preround1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_27u5w")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_right = 0.998264
+anchor_bottom = 0.998457
+metadata/_edit_use_anchors_ = true
+
+[node name="icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.036458332
+anchor_top = 0.016975308
+anchor_right = 0.2986106
+anchor_bottom = 0.49845627
+offset_right = 198.00058
+offset_bottom = 188.00034
+texture = ExtResource("2_rungp")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+anchor_left = 0.0217014
+anchor_top = 0.595679
+anchor_right = 0.314236
+anchor_bottom = 0.71142
+offset_top = 3.05176e-05
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.70216
+anchor_right = 1.0
+anchor_bottom = 0.998457
+offset_top = 3.05176e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="RichTextLabel" parent="."]
+layout_mode = 0
+anchor_left = 0.0581597
+anchor_top = 0.62037
+anchor_right = 0.278646
+anchor_bottom = 0.682099
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]John Doe[center]"
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0425347
+anchor_top = 0.748457
+anchor_right = 0.794271
+anchor_bottom = 0.939815
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "Oh My God"
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
+[node name="nextbutton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.810764
+anchor_top = 0.813272
+anchor_right = 0.97309
+anchor_bottom = 0.939815
+theme_override_font_sizes/font_size = 30
+text = "NEXT"
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m83ws")
+volume_db = 24.0
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_x0odv")
+volume_db = -6.0
+autoplay = true
+
+[node name="select" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_hmvgl")
+volume_db = -3.495
+
+[node name="skip" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00260417
+anchor_top = 0.00462963
+anchor_right = 0.0616319
+anchor_bottom = 0.0416667
+text = "SKIP"
+metadata/_edit_use_anchors_ = true
+
+[node name="audio2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_dwhp1")
+
+[connection signal="pressed" from="nextbutton" to="." method="_on_nextbutton_pressed"]
+[connection signal="pressed" from="skip" to="." method="_on_skip_pressed"]

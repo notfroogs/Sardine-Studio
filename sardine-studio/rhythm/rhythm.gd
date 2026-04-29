@@ -11,7 +11,7 @@ extends Control
 #instantiate the rhythm game
 @onready var loaded_file := FileAccess.open(chart_text, FileAccess.READ)
 @onready var keys = (loaded_file.get_line()).split(",")
-const NOTE = preload("uid://dilpgmxld0ree")
+
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
 var in_game = true
@@ -27,6 +27,20 @@ var time_count : float
 	4: note_column_4,
 	0: column_empty
 }
+const RHYTHMGREENDOT = preload("uid://cxv8yev7hgsfc")
+const RHYTHMORANGEDOT = preload("uid://ty87ir8k6jrj")
+const RHYTHMPURPLEDOT = preload("uid://c5seb2rcjutfx")
+const RHYTHMREDDOT = preload("uid://dviwl7m2fn0dl")
+const NOTE = preload("uid://dilpgmxld0ree")
+
+@onready var notes = {
+	1: RHYTHMGREENDOT,
+	2: RHYTHMORANGEDOT,
+	3: RHYTHMPURPLEDOT,
+	4: RHYTHMREDDOT,
+	0: NOTE
+}
+
 
 signal Rhythm_Game_Ended
 
@@ -75,10 +89,13 @@ func generate() -> void:
 		if chart[note_progress] == "END":
 			return
 	
+	var column_number = int(chart[note_progress]["Column"])
+	
 	var icon = NOTE.instantiate()
+	icon.texture = notes[column_number]
 	#set up the speed and add them to corresponse column
 	icon.speed = float(chart[note_progress]["Speed"])/10.0
-	columns[int(chart[note_progress]["Column"])].add_child(icon)
+	columns[column_number].add_child(icon)
 	icon.position.x = 1000.0
 	
 	if chart[note_progress]["Duration"] != "#":
@@ -125,7 +142,7 @@ func _process(delta: float) -> void:
 		#else end the game
 		elif chart[note_progress + 1] == "END":
 			time_count = 100.0
-			await get_tree().create_timer(8.0).timeout
+			await get_tree().create_timer(7.0).timeout
 			in_game = false
 			print("========")
 			print("good: " + str(good_count))

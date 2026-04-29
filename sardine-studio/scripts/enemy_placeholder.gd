@@ -6,18 +6,19 @@ const JUMP_VELOCITY = -700.0
 
 enum State {
 	FREE,
-	ATTACKING
+	ATTACKING,
+	DIED
 }
 var current_state = State.FREE
 
-@onready var sprite : Sprite2D = $Sprite2D
 @onready var hitbox_collision: CollisionShape2D = $hitBox/CollisionShape2D
 @onready var hit_box: HitBoxA = $hitBox
-
-@onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+#@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 var player
 func _ready() -> void:
+	sprite_2d.play("idle")
 	if get_node("../fighterPlayer") != null:
 		player = $"../fighterPlayer"
 
@@ -54,27 +55,40 @@ func moving(delta):
 	if abs(velocity.x) <= 200:
 		attack_counting += delta
 		if attack_counting >= 1.5:
-			attack()
+			change_state(State.ATTACKING)
 			attack_counting = 0.0
 
-func attack():
-	change_state(State.ATTACKING)
+func pre_attack():
+	sprite_2d.play("pre_punch")
+	await sprite_2d.animation_finished
+	if current_state == State.ATTACKING:
+		attack()
+
+func attack() -> void:
+	var areas_in_hit_box = hit_box.get_overlapping_areas()
+	if  areas_in_hit_box != []:
+		
+		if get_parent().get_node("CanvasLayer/main ui/playerhpbar") != null:
+			#get_parent().get_node("CanvasLayer/main ui/playerhpbar").value -= 30
+			player_is_hitted.emit()
+			
+	post_attack()
+
+func post_attack() -> void:
+	sprite_2d.play("post_punch")
+	change_state(State.FREE)
 
 func change_state(new_state):
 	current_state = new_state
 	match current_state:
 		State.ATTACKING:
-			animation_player.play("attack")
+			pre_attack()
 		State.FREE:
+			sprite_2d.play("idle")
+		State.DIED:
 			pass
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "attack":
-		var areas_in_hit_box = hit_box.get_overlapping_areas()
-		if  areas_in_hit_box != []:
-			
-			if get_parent().get_node("CanvasLayer/main ui/playerhpbar") != null:
-				get_parent().get_node("CanvasLayer/main ui/playerhpbar").value -= 30
-			
-		animation_player.play("attack_reset")
-		change_state(State.FREE)
+signal player_is_hitted
+
+func die():
+	change_state(State.DIED)
