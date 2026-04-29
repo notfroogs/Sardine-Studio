@@ -78,12 +78,14 @@ func _input(event: InputEvent) -> void:
 				match scene_name:
 					"overworld":
 						
-						#the selection.name is its name in the scene tree
+						#the selection.name is door's name in the scene tree
 						match selection.name:
 							"fighter":
-								get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
+								#get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
+								Gamemanager.change_to_fight()
 							"playing":
-								get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
+								#get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
+								Gamemanager.change_to_rhythm()
 					
 					#expand scene_name's case further if needed
 					

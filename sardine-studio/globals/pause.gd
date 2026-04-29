@@ -21,7 +21,7 @@ func pause() -> void:
 		
 	if pausing:
 		match scene_name:
-			#add case if need the puase control do something different for that scene
+			#add cases if need the puase control do something different for that scene
 			"title":
 				pass
 			_:
@@ -41,15 +41,14 @@ func exit() -> void:
 
 signal help
 
-
 func show_tutorial():
-	var scene_name = get_tree().current_scene.name
+	#var scene_name = get_tree().current_scene.name
 	
-	help.emit()
-	
-	match scene_name:
-		"rhythm_test":
-			tutorial.visible = true
-		_:
-			tutorial.visible = false
+	help.emit(null)
+	#
+	#match scene_name:
+		#"rhythm_test":
+			#tutorial.visible = true
+		#_:
+			#tutorial.visible = false
 			

@@ -1,11 +1,92 @@
-[gd_scene load_steps=3 format=3 uid="uid://cknwj8rusw31"]
+[gd_scene load_steps=6 format=3 uid="uid://dsfai3k2p41gv"]
 
-[ext_resource type="Script" uid="uid://bhb0x6tlcnm8g" path="res://globals/tutorial.gd" id="1_wme24"]
-[ext_resource type="PackedScene" uid="uid://dsfai3k2p41gv" path="res://globals/tutorial2.tscn" id="2_108ws"]
+[ext_resource type="Shader" uid="uid://brspwbty72y51" path="res://pauseScreen/pause_screen_test.gdshader" id="1_tuqse"]
+[ext_resource type="Script" uid="uid://bhb0x6tlcnm8g" path="res://globals/tutorial.gd" id="1_w3pk4"]
 
-[node name="TutorialLayer" type="CanvasLayer"]
-layer = 100
-script = ExtResource("1_wme24")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ne4im"]
+shader = ExtResource("1_tuqse")
+shader_parameter/blur_amount = 0.678000032205
 
-[node name="Tutorial" parent="." instance=ExtResource("2_108ws")]
+[sub_resource type="InputEventKey" id="InputEventKey_w3pk4"]
+device = -1
+keycode = 72
+unicode = 104
+
+[sub_resource type="Shortcut" id="Shortcut_ne4im"]
+events = [SubResource("InputEventKey_w3pk4")]
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_w3pk4")
+
+[node name="BlurColorRect" type="ColorRect" parent="."]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ne4im")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="tutorial_panel" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tutorial_panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.5
+offset_top = -42.0
+offset_right = 237.5
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="tutorial_panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="tutorial_panel/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(235, 0)
+layout_mode = 2
+text = "If you saw this, it means something went wrong"
+editable = false
+context_menu_enabled = false
+drag_and_drop_selection_enabled = false
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="TextEdit2" type="TextEdit" parent="tutorial_panel/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(235, 0)
+layout_mode = 2
+editable = false
+context_menu_enabled = false
+drag_and_drop_selection_enabled = false
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[node name="Button" type="Button" parent="tutorial_panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+button_mask = 7
+shortcut = SubResource("Shortcut_ne4im")
+text = "Got it!"
