@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4lejxhlia571"
-path="res://.godot/imported/rhythmbg.png-5fe4323d037b5af2c3ce5922ca66f192.ctex"
+uid="uid://c0x5ecqdf0yju"
+path="res://.godot/imported/Bgrhythm.png-d4a51f01adf12a7f6740c5613ae403f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rhythm/rhythmbg.png"
-dest_files=["res://.godot/imported/rhythmbg.png-5fe4323d037b5af2c3ce5922ca66f192.ctex"]
+source_file="res://rhythm/Bgrhythm.png"
+dest_files=["res://.godot/imported/Bgrhythm.png-d4a51f01adf12a7f6740c5613ae403f9.ctex"]
 
 [params]
 
