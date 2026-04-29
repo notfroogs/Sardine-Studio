@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0rjw7mmcy8yn"]
+[gd_scene load_steps=4 format=3 uid="uid://d0rjw7mmcy8yn"]
 
 [ext_resource type="Script" uid="uid://c6ijwnlpykfno" path="res://globals/pause.gd" id="1_ohhba"]
 [ext_resource type="PackedScene" uid="uid://dqfdcje8tdvyi" path="res://pauseScreen/pause_screen.tscn" id="2_0y3jf"]
+[ext_resource type="PackedScene" uid="uid://dsfai3k2p41gv" path="res://globals/tutorial2.tscn" id="3_uwq28"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
@@ -9,4 +10,8 @@ layer = 2
 script = ExtResource("1_ohhba")
 
 [node name="PauseScreen" parent="." instance=ExtResource("2_0y3jf")]
+visible = false
 mouse_filter = 2
+
+[node name="Tutorial" parent="." instance=ExtResource("3_uwq28")]
+visible = false

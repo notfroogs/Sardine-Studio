@@ -1,97 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cknwj8rusw31"]
+[gd_scene load_steps=3 format=3 uid="uid://cknwj8rusw31"]
 
 [ext_resource type="Script" uid="uid://bhb0x6tlcnm8g" path="res://globals/tutorial.gd" id="1_wme24"]
-[ext_resource type="Shader" uid="uid://brspwbty72y51" path="res://pauseScreen/pause_screen_test.gdshader" id="2_108ws"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ne4im"]
-shader = ExtResource("2_108ws")
-shader_parameter/blur_amount = 0.678000032205
-
-[sub_resource type="InputEventKey" id="InputEventKey_108ws"]
-keycode = 71
-
-[sub_resource type="Shortcut" id="Shortcut_ne4im"]
-events = [SubResource("InputEventKey_108ws")]
+[ext_resource type="PackedScene" uid="uid://dsfai3k2p41gv" path="res://globals/tutorial2.tscn" id="2_108ws"]
 
 [node name="TutorialLayer" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_wme24")
 
-[node name="Control" type="Control" parent="."]
+[node name="Tutorial" parent="." instance=ExtResource("2_108ws")]
 unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-
-[node name="BlurColorRect" type="ColorRect" parent="Control"]
-unique_name_in_owner = true
-material = SubResource("ShaderMaterial_ne4im")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="tutorial_panel" type="Control" parent="Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/tutorial_panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -237.5
-offset_top = -42.0
-offset_right = 237.5
-offset_bottom = 42.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/tutorial_panel/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextEdit" type="TextEdit" parent="Control/tutorial_panel/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "D for the first column
-F for the second column
-J 
-K"
-editable = false
-context_menu_enabled = false
-drag_and_drop_selection_enabled = false
-scroll_fit_content_height = true
-scroll_fit_content_width = true
-
-[node name="TextEdit2" type="TextEdit" parent="Control/tutorial_panel/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(235, 0)
-layout_mode = 2
-text = "Press buttons when the note is on the shade to get high score!"
-editable = false
-context_menu_enabled = false
-drag_and_drop_selection_enabled = false
-wrap_mode = 1
-scroll_fit_content_height = true
-
-[node name="Button" type="Button" parent="Control/tutorial_panel/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-toggle_mode = true
-action_mode = 0
-button_mask = 7
-shortcut = SubResource("Shortcut_ne4im")
-text = "Got it!"

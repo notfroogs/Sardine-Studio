@@ -1,10 +1,10 @@
-extends CanvasLayer
+extends Control
 
 @onready var text: TextEdit = %TextEdit
 @onready var text_2: TextEdit = %TextEdit2
 @onready var got_it_button: Button = %Button
 @onready var tutorial_panel: Control = %tutorial_panel
-@onready var control: Control = %Control
+
 
 func _ready() -> void:
 	PauseScreen.help.connect(show_tutorial)
@@ -21,7 +21,6 @@ func _ready() -> void:
 			
 
 func cancel():
-	print("I got cancel")
 	self.visible = false
 	#game_start.emit()
 
