@@ -192,6 +192,7 @@ func change_state(new_state):
 			velocity.x += direction * 100
 			on_hitted()
 		State.GUARD:
+			velocity.x = 0
 			sprite.play("guard")
 		State.GUARD_SUCC:
 			sprite.play("gaurded")
