@@ -7,6 +7,7 @@ const RHYTHM = preload("uid://ceb5dbeodb5xh")
 @onready var labels: VBoxContainer = %Labels
 @onready var score: Label = %Score
 @onready var finish_button: Button = %FinishButton
+@onready var count_down: CountDown = $RhythmLayer/CountDown
 
 func _on_button_button_down() -> void:
 	button.visible = false
@@ -71,14 +72,17 @@ func update_Blur(value: float):
 	blur_material.set_shader_parameter("lod", value)
 
 func _ready() -> void:
-	#labels.separation = 20
-	pass
-	#if shader.material is ShaderMaterial:
-		#print("yes")
-		#blur_material = shader.material
-		##print(blur_material.get_shader_parameter("lod"))
-		#
-		#if tween:
-			#tween.kill()
-		#tween = get_tree().create_tween()
-		#tween.tween_method(update_Blur, 0, 2.5, 0.8)
+
+	
+	var rhythm_game = RHYTHM.instantiate()
+	rhythm_game.chart_text = "res://rhythm/chart1.txt"
+	rhythm_layer.add_child(rhythm_game)
+	rhythm_game.Rhythm_Game_Ended.connect(_on_Rhythm_Game_Ended)
+	rhythm_game.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	count_down.start_counting()
+	
+	count_down.counting_finished.connect(
+		func() -> void:
+			rhythm_game.process_mode = Node.PROCESS_MODE_INHERIT
+	)
