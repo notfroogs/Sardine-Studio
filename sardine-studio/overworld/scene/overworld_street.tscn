@@ -43,6 +43,7 @@ texture = ExtResource("3_vbb0o")
 expand_mode = 1
 
 [node name="playerOverworld" parent="." instance=ExtResource("1_aj8ov")]
+z_index = 1
 position = Vector2(559, 450)
 
 [node name="Camera2D" type="Camera2D" parent="playerOverworld"]

@@ -46,9 +46,14 @@ func _ready() -> void:
 		Gamemanager.day_2 = false
 		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/second_round.dialogue"),"start")
 		#DialogueManager.show_dialogue_balloon()
-	if self.name == "overworldStreet" and Gamemanager.start:
+	
+	if Gamemanager.after_tut == true:
+		Gamemanager.after_tut = false
+		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/introround.dialogue"),"after_tut")
+	
+	if self.name == "overworld" and Gamemanager.start:
 		Gamemanager.start = false
-
+		
 	
 func _on_level_spawn(destination_tag:String):
 	var door_path = "Garagedoor_" + destination_tag
@@ -87,3 +92,4 @@ func _process(delta: float) -> void:
 	if Gamemanager.begin_end == true:
 		Gamemanager.begin_end = false
 		get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
+		Gamemanager.after_tut = true

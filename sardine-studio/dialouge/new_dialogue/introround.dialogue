@@ -1,5 +1,6 @@
 ~ intro
 set Gamemanager.dialogue_is_active = true 
+Lyre [Excited]: GUYS LOOK! 'flyer shows competion thing' It says here that its music competion for 10 quatrillion dollas
 Adeline [Happy]: We should participate !! That ten quadrillion dollars might get us out of this shack..
 Sam [Thinking]: Let’s practice before competing in a competition..
 Sam [Thinking]: It’s been a while since we’ve actually done any music.
@@ -10,6 +11,13 @@ set Gamemanager.dialogue_is_active = true
 set Gamemanager.begin_end = true
 => END
 
+~ after_tut
+set Gamemanager.dialogue_is_active = true
+Lyre [Excited]: Okay i think we are ready!
+Sam [Thinking]: It says on the poster to go to the venue at the main street
+set Gamemanager.after_tut = false
+set Gamemanager.dialogue_is_active = false
+=> END
 
 ~ start
 #set Gamemanager.intro= true
@@ -17,6 +25,7 @@ set Gamemanager.dialogue_is_active = true
 Lyre [Awkward]: Okay guys, we're here. Lets do our best and win this competition!
 Adeline [Happy]: Yeah! Break a leg!
 Veronica [Happy]: We're gonna wipe the competion and be the best!
+Announcer: Intoducing VASL VERSUS RYB HOT DOG PEOPLE!
 Sam [Neutral]: Oh look! I think were up!
 set Gamemanager.dialogue_is_active = false 
 set Gamemanager.first_round_intro = true
@@ -48,3 +57,7 @@ Sam [Annoyed]: WHAT? ARE YOU CRAZY?
 Lyre [Hurt]: Well YOU can stay behind and get arrested. I'm not!
 set Gamemanager.dialogue_is_active = false 
 => END
+
+~ hotdog
+Lyre [Excited]: hey you sound really good!
+Red Hotdog [i]: heh thanks kid.

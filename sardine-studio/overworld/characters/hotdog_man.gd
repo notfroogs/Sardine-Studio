@@ -17,8 +17,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if is_player_close and Input.is_action_just_pressed("attack") and not is_dialogue_active:
-		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/Adeline.dialogue"),"intro")
-		Gamemanager.dialogue_is_active = true
+		if Gamemanager.start:
+			DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/introround.dialogue"),"hotdog")
+		if Gamemanager.explore == true:
+			DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/second_round.dialogue"),"hotdog")
+			Gamemanager.dialogue_is_active = true
 
 func adeline():
 	pass

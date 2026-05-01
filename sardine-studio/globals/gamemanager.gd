@@ -7,6 +7,7 @@ var dialogue_is_active = false
 #Triggers for story
 var begin = false
 var begin_end = false
+var after_tut = false
 var start = true
 var intro = false
 var intro_shown = false
@@ -18,6 +19,8 @@ var first_round_ending = false
 var day_2 = false
 var second_round = false
 var third_round = false
+var practice = false
+var explore = false
 
 
 # Called when the node enters the scene tree for the first time.

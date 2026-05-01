@@ -20,9 +20,20 @@ Sam [Mad]: yeah we have to win we are broke
 	Adeline [Hurt]: Hopefully we win this time.. It’s our last chance
 	Sam [Awkward]: We are not concerned enough this is literally our last chance
 	Veronica [Neutral]: Let’s take a break.
+	set Gamemanager.practice = true
 	=> END
 - I dont wannaaaaa im gonna go check out the venue or something
 	Veronica [Angry]: Fine be that way. You better come back after so we can actually practice
+	set Gamemanager.explore = true
 	=> END
 set Gamemanager.dialogue_is_active = true
+=> END
+
+~ hotdog
+Lyre [Excited]: Wow busker you sound really good!
+Red Hotdog [i]: I heard you last night and you guys sounded like shit bruh
+Lyre [Stare]: What. Go kill yourself
+Red Hotdog [i]: Shut up loser. Your singing sucks unlike mine
+Lyre [Stare]: thats it bud youre getting these fists
+
 => END
