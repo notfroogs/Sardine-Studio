@@ -34,8 +34,8 @@ func edit_tutorial(scene_name):
 	match scene_name:
 		"rhythm_test":
 			self.visible = true
-			text.text = "D for the first column\nF for the second column\nJ 
-K"
+			text.text = "D for the first column\nF for the second column\nJ for the third
+K for the forth"
 			text_2.text = "Press buttons when the note is on the shade to get high score!"
 		
 		"fighterMain":

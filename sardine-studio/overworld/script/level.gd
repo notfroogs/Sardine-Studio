@@ -77,19 +77,24 @@ func _process(delta: float) -> void:
 		Gamemanager.tutorial = false
 		#print(NavigationManager.previous_level)
 		#DialogueManager.dialogue_ended.emit()
-		get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
+		#get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
+		Gamemanager.change_to_fight()
+		
 		
 	if Gamemanager.first_round_intro == true:
 		Gamemanager.first_round_intro = false
 		Gamemanager.first_round_middle = true
-		get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
+		#get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
+		Gamemanager.change_to_rhythm()
 		
 	if Gamemanager.first_round_middle_fight == true:
 		Gamemanager.first_round_middle_fight = false
 		Gamemanager.first_round_ending = true
-		get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
+		#get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
+		Gamemanager.change_to_fight()
 		
 	if Gamemanager.begin_end == true:
 		Gamemanager.begin_end = false
-		get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
+		#get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
 		Gamemanager.after_tut = true
+		Gamemanager.change_to_rhythm()
