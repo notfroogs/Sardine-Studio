@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://r5pd3by57hyv"]
+[gd_scene load_steps=11 format=3 uid="uid://r5pd3by57hyv"]
 
 [ext_resource type="PackedScene" uid="uid://b3ojtl2cs40i3" path="res://overworld/scene/player_overworld.tscn" id="1_aj8ov"]
-[ext_resource type="Script" path="res://overworld/script/level.gd" id="1_gt0b2"]
-[ext_resource type="Texture2D" uid="uid://e68iipcrqyx3" path="res://assets/backgrounds/IBISPAINTFIGHTING.png" id="3_52roq"]
+[ext_resource type="Script" uid="uid://csv077xd6c34b" path="res://overworld/script/level.gd" id="1_gt0b2"]
+[ext_resource type="Texture2D" uid="uid://i60ckfdwbwni" path="res://assets/backgrounds/bgStreetredo.png" id="3_vbb0o"]
 [ext_resource type="PackedScene" uid="uid://nkycm6g7uev0" path="res://overworld/scene/garagedoor.tscn" id="3_vvrjt"]
 [ext_resource type="Texture2D" uid="uid://d1o5b5gd2m7vp" path="res://assets/backgrounds/HOUSEEXTERIOR.png" id="4_gt0b2"]
-[ext_resource type="AudioStream" uid="uid://c78ro2x2m4yq2" path="res://assets/sounds/bgmusic/MainBackgroundMusic.wav" id="5_qg8v0"]
+[ext_resource type="PackedScene" uid="uid://bcvunv8jesu7t" path="res://overworld/characters/hotdog_man.tscn" id="4_vbb0o"]
+[ext_resource type="AudioStream" uid="uid://blat68gdeggv4" path="res://assets/sounds/bgmusic/BGMUSIC.wav" id="5_vbb0o"]
 [ext_resource type="Theme" uid="uid://ba2bjtxd64326" path="res://assets/theme/mainUI.tres" id="6_efb4r"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0r11d"]
@@ -33,14 +34,16 @@ texture = ExtResource("4_gt0b2")
 
 [node name="TextureRect2" type="TextureRect" parent="bg"]
 layout_mode = 0
-offset_left = -981.637
+offset_left = -980.63715
 offset_top = -130.0
-offset_right = 938.363
-offset_bottom = 950.0
+offset_right = 969.6053
+offset_bottom = 977.1741
 scale = Vector2(1.16609, 0.735997)
-texture = ExtResource("3_52roq")
+texture = ExtResource("3_vbb0o")
+expand_mode = 1
 
 [node name="playerOverworld" parent="." instance=ExtResource("1_aj8ov")]
+z_index = 1
 position = Vector2(559, 450)
 
 [node name="Camera2D" type="Camera2D" parent="playerOverworld"]
@@ -49,7 +52,8 @@ limit_left = -2300
 limit_right = 1200
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="playerOverworld"]
-stream = ExtResource("5_qg8v0")
+stream = ExtResource("5_vbb0o")
+volume_db = -15.62
 autoplay = true
 
 [node name="bouduaries" type="Node" parent="."]
@@ -102,8 +106,15 @@ scale = Vector2(0.502713, 0.703717)
 desitination_room = "overworld"
 destination_door = "D"
 
+[node name="CollisionShape2D" parent="Garagedoor_C" index="0"]
+position = Vector2(-25.856184, 25.578465)
+
 [node name="spawn" parent="Garagedoor_C" index="1"]
 position = Vector2(-250.547, 11.3682)
+
+[node name="HotdogMan" parent="." instance=ExtResource("4_vbb0o")]
+position = Vector2(-917.66034, 364.00003)
+scale = Vector2(0.64847714, 0.64847714)
 
 [connection signal="body_entered" from="Garagedoor_B" to="playerOverworld" method="_on_garagedoor_body_entered"]
 

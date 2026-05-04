@@ -1,6 +1,27 @@
 extends Node
 
+# triggers for gameplay.
 var last_battle_won = false
+var dialogue_is_active = false
+
+#Triggers for story
+var begin = false
+var begin_end = false
+var after_tut = false
+var start = true
+var intro = false
+var intro_shown = false
+var tutorial = false
+var first_round_intro = false
+var first_round_middle = false
+var first_round_middle_fight = false
+var first_round_ending = false
+var day_2 = false
+var second_round = false
+var third_round = false
+var practice = false
+var explore = false
+
 
 var fighter_tutorial = false
 var music_tutorial = false
@@ -29,10 +50,6 @@ func unpause():
 
 
 # Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
 	pass

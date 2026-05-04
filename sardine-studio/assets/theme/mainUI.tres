@@ -1,7 +1,6 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://ba2bjtxd64326"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://ba2bjtxd64326"]
 
-[ext_resource type="FontFile" uid="uid://c6twcubbs7v6b" path="res://assets/fonts/KHMenu.otf" id="1_6gcoi"]
-[ext_resource type="FontFile" uid="uid://brj1fl3nt0cxu" path="res://assets/fonts/KHMenu-Bold.otf" id="1_vw4i3"]
+[ext_resource type="FontFile" uid="uid://ch5x3p3xd8srx" path="res://assets/fonts/Underdog.otf" id="1_qwvjl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vgdj"]
 bg_color = Color(0.492491, 0.533397, 0.273051, 1)
@@ -20,7 +19,7 @@ bg_color = Color(6.44952e-06, 0.703862, 0.544617, 1)
 [resource]
 Button/constants/outline_size = 8
 Button/font_sizes/font_size = 24
-Button/fonts/font = ExtResource("1_vw4i3")
+Button/fonts/font = ExtResource("1_qwvjl")
 Button/styles/disabled = SubResource("StyleBoxFlat_0vgdj")
 Button/styles/focus = SubResource("StyleBoxFlat_8qi65")
 Label/colors/font_color = Color(1, 1, 1, 1)
@@ -32,7 +31,7 @@ Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 42
-Label/fonts/font = ExtResource("1_6gcoi")
+Label/fonts/font = ExtResource("1_qwvjl")
 Label/styles/normal = SubResource("StyleBoxEmpty_saj25")
 ProgressBar/constants/outline_size = 0
 ProgressBar/styles/background = SubResource("StyleBoxFlat_5sds1")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b81nouxy43le5"]
+
+[ext_resource type="Script" uid="uid://tqjvsodngamc" path="res://overworld/characters/veronica.gd" id="1_mqur8"]
+[ext_resource type="Texture2D" uid="uid://cje43dhx6ha62" path="res://assets/sprites/Veronica.png" id="1_x2y8n"]
+[ext_resource type="Theme" uid="uid://ba2bjtxd64326" path="res://assets/theme/mainUI.tres" id="3_rbuvq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4t62"]
+size = Vector2(10.3702135, 11.404065)
+
+[node name="Veronica" type="Area2D"]
+script = ExtResource("1_mqur8")
+
+[node name="Area2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_x2y8n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.499998, 17.000004)
+scale = Vector2(10.510873, 29.287802)
+shape = SubResource("RectangleShape2D_o4t62")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 63.0
+offset_top = -213.0
+offset_right = 114.0
+offset_bottom = -163.0
+theme = ExtResource("3_rbuvq")
+text = "[X]"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

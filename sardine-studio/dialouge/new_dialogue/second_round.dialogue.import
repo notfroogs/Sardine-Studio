@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ctwq2glme0ed1"
+path="res://.godot/imported/second_round.dialogue-5bcb088cabdd91bb2795d4a7b4a412da.tres"
+
+[deps]
+
+source_file="res://dialouge/new_dialogue/second_round.dialogue"
+dest_files=["res://.godot/imported/second_round.dialogue-5bcb088cabdd91bb2795d4a7b4a412da.tres"]
+
+[params]
+
+defaults=true

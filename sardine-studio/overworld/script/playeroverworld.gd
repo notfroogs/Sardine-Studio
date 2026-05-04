@@ -15,6 +15,8 @@ const JUMP_VELOCITY = -500.0
 @onready var walk: AudioStreamPlayer2D = $walk
 @onready var jump: AudioStreamPlayer2D = $jump
 
+var adeline_in_range = false
+var is_dialogue_active = false
 #var select
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -60,7 +62,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		jump.play()
 		sprite_2d.play("jump")
-	
+		
+	if adeline_in_range == true:
+		DialogueManager.show_example_dialogue_balloon(load("res://dialouge/new_dialogue/Test.dialogue"), "test")
 		
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("attack"):
@@ -86,6 +90,13 @@ func _input(event: InputEvent) -> void:
 							"playing":
 								#get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
 								Gamemanager.change_to_rhythm()
+					
+		#for character in get_tree().get_nodes_in_group("characters"):
+			#match character.name:
+				#"Adeline":
+					#DialogueManager.show_example_dialogue_balloon(load("res://dialouge/new_dialogue/Test.dialogue"), "test")
+
+						
 					
 					#expand scene_name's case further if needed
 					
@@ -117,3 +128,14 @@ func _on_spawn(position: Vector2):
 	print("player is spawning at position: " + str(position))
 	global_position = position
 	
+
+
+func _on_detect_body_entered(body: Node2D) -> void:
+	if body.has_method("Adeline"):
+		adeline_in_range = true
+	print("triggered")
+
+
+func _on_detect_body_exited(body: Node2D) -> void:
+	if body.has_method("Adeline"):
+		adeline_in_range = false

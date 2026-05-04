@@ -1,0 +1,12 @@
+~ intro
+Sam [Annoyed]: Lyre, You won't actually try anything right?
+Sam [Happy]: I know how excited you are about this, but please dont let your emotions get to you.
+Sam [Happy]: Also, we should probably practice before actually going. We're a bit... Rusty.
+- What are you talking about? We're the best.
+	Sam [Happy]: If you say so...
+	=> END
+- Sure!
+	Sam [Neutral]: Great!
+	set Gamemanager.tutorial = true
+	=> END
+=> END

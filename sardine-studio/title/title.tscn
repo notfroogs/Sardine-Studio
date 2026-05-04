@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://5wd7jgoyksg8"]
+[gd_scene load_steps=9 format=3 uid="uid://5wd7jgoyksg8"]
 
 [ext_resource type="Script" uid="uid://e2p0kcicb33v" path="res://title/title.gd" id="1_crako"]
 [ext_resource type="StyleBox" uid="uid://chcj4mibg1d65" path="res://rhythm/new_style_box_flat.tres" id="2_crako"]
-[ext_resource type="Texture2D" uid="uid://6ba6dtqr7i4y" path="res://title/TitlePlaceholder.png" id="2_nx56k"]
 [ext_resource type="Theme" uid="uid://ba2bjtxd64326" path="res://assets/theme/mainUI.tres" id="2_tedsi"]
+[ext_resource type="Texture2D" uid="uid://dot8h2ve6rib1" path="res://assets/backgrounds/Titlescreen.png" id="3_0tjwc"]
 [ext_resource type="AudioStream" uid="uid://crtca2vfdr0x7" path="res://assets/sounds/sound/ButtonClickSound.wav" id="4_o1agp"]
-[ext_resource type="FontFile" uid="uid://cksti1lkcjkur" path="res://assets/fonts/BeatMark-Regular.ttf" id="5_pkh21"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crako"]
 content_margin_left = 4.0
@@ -46,7 +45,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_8uh7m")
 Button/styles/normal = ExtResource("2_crako")
 Button/styles/pressed = ExtResource("2_crako")
 
-[node name="title" type="Node2D"]
+[node name="Title" type="Node2D"]
 script = ExtResource("1_crako")
 
 [node name="Control" type="Control" parent="."]
@@ -58,10 +57,14 @@ theme = ExtResource("2_tedsi")
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 layout_mode = 0
-offset_top = -45.0
-offset_right = 1150.4
-offset_bottom = 1049.0
-texture = ExtResource("2_nx56k")
+offset_left = -8.0
+offset_top = 1.0
+offset_right = 1792.0
+offset_bottom = 1095.0
+scale = Vector2(0.6471282, 0.6471282)
+texture = ExtResource("3_0tjwc")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 0
@@ -75,10 +78,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 433.0
-offset_top = 359.0
-offset_right = -437.0
-offset_bottom = -222.0
+offset_left = 416.0
+offset_top = 421.0
+offset_right = -387.0
+offset_bottom = -179.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(140, 0)
@@ -91,31 +94,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 433.0
-offset_top = 467.0
-offset_right = -437.0
-offset_bottom = -114.0
+offset_left = 416.0
+offset_top = 495.0
+offset_right = -387.0
+offset_bottom = -105.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(140, 0)
 theme = SubResource("Theme_nx56k")
 text = "Quit"
-
-[node name="Title" type="Label" parent="Control/ColorRect"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 79.0
-offset_bottom = 216.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.973978, 0.275689, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.0908363, 0, 0.988428, 0)
-theme_override_colors/font_outline_color = Color(0.488909, 0.0193747, 1, 1)
-theme_override_fonts/font = ExtResource("5_pkh21")
-theme_override_font_sizes/font_size = 150
-text = "Fighting Music"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Control/ColorRect"]
 layout_mode = 1
@@ -124,14 +111,16 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -129.0
-offset_top = -23.0
+offset_left = -132.0
+offset_top = -26.0
+offset_right = -1.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.756087, 0.756087, 0.756087, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
-text = "By Sadine Studio"
+theme_override_font_sizes/font_size = 21
+text = "Sadine Studio"
 
 [node name="selectsound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_o1agp")
