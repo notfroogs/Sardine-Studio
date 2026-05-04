@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ca03l6ss6iv6b"]
+[gd_scene load_steps=13 format=3 uid="uid://ca03l6ss6iv6b"]
 
 [ext_resource type="Script" uid="uid://mqijhuq3ivb6" path="res://scripts/enemy_placeholder.gd" id="1_yo5jk"]
 [ext_resource type="Texture2D" uid="uid://cgwa7pr2mog4t" path="res://assets/sprites/HOTDOGPEOPLEPUNCH.png" id="2_muyt2"]
@@ -8,14 +8,6 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_muyt2"]
 atlas = ExtResource("2_muyt2")
 region = Rect2(0, 0, 512, 682)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hvo0h"]
-atlas = ExtResource("2_muyt2")
-region = Rect2(1024, 682, 512, 682)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fsdtq"]
-atlas = ExtResource("2_muyt2")
-region = Rect2(512, 1364, 512, 682)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xp5mw"]
 atlas = ExtResource("2_muyt2")
@@ -42,14 +34,8 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_muyt2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hvo0h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fsdtq")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -92,7 +78,7 @@ script = ExtResource("1_yo5jk")
 position = Vector2(-27, -167)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_hvo0h")
-animation = &"post_punch"
+animation = &"idle"
 autoplay = "i"
 
 [node name="physics" type="CollisionShape2D" parent="."]
