@@ -78,7 +78,7 @@ func _process(delta: float) -> void:
 		#print(NavigationManager.previous_level)
 		#DialogueManager.dialogue_ended.emit()
 		#get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
-		Gamemanager.change_to_fight()
+		Gamemanager.change_to_rhythm()
 		
 		
 	if Gamemanager.first_round_intro == true:
