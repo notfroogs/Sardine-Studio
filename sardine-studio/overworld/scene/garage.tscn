@@ -73,16 +73,16 @@ text = "Garage"
 z_index = -1
 
 [node name="Adeline" parent="charcaters" instance=ExtResource("7_00kfs")]
-position = Vector2(212, 392)
-scale = Vector2(0.76632017, 0.76632017)
+position = Vector2(260.00003, 397.00003)
+scale = Vector2(0.7153119, 0.7153119)
 
 [node name="Sam" parent="charcaters" instance=ExtResource("8_v1woi")]
-position = Vector2(724, 407)
-scale = Vector2(0.79572374, 0.79572374)
+position = Vector2(699, 429.00003)
+scale = Vector2(0.7327428, 0.7327428)
 
 [node name="Veronica" parent="charcaters" instance=ExtResource("9_yedu8")]
-position = Vector2(921.99994, 411)
-scale = Vector2(0.69108856, 0.69108856)
+position = Vector2(895, 416)
+scale = Vector2(0.6880447, 0.6880447)
 
 [connection signal="body_entered" from="Garagedoor_A" to="playerOverworld" method="_on_garagedoor_body_entered"]
 

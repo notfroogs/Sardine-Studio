@@ -113,8 +113,8 @@ position = Vector2(-25.856184, 25.578465)
 position = Vector2(-250.547, 11.3682)
 
 [node name="HotdogMan" parent="." instance=ExtResource("4_vbb0o")]
-position = Vector2(-917.66034, 364.00003)
-scale = Vector2(0.64847714, 0.64847714)
+position = Vector2(-959.6449, 386)
+scale = Vector2(0.6261924, 0.6261924)
 
 [connection signal="body_entered" from="Garagedoor_B" to="playerOverworld" method="_on_garagedoor_body_entered"]
 
