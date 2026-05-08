@@ -27,6 +27,7 @@ script = ExtResource("1_w3pk4")
 
 [node name="BlurColorRect" type="ColorRect" parent="."]
 unique_name_in_owner = true
+visible = false
 material = SubResource("ShaderMaterial_ne4im")
 layout_mode = 1
 anchors_preset = 15

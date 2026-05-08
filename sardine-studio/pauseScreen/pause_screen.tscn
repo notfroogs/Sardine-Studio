@@ -200,6 +200,7 @@ script = ExtResource("1_xydie")
 
 [node name="BlurColorRect" type="ColorRect" parent="."]
 unique_name_in_owner = true
+visible = false
 material = SubResource("ShaderMaterial_hs1x1")
 layout_mode = 1
 anchors_preset = 15

@@ -79,6 +79,7 @@ text = "Start"
 
 [node name="Shader" type="ColorRect" parent="RhythmLayer"]
 unique_name_in_owner = true
+visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_ppyta")
 anchors_preset = 15
