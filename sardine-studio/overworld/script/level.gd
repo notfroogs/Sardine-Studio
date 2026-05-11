@@ -98,3 +98,6 @@ func _process(delta: float) -> void:
 		#get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
 		Gamemanager.after_tut = true
 		Gamemanager.change_to_rhythm()
+	if Gamemanager.fight_the_dumb_hotdog == true:
+		Gamemanager.fight_the_dumb_hotdog = false
+		Gamemanager.change_to_fight()

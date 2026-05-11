@@ -35,5 +35,5 @@ Red Hotdog [i]: I heard you last night and you guys sounded like shit bruh
 Lyre [Stare]: What. Go kill yourself
 Red Hotdog [i]: Shut up loser. Your singing sucks unlike mine
 Lyre [Stare]: thats it bud youre getting these fists
-
+set Gamemanager.fight_the_dumb_hotdog = true
 => END
