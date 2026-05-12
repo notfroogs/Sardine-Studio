@@ -30,10 +30,10 @@ set Gamemanager.dialogue_is_active = true
 => END
 
 ~ hotdog
-
+set Gamemanager.dialogue_is_active = true
 Lyre [Excited]: Hey that music sounds...
 - leave hotdog man alone
-	leaves
+	set Gamemanager.dialogue_is_active = false
 	=> END
 - talk to hotdog man
 	Lyre [Excited]: Wow busker you sound really good!
@@ -41,6 +41,7 @@ Lyre [Excited]: Hey that music sounds...
 	Lyre [Stare]: What. Go kill yourself
 	Red Hotdog [1]: Shut up loser. Your singing sucks unlike mine
 	Lyre [Stare]: thats it bud youre getting these fists
+	set Gamemanager.dialogue_is_active = false
 	set Gamemanager.fight_the_dumb_hotdog = true
 	=> END
 

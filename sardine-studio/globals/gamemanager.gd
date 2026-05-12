@@ -22,6 +22,9 @@ var third_round = false
 var practice = false
 var explore = false
 var fight_the_dumb_hotdog = false
+var enter_venue = false
+var fight_elle = false
+
 
 var fighter_tutorial = false
 var music_tutorial = false
