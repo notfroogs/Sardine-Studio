@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cexrcdruq4yx2"]
 
-[ext_resource type="Script" path="res://dialouge/balloon.gd" id="1_36de5"]
+[ext_resource type="Script" uid="uid://byvuyovoabgg" path="res://dialouge/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="Texture2D" uid="uid://brjgfjlx7fb6o" path="res://assets/dialouge sprites/Lyre Neutral.png" id="4_nlsx6"]
@@ -140,10 +140,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -290.5
-offset_top = -35.0
-offset_right = 290.5
-offset_bottom = 35.0
+offset_left = -254.25
+offset_top = -80.0
+offset_right = 254.25
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
