@@ -48,6 +48,7 @@ Lyre [Excited]: Hey that music sounds...
 => END
 
 ~ Venue
+set Gamemanager.dialogue_is_active = true
 Veronica [Angry]: Yo, where the hell were u? 
 Lyre [Awkward]: Uhh i got lost haha ha...
 Sam [Annoyed]: If we lose again i swear man... we don't got time for you.
@@ -66,17 +67,19 @@ Ms.Elle: i beat up all the hot dog people so i could join the competition.
 Lyre [Concerned]: I thought your point was that violence was wrong ???
 Ms.Elle: shut up kid
 Ms.Elle: letz have a music fight!
+set Gamemanager.dialogue_is_active = false
 => END
 
 ~ Postfight
+set Gamemanager.dialogue_is_active = true
 Ms.Elle : you kids won’t get away with this.. Ill be back !!!
 ...
 Backup announcer: So hey haha... nice moving up!
 Backup announcer: So apparently that nice lady never worked here? don’t know what that’s about but you guys are pretty close to winning
 Veronica [sparkle]: keep it up every1 we r gonna win 4 shore
 Sam [arm behind head]: as long as we don’t get caught i suppose
-Adeline [fidget]: if hte original announcer fought us doesnt that mean we already got caught
-- i dont think thats how it works 😂
+Adeline [fidget]: if the original announcer fought us doesnt that mean we already got caught
+Lyre [Awkward]: i dont think thats how it works 😂
 Adeline [mad]: im going to kill you dude
-
+set Gamemanager.dialogue_is_active = false
 => END

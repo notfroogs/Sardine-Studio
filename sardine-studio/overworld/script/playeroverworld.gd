@@ -87,9 +87,11 @@ func _input(event: InputEvent) -> void:
 							"fighter":
 								#get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
 								Gamemanager.change_to_fight()
+								Gamemanager.playing_the_game_idk = true
 							"playing":
 								#get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
 								Gamemanager.change_to_rhythm()
+								Gamemanager.playing_the_game_idk = true
 					
 		#for character in get_tree().get_nodes_in_group("characters"):
 			#match character.name:

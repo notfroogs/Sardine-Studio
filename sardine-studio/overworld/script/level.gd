@@ -44,6 +44,7 @@ func _ready() -> void:
 	
 	if Gamemanager.day_2 == true:
 		Gamemanager.day_2 = false
+		Gamemanager.number_of_days = 1
 		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/second_round.dialogue"),"start")
 		#DialogueManager.show_dialogue_balloon()
 	
@@ -53,8 +54,22 @@ func _ready() -> void:
 	
 	if self.name == "overworld" and Gamemanager.start:
 		Gamemanager.start = false
-		
 	
+	if self.name == "overworld" and Gamemanager.enter_venue:
+		Gamemanager.enter_venue = false
+		Gamemanager.number_of_days = 2
+		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/second_round.dialogue"), "Venue")
+	
+	if self.name == "overworld" and Gamemanager.number_of_days == 1:
+		Gamemanager.enter_venue = true
+	
+	if self.name == "overworld" and Gamemanager.playing_the_game_idk == true and Gamemanager.number_of_days == 2:
+		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/second_round.dialogue"), "Postfight")
+		await DialogueManager.dialogue_ended
+		get_tree().change_scene_to_file("res://overworld/scene/garage.tscn")
+
+
+
 func _on_level_spawn(destination_tag:String):
 	var door_path = "Garagedoor_" + destination_tag
 	var door = get_node(door_path) as Door
