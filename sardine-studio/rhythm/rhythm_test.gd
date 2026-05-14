@@ -72,17 +72,18 @@ func update_Blur(value: float):
 	blur_material.set_shader_parameter("lod", value)
 
 func _ready() -> void:
-
 	
 	var rhythm_game = RHYTHM.instantiate()
 	rhythm_game.chart_text = "res://rhythm/chart1.txt"
 	rhythm_layer.add_child(rhythm_game)
 	rhythm_game.Rhythm_Game_Ended.connect(_on_Rhythm_Game_Ended)
 	rhythm_game.process_mode = Node.PROCESS_MODE_DISABLED
+	rhythm_game.music.stream_paused = true
 	
 	count_down.start_counting()
 	
 	count_down.counting_finished.connect(
 		func() -> void:
 			rhythm_game.process_mode = Node.PROCESS_MODE_INHERIT
+			rhythm_game.music.stream_paused = false
 	)

@@ -13,6 +13,7 @@ extends Control
 @onready var keys = (loaded_file.get_line()).split(",")
 
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
+@onready var music: AudioStreamPlayer = %Music
 
 var in_game = true
 
