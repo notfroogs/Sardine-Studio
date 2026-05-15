@@ -60,19 +60,19 @@ Sam [Mad]: WHATTTTTTTTT?? why wud u say that??
 
 Announcer: Welcome back to round 2 of the music competion for the mega brokies who want that quadrtrillion dollas.
 Announcer: Next up we have VASL, who wiped the floor with those hotdog people...and me, Ms. Elle.
-Ms.Elle: Im the opponent.
+Ms.Elle [1]: Im the opponent.
 
-Ms.Elle: i know what you guys did. 
-Ms.Elle: i beat up all the hot dog people so i could join the competition.
+Ms.Elle [1]: i know what you guys did. 
+Ms.Elle [1]: i beat up all the hot dog people so i could join the competition.
 Lyre [Concerned]: I thought your point was that violence was wrong ???
-Ms.Elle: shut up kid
-Ms.Elle: letz have a music fight!
+Ms.Elle [1]: shut up kid
+Ms.Elle [1]: letz have a music fight!
 set Gamemanager.dialogue_is_active = false
 => END
 
 ~ Postfight
 set Gamemanager.dialogue_is_active = true
-Ms.Elle : you kids won’t get away with this.. Ill be back !!!
+Ms.Elle [1]: you kids won’t get away with this.. Ill be back !!!
 ...
 Backup announcer: So hey haha... nice moving up!
 Backup announcer: So apparently that nice lady never worked here? don’t know what that’s about but you guys are pretty close to winning

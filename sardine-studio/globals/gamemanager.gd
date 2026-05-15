@@ -26,6 +26,9 @@ var number_of_days = 0
 var enter_venue = false
 var fight_elle = false
 var playing_the_game_idk = false
+var round_3_start = false
+var fight_creegan = false
+var the_dog = false
 
 
 var fighter_tutorial = false

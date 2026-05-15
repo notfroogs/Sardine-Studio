@@ -6,6 +6,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("loading into " + self.name)
 	if (spawn_default != null):
 		player_overworld.global_position = spawn_default.global_position
 	if NavigationManager.spawn_tag != null:
@@ -67,7 +68,32 @@ func _ready() -> void:
 		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/second_round.dialogue"), "Postfight")
 		await DialogueManager.dialogue_ended
 		get_tree().change_scene_to_file("res://overworld/scene/garage.tscn")
-
+		Gamemanager.number_of_days = 4
+		return
+		
+	if self.name == "garage" and Gamemanager.number_of_days == 4:
+		Gamemanager.round_3_start = true
+		
+	if self.name == "garage" and Gamemanager.round_3_start == true:
+		Gamemanager.round_3_start = false
+		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/third_round.dialogue"), "start")
+	
+	if self.name == "overworld" and Gamemanager.number_of_days == 4:
+		Gamemanager.the_dog = true
+		
+	if self.name == "overworld" and Gamemanager.the_dog == true:
+		Gamemanager.the_dog = false
+		print(self.name)
+		Gamemanager.number_of_days = 5
+		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/third_round.dialogue"),"idk_what_this_is")
+		
+		
+	#if self.name == "overworld" and Gamemanager.playing_the_game_idk == true and Gamemanager.number_of_days == 5:
+		#DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/third_round.dialogue"), "after_fight_creegan_idk")
+		#await DialogueManager.dialogue_ended
+		#get_tree().change_scene_to_file("res://overworld/scene/overworld_street.tscn")
+		#DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/fourth_round.dialogue"),"start")
+		#return
 
 
 func _on_level_spawn(destination_tag:String):
@@ -118,3 +144,7 @@ func _process(delta: float) -> void:
 	if Gamemanager.fight_the_dumb_hotdog == true:
 		Gamemanager.fight_the_dumb_hotdog = false
 		Gamemanager.change_to_fight()
+	
+	#if Gamemanager.number_of_days == 4 and Gamemanager.the_dog == true:
+		#Gamemanager.the_dog = false
+		#DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/third_round.dialogue"),"idk_what_this_is")
