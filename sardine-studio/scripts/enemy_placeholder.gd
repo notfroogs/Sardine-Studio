@@ -75,7 +75,7 @@ func moving(delta):
 	move_and_slide()
 	
 	match enemy_sprite:
-		"Hot_Dog":
+		"red_hot_dog":
 			count_hot_dog(delta)
 		"Mr_C":
 			count_C(delta, direction_x)
@@ -120,7 +120,7 @@ func attack() -> void:
 			match enemy_sprite:
 				"Mr_C":
 					player_is_hitted.emit(10)
-				"Hot_Dog":
+				"red_hot_dog":
 					player_is_hitted.emit(30)
 			
 	post_attack()
