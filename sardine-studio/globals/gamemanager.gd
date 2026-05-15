@@ -22,11 +22,16 @@ var third_round = false
 var practice = false
 var explore = false
 var fight_the_dumb_hotdog = false
+
+#2 for Ms E
+#6 for Mr Peery
 var number_of_days = 0
+
 var enter_venue = false
 var fight_elle = false
 var playing_the_game_idk = false
 var round_3_start = false
+
 var fight_creegan = false
 var the_dog = false
 
