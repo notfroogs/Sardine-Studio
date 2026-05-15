@@ -7,8 +7,8 @@ var pausing : bool = false
 func _ready() -> void:
 	#get the buttons in the pause control node and control them to their functions
 	pause_screen.get_resume_button().button_down.connect(pause)
-	pause_screen.get_quit_button().button_down.connect(exit)
 	pause_screen.get_help_button().button_down.connect(show_tutorial)
+	pause_screen.get_quit_button().button_down.connect(exit)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
@@ -23,7 +23,7 @@ func pause() -> void:
 		match scene_name:
 			#add cases if need the puase control do something different for that scene
 			"title":
-				pass
+				pausing = !pausing
 			_:
 				pause_screen.visible = true
 				get_tree().paused = true
@@ -42,13 +42,4 @@ func exit() -> void:
 signal help
 
 func show_tutorial():
-	#var scene_name = get_tree().current_scene.name
-	
 	help.emit(null)
-	#
-	#match scene_name:
-		#"rhythm_test":
-			#tutorial.visible = true
-		#_:
-			#tutorial.visible = false
-			

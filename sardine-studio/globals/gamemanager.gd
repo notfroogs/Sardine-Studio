@@ -26,7 +26,6 @@ var explore = false
 var fighter_tutorial = false
 var music_tutorial = false
 
-
 func change_to_fight():
 	get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
 	if !fighter_tutorial:

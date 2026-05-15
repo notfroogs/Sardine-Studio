@@ -14,11 +14,16 @@ func _ready() -> void:
 	fighter_player.player_is_damaged.connect(player_is_hitted)
 	fighter_player.player_guard_succ.connect(player_guard_succ)
 
-func player_is_hitted():
-	playerHp.value -= 30
+func player_is_hitted(amount):
+	playerHp.value -= amount
 
-func player_guard_succ():
-	playerHp.value -= 5
+func player_guard_succ(amount):
+	if amount == 0:
+		return
+	if playerHp.value > 5:
+		playerHp.value -= 5
+	elif playerHp.value > 1:
+		playerHp.value = 1
 
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:

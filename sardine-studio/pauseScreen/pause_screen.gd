@@ -1,7 +1,7 @@
 extends Control
 
-@onready var _blur_color_rect: ColorRect = %BlurColorRect
-@onready var _ui_panel_container: PanelContainer = %UIPanelContainer
+#@onready var _blur_color_rect: ColorRect = %BlurColorRect
+#@onready var _ui_panel_container: PanelContainer = %UIPanelContainer
 @onready var resume_button: Button = %ResumeButton
 @onready var quit_button: Button = %QuitButton
 @onready var help_button: Button = %HelpButton

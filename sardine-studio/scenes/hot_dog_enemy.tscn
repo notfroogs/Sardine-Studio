@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://d15syuef80bmq"]
+
+[ext_resource type="Texture2D" uid="uid://cgwa7pr2mog4t" path="res://assets/sprites/HOTDOGPEOPLEPUNCH.png" id="1_6fwwt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muyt2"]
+atlas = ExtResource("1_6fwwt")
+region = Rect2(0, 0, 512, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp5mw"]
+atlas = ExtResource("1_6fwwt")
+region = Rect2(1024, 0, 512, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e80wc"]
+atlas = ExtResource("1_6fwwt")
+region = Rect2(0, 0, 512, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3juh"]
+atlas = ExtResource("1_6fwwt")
+region = Rect2(512, 0, 512, 682)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvo0h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muyt2")
+}],
+"loop": false,
+"name": &"i",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muyt2")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xp5mw")
+}],
+"loop": false,
+"name": &"post_punch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_e80wc")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_xp5mw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3juh")
+}],
+"loop": false,
+"name": &"pre_punch",
+"speed": 5.0
+}]
+
+[node name="Sprite2D" type="AnimatedSprite2D"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_hvo0h")
+animation = &"pre_punch"
+autoplay = "i"

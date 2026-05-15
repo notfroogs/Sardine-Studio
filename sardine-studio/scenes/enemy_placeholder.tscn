@@ -1,71 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://ca03l6ss6iv6b"]
+[gd_scene load_steps=8 format=3 uid="uid://ca03l6ss6iv6b"]
 
 [ext_resource type="Script" uid="uid://mqijhuq3ivb6" path="res://scripts/enemy_placeholder.gd" id="1_yo5jk"]
-[ext_resource type="Texture2D" uid="uid://cgwa7pr2mog4t" path="res://assets/sprites/HOTDOGPEOPLEPUNCH.png" id="2_muyt2"]
 [ext_resource type="Script" uid="uid://cvhgxju4s2tc" path="res://scripts/hurtbox.gd" id="3_hsqvu"]
 [ext_resource type="Script" uid="uid://cqbw3gif5ip1p" path="res://scripts/hitbox.gd" id="3_muyt2"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_muyt2"]
-atlas = ExtResource("2_muyt2")
-region = Rect2(0, 0, 512, 682)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xp5mw"]
-atlas = ExtResource("2_muyt2")
-region = Rect2(1024, 0, 512, 682)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e80wc"]
-atlas = ExtResource("2_muyt2")
-region = Rect2(0, 0, 512, 682)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m3juh"]
-atlas = ExtResource("2_muyt2")
-region = Rect2(512, 0, 512, 682)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hvo0h"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_muyt2")
-}],
-"loop": false,
-"name": &"i",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_muyt2")
-}],
-"loop": false,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xp5mw")
-}],
-"loop": false,
-"name": &"post_punch",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.2,
-"texture": SubResource("AtlasTexture_e80wc")
-}, {
-"duration": 0.4,
-"texture": SubResource("AtlasTexture_xp5mw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m3juh")
-}],
-"loop": false,
-"name": &"pre_punch",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80wc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsqvu"]
 size = Vector2(37.1629, 6.16116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xp5mw"]
+size = Vector2(22.344448, 7.8395376)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muyt2"]
 size = Vector2(16.936934, 22.377508)
@@ -73,13 +18,7 @@ size = Vector2(16.936934, 22.377508)
 [node name="enemy placeholder" type="CharacterBody2D"]
 collision_layer = 16
 script = ExtResource("1_yo5jk")
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-27, -167)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_hvo0h")
-animation = &"idle"
-autoplay = "i"
+enemy_sprite = "Mr_C"
 
 [node name="physics" type="CollisionShape2D" parent="."]
 position = Vector2(0.640083, -40.2001)
@@ -99,6 +38,18 @@ scale = Vector2(12.9348, 13.4894)
 shape = SubResource("RectangleShape2D_hsqvu")
 debug_color = Color(0.978575, 0.0210998, 0.382342, 0.419608)
 
+[node name="hitBox2" type="Area2D" parent="."]
+position = Vector2(0, -175.00002)
+scale = Vector2(0.340886, 0.823516)
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox2"]
+position = Vector2(-198.71274, 21.857498)
+scale = Vector2(12.934802, 13.489402)
+shape = SubResource("RectangleShape2D_xp5mw")
+debug_color = Color(0.978575, 0.0210998, 0.382342, 0.419608)
+
 [node name="hurtbox" type="Area2D" parent="."]
 position = Vector2(-1.35992, -143.2)
 scale = Vector2(1.87546, 0.897377)
@@ -110,16 +61,3 @@ position = Vector2(5.5239654, -2.0058746)
 scale = Vector2(4.09261, 13.5451)
 shape = SubResource("RectangleShape2D_muyt2")
 debug_color = Color(0.302838, 0.495972, 1, 0.419608)
-
-[node name="enemybar" type="ProgressBar" parent="."]
-visible = false
-offset_left = -1.35992
-offset_top = -143.2
-offset_right = 319.64
-offset_bottom = -116.2
-value = 100.0
-
-[connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]
-[connection signal="area_exited" from="hitBox" to="." method="_on_hit_box_area_exited"]
-[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]

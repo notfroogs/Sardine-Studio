@@ -40,6 +40,9 @@ func _physics_process(delta: float) -> void:
 		State.HITSTUN:
 			on_hitted_momentum(delta)
 			return
+		State.STUN:
+			on_hitted_momentum(delta)
+			return
 		State.FREE:
 			pass
 		State.GUARD:
@@ -164,17 +167,23 @@ enum State {
 	ATTACKING,
 	HITSTUN,
 	GUARD,
-	GUARD_SUCC
+	GUARD_SUCC,
+	STUN
 }
 
 func change_state(new_state):
 	sprite.speed_scale = 1
 	previous_state = current_state
 	current_state = new_state
+	var direction = 1 if enemy_placeholder.global_position < global_position else -1
 	
 	match previous_state:
 		State.HITSTUN:
 			sprite.self_modulate.a = 1
+		State.STUN:
+			sprite.self_modulate.a = 1
+			if new_state == State.HITSTUN:
+				velocity.x += direction * 1000
 		State.GUARD_SUCC:
 			#print("Is new_state attack:", new_state == State.ATTACKING)
 			if new_state == State.ATTACKING:
@@ -187,9 +196,13 @@ func change_state(new_state):
 		State.FREE:
 			sprite.play("idleV2")
 		State.HITSTUN:
-			var direction = 1 if enemy_placeholder.global_position < global_position else -1
+			
 			velocity.x *= 0.5
 			velocity.x += direction * 100
+			on_hitted()
+		State.STUN:
+			velocity.x = 0
+			velocity.x += direction * 10
 			on_hitted()
 		State.GUARD:
 			velocity.x = 0
@@ -198,17 +211,23 @@ func change_state(new_state):
 			sprite.play("gaurded")
 
 signal player_is_damaged
+signal player_is_stun
 
-func is_hitted():
+func is_hitted(amount):
 	match current_state:
 		State.HITSTUN:
 			return
 		State.GUARD:
 			if guarding():
-				guard_succ()
+				guard_succ(amount)
 				return
-	player_is_damaged.emit()
-	change_state(State.HITSTUN)
+	if amount == 0:
+		player_is_damaged.emit(1)
+		change_state(State.STUN)
+		player_is_stun.emit()
+	else:
+		player_is_damaged.emit(amount)
+		change_state(State.HITSTUN)
 
 func on_hitted():
 	sprite.play("hitted")
@@ -223,7 +242,9 @@ func _process(delta: float) -> void:
 	match current_state:
 		State.HITSTUN:
 			sprite.self_modulate.a = (pow(sin(sine_value_t * 3 * PI), 2))
-
+		State.STUN:
+			sprite.self_modulate.a = 0.5 * (pow(sin(sine_value_t * PI), 2)) +0.5
+	
 func guarding():
 	if sprite.frame == 2:
 		return true
@@ -232,11 +253,9 @@ func guarding():
 
 signal player_guard_succ
 
-func guard_succ():
-	#print("yes")
+func guard_succ(amount):
 	change_state(State.GUARD_SUCC)
-	player_guard_succ.emit()
+	player_guard_succ.emit(amount)
 	await get_tree().create_timer(0.3).timeout
 	if current_state == State.GUARD_SUCC:
-		#print("change state to free")
 		change_state(State.FREE)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ceb5dbeodb5xh"]
+[gd_scene load_steps=18 format=3 uid="uid://ceb5dbeodb5xh"]
 
 [ext_resource type="Script" uid="uid://c7y8aex1qcc1p" path="res://rhythm/rhythm.gd" id="1_v47c0"]
 [ext_resource type="Texture2D" uid="uid://c0x5ecqdf0yju" path="res://rhythm/Bgrhythm.png" id="2_1ugh6"]
@@ -9,8 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://c5seb2rcjutfx" path="res://rhythm/rhythmpurpledot.png" id="4_1ugh6"]
 [ext_resource type="AudioStream" uid="uid://dknuxrm7rbtev" path="res://rhythm/Mr. Marc's Intro to Pop Song Structure %2B Jason Tang.ogg" id="4_ecpmg"]
 [ext_resource type="Texture2D" uid="uid://dviwl7m2fn0dl" path="res://rhythm/rhythmreddot.png" id="5_dbqar"]
+[ext_resource type="PackedScene" uid="uid://dilpgmxld0ree" path="res://rhythm/note.tscn" id="8_dbqar"]
 
 [sub_resource type="Theme" id="Theme_b12pq"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vr6y7"]
+viewport_path = NodePath("Background/GPUParticles2D/SubViewport")
 
 [sub_resource type="Gradient" id="Gradient_1ugh6"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.07450981)
@@ -19,7 +23,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.07450981)
 gradient = SubResource("Gradient_1ugh6")
 
 [sub_resource type="Curve" id="Curve_1ugh6"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.3775, 0.3651805), -1.4810205, -1.4810205, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.71999997, 0.5280255), -1.5887309, -1.5887309, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_dbqar"]
@@ -29,9 +33,11 @@ curve_x = SubResource("Curve_1ugh6")
 particle_flag_disable_z = true
 angle_min = 1.0728835e-05
 angle_max = 360.00003
+spread = 180.0
+flatness = 1.0
 initial_velocity_max = 51.82
-directional_velocity_min = -114.80001
-directional_velocity_max = 152.04999
+directional_velocity_min = 1.0
+directional_velocity_max = 1.0
 directional_velocity_curve = SubResource("CurveXYZTexture_dbqar")
 gravity = Vector3(0, 0, 0)
 tangential_accel_min = -14.6900015
@@ -188,12 +194,17 @@ horizontal_alignment = 1
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Background"]
 emitting = false
 amount = 5
-texture = ExtResource("2_q13yt")
+texture = SubResource("ViewportTexture_vr6y7")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 interpolate = false
 process_material = SubResource("ParticleProcessMaterial_vr6y7")
+
+[node name="SubViewport" type="SubViewport" parent="Background/GPUParticles2D"]
+size = Vector2i(6, 50)
+
+[node name="note" parent="Background/GPUParticles2D/SubViewport" instance=ExtResource("8_dbqar")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

@@ -48,7 +48,7 @@ signal Rhythm_Game_Ended
 var missed_count : int = 0
 var good_count : int = 0
 var great_count : int = 0
-var prefect_count : int = 0
+var perfect_count : int = 0
 var combo : int = 0
 
 @onready var scoring_container: VBoxContainer = %ScoringContainer
@@ -152,10 +152,10 @@ func _process(delta: float) -> void:
 			print("========")
 			print("good: " + str(good_count))
 			print("great: " + str(great_count))
-			print("prefect: " + str(prefect_count))
+			print("perfect: " + str(perfect_count))
 			print("missed: " + str(missed_count))
 			print("Max Combo: " + str(max_combo))
-			Rhythm_Game_Ended.emit([good_count, great_count, prefect_count, missed_count, max_combo])
+			Rhythm_Game_Ended.emit([good_count, great_count, perfect_count, missed_count, max_combo])
 
 
 func miss_check(note) -> void:
@@ -214,8 +214,8 @@ func input_check(note) -> bool:
 			audio_stream_player.pitch_scale = [0.7, 1.3].pick_random()
 			
 		else:
-			scoring_text.text = "Prefect!"
-			prefect_count += 1
+			scoring_text.text = "Perfect!"
+			perfect_count += 1
 			audio_stream_player.volume_db = 0
 			audio_stream_player.pitch_scale = 1
 		#return true anyway if the note is intersect with the parent note

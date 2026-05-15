@@ -25,14 +25,14 @@ func _on_Rhythm_Game_Ended(array) -> void:
 	
 	await get_tree().create_timer(1.0).timeout
 	
-	if shader.material is ShaderMaterial:
-		blur_material = shader.material
-		if tween:
-			tween.kill()
-		tween = get_tree().create_tween()
-		tween.tween_method(update_Blur, 0, 2, 0.8)
+	#if shader.material is ShaderMaterial:
+		#blur_material = shader.material
+		#if tween:
+			#tween.kill()
+		#tween = get_tree().create_tween()
+		#tween.tween_method(update_Blur, 0, 2, 0.8)
 		
-	await tween.finished
+	#await tween.finished
 	
 	labels.visible = true
 	var j = 0
@@ -49,15 +49,14 @@ func _on_Rhythm_Game_Ended(array) -> void:
 		MCM = 1.5
 	else:
 		MCM = 2
-	var final_score = (array[0] * 100 + array[1] *150 + array[2] * 200) * MCM
+	var final_score = (array[0] * 100 + array[1] * 150 + array[2] * 200) * MCM
 	score.text = "Final Score: " + str(int(floor(final_score)))
 	
 	finish_button.visible = true
 	score.visible = true
 	
-	#await get_tree().create_timer(2.0).timeout
 	await finish_button.pressed
-	update_Blur(0)
+	#update_Blur(0)
 	rhythm_game.queue_free()
 	finish_button.visible = false
 	score.visible = false
