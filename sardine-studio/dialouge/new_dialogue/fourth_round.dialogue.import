@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://u5ufxkwio40l"
+path="res://.godot/imported/fourth_round.dialogue-429326b032e1e228f7b4c308336ab2d9.tres"
+
+[deps]
+
+source_file="res://dialouge/new_dialogue/fourth_round.dialogue"
+dest_files=["res://.godot/imported/fourth_round.dialogue-429326b032e1e228f7b4c308336ab2d9.tres"]
+
+[params]
+
+defaults=true

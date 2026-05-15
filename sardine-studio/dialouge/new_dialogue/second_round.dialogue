@@ -30,10 +30,56 @@ set Gamemanager.dialogue_is_active = true
 => END
 
 ~ hotdog
-Lyre [Excited]: Wow busker you sound really good!
-Red Hotdog [i]: I heard you last night and you guys sounded like shit bruh
-Lyre [Stare]: What. Go kill yourself
-Red Hotdog [i]: Shut up loser. Your singing sucks unlike mine
-Lyre [Stare]: thats it bud youre getting these fists
+set Gamemanager.dialogue_is_active = true
+Lyre [Excited]: Hey that music sounds...
+- leave hotdog man alone
+	set Gamemanager.dialogue_is_active = false
+	=> END
+- talk to hotdog man
+	Lyre [Excited]: Wow busker you sound really good!
+	Red Hotdog [1]: I heard you last night and you guys sounded like shit bruh
+	Lyre [Stare]: What. Go kill yourself
+	Red Hotdog [1]: Shut up loser. Your singing sucks unlike mine
+	Lyre [Stare]: thats it bud youre getting these fists
+	set Gamemanager.dialogue_is_active = false
+	set Gamemanager.fight_the_dumb_hotdog = true
+	=> END
 
+=> END
+
+~ Venue
+set Gamemanager.dialogue_is_active = true
+Veronica [Angry]: Yo, where the hell were u? 
+Lyre [Awkward]: Uhh i got lost haha ha...
+Sam [Annoyed]: If we lose again i swear man... we don't got time for you.
+Adeline [Happy]: I mean... it wud b funny if we just beat them up again.
+Sam [Awkward]: i think we shouldnt do that haha if anyone was taking that seriously.
+Lyre [Awkward]: its chill dude we got it.
+Lyre [Neutral]: Adeline had a good idea tho. 
+Sam [Mad]: WHATTTTTTTTT?? why wud u say that??
+
+Announcer: Welcome back to round 2 of the music competion for the mega brokies who want that quadrtrillion dollas.
+Announcer: Next up we have VASL, who wiped the floor with those hotdog people...and me, Ms. Elle.
+Ms.Elle [1]: Im the opponent.
+
+Ms.Elle [1]: i know what you guys did. 
+Ms.Elle [1]: i beat up all the hot dog people so i could join the competition.
+Lyre [Concerned]: I thought your point was that violence was wrong ???
+Ms.Elle [1]: shut up kid
+Ms.Elle [1]: letz have a music fight!
+set Gamemanager.dialogue_is_active = false
+=> END
+
+~ Postfight
+set Gamemanager.dialogue_is_active = true
+Ms.Elle [1]: you kids won’t get away with this.. Ill be back !!!
+...
+Backup announcer: So hey haha... nice moving up!
+Backup announcer: So apparently that nice lady never worked here? don’t know what that’s about but you guys are pretty close to winning
+Veronica [Sparkle]: keep it up every1 we r gonna win 4 shore
+Sam [Awkward]: as long as we don’t get caught i suppose
+Adeline [Fidget]: if the original announcer fought us doesnt that mean we already got caught
+Lyre [Awkward]: i dont think thats how it works 😂
+Adeline [Mad]: im going to kill you dude
+set Gamemanager.dialogue_is_active = false
 => END

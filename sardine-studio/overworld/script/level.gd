@@ -6,6 +6,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("loading into " + self.name)
 	if (spawn_default != null):
 		player_overworld.global_position = spawn_default.global_position
 	if NavigationManager.spawn_tag != null:
@@ -44,6 +45,7 @@ func _ready() -> void:
 	
 	if Gamemanager.day_2 == true:
 		Gamemanager.day_2 = false
+		Gamemanager.number_of_days = 1
 		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/second_round.dialogue"),"start")
 		#DialogueManager.show_dialogue_balloon()
 	
@@ -53,8 +55,47 @@ func _ready() -> void:
 	
 	if self.name == "overworld" and Gamemanager.start:
 		Gamemanager.start = false
-		
 	
+	if self.name == "overworld" and Gamemanager.enter_venue:
+		Gamemanager.enter_venue = false
+		Gamemanager.number_of_days = 2
+		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/second_round.dialogue"), "Venue")
+	
+	if self.name == "overworld" and Gamemanager.number_of_days == 1:
+		Gamemanager.enter_venue = true
+	
+	if self.name == "overworld" and Gamemanager.playing_the_game_idk == true and Gamemanager.number_of_days == 2:
+		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/second_round.dialogue"), "Postfight")
+		await DialogueManager.dialogue_ended
+		get_tree().change_scene_to_file("res://overworld/scene/garage.tscn")
+		Gamemanager.number_of_days = 4
+		return
+		
+	if self.name == "garage" and Gamemanager.number_of_days == 4:
+		Gamemanager.round_3_start = true
+		
+	if self.name == "garage" and Gamemanager.round_3_start == true:
+		Gamemanager.round_3_start = false
+		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/third_round.dialogue"), "start")
+	
+	if self.name == "overworld" and Gamemanager.number_of_days == 4:
+		Gamemanager.the_dog = true
+		
+	if self.name == "overworld" and Gamemanager.the_dog == true:
+		Gamemanager.the_dog = false
+		print(self.name)
+		Gamemanager.number_of_days = 5
+		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/third_round.dialogue"),"idk_what_this_is")
+		
+		
+	#if self.name == "overworld" and Gamemanager.playing_the_game_idk == true and Gamemanager.number_of_days == 5:
+		#DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/third_round.dialogue"), "after_fight_creegan_idk")
+		#await DialogueManager.dialogue_ended
+		#get_tree().change_scene_to_file("res://overworld/scene/overworld_street.tscn")
+		#DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/fourth_round.dialogue"),"start")
+		#return
+
+
 func _on_level_spawn(destination_tag:String):
 	var door_path = "Garagedoor_" + destination_tag
 	var door = get_node(door_path) as Door
@@ -98,3 +139,12 @@ func _process(delta: float) -> void:
 		#get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
 		Gamemanager.after_tut = true
 		Gamemanager.change_to_rhythm()
+		
+		
+	if Gamemanager.fight_the_dumb_hotdog == true:
+		Gamemanager.fight_the_dumb_hotdog = false
+		Gamemanager.change_to_fight()
+	
+	#if Gamemanager.number_of_days == 4 and Gamemanager.the_dog == true:
+		#Gamemanager.the_dog = false
+		#DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/third_round.dialogue"),"idk_what_this_is")

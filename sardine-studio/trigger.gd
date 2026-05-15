@@ -12,14 +12,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Gamemanager.intro == true and player_entered == true:
-		Gamemanager.dialogue_is_active = true
-		is_dialogue_active = true
-		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/introround.dialogue"), "start")
-
-
+	#if Gamemanager.number_of_days == 4 and player_entered == true:
+		#Gamemanager.number_of_days == 5
+		#Gamemanager.dialogue_is_active = true
+		#is_dialogue_active = true
+		#DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/third_round.dialogue"), "idk_what_this_is")
+		pass
 func _on_area_entered(area: Area2D) -> void:
 	player_entered = true
+	if Gamemanager.number_of_days == 4:
+		Gamemanager.the_dog = true
+		Gamemanager.number_of_days = 5
 
 
 func _on_area_exited(area: Area2D) -> void:

@@ -1,0 +1,35 @@
+~ start
+set Gamemanager.dialogue_is_active = true
+Veronica [Awkward]: not really a point in practicing if we keep beating people up
+Lyre [Hurt]: stop trying 2 take the credit IM beating people up 
+Lyre [Concerned]: i wish u guys wud just cheer me on liek REAL supportive teammates
+Sam [Mad]: i would not encourage this behavior
+Adeline [Happy]: i did sojme thinking last night and i think we should
+Adeline [Fidget]: lets keep winning every1
+Veronica [Neutral]: ok ! should we practice or just go to the venue..
+set Gamemanager.dialogue_is_active = false
+=> END
+
+~ idk_what_this_is
+set Gamemanager.dialogue_is_active = true
+Kind Dog: bark bark its me haha 
+she gives you 3 slobbery tennis balls and leaves 
+Lyre [Hurt]: ewww what r we supposed 2 do with these
+Adeline [happy]: #yup
+Ms.Elle [1]: im back 
+Ms.Elle [1]: im done with you meddling kids
+Ms.Elle [1]: i bought backup
+Mr.Creegan [1]: its me mr creegan
+Mr.Creegan [1]: #yup
+set Gamemanager.dialogue_is_active = false
+=> END
+
+~ after_fight_creegan_idk
+set Gamemanager.dialogue_is_active = true
+- thank god we won that haha
+Sam [Awkawrd]: i was not expecting that at all
+Veronica [Awkward]:  i didnt know competitions worked this way
+Adeline [Hurt]: …i dont think they do
+Adeline [Happy]: its ok tho as long as we win
+set Gamemanager.dialogue_is_active = false
+=> END
