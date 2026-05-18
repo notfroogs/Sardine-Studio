@@ -32,6 +32,7 @@ var sprite_2d: AnimatedSprite2D
 var attack_counting : float = 0
 
 func _ready() -> void:
+	enemy_sprite = Gamemanager.enemy
 	
 	sprite_2d = enemy_dictionary[enemy_sprite].instantiate()
 	add_child(sprite_2d)

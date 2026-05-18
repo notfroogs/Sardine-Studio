@@ -61,7 +61,6 @@ shape = SubResource("WorldBoundaryShape2D_nn4mn")
 unique_name_in_owner = true
 position = Vector2(929.39044, 545.39734)
 scale = Vector2(1.22637, 1.30182)
-enemy_sprite = "Boss"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

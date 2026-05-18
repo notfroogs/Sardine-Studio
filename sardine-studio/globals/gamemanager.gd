@@ -25,7 +25,7 @@ var fight_the_dumb_hotdog = false
 
 #2 for Ms E
 #6 for Mr Peery
-var number_of_days = 0
+var number_of_days = 10
 
 var enter_venue = false
 var fight_elle = false
@@ -39,8 +39,20 @@ var the_dog = false
 var fighter_tutorial = false
 var music_tutorial = false
 
+var enemy = "red_hot_dog"
+var chart
+
 func change_to_fight():
 	get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
+	if number_of_days == 2:
+		enemy = "Ms_E"
+	elif number_of_days == 6:
+		enemy = "Boss"
+	elif number_of_days == 10:
+		enemy = "Mr_C"
+	else:
+		enemy = "red_hot_dog"
+	
 	if !fighter_tutorial:
 		PauseScreen.tutorial.edit_tutorial("fighterMain")
 		get_tree().paused = true
@@ -48,8 +60,10 @@ func change_to_fight():
 		fighter_tutorial = true
 
 func change_to_rhythm():
-
 	get_tree().change_scene_to_file("res://rhythm/rhythm_test.tscn")
+	if number_of_days == 1:
+		pass
+	
 	if !music_tutorial:
 		PauseScreen.tutorial.edit_tutorial("rhythm_test")
 		get_tree().paused = true
