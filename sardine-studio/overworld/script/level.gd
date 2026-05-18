@@ -82,7 +82,7 @@ func _ready() -> void:
 	if self.name == "overworld" and Gamemanager.number_of_days == 4:
 		Gamemanager.the_dog = true
 		
-	if self.name == "overworld" and Gamemanager.the_dog == true:
+	if self.name == "overworld" and Gamemanager.the_dog == true: #and Gamemanager.number_of_days == 4:
 		Gamemanager.the_dog = false
 		print(self.name)
 		Gamemanager.number_of_days = 6
@@ -104,7 +104,8 @@ func _on_level_spawn(destination_tag:String):
 	NavigationManager.trigger_player_spawn(door.spawn.global_position)
 	
 func _process(delta: float) -> void:
-	var scene_name = get_tree().current_scene.name
+	var scene_name = self.name
+	print(scene_name)
 	NavigationManager.previous_level = scene_name
 	
 	
@@ -150,3 +151,6 @@ func _process(delta: float) -> void:
 	#if Gamemanager.number_of_days == 4 and Gamemanager.the_dog == true:
 		#Gamemanager.the_dog = false
 		#DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/third_round.dialogue"),"idk_what_this_is")
+	if Gamemanager.fight_peery == true:
+		Gamemanager.fight_peery = false
+		Gamemanager.change_to_fight()

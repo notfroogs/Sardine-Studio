@@ -1,14 +1,30 @@
 ~ start
-Mr peery is here
-Mr peery: who is messing up my competition
-- its clearly 
+set Gamemanager.dialogue_is_active = true
+Mr.Peery [1]: who is messing up my competition
+Sam [Awkward]: oh shoot does he know
+Lyre [Neutral]: chillax dude it definitely wasn’t us
+Lyre [Awkward]: maybe it was the announcer from yesterday
+Veronica [Neutral]: what do you mean by that
+Adeline [Hurt]: im so fuckin scared right now
+Adeline [Hurt]: im prettyyy sure it is us
+Lyre [Awkward]: whattt no way
+Lyre [Hurt]: dude the announcer messed up the rounds and bought their friend to fight us 
+Lyre [Hurt]: i still have bruises and stuff
+Mr.Peery [1]: i cannot believe u were fighting in my venue
+Mr.Peery [1]: im going to sue all of you
+set Gamemanager.dialogue_is_active = false
+set Gamemanager.fight_peery = true
 
-He is the fake owner
-If we win
+=> END
 
-The real owner arrives
-And is like whoops sorry every1 giving u 5 quadrillion as a consolation for all the trouble
-
-The real owner is Bonita
-
+~ post_fight
+set Gamemanager.dialogue_is_active = true
+Secret Dog [1]: a haha
+Secret Dog [1]: its me and im the real owner of the competition
+Lyre [Stare]: huh
+Mr.Peery [1]: huh
+Secret Dog [1]: sorry everyone i was on vacation till now i forgot to postpone it
+Secret Dog [1]: as compensation i will give everyone here five quadrillion dollars 
+Lyre [Excited]: Woohoo
+set Gamemanager.dialogue_is_active = false
 => END

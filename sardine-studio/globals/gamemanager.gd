@@ -29,6 +29,8 @@ var playing_the_game_idk = false
 var round_3_start = false
 var fight_creegan = false
 var the_dog = false
+var fight_peery = false
+var game_end= false
 
 
 var fighter_tutorial = false

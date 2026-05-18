@@ -26,7 +26,7 @@ set Gamemanager.dialogue_is_active = false
 
 ~ after_fight_creegan_idk
 set Gamemanager.dialogue_is_active = true
-- thank god we won that haha
+Lyre [Awkward]: thank god we won that haha
 Sam [Awkawrd]: i was not expecting that at all
 Veronica [Awkward]:  i didnt know competitions worked this way
 Adeline [Hurt]: …i dont think they do
