@@ -23,7 +23,8 @@ var current_state = State.FREE
 var enemy_dictionary = {
 	"red_hot_dog": preload("uid://d15syuef80bmq"),
 	"Mr_C": preload("uid://53yc3k3f67rs"),
-	"Ms_E": preload("uid://bytifyaxxy3h8")
+	"Ms_E": preload("uid://bytifyaxxy3h8"),
+	"Boss": preload("uid://b6d38eorkljg")
 }
 
 var player
@@ -38,6 +39,8 @@ func _ready() -> void:
 	match enemy_sprite:
 		"Mr_C":
 			attack_counting = 2
+		"Boss":
+			sprite_2d.position.y -= 30
 	
 	if get_node("../fighterPlayer") != null:
 		player = $"../fighterPlayer"
@@ -80,6 +83,8 @@ func moving(delta):
 			count_E(delta)
 		"Mr_C":
 			count_C(delta, direction_x)
+		"Boss":
+			count_B(delta)
 
 func count_hot_dog(delta):
 	if abs(velocity.x) <= 200:
@@ -94,7 +99,6 @@ func count_E(delta):
 		if attack_counting >= 1.5:
 			change_state(State.ATTACKING)
 			attack_counting = 0.0
-
 
 var special_attack_counting = 0
 
@@ -115,6 +119,14 @@ func count_C(delta, direction_x):
 			change_state(State.SPECIAL_ATTACK)
 			special_attack_counting = 0
 
+func count_B(delta):
+	if abs(velocity.x) <= 200:
+		attack_counting += delta
+		if attack_counting >= 1.5:
+			change_state(State.ATTACKING)
+			attack_counting = 0.0
+
+
 func pre_attack():
 	sprite_2d.play("pre_punch")
 	await sprite_2d.animation_finished
@@ -133,6 +145,8 @@ func attack() -> void:
 					player_is_hitted.emit(30)
 				"Ms_E":
 					player_is_hitted.emit(30)
+				"Boss":
+					player_is_hitted.emit(40)
 			
 	post_attack()
 
