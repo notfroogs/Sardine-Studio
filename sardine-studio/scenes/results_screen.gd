@@ -28,7 +28,14 @@ func _on_continue_button_pressed() -> void:
 	else:
 		#add a reults screen and restart or return buttons
 		get_tree().reload_current_scene()
-
+	#if Gamemanager.fight_peery == true:
+		#NavigationManager.previous_level = "overworldStreet"
+	#if Gamemanager.fight_the_dumb_hotdog == true:
+		#NavigationManager.previous_level = "overworldStreet"
+	if Gamemanager.fight_peery == 1:
+		NavigationManager.go_to_level("overworld_street", null)
+	if Gamemanager.fight_the_dumb_hotdog == 1:
+		NavigationManager.go_to_level("overworld_street", null)
 
 func _on_return_button_pressed() -> void:
 	if NavigationManager.previous_level != null:
@@ -36,7 +43,10 @@ func _on_return_button_pressed() -> void:
 	else:
 		#add a reults screen and restart or return buttons
 		get_tree().reload_current_scene()
-
+	if Gamemanager.fight_peery == 1:
+		NavigationManager.go_to_level("overworld_street", null)
+	if Gamemanager.fight_the_dumb_hotdog == 1:
+		NavigationManager.go_to_level("overworld_street", null)
 
 func _on_retry_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")

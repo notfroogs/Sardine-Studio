@@ -13,7 +13,7 @@ Lyre [Hurt]: i still have bruises and stuff
 Mr.Peery [1]: i cannot believe u were fighting in my venue
 Mr.Peery [1]: im going to sue all of you
 set Gamemanager.dialogue_is_active = false
-set Gamemanager.fight_peery = true
+set Gamemanager.fight_peery = 2
 
 => END
 

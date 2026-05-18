@@ -21,7 +21,7 @@ var second_round = false
 var third_round = false
 var practice = false
 var explore = false
-var fight_the_dumb_hotdog = false
+var fight_the_dumb_hotdog = 0
 var number_of_days = 0
 var enter_venue = false
 var fight_elle = false
@@ -29,7 +29,7 @@ var playing_the_game_idk = false
 var round_3_start = false
 var fight_creegan = false
 var the_dog = false
-var fight_peery = false
+var fight_peery = 0
 var game_end= false
 
 
