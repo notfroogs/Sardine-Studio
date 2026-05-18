@@ -66,10 +66,10 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qk7ww")
 }, {
-"duration": 1.0,
+"duration": 1.2,
 "texture": SubResource("AtlasTexture_50tjw")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_he2iw")
 }],
 "loop": false,
@@ -80,6 +80,6 @@ animations = [{
 [node name="Sprite2D" type="AnimatedSprite2D"]
 scale = Vector2(0.56, 0.56)
 sprite_frames = SubResource("SpriteFrames_hvo0h")
-animation = &"i"
+animation = &"pre_punch"
 autoplay = "i"
 flip_h = true
