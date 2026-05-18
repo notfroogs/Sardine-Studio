@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=3 uid="uid://bytifyaxxy3h8"]
+
+[ext_resource type="Texture2D" uid="uid://dgp8jrr4ngxb0" path="res://assets/sprites/Fighte.png" id="1_6jf22"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4buj"]
+atlas = ExtResource("1_6jf22")
+region = Rect2(0, 0, 512, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arh86"]
+atlas = ExtResource("1_6jf22")
+region = Rect2(0, 0, 512, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlj7a"]
+atlas = ExtResource("1_6jf22")
+region = Rect2(512, 0, 512, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50tjw"]
+atlas = ExtResource("1_6jf22")
+region = Rect2(1536, 0, 512, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwj8s"]
+atlas = ExtResource("1_6jf22")
+region = Rect2(0, 682, 512, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk7ww"]
+atlas = ExtResource("1_6jf22")
+region = Rect2(512, 0, 512, 682)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he2iw"]
+atlas = ExtResource("1_6jf22")
+region = Rect2(1024, 0, 512, 682)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvo0h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4buj")
+}],
+"loop": false,
+"name": &"i",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arh86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlj7a")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50tjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwj8s")
+}],
+"loop": false,
+"name": &"post_punch",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk7ww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50tjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he2iw")
+}],
+"loop": false,
+"name": &"pre_punch",
+"speed": 5.0
+}]
+
+[node name="Sprite2D" type="AnimatedSprite2D"]
+scale = Vector2(0.56, 0.56)
+sprite_frames = SubResource("SpriteFrames_hvo0h")
+animation = &"i"
+autoplay = "i"
+flip_h = true

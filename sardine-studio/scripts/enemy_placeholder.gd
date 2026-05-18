@@ -22,7 +22,8 @@ var current_state = State.FREE
 
 var enemy_dictionary = {
 	"red_hot_dog": preload("uid://d15syuef80bmq"),
-	"Mr_C": preload("uid://53yc3k3f67rs")
+	"Mr_C": preload("uid://53yc3k3f67rs"),
+	"Ms_E": preload("uid://bytifyaxxy3h8")
 }
 
 var player
@@ -54,8 +55,6 @@ func _physics_process(delta: float) -> void:
 			velocity.x = 0
 			move_and_slide()
 
-
-
 func moving(delta):
 	# =Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -77,6 +76,8 @@ func moving(delta):
 	match enemy_sprite:
 		"red_hot_dog":
 			count_hot_dog(delta)
+		"Ms_E":
+			count_E(delta)
 		"Mr_C":
 			count_C(delta, direction_x)
 
@@ -86,6 +87,14 @@ func count_hot_dog(delta):
 		if attack_counting >= 1.5:
 			change_state(State.ATTACKING)
 			attack_counting = 0.0
+
+func count_E(delta):
+	if abs(velocity.x) <= 200:
+		attack_counting += delta
+		if attack_counting >= 1.5:
+			change_state(State.ATTACKING)
+			attack_counting = 0.0
+
 
 var special_attack_counting = 0
 
@@ -121,6 +130,8 @@ func attack() -> void:
 				"Mr_C":
 					player_is_hitted.emit(10)
 				"red_hot_dog":
+					player_is_hitted.emit(30)
+				"Ms_E":
 					player_is_hitted.emit(30)
 			
 	post_attack()
