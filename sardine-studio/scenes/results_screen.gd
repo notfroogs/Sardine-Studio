@@ -11,7 +11,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Gamemanager.last_battle_won==false:
+	if Gamemanager.last_battle_won== true:
 		win.set_deferred("visible",true)
 		winsound.play()
 		lose.set_deferred("visible",false)
