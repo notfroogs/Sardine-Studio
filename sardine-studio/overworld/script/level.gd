@@ -96,7 +96,7 @@ func _ready() -> void:
 		get_tree().change_scene_to_file("res://overworld/scene/overworld_street.tscn")
 		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/fourth_round.dialogue"),"start")
 		
-	if Gamemanager.game_end == true and self.name == "overworld_street":
+	if Gamemanager.game_end == true and self.name == "overworldStreet":
 		DialogueManager.show_dialogue_balloon(preload("res://dialouge/new_dialogue/fourth_round.dialogue"),"post_fight")
 
 
