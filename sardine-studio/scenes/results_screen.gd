@@ -5,15 +5,19 @@ extends Control
 @onready var continue_button: Button = $"Win/continue button"
 @onready var lose: Control = $Lose
 @onready var win: Control = $Win
+@onready var winsound: AudioStreamPlayer2D = $Win/winsound
+@onready var losesound: AudioStreamPlayer2D = $Lose/losesound
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if Gamemanager.last_battle_won==true:
+	if Gamemanager.last_battle_won==false:
 		win.set_deferred("visible",true)
+		winsound.play()
 		lose.set_deferred("visible",false)
 	else:
 		lose.set_deferred("visible",true)
+		losesound.play()
 		win.set_deferred("visible",false)
 
 

@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://sybv1vbotqwm"]
+[gd_scene load_steps=8 format=3 uid="uid://sybv1vbotqwm"]
 
 [ext_resource type="Texture2D" uid="uid://b1hwfs2cuqpt8" path="res://assets/images/lose.png" id="1_luc7k"]
 [ext_resource type="Theme" uid="uid://ba2bjtxd64326" path="res://assets/theme/mainUI.tres" id="1_qp0qd"]
 [ext_resource type="FontFile" uid="uid://cksti1lkcjkur" path="res://assets/fonts/BeatMark-Regular.ttf" id="2_17q8k"]
-[ext_resource type="Script" path="res://scenes/results_screen.gd" id="2_jyvi7"]
+[ext_resource type="Script" uid="uid://lds1eh18ntwc" path="res://scenes/results_screen.gd" id="2_jyvi7"]
 [ext_resource type="Texture2D" uid="uid://yaqv4lr2deq8" path="res://assets/images/winicon.png" id="4_x4fe0"]
+[ext_resource type="AudioStream" uid="uid://hqhk0nuc2vxd" path="res://assets/sounds/sound/LevelFailSound.wav" id="5_smigx"]
+[ext_resource type="AudioStream" uid="uid://dyl04gqqnknjn" path="res://assets/sounds/sound/LevelPassSound.wav" id="7_xty15"]
 
 [node name="ResultsScreen" type="Control"]
 layout_mode = 3
@@ -86,6 +88,9 @@ scale = Vector2(1.01815, 0.909971)
 text = "RETRY?"
 metadata/_edit_use_anchors_ = true
 
+[node name="losesound" type="AudioStreamPlayer2D" parent="Lose"]
+stream = ExtResource("5_smigx")
+
 [node name="Win" type="Control" parent="."]
 visible = false
 layout_mode = 1
@@ -142,6 +147,9 @@ anchor_right = 0.857175
 anchor_bottom = 0.70096
 text = "Continue"
 metadata/_edit_use_anchors_ = true
+
+[node name="winsound" type="AudioStreamPlayer2D" parent="Win"]
+stream = ExtResource("7_xty15")
 
 [connection signal="pressed" from="Lose/return button" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="Lose/retry button" to="." method="_on_retry_button_pressed"]

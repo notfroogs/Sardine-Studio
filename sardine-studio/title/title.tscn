@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://5wd7jgoyksg8"]
+[gd_scene load_steps=10 format=3 uid="uid://5wd7jgoyksg8"]
 
 [ext_resource type="Script" uid="uid://e2p0kcicb33v" path="res://title/title.gd" id="1_crako"]
 [ext_resource type="StyleBox" uid="uid://chcj4mibg1d65" path="res://rhythm/new_style_box_flat.tres" id="2_crako"]
 [ext_resource type="Theme" uid="uid://ba2bjtxd64326" path="res://assets/theme/mainUI.tres" id="2_tedsi"]
 [ext_resource type="Texture2D" uid="uid://dot8h2ve6rib1" path="res://assets/backgrounds/Titlescreen.png" id="3_0tjwc"]
 [ext_resource type="AudioStream" uid="uid://crtca2vfdr0x7" path="res://assets/sounds/sound/ButtonClickSound.wav" id="4_o1agp"]
+[ext_resource type="AudioStream" uid="uid://bmanaercd2qv4" path="res://title/MenuBackgroundMusic.wav" id="6_0tjwc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crako"]
 content_margin_left = 4.0
@@ -125,3 +126,7 @@ text = "Sadine Studio"
 [node name="selectsound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_o1agp")
 volume_db = 24.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_0tjwc")
+autoplay = true
