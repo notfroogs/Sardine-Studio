@@ -102,7 +102,9 @@ var mutation_cooldown: Timer = Timer.new()
 	"Blue Hotdog_1" = preload("res://assets/dialouge sprites/edited-photo.png"),
 	"Mr.Peery_1" = preload("res://assets/dialouge sprites/peery.png"),
 	"Mr.Creegan_1" = preload("res://assets/dialouge sprites/creegan.png"),
-	"Ms.Elle_1" = preload("res://assets/dialouge sprites/elle.png")
+	"Ms.Elle_1" = preload("res://assets/dialouge sprites/elle.png"),
+	"Kind Dog [1]" = preload("res://assets/sprites/dog1.png"),
+	"Secret Dog [1]" = preload("res://assets/sprites/dog2.png")
 	
 	
 	

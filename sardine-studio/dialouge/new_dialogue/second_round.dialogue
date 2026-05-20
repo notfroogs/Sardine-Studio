@@ -42,7 +42,7 @@ Lyre [Excited]: Hey that music sounds...
 	Red Hotdog [1]: Shut up loser. Your singing sucks unlike mine
 	Lyre [Stare]: thats it bud youre getting these fists
 	set Gamemanager.dialogue_is_active = false
-	set Gamemanager.fight_the_dumb_hotdog = true
+	set Gamemanager.fight_the_dumb_hotdog = 2
 	=> END
 
 => END
