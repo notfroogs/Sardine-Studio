@@ -22,9 +22,6 @@ func _ready() -> void:
 
 func cancel():
 	self.visible = false
-	#game_start.emit()
-
-
 
 func edit_tutorial(scene_name):
 	

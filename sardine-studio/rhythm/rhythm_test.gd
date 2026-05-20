@@ -25,15 +25,6 @@ func _on_Rhythm_Game_Ended(array) -> void:
 	
 	await get_tree().create_timer(1.0).timeout
 	
-	#if shader.material is ShaderMaterial:
-		#blur_material = shader.material
-		#if tween:
-			#tween.kill()
-		#tween = get_tree().create_tween()
-		#tween.tween_method(update_Blur, 0, 2, 0.8)
-		
-	#await tween.finished
-	
 	labels.visible = true
 	var j = 0
 	for i in array:

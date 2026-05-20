@@ -42,7 +42,6 @@ const NOTE = preload("uid://dilpgmxld0ree")
 	0: NOTE
 }
 
-
 signal Rhythm_Game_Ended
 
 var missed_count : int = 0
@@ -61,8 +60,6 @@ func _ready():
 		#convert the document into dictionary
 		store_note()
 		loaded_file.close()
-	
-	
 	
 	#Start the timer
 	time_count = float(chart[note_progress]["Time"])
@@ -114,8 +111,6 @@ func generate() -> void:
 var time_elasped : float
 
 func _process(delta: float) -> void:
-	
-	#await game_start
 	
 	#record how much time had passed
 	time_elasped += delta
@@ -227,19 +222,15 @@ func input_check(note) -> bool:
 	return false
 
 var tween
-#var original_position : float = 60
 
 func text_animation() -> void:
 	if tween:
 		tween.kill()
-		#scoring_container.position.y = original_position
 		scoring_container.scale = Vector2(1,1)
 	combo_check()
 	tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
-	#tween.parallel().tween_property(scoring_container, "position:y", 40, 0.1)
 	tween.tween_property(scoring_container, "scale", Vector2(1.2, 1.2), 0.1)
-	#tween.parallel().tween_property(scoring_container, "position:y", 60, 0.1)
 	tween.tween_property(scoring_container, "scale", Vector2(1,1), 0.1)
 
 var max_combo : int = 0
