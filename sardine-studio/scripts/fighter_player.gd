@@ -101,7 +101,6 @@ func attack_momentum(delta):
 		velocity.x = 0
 	move_and_slide()
 
-@warning_ignore("unused_parameter")
 func on_hitted_momentum(delta):
 	velocity.x = move_toward(velocity.x, 0.0, deacceleration * 0.4 * delta)
 	move_and_slide()
@@ -154,11 +153,6 @@ func _ready():
 		enemy_placeholder = %enemy_placeholder
 		enemy_placeholder.player_is_hitted.connect(is_hitted)
 	
-	#sprite.animation_finished.connect(test)
-	
-func test():
-	pass
-	#print("animation finished")
 
 var previous_state = State.FREE
 var current_state = State.FREE
@@ -185,7 +179,6 @@ func change_state(new_state):
 			if new_state == State.HITSTUN:
 				velocity.x += direction * 1000
 		State.GUARD_SUCC:
-			#print("Is new_state attack:", new_state == State.ATTACKING)
 			if new_state == State.ATTACKING:
 				sprite.speed_scale = 1.5
 		
