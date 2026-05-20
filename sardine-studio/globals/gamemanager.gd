@@ -25,7 +25,7 @@ var fight_the_dumb_hotdog = false
 
 #2 for Ms E
 #6 for Mr Peery
-var number_of_days = 10
+var number_of_days = 0
 
 var enter_venue = false
 var fight_elle = false
