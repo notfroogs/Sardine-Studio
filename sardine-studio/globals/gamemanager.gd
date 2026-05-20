@@ -21,7 +21,7 @@ var second_round = false
 var third_round = false
 var practice = false
 var explore = false
-var fight_the_dumb_hotdog = false
+var fight_the_dumb_hotdog = 0
 
 #2 for Ms E
 #6 for Mr Peery
@@ -35,6 +35,8 @@ var round_3_start = false
 var fight_creegan = false
 var the_dog = false
 
+var fight_peery = 0
+var game_end = false
 
 var fighter_tutorial = false
 var music_tutorial = false
@@ -46,9 +48,9 @@ func change_to_fight():
 	get_tree().change_scene_to_file("res://scenes/fighter_main.tscn")
 	if number_of_days == 2:
 		enemy = "Ms_E"
-	elif number_of_days == 6:
+	elif fight_peery == 1:
 		enemy = "Boss"
-	elif number_of_days == 10:
+	elif number_of_days == 6:
 		enemy = "Mr_C"
 	else:
 		enemy = "red_hot_dog"
