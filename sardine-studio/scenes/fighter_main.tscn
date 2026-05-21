@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cneodudkpu546"]
+[gd_scene load_steps=13 format=3 uid="uid://cneodudkpu546"]
 
 [ext_resource type="PackedScene" uid="uid://bfudmbw4otc20" path="res://scenes/fighter_player.tscn" id="1_3atyq"]
 [ext_resource type="Script" uid="uid://sjifelgbl0rp" path="res://scripts/fighter_main.gd" id="1_ln0nl"]
@@ -6,8 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://ca03l6ss6iv6b" path="res://scenes/enemy_placeholder.tscn" id="3_wqw35"]
 [ext_resource type="AudioStream" uid="uid://bui5cx0pbnbxc" path="res://assets/sounds/bgmusic/FIRSTRHYTHMSONGEXTENDEDFORFIGHT.wav" id="4_ce5h3"]
 [ext_resource type="PackedScene" uid="uid://cmtlvunxru0nq" path="res://scenes/main_ui.tscn" id="4_f3bfk"]
+[ext_resource type="AudioStream" uid="uid://dwkeroih8o6qy" path="res://assets/sounds/bgmusic/THIRDRHYTHMSONGEXTENDEDFORFIGHT.wav" id="5_ewn5h"]
 [ext_resource type="Theme" uid="uid://ba2bjtxd64326" path="res://assets/theme/mainUI.tres" id="6_7nnk3"]
+[ext_resource type="AudioStream" uid="uid://bmivdsmdovu5j" path="res://assets/sounds/bgmusic/BOSSFIGHTSOUNDTRACK.wav" id="6_ewn5h"]
 [ext_resource type="Script" uid="uid://57e8080cpukf" path="res://scenes/countdown/count_down.gd" id="6_pyk5x"]
+[ext_resource type="AudioStream" uid="uid://0ftwr44hici" path="res://assets/sounds/bgmusic/SECONDRHYTHMSONGEXTENDEDFORFIGHT.wav" id="7_41vk1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nn4mn"]
 
@@ -33,9 +36,17 @@ limit_left = -10
 limit_right = 1200
 limit_bottom = 600
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="fighterPlayer"]
+[node name="round1" type="AudioStreamPlayer2D" parent="fighterPlayer"]
 stream = ExtResource("4_ce5h3")
-autoplay = true
+
+[node name="round2" type="AudioStreamPlayer2D" parent="fighterPlayer"]
+stream = ExtResource("5_ewn5h")
+
+[node name="round3" type="AudioStreamPlayer2D" parent="fighterPlayer"]
+stream = ExtResource("6_ewn5h")
+
+[node name="round4" type="AudioStreamPlayer2D" parent="fighterPlayer"]
+stream = ExtResource("7_41vk1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-15, 554)
