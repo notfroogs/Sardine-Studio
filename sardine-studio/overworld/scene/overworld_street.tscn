@@ -54,7 +54,7 @@ limit_right = 1200
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="playerOverworld"]
 stream = ExtResource("5_vbb0o")
-volume_db = -15.62
+volume_db = -3.817
 autoplay = true
 
 [node name="bouduaries" type="Node" parent="."]

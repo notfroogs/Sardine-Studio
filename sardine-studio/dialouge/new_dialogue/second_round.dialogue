@@ -26,7 +26,7 @@ Sam [Mad]: yeah we have to win we are broke
 	Veronica [Angry]: Fine be that way. You better come back after so we can actually practice
 	set Gamemanager.explore = true
 	=> END
-set Gamemanager.dialogue_is_active = true
+set Gamemanager.dialogue_is_active = false
 => END
 
 ~ hotdog
